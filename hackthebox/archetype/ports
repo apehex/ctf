@@ -1,6 +1,6 @@
-# Nmap 7.91 scan initiated Sat Mar  6 15:36:09 2021 as: nmap -T3 -v -A -oA archetype 10.10.10.27
+# Nmap 7.91 scan initiated Tue Mar 30 14:57:46 2021 as: nmap -A -T3 -oA archetype 10.10.10.27
 Nmap scan report for 10.10.10.27
-Host is up (0.078s latency).
+Host is up (0.36s latency).
 Not shown: 996 closed ports
 PORT     STATE SERVICE      VERSION
 135/tcp  open  msrpc        Microsoft Windows RPC
@@ -15,19 +15,28 @@ PORT     STATE SERVICE      VERSION
 |   DNS_Computer_Name: Archetype
 |_  Product_Version: 10.0.17763
 | ssl-cert: Subject: commonName=SSL_Self_Signed_Fallback
-| Issuer: commonName=SSL_Self_Signed_Fallback
-| Public Key type: rsa
-| Public Key bits: 2048
-| Signature Algorithm: sha256WithRSAEncryption
-| Not valid before: 2021-03-06T13:49:56
-| Not valid after:  2051-03-06T13:49:56
-| MD5:   46e7 b141 417d b463 0d5e 2a6c 2d39 51cb
-|_SHA-1: 56fa 4e9e a575 e0d2 1877 f02c e3a3 ff71 a30b a516
-|_ssl-date: 2021-03-06T16:54:04+00:00; +1h17m33s from scanner time.
+| Not valid before: 2021-03-30T15:18:40
+|_Not valid after:  2051-03-30T15:18:40
+|_ssl-date: 2021-03-30T15:19:46+00:00; +21m18s from scanner time.
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=3/30%OT=135%CT=1%CU=36286%PV=Y%DS=2%DC=T%G=Y%TM=60633C
+OS:94%P=x86_64-unknown-linux-gnu)SEQ(SP=104%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS
+OS:=S%TS=U)SEQ(SP=100%GCD=1%ISR=10B%TI=I%CI=I%TS=U)OPS(O1=M54BNW8NNS%O2=M54
+OS:BNW8NNS%O3=M54BNW8%O4=M54BNW8NNS%O5=M54BNW8NNS%O6=M54BNNS)WIN(W1=FFFF%W2
+OS:=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FF70)ECN(R=Y%DF=Y%T=80%W=FFFF%O=M54BNW8
+OS:NNS%CC=Y%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%
+OS:S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(
+OS:R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F
+OS:=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T
+OS:=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=164%UN=0%RIPL=G%RI
+OS:D=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=80%CD=Z)
+
+Network Distance: 2 hops
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 
 Host script results:
-|_clock-skew: mean: 2h53m33s, deviation: 3h34m41s, median: 1h17m32s
+|_clock-skew: mean: 1h45m19s, deviation: 3h07m50s, median: 21m18s
 | ms-sql-info: 
 |   10.10.10.27:1433: 
 |     Version: 
@@ -42,7 +51,7 @@ Host script results:
 |   Computer name: Archetype
 |   NetBIOS computer name: ARCHETYPE\x00
 |   Workgroup: WORKGROUP\x00
-|_  System time: 2021-03-06T08:53:56-08:00
+|_  System time: 2021-03-30T08:19:35-07:00
 | smb-security-mode: 
 |   account_used: guest
 |   authentication_level: user
@@ -52,9 +61,13 @@ Host script results:
 |   2.02: 
 |_    Message signing enabled but not required
 | smb2-time: 
-|   date: 2021-03-06T16:53:58
+|   date: 2021-03-30T15:19:37
 |_  start_date: N/A
 
-Read data files from: /usr/bin/../share/nmap
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sat Mar  6 15:36:31 2021 -- 1 IP address (1 host up) scanned in 21.67 seconds
+TRACEROUTE (using port 1723/tcp)
+HOP RTT       ADDRESS
+1   274.93 ms 10.10.16.1
+2   138.51 ms 10.10.10.27
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Mar 30 14:58:28 2021 -- 1 IP address (1 host up) scanned in 43.53 seconds
