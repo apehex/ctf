@@ -62,4 +62,24 @@ the db credentials...
 
 > bingo, ssh session with robert's credentials
 
-Looking for more....
+'robert' is part of "bugtracker", can we leverage that?
+
+```bash
+find / -type f -group bugtracker 2>/dev/null
+```
+
+Outputs `/usr/bin/bugtracker`.
+The executable has no help and prompts for a "report id".
+
+When the id is not valid, the binary doesn't find the matching file and
+complains: `cat: /root/reports/5: No such file or directory`
+
+## Privilege Exploitation
+
+We have several options:
+1) giving a relative path to read an arbitry file, like `../root.txt`
+> we get the root flag!
+2) replacing `cat` with a custom binary, like `/bin/sh` ^^
+> yay root shell!
+3) entering `$(/bin/sh)` gives us a root shell too... But it is non interactive
+and it outputs everything in bulk when leaving
