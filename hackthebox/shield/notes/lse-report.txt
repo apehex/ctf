@@ -1,0 +1,455 @@
+[90m---
+[90m---
+
+[96m LSE Version:[0;0m 3.1
+
+[94m        User:[0;0m postgres
+[94m     User ID:[0;0m 111
+[94m    Password:[0;0m ******
+[94m        Home:[0;0m /var/lib/postgresql
+[94m        Path:[0;0m /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+[94m       umask:[0;0m 0002
+
+[94m    Hostname:[0;0m vaccine
+[94m       Linux:[0;0m 5.3.0-29-generic
+[94mDistribution:[0;0m Ubuntu 19.10
+[94mArchitecture:[0;0m x86_64
+
+[35m==================================================================([32m users [35m)=====[0;0m
+[97m[[94mi[97m] [90musr000[97m Current user groups[90m.............................................[34m yes![0;0m
+[97m[[93m*[97m] [90musr010[97m Is current user in an administrative group?[90m.....................[90m nope[0;0m
+[97m[[93m*[97m] [90musr020[97m Are there other users in an administrative groups?[90m..............[36m yes![0;0m
+[97m[[93m*[97m] [90musr030[97m Other users with shell[90m..........................................[36m yes![0;0m
+[97m[[94mi[97m] [90musr040[97m Environment information[90m......................................... [90mskip
+[97m[[94mi[97m] [90musr050[97m Groups for other users[90m.......................................... [90mskip
+[97m[[94mi[97m] [90musr060[97m Other users[90m..................................................... [90mskip
+[97m[[93m*[97m] [90musr070[97m PATH variables defined inside /etc[90m..............................[36m yes![0;0m
+[97m[[91m![97m] [90musr080[97m Is '.' in a PATH variable defined inside /etc?[90m..................[90m nope[0;0m
+[35m===================================================================([32m sudo [35m)=====[0;0m
+[97m[[91m![97m] [90msud000[97m Can we sudo without a password?[90m.................................[90m nope[0;0m
+[97m[[91m![97m] [90msud010[97m Can we list sudo commands without a password?[90m...................[90m nope[0;0m
+[97m[[91m![97m] [90msud020[97m Can we sudo with a password?[90m....................................[90m nope[0;0m
+[97m[[91m![97m] [90msud030[97m Can we list sudo commands with a password?[90m......................[92m yes![0;0m
+[90m---[0;0m
+Matching Defaults entries for postgres on vaccine:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User postgres may run the following commands on vaccine:
+    (ALL) /bin/vi /etc/postgresql/11/main/pg_hba.conf
+[90m---[0;0m
+[97m[[93m*[97m] [90msud040[97m Can we read sudoers files?[90m......................................[90m nope[0;0m
+[97m[[93m*[97m] [90msud050[97m Do we know if any other users used sudo?[90m........................[36m yes![0;0m
+[35m============================================================([32m file system [35m)=====[0;0m
+[97m[[93m*[97m] [90mfst000[97m Writable files outside user's home[90m..............................[36m yes![0;0m
+[97m[[93m*[97m] [90mfst010[97m Binaries with setuid bit[90m........................................[36m yes![0;0m
+[97m[[91m![97m] [90mfst020[97m Uncommon setuid binaries[90m........................................[92m yes![0;0m
+[90m---[0;0m
+/snap/core/7917/bin/mount
+/snap/core/7917/bin/ping
+/snap/core/7917/bin/ping6
+/snap/core/7917/bin/su
+/snap/core/7917/bin/umount
+/snap/core/7917/usr/bin/chfn
+/snap/core/7917/usr/bin/chsh
+/snap/core/7917/usr/bin/gpasswd
+/snap/core/7917/usr/bin/newgrp
+/snap/core/7917/usr/bin/passwd
+/snap/core/7917/usr/bin/sudo
+/snap/core/7917/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/snap/core/7917/usr/lib/openssh/ssh-keysign
+/snap/core/7917/usr/lib/snapd/snap-confine
+/snap/core/7917/usr/sbin/pppd
+[90m---[0;0m
+[97m[[91m![97m] [90mfst030[97m Can we write to any setuid binary?[90m..............................[90m nope[0;0m
+[97m[[93m*[97m] [90mfst040[97m Binaries with setgid bit[90m........................................ [90mskip
+[97m[[91m![97m] [90mfst050[97m Uncommon setgid binaries[90m........................................ [90mskip
+[97m[[91m![97m] [90mfst060[97m Can we write to any setgid binary?[90m.............................. [90mskip
+[97m[[93m*[97m] [90mfst070[97m Can we read /root?[90m..............................................[90m nope[0;0m
+[97m[[93m*[97m] [90mfst080[97m Can we read subdirectories under /home?[90m.........................[36m yes![0;0m
+[97m[[93m*[97m] [90mfst090[97m SSH files in home directories[90m...................................[36m yes![0;0m
+[97m[[93m*[97m] [90mfst100[97m Useful binaries[90m.................................................[36m yes![0;0m
+[97m[[93m*[97m] [90mfst110[97m Other interesting files in home directories[90m.....................[90m nope[0;0m
+[97m[[91m![97m] [90mfst120[97m Are there any credentials in fstab/mtab?[90m........................[90m nope[0;0m
+[97m[[93m*[97m] [90mfst130[97m Does 'postgres' have mail?[90m......................................[90m nope[0;0m
+[97m[[91m![97m] [90mfst140[97m Can we access other users mail?[90m.................................[90m nope[0;0m
+[97m[[93m*[97m] [90mfst150[97m Looking for GIT/SVN repositories[90m................................[90m nope[0;0m
+[97m[[91m![97m] [90mfst160[97m Can we write to critical files?[90m.................................[90m nope[0;0m
+[97m[[91m![97m] [90mfst170[97m Can we write to critical directories?[90m...........................[90m nope[0;0m
+[97m[[91m![97m] [90mfst180[97m Can we write to directories from PATH defined in /etc?[90m..........[90m nope[0;0m
+[97m[[91m![97m] [90mfst190[97m Can we read any backup?[90m.........................................[92m yes![0;0m
+[90m---[0;0m
+-rw-r--r-- 1 root root 2533 Feb  3  2020 /home/ftpuser/ftp/backup.zip
+-rw-r--r-- 1 root root 853 Jul 28  2011 /snap/core/7917/usr/share/doc/abootimg/copyright.gz
+-rw-r--r-- 1 root root 437 Aug 25  2009 /snap/core/7917/usr/share/doc/acl/copyright.gz
+-rw-r--r-- 1 root root 1004 Jul  2  2015 /snap/core/7917/usr/share/doc/adduser/copyright.gz
+-rw-r--r-- 1 root root 1585 Oct  4  2016 /snap/core/7917/usr/share/doc/apparmor/copyright.gz
+-rw-r--r-- 1 root root 605 May 21  2019 /snap/core/7917/usr/share/doc/apt/copyright.gz
+-rw-r--r-- 1 root root 669 Feb 20  2019 /snap/core/7917/usr/share/doc/base-files/copyright.gz
+-rw-r--r-- 1 root root 463 Nov 21  2015 /snap/core/7917/usr/share/doc/base-passwd/copyright.gz
+-rw-r--r-- 1 root root 3077 Mar  3  2014 /snap/core/7917/usr/share/doc/bash/copyright.gz
+-rw-r--r-- 1 root root 507 Aug 12  2015 /snap/core/7917/usr/share/doc/bash-completion/copyright.gz
+-rw-r--r-- 1 root root 369 Aug 20  2015 /snap/core/7917/usr/share/doc/bridge-utils/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/bsdutils/copyright.gz
+-rw-r--r-- 1 root root 667 Aug  7  2015 /snap/core/7917/usr/share/doc/busybox-initramfs/copyright.gz
+-rw-r--r-- 1 root root 1297 Jul  4  2019 /snap/core/7917/usr/share/doc/bzip2/copyright.gz
+-rw-r--r-- 1 root root 6202 Dec 20  2015 /snap/core/7917/usr/share/doc/ca-certificates/copyright.gz
+-rw-r--r-- 1 root root 164 Dec 20  2015 /snap/core/7917/usr/share/doc/ca-certificates/examples/ca-certificates-local/debian/copyright.gz
+-rw-r--r-- 1 root root 909 Sep 14  2015 /snap/core/7917/usr/share/doc/cgmanager/copyright.gz
+-rw-r--r-- 1 root root 599 Apr 19  2018 /snap/core/7917/usr/share/doc/cloud-guest-utils/copyright.gz
+-rw-r--r-- 1 root root 863 Aug 28  2019 /snap/core/7917/usr/share/doc/cloud-init/copyright.gz
+-rw-r--r-- 1 root root 546 Aug 23  2016 /snap/core/7917/usr/share/doc/console-conf/copyright.gz
+-rw-r--r-- 1 root root 2440 Feb 16  2016 /snap/core/7917/usr/share/doc/coreutils/copyright.gz
+-rw-r--r-- 1 root root 414 Feb 18  2016 /snap/core/7917/usr/share/doc/cpio/copyright.gz
+-rw-r--r-- 1 root root 4864 Aug 23  2014 /snap/core/7917/usr/share/doc/crda/copyright.gz
+-rw-r--r-- 1 root root 1749 Apr  5  2016 /snap/core/7917/usr/share/doc/cron/copyright.gz
+-rw-r--r-- 1 root root 1586 Feb 17  2016 /snap/core/7917/usr/share/doc/dash/copyright.gz
+-rw-r--r-- 1 root root 6833 Dec  2  2015 /snap/core/7917/usr/share/doc/dbus/copyright.gz
+-rw-r--r-- 1 root root 1117 Nov  8  2015 /snap/core/7917/usr/share/doc/debconf/copyright.gz
+-rw-r--r-- 1 root root 3496 May  6  2009 /snap/core/7917/usr/share/doc/debianutils/copyright.gz
+-rw-r--r-- 1 root root 740 Jul 14  2013 /snap/core/7917/usr/share/doc/dh-python/copyright.gz
+-rw-r--r-- 1 root root 869 Dec 26  2015 /snap/core/7917/usr/share/doc/diffutils/copyright.gz
+-rw-r--r-- 1 root root 602 May  4  2015 /snap/core/7917/usr/share/doc/distro-info-data/copyright.gz
+-rw-r--r-- 1 root root 552 Jul 12  2018 /snap/core/7917/usr/share/doc/dnsmasq-base/copyright.gz
+-rw-r--r-- 1 root root 778 Aug 14  2015 /snap/core/7917/usr/share/doc/dosfstools/copyright.gz
+-rw-r--r-- 1 root root 3021 Jul 16  2019 /snap/core/7917/usr/share/doc/dpkg/copyright.gz
+-rw-r--r-- 1 root root 1701 Jun 25  2014 /snap/core/7917/usr/share/doc/e2fslibs/copyright.gz
+-rw-r--r-- 1 root root 1701 Jun 25  2014 /snap/core/7917/usr/share/doc/e2fsprogs/copyright.gz
+-rw-r--r-- 1 root root 788 Jul 13  2015 /snap/core/7917/usr/share/doc/efibootmgr/copyright.gz
+-rw-r--r-- 1 root root 1422 Jan 16  2016 /snap/core/7917/usr/share/doc/findutils/copyright.gz
+-rw-r--r-- 1 root root 645 Mar 20  2016 /snap/core/7917/usr/share/doc/fwupdate/copyright.gz
+-rw-r--r-- 1 root root 448 Oct 31  2015 /snap/core/7917/usr/share/doc/fwupdate-signed/copyright.gz
+-rw-r--r-- 1 root root 716 Apr  8  2014 /snap/core/7917/usr/share/doc/gawk/copyright.gz
+-rw-r--r-- 1 root root 8609 Aug 27  2018 /snap/core/7917/usr/share/doc/gcc-5-base/copyright.gz
+-rw-r--r-- 1 root root 8610 Apr 15  2016 /snap/core/7917/usr/share/doc/gcc-6-base/copyright.gz
+-rw-r--r-- 1 root root 4837 Nov  9  2014 /snap/core/7917/usr/share/doc/gdbserver/copyright.gz
+-rw-r--r-- 1 root root 702 May 10  2015 /snap/core/7917/usr/share/doc/gdisk/copyright.gz
+-rw-r--r-- 1 root root 1081 Jan  4  2016 /snap/core/7917/usr/share/doc/gettext-base/copyright.gz
+-rw-r--r-- 1 root root 1651 Dec 22  2015 /snap/core/7917/usr/share/doc/gnupg/copyright.gz
+-rw-r--r-- 1 root root 1651 Dec 22  2015 /snap/core/7917/usr/share/doc/gpgv/copyright.gz
+-rw-r--r-- 1 root root 991 Mar  4  2016 /snap/core/7917/usr/share/doc/grep/copyright.gz
+-rw-r--r-- 1 root root 660 Dec 25  2013 /snap/core/7917/usr/share/doc/gzip/copyright.gz
+-rw-r--r-- 1 root root 636 Sep  1  2015 /snap/core/7917/usr/share/doc/hostname/copyright.gz
+-rw-r--r-- 1 root root 672 Nov 30  2016 /snap/core/7917/usr/share/doc/ifupdown/copyright.gz
+-rw-r--r-- 1 root root 1064 Feb 29  2016 /snap/core/7917/usr/share/doc/init/copyright.gz
+-rw-r--r-- 1 root root 1064 Feb 29  2016 /snap/core/7917/usr/share/doc/init-system-helpers/copyright.gz
+-rw-r--r-- 1 root root 541 Sep 18  2018 /snap/core/7917/usr/share/doc/initramfs-tools/copyright.gz
+-rw-r--r-- 1 root root 541 Sep 18  2018 /snap/core/7917/usr/share/doc/initramfs-tools-bin/copyright.gz
+-rw-r--r-- 1 root root 541 Sep 18  2018 /snap/core/7917/usr/share/doc/initramfs-tools-core/copyright.gz
+-rw-r--r-- 1 root root 536 Sep 14  2017 /snap/core/7917/usr/share/doc/initramfs-tools-ubuntu-core/copyright.gz
+-rw-r--r-- 1 root root 775 Jan 19  2016 /snap/core/7917/usr/share/doc/initscripts/copyright.gz
+-rw-r--r-- 1 root root 488 May  7  2013 /snap/core/7917/usr/share/doc/insserv/copyright.gz
+-rw-r--r-- 1 root root 1409 Apr  4  2019 /snap/core/7917/usr/share/doc/iproute2/copyright.gz
+-rw-r--r-- 1 root root 5431 Jan 19  2016 /snap/core/7917/usr/share/doc/iptables/copyright.gz
+-rw-r--r-- 1 root root 2233 Mar 15  2014 /snap/core/7917/usr/share/doc/iputils-ping/copyright.gz
+-rw-r--r-- 1 root root 761 Dec  9  2016 /snap/core/7917/usr/share/doc/isc-dhcp-client/copyright.gz
+-rw-r--r-- 1 root root 1459 Jan 14  2013 /snap/core/7917/usr/share/doc/iw/copyright.gz
+-rw-r--r-- 1 root root 1363 Mar  4  2015 /snap/core/7917/usr/share/doc/kbd/copyright.gz
+-rw-r--r-- 1 root root 1849 Apr 10  2019 /snap/core/7917/usr/share/doc/keyboard-configuration/copyright.gz
+-rw-r--r-- 1 root root 1117 Jan 22  2008 /snap/core/7917/usr/share/doc/less/copyright.gz
+-rw-r--r-- 1 root root 437 Aug 25  2009 /snap/core/7917/usr/share/doc/libacl1/copyright.gz
+-rw-r--r-- 1 root root 1585 Oct  4  2016 /snap/core/7917/usr/share/doc/libapparmor-perl/copyright.gz
+-rw-r--r-- 1 root root 1585 Oct  4  2016 /snap/core/7917/usr/share/doc/libapparmor1/copyright.gz
+-rw-r--r-- 1 root root 605 May 21  2019 /snap/core/7917/usr/share/doc/libapt-inst2.0/copyright.gz
+-rw-r--r-- 1 root root 605 May 21  2019 /snap/core/7917/usr/share/doc/libapt-pkg5.0/copyright.gz
+-rw-r--r-- 1 root root 1081 Jan  4  2016 /snap/core/7917/usr/share/doc/libasprintf0v5/copyright.gz
+-rw-r--r-- 1 root root 444 Aug 26  2009 /snap/core/7917/usr/share/doc/libattr1/copyright.gz
+-rw-r--r-- 1 root root 510 Dec 26  2015 /snap/core/7917/usr/share/doc/libaudit-common/copyright.gz
+-rw-r--r-- 1 root root 510 Dec 26  2015 /snap/core/7917/usr/share/doc/libaudit1/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/libblkid1/copyright.gz
+-rw-r--r-- 1 root root 4571 Jan 27  2016 /snap/core/7917/usr/share/doc/libbsd0/copyright.gz
+-rw-r--r-- 1 root root 1297 Jul  4  2019 /snap/core/7917/usr/share/doc/libbz2-1.0/copyright.gz
+-rw-r--r-- 1 root root 6142 Mar 17  2016 /snap/core/7917/usr/share/doc/libc-bin/copyright.gz
+-rw-r--r-- 1 root root 6142 Mar 17  2016 /snap/core/7917/usr/share/doc/libc6/copyright.gz
+-rw-r--r-- 1 root root 763 Mar 25  2015 /snap/core/7917/usr/share/doc/libcap-ng0/copyright.gz
+-rw-r--r-- 1 root root 1677 Oct  2  2015 /snap/core/7917/usr/share/doc/libcap2/copyright.gz
+-rw-r--r-- 1 root root 1677 Oct  2  2015 /snap/core/7917/usr/share/doc/libcap2-bin/copyright.gz
+-rw-r--r-- 1 root root 909 Sep 14  2015 /snap/core/7917/usr/share/doc/libcgmanager0/copyright.gz
+-rw-r--r-- 1 root root 653 Jan 14  2011 /snap/core/7917/usr/share/doc/libcomerr2/copyright.gz
+-rw-r--r-- 1 root root 1024 Mar 28  2015 /snap/core/7917/usr/share/doc/libcryptsetup4/copyright.gz
+-rw-r--r-- 1 root root 1798 Aug 25  2015 /snap/core/7917/usr/share/doc/libdb5.3/copyright.gz
+-rw-r--r-- 1 root root 6833 Dec  2  2015 /snap/core/7917/usr/share/doc/libdbus-1-3/copyright.gz
+-rw-r--r-- 1 root root 1059 Nov 26  2015 /snap/core/7917/usr/share/doc/libdebconfclient0/copyright.gz
+-rw-r--r-- 1 root root 757 Oct 30  2015 /snap/core/7917/usr/share/doc/libdevmapper1.02.1/copyright.gz
+-rw-r--r-- 1 root root 2133 Aug  5  2019 /snap/core/7917/usr/share/doc/libdns-export162/copyright.gz
+-rw-r--r-- 1 root root 1097 Aug  6  2015 /snap/core/7917/usr/share/doc/libedit2/copyright.gz
+-rw-r--r-- 1 root root 819 Feb 19  2016 /snap/core/7917/usr/share/doc/libefivar0/copyright.gz
+-rw-r--r-- 1 root root 618 Mar 25  2015 /snap/core/7917/usr/share/doc/libestr0/copyright.gz
+-rw-r--r-- 1 root root 910 Jul 24  2015 /snap/core/7917/usr/share/doc/libexpat1/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/libfdisk1/copyright.gz
+-rw-r--r-- 1 root root 1507 Jun 10  2011 /snap/core/7917/usr/share/doc/libffi6/copyright.gz
+-rw-r--r-- 1 root root 5734 Sep  6  2019 /snap/core/7917/usr/share/doc/libfreetype6/copyright.gz
+-rw-r--r-- 1 root root 737 Jul 30  2014 /snap/core/7917/usr/share/doc/libfuse2/copyright.gz
+-rw-r--r-- 1 root root 645 Mar 20  2016 /snap/core/7917/usr/share/doc/libfwup0/copyright.gz
+-rw-r--r-- 1 root root 6275 Feb  9  2016 /snap/core/7917/usr/share/doc/libgcrypt20/copyright.gz
+-rw-r--r-- 1 root root 1135 Nov 16  2014 /snap/core/7917/usr/share/doc/libgdbm3/copyright.gz
+-rw-r--r-- 1 root root 1170 Oct 14  2011 /snap/core/7917/usr/share/doc/libglib2.0-0/copyright.gz
+-rw-r--r-- 1 root root 883 Jul  5  2015 /snap/core/7917/usr/share/doc/libgmp10/copyright.gz
+-rw-r--r-- 1 root root 7431 Mar 14  2016 /snap/core/7917/usr/share/doc/libgnutls-openssl27/copyright.gz
+-rw-r--r-- 1 root root 7431 Mar 14  2016 /snap/core/7917/usr/share/doc/libgnutls30/copyright.gz
+-rw-r--r-- 1 root root 666 Feb 10  2016 /snap/core/7917/usr/share/doc/libgpg-error0/copyright.gz
+-rw-r--r-- 1 root root 9622 Feb 23  2016 /snap/core/7917/usr/share/doc/libgssapi-krb5-2/copyright.gz
+-rw-r--r-- 1 root root 3065 Sep 22  2015 /snap/core/7917/usr/share/doc/libidn11/copyright.gz
+-rw-r--r-- 1 root root 2133 Aug  5  2019 /snap/core/7917/usr/share/doc/libisc-export160/copyright.gz
+-rw-r--r-- 1 root root 969 Apr 23  2014 /snap/core/7917/usr/share/doc/libjson-c2/copyright.gz
+-rw-r--r-- 1 root root 9622 Feb 23  2016 /snap/core/7917/usr/share/doc/libk5crypto3/copyright.gz
+-rw-r--r-- 1 root root 740 Oct  7  2015 /snap/core/7917/usr/share/doc/libkeyutils1/copyright.gz
+-rw-r--r-- 1 root root 1368 Jan  6  2016 /snap/core/7917/usr/share/doc/libklibc/copyright.gz
+-rw-r--r-- 1 root root 340 Oct 23  2018 /snap/core/7917/usr/share/doc/libkmod2/copyright.gz
+-rw-r--r-- 1 root root 9622 Feb 23  2016 /snap/core/7917/usr/share/doc/libkrb5-3/copyright.gz
+-rw-r--r-- 1 root root 9622 Feb 23  2016 /snap/core/7917/usr/share/doc/libkrb5support0/copyright.gz
+-rw-r--r-- 1 root root 554 Sep 28  2015 /snap/core/7917/usr/share/doc/liblocale-gettext-perl/copyright.gz
+-rw-r--r-- 1 root root 501 Dec  7  2013 /snap/core/7917/usr/share/doc/liblockfile-bin/copyright.gz
+-rw-r--r-- 1 root root 501 Dec  7  2013 /snap/core/7917/usr/share/doc/liblockfile1/copyright.gz
+-rw-r--r-- 1 root root 1378 Feb 17  2016 /snap/core/7917/usr/share/doc/liblz4-1/copyright.gz
+-rw-r--r-- 1 root root 4951 Feb 12  2014 /snap/core/7917/usr/share/doc/liblzma5/copyright.gz
+-rw-r--r-- 1 root root 508 Dec 20  2014 /snap/core/7917/usr/share/doc/liblzo2-2/copyright.gz
+-rw-r--r-- 1 root root 725 Aug  4  2014 /snap/core/7917/usr/share/doc/libmnl0/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/libmount1/copyright.gz
+-rw-r--r-- 1 root root 1433 Jan  8  2014 /snap/core/7917/usr/share/doc/libmpdec2/copyright.gz
+-rw-r--r-- 1 root root 519 Jun 22  2015 /snap/core/7917/usr/share/doc/libmpfr4/copyright.gz
+-rw-r--r-- 1 root root 625 Oct 14  2015 /snap/core/7917/usr/share/doc/libnetfilter-conntrack3/copyright.gz
+-rw-r--r-- 1 root root 3785 Aug  3  2015 /snap/core/7917/usr/share/doc/libnettle6/copyright.gz
+-rw-r--r-- 1 root root 543 Jul 25  2015 /snap/core/7917/usr/share/doc/libnewt0.52/copyright.gz
+-rw-r--r-- 1 root root 383 May 18  2013 /snap/core/7917/usr/share/doc/libnfnetlink0/copyright.gz
+-rw-r--r-- 1 root root 475 Jan  8  2016 /snap/core/7917/usr/share/doc/libnih1/copyright.gz
+-rw-r--r-- 1 root root 1811 Jan 23  2016 /snap/core/7917/usr/share/doc/libnl-3-200/copyright.gz
+-rw-r--r-- 1 root root 1811 Jan 23  2016 /snap/core/7917/usr/share/doc/libnl-genl-3-200/copyright.gz
+-rw-r--r-- 1 root root 1811 Jan 23  2016 /snap/core/7917/usr/share/doc/libnl-route-3-200/copyright.gz
+-rw-r--r-- 1 root root 787 May 15  2012 /snap/core/7917/usr/share/doc/libnss-extrausers/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/libnss-myhostname/copyright.gz
+-rw-r--r-- 1 root root 3265 Dec 20  2015 /snap/core/7917/usr/share/doc/libp11-kit0/copyright.gz
+-rw-r--r-- 1 root root 1624 Apr  9  2018 /snap/core/7917/usr/share/doc/libpam-modules/copyright.gz
+-rw-r--r-- 1 root root 1624 Apr  9  2018 /snap/core/7917/usr/share/doc/libpam-modules-bin/copyright.gz
+-rw-r--r-- 1 root root 1624 Apr  9  2018 /snap/core/7917/usr/share/doc/libpam-runtime/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/libpam-systemd/copyright.gz
+-rw-r--r-- 1 root root 1624 Apr  9  2018 /snap/core/7917/usr/share/doc/libpam0g/copyright.gz
+-rw-r--r-- 1 root root 7320 Feb 10  2016 /snap/core/7917/usr/share/doc/libparted2/copyright.gz
+-rw-r--r-- 1 root root 2462 Jul  4  2015 /snap/core/7917/usr/share/doc/libpcap0.8/copyright.gz
+-rw-r--r-- 1 root root 1395 Mar 22  2016 /snap/core/7917/usr/share/doc/libpcre3/copyright.gz
+-rw-r--r-- 1 root root 1830 Nov 25  2011 /snap/core/7917/usr/share/doc/libpcsclite1/copyright.gz
+-rw-r--r-- 1 root root 1864 Nov 18  2015 /snap/core/7917/usr/share/doc/libpng12-0/copyright.gz
+-rw-r--r-- 1 root root 1399 May  2  2012 /snap/core/7917/usr/share/doc/libpopt0/copyright.gz
+-rw-r--r-- 1 root root 1218 Sep  6  2015 /snap/core/7917/usr/share/doc/libprocps4/copyright.gz
+-rw-r--r-- 1 root root 4930 Aug  3  2013 /snap/core/7917/usr/share/doc/libpython3-stdlib/copyright.gz
+-rw-r--r-- 1 root root 13568 Jun 12  2016 /snap/core/7917/usr/share/doc/libpython3.5-minimal/copyright.gz
+-rw-r--r-- 1 root root 949 Aug 29  2009 /snap/core/7917/usr/share/doc/libreadline6/copyright.gz
+-rw-r--r-- 1 root root 788 Nov 17  2016 /snap/core/7917/usr/share/doc/libseccomp2/copyright.gz
+-rw-r--r-- 1 root root 1393 Nov 18  2015 /snap/core/7917/usr/share/doc/libselinux1/copyright.gz
+-rw-r--r-- 1 root root 883 May 16  2014 /snap/core/7917/usr/share/doc/libsemanage-common/copyright.gz
+-rw-r--r-- 1 root root 883 May 16  2014 /snap/core/7917/usr/share/doc/libsemanage1/copyright.gz
+-rw-r--r-- 1 root root 1013 Nov 18  2015 /snap/core/7917/usr/share/doc/libsepol1/copyright.gz
+-rw-r--r-- 1 root root 291 Jun  4  2014 /snap/core/7917/usr/share/doc/libsigsegv2/copyright.gz
+-rw-r--r-- 1 root root 820 Jun 28  2018 /snap/core/7917/usr/share/doc/libslang2/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/libsmartcols1/copyright.gz
+-rw-r--r-- 1 root root 735 Dec  8  2013 /snap/core/7917/usr/share/doc/libsqlite3-0/copyright.gz
+-rw-r--r-- 1 root root 662 Jan 14  2011 /snap/core/7917/usr/share/doc/libss2/copyright.gz
+-rw-r--r-- 1 root root 2243 Oct 12  2005 /snap/core/7917/usr/share/doc/libssl1.0.0/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/libsystemd0/copyright.gz
+-rw-r--r-- 1 root root 1291 Apr 27  2015 /snap/core/7917/usr/share/doc/libtasn1-6/copyright.gz
+-rw-r--r-- 1 root root 2124 Feb 14  2016 /snap/core/7917/usr/share/doc/libtinfo5/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/libudev1/copyright.gz
+-rw-r--r-- 1 root root 1443 Jan  8  2016 /snap/core/7917/usr/share/doc/libusb-0.1-4/copyright.gz
+-rw-r--r-- 1 root root 2035 May  3  2015 /snap/core/7917/usr/share/doc/libustr-1.0-1/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/libuuid1/copyright.gz
+-rw-r--r-- 1 root root 669 Apr  6  2008 /snap/core/7917/usr/share/doc/libwrap0/copyright.gz
+-rw-r--r-- 1 root root 5431 Jan 19  2016 /snap/core/7917/usr/share/doc/libxtables11/copyright.gz
+-rw-r--r-- 1 root root 923 Aug 19  2014 /snap/core/7917/usr/share/doc/libyaml-0-2/copyright.gz
+-rw-r--r-- 1 root root 759 Aug  5  2015 /snap/core/7917/usr/share/doc/linux-base/copyright.gz
+-rw-r--r-- 1 root root 174 Apr 29  2001 /snap/core/7917/usr/share/doc/lockfile-progs/copyright.gz
+-rw-r--r-- 1 root root 2461 Nov 12  2015 /snap/core/7917/usr/share/doc/login/copyright.gz
+-rw-r--r-- 1 root root 881 Mar 22  2017 /snap/core/7917/usr/share/doc/logrotate/copyright.gz
+-rw-r--r-- 1 root root 1334 May 27  2014 /snap/core/7917/usr/share/doc/lsb-base/copyright.gz
+-rw-r--r-- 1 root root 1334 May 27  2014 /snap/core/7917/usr/share/doc/lsb-release/copyright.gz
+-rw-r--r-- 1 root root 1188 Mar 27  2017 /snap/core/7917/usr/share/doc/makedev/copyright.gz
+-rw-r--r-- 1 root root 753 Mar 24  2014 /snap/core/7917/usr/share/doc/mawk/copyright.gz
+-rw-r--r-- 1 root root 720 Oct 30  2015 /snap/core/7917/usr/share/doc/mime-support/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/mount/copyright.gz
+-rw-r--r-- 1 root root 6142 Mar 17  2016 /snap/core/7917/usr/share/doc/multiarch-support/copyright.gz
+-rw-r--r-- 1 root root 2124 Feb 14  2016 /snap/core/7917/usr/share/doc/ncurses-base/copyright.gz
+-rw-r--r-- 1 root root 2124 Feb 14  2016 /snap/core/7917/usr/share/doc/ncurses-bin/copyright.gz
+-rw-r--r-- 1 root root 734 Jun 30  2014 /snap/core/7917/usr/share/doc/net-tools/copyright.gz
+-rw-r--r-- 1 root root 369 Apr  1  2013 /snap/core/7917/usr/share/doc/netbase/copyright.gz
+-rw-r--r-- 1 root root 1050 Jun 13  2012 /snap/core/7917/usr/share/doc/netcat-openbsd/copyright.gz
+-rw-r--r-- 1 root root 234 Jun 29  2018 /snap/core/7917/usr/share/doc/nplan/copyright.gz
+-rw-r--r-- 1 root root 6051 Mar  4  2019 /snap/core/7917/usr/share/doc/openssh-client/copyright.gz
+-rw-r--r-- 1 root root 7320 Feb 10  2016 /snap/core/7917/usr/share/doc/parted/copyright.gz
+-rw-r--r-- 1 root root 2461 Nov 12  2015 /snap/core/7917/usr/share/doc/passwd/copyright.gz
+-rw-r--r-- 1 root root 22706 Mar 13  2016 /snap/core/7917/usr/share/doc/perl/copyright.gz
+-rw-r--r-- 1 root root 3684 Jan 27  2016 /snap/core/7917/usr/share/doc/ppp/copyright.gz
+-rw-r--r-- 1 root root 538 Nov  4  2016 /snap/core/7917/usr/share/doc/probert/copyright.gz
+-rw-r--r-- 1 root root 1218 Sep  6  2015 /snap/core/7917/usr/share/doc/procps/copyright.gz
+-rw-r--r-- 1 root root 4930 Aug  3  2013 /snap/core/7917/usr/share/doc/python3/copyright.gz
+-rw-r--r-- 1 root root 1563 Aug  2  2014 /snap/core/7917/usr/share/doc/python3-blinker/copyright.gz
+-rw-r--r-- 1 root root 908 Feb 18  2016 /snap/core/7917/usr/share/doc/python3-cffi-backend/copyright.gz
+-rw-r--r-- 1 root root 579 Feb 10  2016 /snap/core/7917/usr/share/doc/python3-chardet/copyright.gz
+-rw-r--r-- 1 root root 1116 Aug 28  2014 /snap/core/7917/usr/share/doc/python3-configobj/copyright.gz
+-rw-r--r-- 1 root root 1122 Mar  5  2016 /snap/core/7917/usr/share/doc/python3-cryptography/copyright.gz
+-rw-r--r-- 1 root root 2636 Jun  8  2015 /snap/core/7917/usr/share/doc/python3-idna/copyright.gz
+-rw-r--r-- 1 root root 1532 Jul 25  2011 /snap/core/7917/usr/share/doc/python3-jinja2/copyright.gz
+-rw-r--r-- 1 root root 947 Oct 23  2015 /snap/core/7917/usr/share/doc/python3-json-pointer/copyright.gz
+-rw-r--r-- 1 root root 947 Oct 23  2015 /snap/core/7917/usr/share/doc/python3-jsonpatch/copyright.gz
+-rw-r--r-- 1 root root 829 Jul 10  2015 /snap/core/7917/usr/share/doc/python3-jwt/copyright.gz
+-rw-r--r-- 1 root root 1585 Oct  4  2016 /snap/core/7917/usr/share/doc/python3-libapparmor/copyright.gz
+-rw-r--r-- 1 root root 1024 Aug 21  2010 /snap/core/7917/usr/share/doc/python3-markupsafe/copyright.gz
+-rw-r--r-- 1 root root 4930 Aug  3  2013 /snap/core/7917/usr/share/doc/python3-minimal/copyright.gz
+-rw-r--r-- 1 root root 995 Sep  7  2014 /snap/core/7917/usr/share/doc/python3-oauthlib/copyright.gz
+-rw-r--r-- 1 root root 4955 May  8  2013 /snap/core/7917/usr/share/doc/python3-pkg-resources/copyright.gz
+-rw-r--r-- 1 root root 1342 Sep 30  2013 /snap/core/7917/usr/share/doc/python3-pyasn1/copyright.gz
+-rw-r--r-- 1 root root 5759 Feb 11  2011 /snap/core/7917/usr/share/doc/python3-pyudev/copyright.gz
+-rw-r--r-- 1 root root 7550 Feb 12  2016 /snap/core/7917/usr/share/doc/python3-requests/copyright.gz
+-rw-r--r-- 1 root root 1484 Jan 26  2016 /snap/core/7917/usr/share/doc/python3-serial/copyright.gz
+-rw-r--r-- 1 root root 805 Feb  9  2016 /snap/core/7917/usr/share/doc/python3-six/copyright.gz
+-rw-r--r-- 1 root root 1954 Feb 12  2016 /snap/core/7917/usr/share/doc/python3-urllib3/copyright.gz
+-rw-r--r-- 1 root root 723 Nov  3  2015 /snap/core/7917/usr/share/doc/python3-urwid/copyright.gz
+-rw-r--r-- 1 root root 900 Dec  2  2015 /snap/core/7917/usr/share/doc/python3-yaml/copyright.gz
+-rw-r--r-- 1 root root 13568 Jun 12  2016 /snap/core/7917/usr/share/doc/python3.5/copyright.gz
+-rw-r--r-- 1 root root 13568 Jun 12  2016 /snap/core/7917/usr/share/doc/python3.5-minimal/copyright.gz
+-rw-r--r-- 1 root root 949 Aug 29  2009 /snap/core/7917/usr/share/doc/readline-common/copyright.gz
+-rw-r--r-- 1 root root 140 Feb 16  2016 /snap/core/7917/usr/share/doc/realpath/copyright.gz
+-rw-r--r-- 1 root root 569 Nov 29  2017 /snap/core/7917/usr/share/doc/resolvconf/copyright.gz
+-rw-r--r-- 1 root root 957 Sep 26  2013 /snap/core/7917/usr/share/doc/rfkill/copyright.gz
+-rw-r--r-- 1 root root 1793 Jan 27  2016 /snap/core/7917/usr/share/doc/rsyslog/copyright.gz
+-rw-r--r-- 1 root root 788 Nov 17  2016 /snap/core/7917/usr/share/doc/seccomp/copyright.gz
+-rw-r--r-- 1 root root 448 Feb 11  2016 /snap/core/7917/usr/share/doc/sed/copyright.gz
+-rw-r--r-- 1 root root 390 Nov 26  2010 /snap/core/7917/usr/share/doc/sensible-utils/copyright.gz
+-rw-r--r-- 1 root root 601 Oct  1  2019 /snap/core/7917/usr/share/doc/snapd/copyright.gz
+-rw-r--r-- 1 root root 684 Sep 18  2013 /snap/core/7917/usr/share/doc/squashfs-tools/copyright.gz
+-rw-r--r-- 1 root root 546 Aug 23  2016 /snap/core/7917/usr/share/doc/subiquitycore/copyright.gz
+-rw-r--r-- 1 root root 1484 Dec 23  2015 /snap/core/7917/usr/share/doc/sudo/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/systemd/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/systemd-sysv/copyright.gz
+-rw-r--r-- 1 root root 841 Jan 19  2016 /snap/core/7917/usr/share/doc/sysv-rc/copyright.gz
+-rw-r--r-- 1 root root 1146 Jan 19  2016 /snap/core/7917/usr/share/doc/sysvinit-utils/copyright.gz
+-rw-r--r-- 1 root root 634 Sep 28  2015 /snap/core/7917/usr/share/doc/tar/copyright.gz
+-rw-r--r-- 1 root root 246 Jan 21  2016 /snap/core/7917/usr/share/doc/tzdata/copyright.gz
+-rw-r--r-- 1 root root 5211 Nov  9  2016 /snap/core/7917/usr/share/doc/u-boot-tools/copyright.gz
+-rw-r--r-- 1 root root 433 Jul 10  2015 /snap/core/7917/usr/share/doc/ubuntu-core/copyright.gz
+-rw-r--r-- 1 root root 552 May 10  2017 /snap/core/7917/usr/share/doc/ubuntu-core-config/copyright.gz
+-rw-r--r-- 1 root root 433 Oct 28  2014 /snap/core/7917/usr/share/doc/ubuntu-core-libs/copyright.gz
+-rw-r--r-- 1 root root 621 Oct  5  2015 /snap/core/7917/usr/share/doc/ubuntu-core-security-apparmor/copyright.gz
+-rw-r--r-- 1 root root 621 Oct  5  2015 /snap/core/7917/usr/share/doc/ubuntu-core-security-seccomp/copyright.gz
+-rw-r--r-- 1 root root 621 Oct  5  2015 /snap/core/7917/usr/share/doc/ubuntu-core-security-utils/copyright.gz
+-rw-r--r-- 1 root root 601 Oct  1  2019 /snap/core/7917/usr/share/doc/ubuntu-core-snapd-units/copyright.gz
+-rw-r--r-- 1 root root 570 Oct 28  2016 /snap/core/7917/usr/share/doc/ubuntu-fan/copyright.gz
+-rw-r--r-- 1 root root 684 May 19  2012 /snap/core/7917/usr/share/doc/ubuntu-keyring/copyright.gz
+-rw-r--r-- 1 root root 706 Mar 16  2016 /snap/core/7917/usr/share/doc/ucf/copyright.gz
+-rw-r--r-- 1 root root 2697 Jun 25  2019 /snap/core/7917/usr/share/doc/udev/copyright.gz
+-rw-r--r-- 1 root root 4746 Mar 12  2016 /snap/core/7917/usr/share/doc/util-linux/copyright.gz
+-rw-r--r-- 1 root root 4124 Apr  3  2016 /snap/core/7917/usr/share/doc/vim-common/copyright.gz
+-rw-r--r-- 1 root root 543 Jul 25  2015 /snap/core/7917/usr/share/doc/whiptail/copyright.gz
+-rw-r--r-- 1 root root 821 Jan  2  2015 /snap/core/7917/usr/share/doc/wireless-regdb/copyright.gz
+-rw-r--r-- 1 root root 4096 Jul 17  2015 /snap/core/7917/usr/share/doc/wpasupplicant/copyright.gz
+-rw-r--r-- 1 root root 569 May 29  2011 /snap/core/7917/usr/share/doc/xdelta3/copyright.gz
+-rw-r--r-- 1 root root 2357 Jan 22  2016 /snap/core/7917/usr/share/doc/xkb-data/copyright.gz
+-rw-r--r-- 1 root root 4951 Feb 12  2014 /snap/core/7917/usr/share/doc/xz-utils/copyright.gz
+-rw-r--r-- 1 root root 867 Aug 17  2014 /snap/core/7917/usr/share/doc/zlib1g/copyright.gz
+[90m---[0;0m
+[97m[[91m![97m] [90mfst200[97m Are there possible credentials in any shell history file?[90m.......[90m nope[0;0m
+[97m[[94mi[97m] [90mfst500[97m Files owned by user 'postgres'[90m.................................. [90mskip
+[97m[[94mi[97m] [90mfst510[97m SSH files anywhere[90m.............................................. [90mskip
+[97m[[94mi[97m] [90mfst520[97m Check hosts.equiv file and its contents[90m......................... [90mskip
+[97m[[94mi[97m] [90mfst530[97m List NFS server shares[90m.......................................... [90mskip
+[97m[[94mi[97m] [90mfst540[97m Dump fstab file[90m................................................. [90mskip
+[35m=================================================================([32m system [35m)=====[0;0m
+[97m[[94mi[97m] [90msys000[97m Who is logged in[90m................................................ [90mskip
+[97m[[94mi[97m] [90msys010[97m Last logged in users[90m............................................ [90mskip
+[97m[[91m![97m] [90msys020[97m Does the /etc/passwd have hashes?[90m...............................[90m nope[0;0m
+[97m[[91m![97m] [90msys022[97m Does the /etc/group have hashes?[90m................................[90m nope[0;0m
+[97m[[91m![97m] [90msys030[97m Can we read shadow files?[90m.......................................[90m nope[0;0m
+[97m[[93m*[97m] [90msys040[97m Check for other superuser accounts[90m..............................[90m nope[0;0m
+[97m[[93m*[97m] [90msys050[97m Can root user log in via SSH?[90m...................................[36m yes![0;0m
+[97m[[94mi[97m] [90msys060[97m List available shells[90m........................................... [90mskip
+[97m[[94mi[97m] [90msys070[97m System umask in /etc/login.defs[90m................................. [90mskip
+[97m[[94mi[97m] [90msys080[97m System password policies in /etc/login.defs[90m..................... [90mskip
+[35m===============================================================([32m security [35m)=====[0;0m
+[97m[[93m*[97m] [90msec000[97m Is SELinux present?[90m.............................................[90m nope[0;0m
+[97m[[93m*[97m] [90msec010[97m List files with capabilities[90m....................................[36m yes![0;0m
+[97m[[91m![97m] [90msec020[97m Can we write to a binary with caps?[90m.............................[90m nope[0;0m
+[97m[[91m![97m] [90msec030[97m Do we have all caps in any binary?[90m..............................[90m nope[0;0m
+[97m[[93m*[97m] [90msec040[97m Users with associated capabilities[90m..............................[90m nope[0;0m
+[97m[[91m![97m] [90msec050[97m Does current user have capabilities?[90m............................ [90mskip
+[97m[[91m![97m] [90msec060[97m Can we read the auditd log?[90m.....................................[90m nope[0;0m
+[35m========================================================([32m recurrent tasks [35m)=====[0;0m
+[97m[[93m*[97m] [90mret000[97m User crontab[90m....................................................[90m nope[0;0m
+[97m[[91m![97m] [90mret010[97m Cron tasks writable by user[90m.....................................[90m nope[0;0m
+[97m[[93m*[97m] [90mret020[97m Cron jobs[90m.......................................................[36m yes![0;0m
+[97m[[93m*[97m] [90mret030[97m Can we read user crontabs[90m.......................................[90m nope[0;0m
+[97m[[93m*[97m] [90mret040[97m Can we list other user cron tasks?[90m..............................[90m nope[0;0m
+[97m[[93m*[97m] [90mret050[97m Can we write to any paths present in cron jobs[90m..................[36m yes![0;0m
+[97m[[91m![97m] [90mret060[97m Can we write to executable paths present in cron jobs[90m...........[90m nope[0;0m
+[97m[[94mi[97m] [90mret400[97m Cron files[90m...................................................... [90mskip
+[97m[[93m*[97m] [90mret500[97m User systemd timers[90m.............................................[90m nope[0;0m
+[97m[[91m![97m] [90mret510[97m Can we write in any system timer?[90m...............................[90m nope[0;0m
+[97m[[94mi[97m] [90mret900[97m Systemd timers[90m.................................................. [90mskip
+[35m================================================================([32m network [35m)=====[0;0m
+[97m[[93m*[97m] [90mnet000[97m Services listening only on localhost[90m............................[36m yes![0;0m
+[97m[[91m![97m] [90mnet010[97m Can we sniff traffic with tcpdump?[90m..............................[90m nope[0;0m
+[97m[[94mi[97m] [90mnet500[97m NIC and IP information[90m.......................................... [90mskip
+[97m[[94mi[97m] [90mnet510[97m Routing table[90m................................................... [90mskip
+[97m[[94mi[97m] [90mnet520[97m ARP table[90m....................................................... [90mskip
+[97m[[94mi[97m] [90mnet530[97m Namerservers[90m.................................................... [90mskip
+[97m[[94mi[97m] [90mnet540[97m Systemd Nameservers[90m............................................. [90mskip
+[97m[[94mi[97m] [90mnet550[97m Listening TCP[90m................................................... [90mskip
+[97m[[94mi[97m] [90mnet560[97m Listening UDP[90m................................................... [90mskip
+[35m===============================================================([32m services [35m)=====[0;0m
+[97m[[91m![97m] [90msrv000[97m Can we write in service files?[90m..................................[90m nope[0;0m
+[97m[[91m![97m] [90msrv010[97m Can we write in binaries executed by services?[90m..................[90m nope[0;0m
+[97m[[93m*[97m] [90msrv020[97m Files in /etc/init.d/ not belonging to root[90m.....................[90m nope[0;0m
+[97m[[93m*[97m] [90msrv030[97m Files in /etc/rc.d/init.d not belonging to root[90m.................[90m nope[0;0m
+[97m[[93m*[97m] [90msrv040[97m Upstart files not belonging to root[90m.............................[90m nope[0;0m
+[97m[[93m*[97m] [90msrv050[97m Files in /usr/local/etc/rc.d not belonging to root[90m..............[90m nope[0;0m
+[97m[[94mi[97m] [90msrv400[97m Contents of /etc/inetd.conf[90m..................................... [90mskip
+[97m[[94mi[97m] [90msrv410[97m Contents of /etc/xinetd.conf[90m.................................... [90mskip
+[97m[[94mi[97m] [90msrv420[97m List /etc/xinetd.d if used[90m...................................... [90mskip
+[97m[[94mi[97m] [90msrv430[97m List /etc/init.d/ permissions[90m................................... [90mskip
+[97m[[94mi[97m] [90msrv440[97m List /etc/rc.d/init.d permissions[90m............................... [90mskip
+[97m[[94mi[97m] [90msrv450[97m List /usr/local/etc/rc.d permissions[90m............................ [90mskip
+[97m[[94mi[97m] [90msrv460[97m List /etc/init/ permissions[90m..................................... [90mskip
+[97m[[91m![97m] [90msrv500[97m Can we write in systemd service files?[90m..........................[90m nope[0;0m
+[97m[[91m![97m] [90msrv510[97m Can we write in binaries executed by systemd services?[90m..........[90m nope[0;0m
+[97m[[93m*[97m] [90msrv520[97m Systemd files not belonging to root[90m.............................[90m nope[0;0m
+[97m[[94mi[97m] [90msrv900[97m Systemd config files permissions[90m................................ [90mskip
+[35m===============================================================([32m software [35m)=====[0;0m
+[97m[[91m![97m] [90msof000[97m Can we connect to MySQL with root/root credentials?[90m.............[90m nope[0;0m
+[97m[[91m![97m] [90msof010[97m Can we connect to MySQL as root without password?[90m...............[90m nope[0;0m
+[97m[[91m![97m] [90msof015[97m Are there credentials in mysql_history file?[90m....................[90m nope[0;0m
+[97m[[91m![97m] [90msof020[97m Can we connect to PostgreSQL template0 as postgres and no pass?[90m.[90m nope[0;0m
+[97m[[91m![97m] [90msof020[97m Can we connect to PostgreSQL template1 as postgres and no pass?[90m.[92m yes![0;0m
+[90m---[0;0m
+                                                    version                                                    
+[90m---[0;0m
+[97m[[91m![97m] [90msof020[97m Can we connect to PostgreSQL template0 as psql and no pass?[90m.....[90m nope[0;0m
+[97m[[91m![97m] [90msof020[97m Can we connect to PostgreSQL template1 as psql and no pass?[90m.....[90m nope[0;0m
+[97m[[93m*[97m] [90msof030[97m Installed apache modules[90m........................................[36m yes![0;0m
+[97m[[91m![97m] [90msof040[97m Found any .htpasswd files?[90m......................................[90m nope[0;0m
+[97m[[91m![97m] [90msof050[97m Are there private keys in ssh-agent?[90m............................[90m nope[0;0m
+[97m[[91m![97m] [90msof060[97m Are there gpg keys cached in gpg-agent?[90m.........................[90m nope[0;0m
+[97m[[91m![97m] [90msof070[97m Can we write to a ssh-agent socket?[90m.............................[90m nope[0;0m
+[97m[[91m![97m] [90msof080[97m Can we write to a gpg-agent socket?[90m.............................[92m yes![0;0m
+[90m---[0;0m
+/run/user/111/gnupg/S.gpg-agent.ssh
+/run/user/111/gnupg/S.gpg-agent.browser
+/run/user/111/gnupg/S.gpg-agent
+/run/user/111/gnupg/S.gpg-agent.extra
+[90m---[0;0m
+[97m[[94mi[97m] [90msof500[97m Sudo version[90m.................................................... [90mskip
+[97m[[94mi[97m] [90msof510[97m MySQL version[90m................................................... [90mskip
+[97m[[94mi[97m] [90msof520[97m Postgres version[90m................................................ [90mskip
+[97m[[94mi[97m] [90msof530[97m Apache version[90m.................................................. [90mskip
+[35m=============================================================([32m containers [35m)=====[0;0m
+[97m[[93m*[97m] [90mctn000[97m Are we in a docker container?[90m...................................[90m nope[0;0m
+[97m[[93m*[97m] [90mctn010[97m Is docker available?[90m............................................[90m nope[0;0m
+[97m[[91m![97m] [90mctn020[97m Is the user a member of the 'docker' group?[90m.....................[90m nope[0;0m
+[97m[[93m*[97m] [90mctn200[97m Are we in a lxc container?[90m......................................[90m nope[0;0m
+[97m[[91m![97m] [90mctn210[97m Is the user a member of any lxc/lxd group?[90m......................[90m nope[0;0m
+[35m==============================================================([32m processes [35m)=====[0;0m
+[97m[[94mi[97m] [90mpro000[97m Waiting for the process monitor to finish[90m.......................[34m yes![0;0m
+[97m[[94mi[97m] [90mpro001[97m Retrieving process binaries[90m.....................................[34m yes![0;0m
+[97m[[94mi[97m] [90mpro002[97m Retrieving process users[90m........................................[34m yes![0;0m
+[97m[[91m![97m] [90mpro010[97m Can we write in any process binary?[90m.............................[90m nope[0;0m
+[97m[[93m*[97m] [90mpro020[97m Processes running with root permissions[90m.........................[36m yes![0;0m
+[97m[[93m*[97m] [90mpro030[97m Processes running by non-root users with shell[90m..................[36m yes![0;0m
+[97m[[94mi[97m] [90mpro500[97m Running processes[90m............................................... [90mskip
+[97m[[94mi[97m] [90mpro510[97m Running process binaries and permissions[90m........................ [90mskip
+
+[35m==================================([32m FINISHED [35m)==================================[0;0m
