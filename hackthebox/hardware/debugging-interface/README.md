@@ -1,5 +1,9 @@
 # Steps
 
+> **We accessed the embedded device's asynchronous serial debugging interface
+> while it was operational and captured some messages that were being
+> transmitted over it. Can you decode them?**
+
 ## Interpreting the file
 
 Running `file` or `exiftool` tells us the `.sal` is actually a `.zip`.

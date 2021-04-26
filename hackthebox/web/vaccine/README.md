@@ -1,4 +1,4 @@
-# Steps
+# Vaccine (starting point)
 
 ## Enumeration
 

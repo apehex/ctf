@@ -1,4 +1,4 @@
-# Steps
+# Shield (starting point)
 
 ## Enumeration
 

@@ -1,5 +1,7 @@
 # Cat
 
+> **Easy leaks**
+
 ## Content
 
 Using `file cat.ab` we learn that it is an Android backup.

@@ -1,4 +1,4 @@
-# Steps
+# Archetype (starting point)
 
 ## Enumerate Services
 
