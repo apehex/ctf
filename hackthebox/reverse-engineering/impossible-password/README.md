@@ -6,7 +6,11 @@
 
 The program asks for 2 subsequent inputs and compares them to some strings.
 
-If both comparisons succeed, the binary enters a final function:
+Loading the binary into Ghidra, we see that the first input is compared to the
+hardcoded string "SuperSeKretKey".
+
+But it doesn't matter since we can bypass both comparison and directly look at
+the final function call, when both tests succeed:
 
 ```c
 void FUN_00400978(byte *param_1) {
@@ -48,8 +52,8 @@ void output(char *input) {
 
 > `c = c + 1;`
 
-This function browses the 20 adresses following the input pointer.
-Looking at the decompiled sources we see:
+This increments the **memory address** referenced by c: the function browses the 20
+adresses following the input pointer. Looking at the decompiled sources we see:
 
 ```c
 local_48 = 0x41;
@@ -77,9 +81,11 @@ local_35 = 0x74;
 ## Output
 
 Each hex value is xored with 0x09 and the result is interpreted as an ASCII
-code. The resulting ASCII characters are displayed in turn.
+code:
 
-We reproduce this functionality with custom another snipet:
+`putchar((int)(char)(*c ^ 9));`
+
+We reproduce this functionality with a custom snipet:
 
 ```c
 #include <stdio.h>
@@ -99,6 +105,6 @@ int main(int argc, char *argv) {
 }
 ```
 
-We get:
+And get:
 
 > HTB{40b949f92b86b18}
