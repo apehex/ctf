@@ -1,0 +1,7 @@
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             Microsoft executable, portable (PE)
+5080          0x13D8          Copyright string: "CopyrightAttribute"
+7651          0x1DE3          XML document, version: "1.0"
+

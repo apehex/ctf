@@ -3,7 +3,7 @@
 > **Show us your basic skills!**
 > (P.S. There are 4 ways to solve this, are you willing to try them all?)
 
-Running `strings` gives us 2 interestings results:
+Running `strings baby | awk 'length($0) > 8'` gives us 2 interestings results:
 
 ```console
 Insert key:

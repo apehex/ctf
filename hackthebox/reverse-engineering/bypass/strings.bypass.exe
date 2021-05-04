@@ -1,0 +1,80 @@
+!This program cannot be run in DOS mode.
+l>NU\Y7h
+vwr sG`=
+v4.0.30319
+#Strings
+ReadInt32
+ReadInt64
+<Module>
+System.IO
+GenerateIV
+mscorlib
+RijndaelManaged
+set_Mode
+CryptoStreamMode
+CipherMode
+get_Unicode
+HTBChallange
+IDisposable
+ReadDouble
+ReadSingle
+ReadLine
+WriteLine
+GuidAttribute
+AttributeUsageAttribute
+ComVisibleAttribute
+AssemblyTitleAttribute
+AssemblyTrademarkAttribute
+TargetFrameworkAttribute
+AssemblyFileVersionAttribute
+AssemblyConfigurationAttribute
+AssemblyDescriptionAttribute
+CompilationRelaxationsAttribute
+AssemblyProductAttribute
+AssemblyCopyrightAttribute
+AssemblyCompanyAttribute
+RuntimeCompatibilityAttribute
+ReadSByte
+HTBChallange.exe
+set_BlockSize
+Encoding
+System.Runtime.Versioning
+ReadString
+get_Length
+GetManifestResourceStream
+CryptoStream
+MemoryStream
+SymmetricAlgorithm
+ICryptoTransform
+System.Reflection
+get_Position
+BinaryReader
+CreateDecryptor
+System.Runtime.InteropServices
+System.Runtime.CompilerServices
+AttributeTargets
+System.Text
+GenerateKey
+System.Security.Cryptography
+GetExecutingAssembly
+op_Equality
+$5089226f-12b6-4050-9ce3-f7c43721a5a2
+WrapNonExceptionThrows
+HTBChallange
+.NETFramework,Version=v4.5.2
+FrameworkDisplayName
+.NET Framework 4.5.2
+Copyright 
+_CorExeMain
+mscoree.dll
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity version="1.0.0.0" name="MyApplication.app"/>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <requestedExecutionLevel level="asInvoker" uiAccess="false"/>
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>
