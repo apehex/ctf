@@ -1,0 +1,1462 @@
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+364877        0x5914D         Unix path: /var/run/crond.pid
+370263        0x5A657         Unix path: /var/run/ntpd.pid
+372487        0x5AF07         Neighborly text, "Neighbor Solicitline"
+372504        0x5AF18         Neighborly text, "Neighbor Advert"
+375091        0x5B933         Unix path: /etc/iproute2/rt_%s
+383326        0x5D95E         POSIX tar archive (GNU), owner user name: "ad from terminal, use -f to forc", owner group name: "e it"
+833157        0xCB685         Unix path: /var/run/nscd/socket
+850110        0xCF8BE         Unix path: /usr/local/bin:/bin:/usr/bin
+852517        0xD0225         Unix path: /usr/share/zoneinfo/
+854799        0xD0B0F         Executable script, shebang: "/bin/sh"
+855003        0xD0BDB         Executable script, shebang: "/bin/sh"
+855037        0xD0BFD         Unix path: /usr/share/libubox/jshn.sh
+855113        0xD0C49         Unix path: /etc/config/network -a -s /etc/config/system ] && exit 0
+863908        0xD2EA4         Unix path: /etc/config/network ]; then
+863943        0xD2EC7         Unix path: /etc/config/network
+864158        0xD2F9E         Unix path: /etc/config/system ]; then
+864192        0xD2FC0         Unix path: /etc/config/system
+864484        0xD30E4         Executable script, shebang: "/bin/sh"
+866034        0xD36F2         ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+932394        0xE3A2A         SHA256 hash constants, big endian
+955882        0xE95EA         Unix path: /usr/sbin/opkg-key
+961823        0xEAD1F         Unix path: /var/lock/opkg.lock
+962026        0xEADEA         Unix path: /usr/lib/opkg/lists
+968553        0xEC769         Unix path: /usr/lib/opkg
+974154        0xEDD4A         ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+986454        0xF0D56         ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+998434        0xF3C22         Unix path: /etc/ssl/certs/*.crt
+1003707       0xF50BB         Executable script, shebang: "/bin/sh"
+1003721       0xF50C9         Copyright string: "Copyright (C) 2013-2015 OpenWrt.org"
+1003762       0xF50F2         Unix path: /lib/functions/uci-defaults.sh
+1003888       0xF5170         Unix path: /sys/class/net/eth1 ] && ucidef_set_interface_wan 'eth1'
+1009620       0xF67D4         Unix path: /lib/uci/upload/"
+1012077       0xF716D         Unix path: /usr/bin/php-cgi"
+1012120       0xF7198         Unix path: /usr/bin/perl"
+1012268       0xF722C         Unix path: /usr/lib/lua/luci/sgi/uhttpd.lua
+1012398       0xF72AE         Unix path: /var/run/ubus.sock
+1014519       0xF7AF7         Executable script, shebang: "/bin/sh"
+1014531       0xF7B03         Copyright string: "Copyright (C) 2006-2009 OpenWrt.org"
+1016899       0xF8443         Unix path: /etc/rc.button/failsafe" ]
+1016932       0xF8464         Executable script, shebang: "/bin/sh"
+1017237       0xF8595         Executable script, shebang: "/bin/sh"
+1017390       0xF862E         Unix path: /etc/init.d/firewall enabled || exit 0
+1017573       0xF86E5         Executable script, shebang: "/bin/sh"
+1017809       0xF87D1         Executable script, shebang: "/bin/sh"
+1017822       0xF87DE         Unix path: /lib/functions/procd.sh
+1017862       0xF8806         Unix path: /var/state/dnsmasqsec"
+1017999       0xF888F         Unix path: /etc/init.d/dnsmasq enabled && {
+1019390       0xF8DFE         Executable script, shebang: "/bin/sh /etc/rc.common"
+1019417       0xF8E19         Copyright string: "Copyright (C) 2006-2011 OpenWrt.org"
+1019498       0xF8E6A         Unix path: /lib/functions/system.sh
+1020041       0xF9089         Unix path: /var/log/wtmp
+1020062       0xF909E         Unix path: /var/log/lastlog
+1020234       0xF914A         Unix path: /sys/kernel/debug
+1020330       0xF91AA         Unix path: /etc/config/wireless ] && {
+1020512       0xF9260         Executable script, shebang: "/bin/sh /etc/rc.common"
+1020539       0xF927B         Copyright string: "Copyright (C) 2006-2011 OpenWrt.org"
+1020603       0xF92BB         Unix path: /usr/sbin/crond
+1021004       0xF944C         Unix path: /var/spool/cron
+1021041       0xF9471         Unix path: /var/spool/cron/ 2>/dev/null
+1021257       0xF9549         Executable script, shebang: "/bin/sh /etc/rc.common"
+1021284       0xF9564         Copyright string: "Copyright (C) 2007-2012 OpenWrt.org"
+1021348       0xF95A4         Unix path: /usr/sbin/dnsmasq
+1021424       0xF95F0         Unix path: /var/etc/dnsmasq.conf"
+1021534       0xF965E         Unix path: /usr/share/dnsmasq/trust-anchors.conf"
+1021588       0xF9694         Unix path: /var/state/dnsmasqsec"
+1021630       0xF96BE         Unix path: /var/run/dnsmasq"
+1032497       0xFC131         Unix path: /var/run/dnsmasq/
+1032589       0xFC18D         Unix path: /var/lib/misc
+1032626       0xFC1B2         Unix path: /var/run/dnsmasq
+1032737       0xFC221         Unix path: /etc/config/dhcp" > $CONFIGFILE_TMP
+1032814       0xFC26E         Unix path: /etc/config/dhcp" > $HOSTFILE
+1037376       0xFD440         Unix path: /etc/init.d/sysntpd ] && {
+1037406       0xFD45E         Unix path: /etc/init.d/sysntpd enabled
+1040538       0xFE09A         Unix path: /var/run/dnsmasq/dnsmasq."${cfg}".pid
+1041032       0xFE288         Unix path: /var/run/dnsmasq/ $leasefile
+1041511       0xFE467         Unix path: /etc/init.d/dnsmasq reload
+1041667       0xFE503         Unix path: /lib/functions/network.sh
+1042507       0xFE84B         Executable script, shebang: "/bin/sh /etc/rc.common"
+1042534       0xFE866         Copyright string: "Copyright (C) 2006 OpenWrt.org"
+1042762       0xFE94A         Executable script, shebang: "/bin/sh /etc/rc.common"
+1042789       0xFE965         Copyright string: "Copyright (C) 2006-2010 OpenWrt.org"
+1042827       0xFE98B         Copyright string: "Copyright (C) 2006 Carlos Sobrinho"
+1042898       0xFE9D2         Unix path: /usr/sbin/dropbear
+1045185       0xFF2C1         Unix path: /usr/bin/dropbearkey ] && {
+1045217       0xFF2E1         Unix path: /usr/bin/dropbearkey -t $keytype -f /tmp/$key 2>&- >&- && exec /etc/rc.common "$initscript" start
+1045642       0xFF48A         Unix path: /etc/dropbear/dropbear_rsa_host_key ] || keygen
+1045715       0xFF4D3         Unix path: /lib/functions/network.sh
+1045904       0xFF590         Unix path: /etc/init.d/dropbear reload
+1046102       0xFF656         Unix path: /etc/init.d/dropbear reload
+1047254       0xFFAD6         Executable script, shebang: "/bin/sh /etc/rc.common"
+1048251       0xFFEBB         Executable script, shebang: "/bin/sh /etc/rc.common"
+1048278       0xFFED6         Copyright string: "Copyright (C) 2015 OpenWrt.org"
+1048516       0xFFFC4         Unix path: /sys/class/gpio/gpio${gpio_pin}"
+1048625       0x100031        Unix path: /sys/class/gpio/export
+1048960       0x100180        Unix path: /sys/class/gpio/ ] && {
+1049056       0x1001E0        Executable script, shebang: "/bin/sh /etc/rc.common"
+1049083       0x1001FB        Copyright string: "Copyright (C) 2008 OpenWrt.org"
+1050234       0x10067A        Unix path: /sys/class/leds/${sysfs}/brightness ] && {
+1050388       0x100714        Unix path: /sys/class/leds/${sysfs}/trigger)" \
+1050435       0x100743        Unix path: /sys/class/leds/${sysfs}/brightness)" \
+1050482       0x100772        Unix path: /var/run/led.state
+1050537       0x1007A9        Unix path: /sys/class/leds/${sysfs}/brightness
+1050592       0x1007E0        Unix path: /sys/class/leds/${sysfs}/trigger 2> /dev/null
+1050679       0x100837        Unix path: /sys/class/leds/${sysfs}/max_brightness > /sys/class/leds/${sysfs}/brightness
+1050952       0x100948        Unix path: /sys/class/leds/${sysfs}/device_name
+1051006       0x10097E        Unix path: /sys/class/leds/${sysfs}/mode
+1051115       0x1009EB        Unix path: /sys/class/leds/${sysfs}/delay_on
+1051197       0x100A3D        Unix path: /sys/class/leds/${sysfs}/delay_off
+1051300       0x100AA4        Unix path: /sys/class/leds/${sysfs}/ports/$p
+1051417       0x100B19        Unix path: /sys/class/leds/${sysfs}/port_state
+1051486       0x100B5E        Unix path: /sys/class/leds/${sysfs}/gpio
+1051536       0x100B90        Unix path: /sys/class/leds/${sysfs}/inverted
+1051711       0x100C3F        Unix path: /sys/class/leds/${sysfs}/port_mask
+1051837       0x100CBD        Unix path: /sys/class/leds/${sysfs}/speed_mask
+1051908       0x100D04        Unix path: /sys/class/leds/ ] && {
+1051939       0x100D23        Unix path: /var/run/led.state ] && {
+1052048       0x100D90        Unix path: /sys/class/leds/$led/trigger" ] && \
+1052109       0x100DCD        Unix path: /sys/class/leds/$led/trigger"
+1052150       0x100DF6        Unix path: /sys/class/leds/$led/brightness" ] && \
+1052217       0x100E39        Unix path: /sys/class/leds/$led/brightness"
+1052260       0x100E64        Unix path: /var/run/led.state
+1052285       0x100E7D        Unix path: /var/run/led.state
+1052365       0x100ECD        Executable script, shebang: "/bin/sh /etc/rc.common"
+1052392       0x100EE8        Copyright string: "Copyright (C) 2013 OpenWrt.org"
+1053403       0x1012DB        Unix path: /var/run/logread.${PIDCOUNT}.pid"
+1053826       0x101482        Unix path: /var/run/logread.${PIDCOUNT}.pid"
+1054799       0x10184F        Executable script, shebang: "/bin/sh /etc/rc.common"
+1057496       0x1022D8        Executable script, shebang: "/bin/sh /etc/rc.common"
+1057616       0x102350        Unix path: /usr/sbin/odhcpd
+1057788       0x1023FC        Executable script, shebang: "/bin/sh /etc/rc.common"
+1058037       0x1024F5        Executable script, shebang: "/bin/sh /etc/rc.common"
+1058064       0x102510        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+1058529       0x1026E1        Executable script, shebang: "/bin/sh /etc/rc.common"
+1058556       0x1026FC        Copyright string: "Copyright (C) 2013-2014 OpenWrt.org"
+1059191       0x102977        Executable script, shebang: "/bin/sh /etc/rc.common"
+1059218       0x102992        Copyright string: "Copyright (C) 2011 OpenWrt.org"
+1059277       0x1029CD        Unix path: /usr/sbin/ntpd
+1059307       0x1029EB        Unix path: /usr/sbin/ntpd-hotplug
+1061320       0x1031C8        Executable script, shebang: "/bin/sh /etc/rc.common"
+1061347       0x1031E3        Copyright string: "Copyright (C) 2014 OpenWrt.org"
+1061992       0x103468        Unix path: /usr/share/zoneinfo/$zonename" ] && \
+1062040       0x103498        Unix path: /usr/share/zoneinfo/$zonename" /tmp/localtime && rm -f /tmp/TZ
+1062364       0x1035DC        Executable script, shebang: "/bin/sh /etc/rc.common"
+1062391       0x1035F7        Copyright string: "Copyright (C) 2010 Jo-Philipp Wich"
+1062462       0x10363E        Unix path: /usr/sbin/uhttpd"
+1062490       0x10365A        Unix path: /usr/sbin/px5g"
+1062519       0x103677        Unix path: /usr/bin/openssl"
+1064687       0x103EEF        Unix path: /var/etc/uhttpd
+1064716       0x103F0C        Unix path: /var/etc/uhttpd/httpd.${cfg}.conf"
+1064956       0x103FFC        Unix path: /var/etc/uhttpd/httpd.${cfg}.conf
+1065151       0x1040BF        Unix path: /usr/lib/uhttpd_lua.so ] && {
+1065342       0x10417E        Unix path: /usr/lib/uhttpd_ubus.so ] && {
+1067172       0x1048A4        Executable script, shebang: "/bin/sh /etc/rc.common"
+1067199       0x1048BF        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+1067278       0x10490E        Executable script, shebang: "/bin/sh /etc/rc.common"
+1067527       0x104A07        Unix path: /etc/init.d/rcS S boot
+1067561       0x104A29        Unix path: /etc/init.d/rcS K shutdown
+1067601       0x104A51        Unix path: /usr/libexec/login.sh
+1070473       0x105589        Unix path: /var/run/dnsmasq:/bin/false
+1070920       0x105748        Executable script, shebang: "/bin/sh"
+1070932       0x105754        Copyright string: "Copyright (C) 2006-2016 OpenWrt.org"
+1070970       0x10577A        Copyright string: "Copyright (C) 2010 Vertical Communications"
+1071119       0x10580F        Unix path: /lib/functions/preinit.sh
+1071147       0x10582B        Unix path: /lib/functions/system.sh
+1071529       0x1059A9        Executable script, shebang: "/bin/sh"
+1072094       0x105BDE        Unix path: /usr/bin/vim ] && alias vi=vim || alias vim=vi
+1072241       0x105C71        Unix path: /usr/bin/arp -o -x /sbin/arp ] || arp() { cat /proc/net/arp; }
+1072309       0x105CB5        Unix path: /usr/bin/ldd ] || ldd() { LD_TRACE_LOADED_OBJECTS=1 $*; }
+1075531       0x10694B        Executable script, shebang: "/bin/sh"
+1075618       0x1069A2        Executable script, shebang: "/bin/sh"
+1075699       0x1069F3        Executable script, shebang: "/bin/sh"
+1076118       0x106B96        Executable script, shebang: "/bin/sh"
+1076644       0x106DA4        Executable script, shebang: "/bin/sh"
+1076656       0x106DB0        Copyright string: "Copyright (C) 2006-2012 OpenWrt.org"
+1076743       0x106E07        Unix path: /lib/functions/service.sh
+1077049       0x106F39        Unix path: /etc/rc.d/S??$name
+1077091       0x106F63        Unix path: /etc/rc.d/K??$name
+1077338       0x10705A        Unix path: /etc/rc.d/S${START}${name##S[0-9][0-9]}"
+1077435       0x1070BB        Unix path: /etc/rc.d/K${STOP}${name##K[0-9][0-9]}"
+1077547       0x10712B        Unix path: /etc/rc.d/S${START}${name##S[0-9][0-9]}" ]
+1078188       0x1073AC        Unix path: /lib/functions/procd.sh
+1079244       0x1077CC        Executable script, shebang: "/bin/sh"
+1079264       0x1077E0        Unix path: /etc/config/sign`
+1079411       0x107873        Unix path: /usr/sbin/login" ]; then
+1083808       0x1089A0        Executable script, shebang: "/bin/sh"
+1083944       0x108A28        Executable script, shebang: "/bin/sh"
+1084350       0x108BBE        Executable script, shebang: "/bin/sh"
+1084800       0x108D80        Executable script, shebang: "/bin/sh"
+1085180       0x108EFC        Executable script, shebang: "/bin/sh"
+1085247       0x108F3F        Unix path: /usr/lib/opkg/info/*.control`; do
+1085369       0x108FB9        Executable script, shebang: "/bin/sh"
+1085519       0x10904F        Unix path: /etc/opkg/customfeeds.conf
+1085596       0x10909C        Unix path: /etc/opkg/customfeeds.conf
+1085668       0x1090E4        Executable script, shebang: "/bin/sh"
+1085820       0x10917C        Executable script, shebang: "/bin/sh"
+1086278       0x109346        Executable script, shebang: "/bin/sh"
+1086327       0x109377        Unix path: /etc/config/dhcp
+1086484       0x109414        Unix path: /usr/sbin/odhcpd-update
+1086574       0x10946E        Executable script, shebang: "/bin/sh"
+1086640       0x1094B0        Copyright string: "Copyright (C) 2008-2010  OpenWrt.org"
+1086679       0x1094D7        Copyright string: "Copyright (C) 2008  Felix Fietkau <nbd@nbd.name>"
+1105881       0x10DFD9        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+1563293       0x17DA9D        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+1596105       0x185AC9        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+1608965       0x188D05        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+1630421       0x18E0D5        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+1885821       0x1CC67D        Executable script, shebang: "/bin/sh"
+1885833       0x1CC689        Copyright string: "Copyright (C) 2013 OpenWrt.org"
+1885889       0x1CC6C1        Unix path: /sys/class/leds/$1/$2" ] && echo "$3" > "/sys/class/leds/$1/$2"
+1894014       0x1CE67E        Executable script, shebang: "/bin/sh"
+1894026       0x1CE68A        Copyright string: "Copyright (C) 2006-2013 OpenWrt.org"
+1894064       0x1CE6B0        Copyright string: "Copyright (C) 2010 Vertical Communications"
+1897115       0x1CF29B        Unix path: /usr/share/libubox/jshn.sh
+1907968       0x1D1D00        Copyright string: "Copyright (C) 2006-2013 OpenWrt.org"
+1908880       0x1D2090        Unix path: /lib/upgrade/nand.sh
+1910396       0x1D267C        Executable script, shebang: "/bin/ash"
+1910430       0x1D269E        Unix path: /usr/share/libubox/jshn.sh
+1922737       0x1D56B1        Executable script, shebang: "/bin/sh"
+1922749       0x1D56BD        Copyright string: "Copyright (C) 2006-2014 OpenWrt.org"
+1922787       0x1D56E3        Copyright string: "Copyright (C) 2006 Fokus Fraunhofer <carsten.tittel@fokus.fraunhofer.de>"
+1922862       0x1D572E        Copyright string: "Copyright (C) 2010 Vertical Communications"
+1926245       0x1D6465        Unix path: /usr/lib/opkg/info/${name}.prerm-pkg" ] && . "$root/usr/lib/opkg/info/${name}.prerm-pkg"
+1926385       0x1D64F1        Unix path: /usr/lib/opkg/info/${name}.list" | grep "^/etc/init.d/"`; do
+1926738       0x1D6652        Unix path: /usr/lib/opkg/info/${pkgname}.control 2>/dev/null)"
+1927612       0x1D69BC        Unix path: /usr/lib/opkg/info/${pkgname}.postinst-pkg" ]; then
+1927676       0x1D69FC        Unix path: /usr/lib/opkg/info/${pkgname}.postinst-pkg" )
+1927906       0x1D6AE2        Unix path: /usr/lib/opkg/info/${pkgname}.list"; then
+1927952       0x1D6B10        Unix path: /lib/functions/system.sh
+1928067       0x1D6B83        Unix path: /usr/lib/opkg/info/${pkgname}.list"); do (
+1928330       0x1D6C8A        Unix path: /usr/lib/opkg/info/${pkgname}.list"); do
+1929087       0x1D6F7F        Unix path: /var/lock/group
+1929202       0x1D6FF2        Unix path: /var/lock/group
+1929836       0x1D726C        Unix path: /var/lock/passwd
+1929948       0x1D72DC        Unix path: /var/lock/passwd
+1930414       0x1D74AE        Unix path: /var/lock/passwd
+1930626       0x1D7582        Unix path: /var/lock/passwd
+1930752       0x1D7600        Unix path: /lib/config/uci.sh ] && . /lib/config/uci.sh
+1930797       0x1D762D        Executable script, shebang: "/bin/sh"
+1930811       0x1D763B        Copyright string: "Copyright (C) 2012 OpenWrt.org"
+1931166       0x1D779E        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+1939361       0x1D97A1        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+1964533       0x1DF9F5        Unix path: /sys/devices/virtual/ubi
+1968173       0x1E082D        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+2015401       0x1EC0A9        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+2023605       0x1EE0B5        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+2027704       0x1EF0B8        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+2060352       0x1F7040        Base64 standard index table
+2064620       0x1F80EC        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+2081252       0x1FC1E4        Unix path: /var/run/ubus.sock
+2085204       0x1FD154        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+2553229       0x26F58D        Copyright string: "Copyright (c) 2002-2016, Jouni Malinen <j@w1.fi> and contributors"
+2559231       0x270CFF        Neighborly text, "neighbor_reportitiator"
+2570681       0x2739B9        Neighborly text, "neighbor report for %02x:%02x:%02x:%02x:%02x:%02xe request"
+2576480       0x275060        Neighborly text, "Neighbor report is not enabledRL: SET_NEIGHBOR: Bad or missing SSID"
+2576613       0x2750E5        Neighborly text, "Neighbor Report element element"
+2576661       0x275115        Neighborly text, "Neighbor Report elementCTRL: SET_NEIGHBOR: Bad civic subelement"
+2586797       0x2778AD        Unix path: /sys/class/net/%s/device/driver
+2593220       0x2791C4        Neighborly text, "neighboring BSSes ret=%d (%s) - try to scan again (attempt %d)Driver does not support configured HT capability [LDPC]"
+2594687       0x27977F        Neighborly text, "neighboring BSSes ret=%d (%s) - try to scan againuest a scan of neighboring BSSes ret=%d (%s)"
+2594765       0x2797CD        Neighborly text, "neighboring BSSes ret=%d (%s)ACS error - reported complete, but no result available"
+2596219       0x279D7B        Neighborly text, "Neighboring BSS: freq=%dwitching to 20 MHz operation"
+2598669       0x27A70D        AES Inverse S-Box
+2602937       0x27B7B9        Neighborly text, "neighbor report timeoutfor WPA-None"
+2605866       0x27C32A        Neighborly text, "neighbor reportsociated"
+2607183       0x27C84F        Copyright string: "copyright holder(s) nor the"
+2607687       0x27CA47        Copyright string: "copyright"
+2607822       0x27CACE        Copyright string: "copyright"
+2608317       0x27CCBD        Copyright string: "Copyright (c) 2003-2016, Jouni Malinen <j@w1.fi> and contributors"
+2629437       0x281F3D        Neighborly text, "Neighbor Report: bad SSIDRL: Invalid MAC address: %s"
+2630790       0x282486        Base64 standard index table
+2635688       0x2837A8        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2896952       0x2C3438        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2911816       0x2C6E48        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2913932       0x2C768C        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2927496       0x2CAB88        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2930068       0x2CB594        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2933060       0x2CC144        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2936336       0x2CCE10        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2950148       0x2D0404        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2952560       0x2D0D70        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2955096       0x2D1758        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2958148       0x2D2344        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2961136       0x2D2EF0        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+2964408       0x2D3BB8        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3033288       0x2E48C8        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3043972       0x2E7284        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3054984       0x2E9D88        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3059892       0x2EB0B4        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3062456       0x2EBAB8        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3071312       0x2EDD50        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3075648       0x2EEE40        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3081584       0x2F0570        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3087624       0x2F1D08        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3103308       0x2F5A4C        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3109904       0x2F7410        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3113044       0x2F8054        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3115220       0x2F88D4        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3118724       0x2F9684        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3122780       0x2FA65C        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3132524       0x2FCC6C        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3196806       0x30C786        Unix path: /var/run/fw3.state
+3198214       0x30CD06        Neighborly text, "neighbor-solicitationement"
+3198260       0x30CD34        Neighborly text, "neighbor-advertisementd"
+3210632       0x30FD88        Executable script, shebang: "/bin/sh"
+3210644       0x30FD94        Copyright string: "Copyright (C) 2006-2016 OpenWrt.org"
+3210986       0x30FEEA        Executable script, shebang: "/bin/sh"
+3211259       0x30FFFB        Executable script, shebang: "/bin/sh"
+3212077       0x31032D        Unix path: /etc/config/wireless; then
+3212544       0x310500        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3222373       0x312B65        Unix path: /sys/fs/cgroup
+3223032       0x312DF8        Unix path: /sys/dev/block
+3224988       0x31359C        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3229084       0x31459C        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3241372       0x31759C        Executable script, shebang: "/bin/sh"
+3241582       0x31766E        Unix path: /sys/class/leds/${sysfs}" ] && {
+3241653       0x3176B5        Unix path: /sys/class/leds/${sysfs}/brightness \
+3241705       0x3176E9        Unix path: /sys/class/leds/${sysfs}/brightness
+3241868       0x31778C        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3250429       0x3198FD        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3262717       0x31C8FD        Executable script, shebang: "/bin/sh"
+3262861       0x31C98D        Unix path: /var/run/luci-reload-status"
+3263472       0x31CBF0        Unix path: /var/run/luci-reload"
+3263581       0x31CC5D        Unix path: /var/run/luci-reload-status"
+3263619       0x31CC83        Unix path: /var/run/luci-reload"
+3263641       0x31CC99        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3267737       0x31DC99        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3289533       0x3231BD        JFFS2 filesystem, big endian
+3289729       0x323281        CRC32 polynomial table, big endian
+3292393       0x323CE9        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3400599       0x33E397        Unix path: /sys/devices/virtual/net/*/brif/%s/bridge
+3401932       0x33E8CC        Unix path: /sys/class/net/%s/iflink
+3402211       0x33E9E3        Unix path: /etc/iproute2/rt_tables
+3408557       0x3402AD        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3459029       0x34C7D5        Executable script, shebang: "/bin/sh"
+3459046       0x34C7E6        Unix path: /var/run/config.check
+3459077       0x34C805        Unix path: /var/run/config.check
+3459177       0x34C869        Unix path: /var/run/config.check/$file
+3459218       0x34C892        Unix path: /var/run/config.md5
+3459454       0x34C97E        Unix path: /var/run/config.check/* > $MD5FILE
+3459496       0x34C9A8        Unix path: /var/run/config.check
+3459518       0x34C9BE        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3491589       0x354705        Unix path: /var/run/rpcd
+3492271       0x3549AF        Unix path: /usr/share/rpcd/acl.d/*.json
+3492365       0x354A0D        Unix path: /var/run/rpcd/sessions
+3496578       0x355A82        Executable script, shebang: "/bin/sh"
+3496610       0x355AA2        Unix path: /lib/functions/system.sh
+3499655       0x356687        Unix path: /lib/upgrade/keep.d/* 2>/dev/null) \
+3502880       0x357320        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3519896       0x35B598        Unix path: /var/run/ubus.sock
+3520692       0x35B8B4        Unix path: /usr/share/acl.d
+3523500       0x35C3AC        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3535796       0x35F3B4        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3539664       0x3602D0        Unix path: /sys/class/block
+3543988       0x3613B4        Executable script, shebang: "/bin/sh"
+3544386       0x361542        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3552578       0x363542        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3581474       0x36A622        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3594762       0x36DA0A        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3598022       0x36E6C6        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3603778       0x36FD42        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3620122       0x373D1A        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3625294       0x37514E        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3627750       0x375AE6        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3630126       0x37642E        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3634758       0x377646        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3636590       0x377D6E        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3640682       0x378D6A        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3643470       0x37984E        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3645430       0x379FF6        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3647626       0x37A88A        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3650290       0x37B2F2        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3653350       0x37BEE6        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3655730       0x37C832        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3659086       0x37D54E        ELF, 32-bit MSB relocatable, ARM, version 1 (SYSV)
+3662734       0x37E38E        Executable script, shebang: "/bin/sh"
+3662830       0x37E3EE        Unix path: /lib/netifd/netifd-proto.sh
+3665367       0x37EDD7        Executable script, shebang: "/bin/sh"
+3665464       0x37EE38        Unix path: /lib/netifd/netifd-proto.sh
+3668450       0x37F9E2        Unix path: /lib/netifd/proto/map.sh ]; then
+3668544       0x37FA40        Unix path: /lib/netifd/proto/map.sh -a -f /proc/net/nat46/control ]; then
+3668669       0x37FABD        Unix path: /lib/netifd/proto/map.sh ]; then
+3669564       0x37FE3C        Unix path: /lib/netifd/proto/dslite.sh ]; then
+3670175       0x38009F        Unix path: /lib/netifd/proto/464xlat.sh ]; then
+3671883       0x38074B        Unix path: /lib/functions/network.sh
+3677274       0x381C5A        Unix path: /var/run/hostapd"
+3684288       0x3837C0        Unix path: /var/run/hostapd-$ifname.maclist"
+3686422       0x384016        Unix path: /var/run/wpa_supplicant"
+3691831       0x385537        Unix path: /usr/sbin/wpa_supplicant -B \
+3691909       0x385585        Unix path: /var/run/wpa_supplicant-${ifname}.pid" \
+3692076       0x38562C        Unix path: /var/run/wpa_supplicant-${ifname}.pid")" /usr/sbin/wpa_supplicant 1
+3692410       0x38577A        Unix path: /usr/share/libubox/jshn.sh
+3700810       0x38784A        Unix path: /usr/share/libubox/jshn.sh
+3706851       0x388FE3        Executable script, shebang: "/bin/sh"
+3706881       0x389001        Unix path: /lib/netifd/netifd-proto.sh
+3706978       0x389062        Unix path: /etc/ppp/ip-down.d ] && {
+3707019       0x38908B        Unix path: /etc/ppp/ip-down.d/*
+3707089       0x3890D1        Executable script, shebang: "/bin/sh"
+3707119       0x3890EF        Unix path: /lib/netifd/netifd-proto.sh
+3707533       0x38928D        Unix path: /etc/ppp/ip-up.d ] && {
+3707572       0x3892B4        Unix path: /etc/ppp/ip-up.d/*
+3707640       0x3892F8        Executable script, shebang: "/bin/sh"
+3707670       0x389316        Unix path: /lib/netifd/netifd-proto.sh
+3707875       0x3893E3        Unix path: /etc/ppp/ip-up.d ] && {
+3707914       0x38940A        Unix path: /etc/ppp/ip-up.d/*
+3708261       0x389565        Executable script, shebang: "/bin/sh"
+3709694       0x389AFE        Unix path: /lib/netifd/proto/6rd.sh ] && append dhcpopts "-O 212"
+3710224       0x389D10        Unix path: /var/run/udhcpc-$iface.pid \
+3710258       0x389D32        Unix path: /lib/netifd/dhcp.script \
+3710741       0x389F15        Executable script, shebang: "/bin/sh"
+3714047       0x38ABFF        Unix path: /lib/netifd/dhcpv6.script \
+3714390       0x38AD56        Executable script, shebang: "/bin/sh"
+3714406       0x38AD66        Unix path: /usr/sbin/pppd ] || exit 0
+3714486       0x38ADB6        Unix path: /lib/functions/network.sh
+3716672       0x38B640        Unix path: /etc/ppp/filter demand idle $demand"
+3717701       0x38BA45        Unix path: /usr/sbin/pppd \
+3718200       0x38BC38        Unix path: /lib/netifd/ppp-up \
+3718238       0x38BC5E        Unix path: /lib/netifd/ppp6-up \
+3718277       0x38BC85        Unix path: /lib/netifd/ppp-down \
+3718319       0x38BCAF        Unix path: /lib/netifd/ppp-down \
+3721414       0x38C8C6        Unix path: /etc/ppp/options.pptp
+3721545       0x38C949        Unix path: /usr/lib/pppd/*/rp-pppoe.so ] && add_protocol pppoe
+3721603       0x38C983        Unix path: /usr/lib/pppd/*/pppoatm.so ] && add_protocol pppoa
+3721660       0x38C9BC        Unix path: /usr/lib/pppd/*/pptp.so ] && add_protocol pptp
+3722471       0x38CCE7        Executable script, shebang: "/bin/sh"
+3722483       0x38CCF3        Unix path: /lib/netifd/netifd-wireless.sh
+3722516       0x38CD14        Unix path: /lib/netifd/hostapd.sh
+3731738       0x38F11A        Unix path: /var/run/hostapd-$phy.conf <<EOF
+3731992       0x38F218        Unix path: /sys/class/ieee80211/${phy}/addresses | tail -n1
+3732130       0x38F2A2        Unix path: /sys/class/ieee80211/${phy}/macaddress)"
+3732190       0x38F2DE        Unix path: /sys/class/ieee80211/${phy}/address_mask)"
+3732318       0x38F35E        Unix path: /sys/class/ieee80211/${phy}/addresses)" -gt 1 ] && {
+3733110       0x38F676        Unix path: /sys/class/ieee80211/$phy ] && return 0
+3733189       0x38F6C5        Unix path: /sys/class/ieee80211 2>/dev/null); do
+3733250       0x38F702        Unix path: /sys/class/ieee80211/$phy/device)" in
+3733371       0x38F77B        Unix path: /sys/class/ieee80211 2>/dev/null); do
+3733435       0x38F7BB        Unix path: /sys/class/ieee80211/${phy}/macaddress" && return 0
+3734533       0x38FC05        Unix path: /var/run/hostapd/$ifname}"
+3737665       0x390841        Unix path: /lib/wifi/authsae.sh" ]; then
+3737702       0x390866        Unix path: /lib/wifi/authsae.sh
+3740373       0x3912D5        Unix path: /var/run/hostapd-$phy.conf"
+3740469       0x391335        Unix path: /sys/kernel/debug/ieee80211/$phy/ath9k/chanbw /sys/kernel/debug/ieee80211/$phy/ath5k/bwmode; do
+3741288       0x391668        Unix path: /usr/sbin/hostapd -s -P /var/run/wifi-$phy.pid -B "$hostapd_conf_file"
+3741400       0x3916D8        Unix path: /var/run/wifi-$phy.pid)" "/usr/sbin/hostapd" 1
+3741672       0x3917E8        Unix path: /sys/class/ieee80211/${phy}/device/net" ]; then
+3741726       0x39181E        Unix path: /sys/class/ieee80211/${phy}/device/net" 2>/dev/null;
+3741791       0x39185F        Unix path: /sys/class/ieee80211/${phy}/device" 2>/dev/null | grep net: | sed -e 's,net:,,g'
+3742045       0x39195D        Executable script, shebang: "/bin/sh"
+3742057       0x391969        Copyright string: "Copyright (C) 2011 OpenWrt.org"
+3742091       0x39198B        Unix path: /usr/share/libubox/jshn.sh
+3743990       0x3920F6        Executable script, shebang: "/bin/sh"
+3744101       0x392165        Executable script, shebang: "/bin/sh"
+3745070       0x39252E        Executable script, shebang: "/bin/sh"
+3745082       0x39253A        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3745115       0x39255B        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3745469       0x3926BD        Executable script, shebang: "/bin/sh"
+3745481       0x3926C9        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3745514       0x3926EA        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3746636       0x392B4C        Unix path: /usr/share/libubox/jshn.sh
+3748674       0x393342        Executable script, shebang: "/bin/sh"
+3748686       0x39334E        Copyright string: "Copyright (C) 2006-2010 OpenWrt.org"
+3748724       0x393374        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3751219       0x393D33        Executable script, shebang: "/bin/sh"
+3751231       0x393D3F        Copyright string: "Copyright (C) 2006-2010 OpenWrt.org"
+3751269       0x393D65        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3751526       0x393E66        Executable script, shebang: "/bin/sh"
+3751538       0x393E72        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3751571       0x393E93        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3751780       0x393F64        Executable script, shebang: "/bin/sh"
+3751792       0x393F70        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3751825       0x393F91        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3752023       0x394057        Executable script, shebang: "/bin/sh"
+3752035       0x394063        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3752068       0x394084        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3752339       0x394193        Executable script, shebang: "/bin/sh"
+3753042       0x394452        Executable script, shebang: "/bin/sh"
+3753054       0x39445E        Copyright string: "Copyright (C) 2006-2015 OpenWrt.org"
+3753092       0x394484        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3753521       0x394631        Executable script, shebang: "/bin/sh"
+3753533       0x39463D        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3753566       0x39465E        Copyright string: "Copyright (C) 2010 Vertical Communications"
+3753683       0x3946D3        Executable script, shebang: "/bin/sh"
+3753719       0x3946F7        Unix path: /usr/bin/ldd ] || ldd() { LD_TRACE_LOADED_OBJECTS=1 $*; }
+3755094       0x394C56        Unix path: /usr/bin/bzcat /usr/bin/printf /usr/bin/wc \
+3755210       0x394CCA        Unix path: /usr/bin/basename /bin/kill /bin/chmod /usr/bin/find \
+3755448       0x394DB8        Unix path: /usr/sbin/ubiupdatevol
+3755484       0x394DDC        Unix path: /usr/sbin/ubiattach
+3755517       0x394DFD        Unix path: /usr/sbin/ubiblock
+3755549       0x394E1D        Unix path: /usr/sbin/ubiformat
+3755582       0x394E3E        Unix path: /usr/sbin/ubidetach
+3755615       0x394E5F        Unix path: /usr/sbin/ubirsvol
+3755647       0x394E7F        Unix path: /usr/sbin/ubirmvol
+3755679       0x394E9F        Unix path: /usr/sbin/ubimkvol
+3755711       0x394EBF        Unix path: /usr/sbin/partx
+3755740       0x394EDC        Unix path: /usr/sbin/losetup
+3755771       0x394EFB        Unix path: /usr/sbin/mkfs.ext4
+3759395       0x395D23        Unix path: /sys/class/block/${disk##*/}/uevent"
+3759490       0x395D82        Unix path: /sys/class/block/${disk##*/}/uevent"
+3759790       0x395EAE        Unix path: /sys/class/block/*/uevent; do
+3761834       0x3966AA        Unix path: /usr/share/libubox/jshn.sh
+3762639       0x3969CF        Unix path: /etc/config/network
+3762659       0x3969E3        Unix path: /etc/config/system
+3762912       0x396AE0        Unix path: /etc/opkg/keys/
+3762928       0x396AF0        Unix path: /etc/ppp/ip-down
+3762945       0x396B01        Unix path: /etc/ppp/ip-up
+3762960       0x396B10        Unix path: /etc/ppp/ipv6-down
+3762979       0x396B23        Unix path: /etc/ppp/ipv6-up
+3767443       0x397C93        Executable script, shebang: "/bin/sh"
+3767522       0x397CE2        Unix path: /sys/class/ieee80211/$phy ] && return
+3767656       0x397D68        Unix path: /sys/class/ieee80211 2>/dev/null); do
+3767717       0x397DA5        Unix path: /sys/class/ieee80211/$phy/device)" in
+3767902       0x397E5E        Unix path: /sys/class/ieee80211/*; do
+3768182       0x397F76        Unix path: /sys/class/ieee80211/$phy" ] || {
+3768406       0x398056        Unix path: /sys/class/ieee80211/${phy}/macaddress)"
+3768822       0x3981F6        Unix path: /sys/class/ieee80211/*; do
+3769498       0x39849A        Unix path: /usr/bin/readlink -a -h /sys/class/ieee80211/${dev} ]; then
+3769581       0x3984ED        Unix path: /sys/class/ieee80211/${dev}/device)"
+3769888       0x398620        Unix path: /sys/class/ieee80211/${dev}/macaddress)"
+3770712       0x398958        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3774808       0x399958        Executable script, shebang: "/bin/sh"
+3774820       0x399964        Unix path: /usr/share/libubox/jshn.sh
+3775008       0x399A20        Executable script, shebang: "/bin/sh"
+3775039       0x399A3F        Executable script, shebang: "/bin/sh"
+3775051       0x399A4B        Copyright string: "Copyright (C) 2006 OpenWrt.org"
+3775105       0x399A81        Unix path: /usr/share/libubox/jshn.sh
+3777311       0x39A31F        Unix path: /lib/netifd/wireless/$iftype.sh ]; then
+3777787       0x39A4FB        Unix path: /etc/config/wireless ] && touch /etc/config/wireless
+3778587       0x39A81B        Unix path: /var/run/wifi-${cfg}.pid" ] &&
+3778633       0x39A849        Unix path: /var/run/wifi-${cfg}.pid")" 2>/dev/null
+3779694       0x39AC6E        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3787894       0x39CC76        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3791990       0x39DC76        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3803820       0x3A0AAC        Unix path: /sys/class/net/*
+3808342       0x3A1C56        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3816542       0x3A3C5E        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3833018       0x3A7CBA        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3840279       0x3A9917        Copyright string: "Copyright (C) 1994-2012 Lua.org, PUC-Rio (double int32)"
+3845314       0x3AACC2        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3855385       0x3AD419        Unix path: /var/lib/luci-bwc/radio/%s
+3855553       0x3AD4C1        Unix path: /usr/lib/libiwinfo.so
+3857614       0x3ADCCE        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+3878094       0x3B2CCE        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+3898842       0x3B7DDA        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+3919590       0x3BCEE6        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+3975450       0x3CA91A        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+3996606       0x3CFBBE        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4011625       0x3D3669        Neighborly text, "neighbor-solicitationement"
+4011671       0x3D3697        Neighborly text, "neighbor-advertisement"
+4017762       0x3D4E62        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4033528       0x3D8BF8        Base64 standard index table
+4038245       0x3D9E65        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4070350       0x3E1BCE        Unix path: /usr/lib/iptables
+4075117       0x3E2E6D        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4095603       0x3E7E73        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4095655       0x3E7EA7        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+4095948       0x3E7FCC        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4104357       0x3EA0A5        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4146947       0x3F4703        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4146999       0x3F4737        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+4148598       0x3F4D76        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4149075       0x3F4F53        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4149127       0x3F4F87        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+4149394       0x3F5092        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4150487       0x3F54D7        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4150539       0x3F550B        Copyright string: "Copyright 2011-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4153672       0x3F6148        Unix path: /etc/config/dhcp") then
+4161233       0x3F7ED1        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4161688       0x3F8098        Unix path: /var/run/luci-reload-status")
+4162400       0x3F8360        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4162452       0x3F8394        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4163891       0x3F8933        Unix path: /etc/config/wireless") then
+4164827       0x3F8CDB        Unix path: /usr/sbin/ip6tables -Z")
+4164878       0x3F8D0E        Unix path: /usr/sbin/iptables -Z")
+4164970       0x3F8D6A        Unix path: /etc/init.d/firewall restart")
+4166818       0x3F94A2        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4166870       0x3F94D6        Copyright string: "Copyright 2008-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4167889       0x3F98D1        Unix path: /etc/config/fstab") then
+4168217       0x3F9A19        Unix path: /sys/class/leds") then
+4169401       0x3F9EB9        Unix path: /etc/init.d/sysfixtime restart")
+4172521       0x3FAAE9        Unix path: /lib/upgrade/platform.sh")
+4178350       0x3FC1AE        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4178402       0x3FC1E2        Copyright string: "Copyright 2010-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4181775       0x3FCF0F        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4181827       0x3FCF43        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4185871       0x3FDF0F        Unix path: /etc/config/luci seems to be corrupt, unable to find section 'main'")
+4202357       0x401F75        Copyright string: "Copyright 2008 Freifunk Leipzig / Jo-Philipp Wich <jow@openwrt.org>"
+4205381       0x402B45        Copyright string: "Copyright 2008 Freifunk Leipzig / Jo-Philipp Wich <jow@openwrt.org>"
+4207078       0x4031E6        Copyright string: "Copyright 2008 Freifunk Leipzig / Jo-Philipp Wich <jow@openwrt.org>"
+4209239       0x403A57        Copyright string: "Copyright 2008 Freifunk Leipzig / Jo-Philipp Wich <jow@openwrt.org>"
+4225435       0x40799B        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4231124       0x408FD4        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4232465       0x409511        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4250314       0x40DACA        Neighborly text, "neighbors"
+4252948       0x40E514        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4265749       0x411715        Copyright string: "copyright notice and this permission notice shall be included in"
+4274193       0x413811        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4310969       0x41C7B9        Unix path: /usr/share/libiwinfo/hardware.txt
+4319744       0x41EA00        Unix path: /var/run/wpa_supplicant-%s/%s
+4320209       0x41EBD1        Unix path: /sys/class/net/%s/phy80211/index
+4320481       0x41ECE1        Unix path: /var/run/wifi-%s.pid
+4324493       0x41FC8D        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4361377       0x428CA1        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4480529       0x445E11        Copyright string: "Copyright (C) 1994-2012 Lua.org, PUC-Rio (double int32) $"
+4486828       0x4476AC        Unix path: /usr/share/lua/?.lua;/usr/share/lua/?/init.lua;/usr/lib/lua/?.lua;/usr/lib/lua/?/init.lua
+4492451       0x448CA3        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4515170       0x44E562        Unix path: /sys/class/ieee80211/%s/index
+4517370       0x44EDFA        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4520395       0x44F9CB        Unix path: /usr/sbin/dnsmasq", "libhogweed.so")
+4527381       0x451515        Neighborly text, "neighbors({ family = 4 }, function(n)"
+4527850       0x4516EA        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4527902       0x45171E        Copyright string: "Copyright 2010-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4528415       0x45191F        Neighborly text, "neighbors({ }, function(n)is6linklocal() then"
+4528588       0x4519CC        Copyright string: "Copyright 2009-2010 Jo-Philipp Wich <jow@openwrt.org>"
+4531709       0x4525FD        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4531761       0x452631        Copyright string: "Copyright 2008-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4532108       0x45278C        Unix path: /etc/config/dhcp")
+4532159       0x4527BF        Unix path: /etc/config/firewall")
+4547189       0x456275        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4547241       0x4562A9        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+4547525       0x4563C5        Unix path: /etc/init.d/dsl_control") then
+4549321       0x456AC9        Unix path: /usr/sbin/br2684ctl") then
+4551410       0x4572F2        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4551462       0x457326        Copyright string: "Copyright 2013 Steven Barth <steven@midlink.org>"
+4552473       0x457719        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4555612       0x45835C        Copyright string: "Copyright 2011-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4557651       0x458B53        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4558724       0x458F84        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4560730       0x45975A        Copyright string: "Copyright 2015 Paul Oranje <por@xs4all.nl>"
+4560879       0x4597EF        Unix path: /lib/netifd/proto/aiccu.sh
+4565140       0x45A894        Copyright string: "Copyright 2011-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4567013       0x45AFE5        Copyright string: "Copyright 2013 Steven Barth <steven@midlink.org>"
+4568582       0x45B606        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4568634       0x45B63A        Copyright string: "Copyright 2013 Steven Barth <steven@midlink.org>"
+4570057       0x45BBC9        Copyright string: "Copyright 2013 Steven Barth <steven@midlink.org>"
+4571473       0x45C151        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4573256       0x45C848        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4573308       0x45C87C        Copyright string: "Copyright 2013 Steven Barth <steven@midlink.org>"
+4575871       0x45D27F        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4576010       0x45D30A        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4579702       0x45E176        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4583697       0x45F111        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4587426       0x45FFA2        Copyright string: "Copyright (C) 2015 Yousong Zhou <yszhou4tech@gmail.com>"
+4591301       0x460EC5        Copyright string: "Copyright 2011-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4594516       0x461B54        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4596976       0x4624F0        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4600196       0x463184        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4600248       0x4631B8        Copyright string: "Copyright 2010-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4609203       0x4654B3        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4623140       0x468B24        Unix path: /usr/sbin/iw") then
+4633111       0x46B217        Unix path: /usr/sbin/wpa_supplicant")
+4633166       0x46B24E        Unix path: /usr/sbin/hostapd")
+4653385       0x470149        Unix path: /usr/sbin/wpa_supplicant")
+4653440       0x470180        Unix path: /usr/sbin/hostapd_cli")
+4653811       0x4702F3        Copyright string: "Copyright 2009 Jo-Philipp Wich <jow@openwrt.org>"
+4654209       0x470481        Unix path: /etc/config/firewall")
+4658720       0x471620        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4658772       0x471654        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+4659956       0x471AF4        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4660008       0x471B28        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4661073       0x471F51        Unix path: /etc/config/dropbear") then
+4662914       0x472682        Unix path: /etc/dropbear/authorized_keys") or ""
+4663030       0x4726F6        Unix path: /etc/dropbear/authorized_keys", value:gsub("\r\n", "\n"))
+4663119       0x47274F        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4663171       0x472783        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4665039       0x472ECF        Unix path: /lib/upgrade/keep.d/* 2>/dev/null) -type f 2>/dev/null; " ..
+4665570       0x4730E2        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4666333       0x4733DD        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4666385       0x473411        Copyright string: "Copyright 2008-2013 Jo-Philipp Wich <jow@openwrt.org>"
+4666544       0x4734B0        Unix path: /etc/crontabs/root"
+4666991       0x47366F        Unix path: /usr/bin/crontab %q" % cronfile)
+4667102       0x4736DE        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4667306       0x4737AA        Unix path: /usr/sbin/e2fsck")
+4667628       0x4738EC        Unix path: /sys/class/block/%s/size" % dev)))
+4671076       0x474664        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4671534       0x47482E        Unix path: /sys/class/block/%s/size" % dev:sub(6))))
+4672789       0x474D15        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4673360       0x474F50        Unix path: /sys/class/block/%s/size" % dev)))
+4673970       0x4751B2        Unix path: /etc/config/fstab")
+4681111       0x476D97        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4681163       0x476DCB        Copyright string: "Copyright 2008-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4681327       0x476E6F        Unix path: /etc/opkg/distfeeds.conf"
+4681374       0x476E9E        Unix path: /etc/opkg/customfeeds.conf"
+4682778       0x47741A        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4683114       0x47756A        Unix path: /sys/class/leds/"
+4683510       0x4776F6        Unix path: /etc/init.d/led enable")
+4686219       0x47818B        Unix path: /sys/bus/usb/devices/[0-9]*/manufacturer") do
+4686327       0x4781F7        Unix path: /sys/bus/usb/devices/" .. id .. "/manufacturer") or "?"
+4686414       0x47824E        Unix path: /sys/bus/usb/devices/" .. id .. "/product")   or "?"
+4686549       0x4782D5        Unix path: /sys/bus/usb/devices/*/usb[0-9]*-port[0-9]*") do
+4686828       0x4783EC        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4686880       0x478420        Copyright string: "Copyright 2010-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4686937       0x478459        Copyright string: "Copyright 2010 Manuel Munz <freifunk at somakoma dot de>"
+4689395       0x478DF3        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4689447       0x478E27        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4689740       0x478F4C        Unix path: /usr/sbin/ntpd")
+4694599       0x47A247        Unix path: /etc/init.d/sysntpd start >/dev/null")
+4694667       0x47A28B        Unix path: /etc/init.d/sysntpd stop >/dev/null")
+4695069       0x47A41D        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4695833       0x47A719        Unix path: /etc/init.d/firewall restart >/dev/null 2<&1")
+4696031       0x47A7DF        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4699753       0x47B669        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4699805       0x47B69D        Copyright string: "Copyright 2010-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4703494       0x47C506        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4703546       0x47C53A        Copyright string: "Copyright 2010-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4712287       0x47E75F        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4712339       0x47E793        Copyright string: "Copyright 2010-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4719262       0x48029E        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4719314       0x4802D2        Copyright string: "Copyright 2010-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4725342       0x481A5E        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4727366       0x482246        Copyright string: "Copyright 2009 Jo-Philipp Wich <jow@openwrt.org>"
+4738024       0x484BE8        Copyright string: "Copyright 2008-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4738081       0x484C21        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4743234       0x486042        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4743286       0x486076        Copyright string: "Copyright 2013 Steven Barth <steven@midlink.org>"
+4744120       0x4863B8        Unix path: /lib/netifd/proto/" .. p .. ".sh")
+4744649       0x4865C9        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4745352       0x486888        Unix path: /lib/netifd/proto/" .. p .. ".sh")
+4745715       0x4869F3        Copyright string: "Copyright 2015 Paul Oranje <por@xs4all.nl>"
+4746208       0x486BE0        Unix path: /lib/netifd/proto/aiccu.sh")
+4746696       0x486DC8        Copyright string: "Copyright 2013 Jo-Philipp Wich <jow@openwrt.org>"
+4747003       0x486EFB        Unix path: /lib/netifd/proto/dhcpv6.sh")
+4747097       0x486F59        Copyright string: "Copyright 2014 Steven Barth <steven@midlink.org>"
+4747413       0x487095        Unix path: /lib/netifd/proto/hnet.sh")
+4747507       0x4870F3        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4748814       0x48760E        Unix path: /usr/lib/pppd/*/pppoatm.so")() ~= nil)
+4748906       0x48766A        Unix path: /usr/lib/pppd/*/rp-pppoe.so")() ~= nil)
+4748998       0x4876C6        Unix path: /usr/lib/pppd/*/pptp.so")() ~= nil)
+4749085       0x48771D        Unix path: /lib/netifd/proto/3g.sh")
+4749164       0x48776C        Unix path: /lib/netifd/proto/l2tp.sh")
+4749248       0x4877C0        Unix path: /lib/netifd/proto/pppossh.sh")
+4749313       0x487801        Unix path: /lib/netifd/proto/ppp.sh")
+4749870       0x487A2E        Copyright string: "Copyright 2009-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4786419       0x4908F3        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4791501       0x491CCD        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4793189       0x492365        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4795145       0x492B09        Copyright string: "Copyright 2009 Steven Barth <steven@midlink.org>"
+4795197       0x492B3D        Copyright string: "Copyright 2009 Jo-Philipp Wich <jow@openwrt.org>"
+4826735       0x49A66F        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4827816       0x49AAA8        Unix path: /dev/scsi/host0/bus0/target0/lun0/part3
+4830341       0x49B485        Neighborly text, "neighbors(nil, function(neigh)== 4 then"
+4839607       0x49D8B7        eCos RTOS string reference: "ecos" }"
+4842095       0x49E26F        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+4858550       0x4A22B6        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4861369       0x4A2DB9        Copyright string: "Copyright 2011-2012 Jo-Philipp Wich <jow@openwrt.org>"
+4867181       0x4A446D        Copyright string: "Copyright 2012 Jo-Philipp Wich <jow@openwrt.org>"
+4867966       0x4A477E        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+4873418       0x4A5CCA        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4873470       0x4A5CFE        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4874834       0x4A6252        Neighborly text, "neighbors({ family = 4 })) do.dest:string())"
+4875744       0x4A65E0        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4890353       0x4A9EF1        Unix path: /usr/bin/ldd')
+4890429       0x4A9F3D        Unix path: /usr/bin/ldd " .. fullpathexe)
+4890712       0x4AA058        Copyright string: "Copyright 2005 - Kepler Project (www.keplerproject.org)"
+4891275       0x4AA28B        Copyright string: "copyright notice and this permission notice shall be"
+4893569       0x4AAB81        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4893781       0x4AAC55        Unix path: /usr/bin/ping6")
+4893833       0x4AAC89        Unix path: /usr/bin/traceroute6")
+4897476       0x4ABAC4        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4913365       0x4AF8D5        Copyright string: "Copyright 2009-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4918428       0x4B0C9C        Copyright string: "Copyright 2008-2009 Steven Barth <steven@midlink.org>"
+4918483       0x4B0CD3        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4936254       0x4B523E        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4944539       0x4B729B        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4955878       0x4B9EE6        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4955928       0x4B9F18        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+4956255       0x4BA05F        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+4956305       0x4BA091        Copyright string: "Copyright 2008-2011 Jo-Philipp Wich <jow@openwrt.org>"
+4956646       0x4BA1E6        Unix path: /etc/config/dhcp")
+4956694       0x4BA216        Unix path: /etc/config/wireless", "size") or 0) > 0)
+4957082       0x4BA39A        Unix path: /etc/init.d/dsl_control")
+4958603       0x4BA98B        Unix path: /etc/init.d/dsl_control lucistat")
+4981951       0x4C04BF        Copyright string: "Copyright 2008-2009 Steven Barth <steven@midlink.org>"
+4982006       0x4C04F6        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4982288       0x4C0610        Unix path: /usr/sbin/ip6tables")
+4986888       0x4C1808        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+4995474       0x4C3992        Copyright string: "Copyright 2008-2009 Steven Barth <steven@midlink.org>"
+4995529       0x4C39C9        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+4995878       0x4C3B26        Unix path: /etc/iproute2/rt_tables") then
+4995942       0x4C3B66        Unix path: /etc/iproute2/rt_tables") do
+4996755       0x4C3E93        Neighborly text, "neighbors({ family = 4 })) dor class="cbi-section-table-row cbi-rowstyle-<%=(style and 1 or 2)%>">"
+4999954       0x4C4B12        Neighborly text, "neighbors({ family = 6 })) do6linklocal() and v.mac then"
+5000484       0x4C4D24        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5000534       0x4C4D56        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5000863       0x4C4E9F        Copyright string: "Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>"
+5012919       0x4C7DB7        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5012969       0x4C7DE9        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5013077       0x4C7E55        HTML document header
+5014475       0x4C83CB        HTML document footer
+5014488       0x4C83D8        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5014538       0x4C840A        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5015719       0x4C88A7        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5015769       0x4C88D9        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+5019946       0x4C992A        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5019996       0x4C995C        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5020297       0x4C9A89        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5020347       0x4C9ABB        Copyright string: "Copyright 2008-2010 Jo-Philipp Wich <jow@openwrt.org>"
+5028540       0x4CBABC        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5028590       0x4CBAEE        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+5030131       0x4CC0F3        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5030181       0x4CC125        Copyright string: "Copyright 2008-2009 Jo-Philipp Wich <jow@openwrt.org>"
+5031852       0x4CC7AC        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5031902       0x4CC7DE        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5032408       0x4CC9D8        Copyright string: "Copyright 2010 Jo-Philipp Wich <jow@openwrt.org>"
+5034728       0x4CD2E8        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5034778       0x4CD31A        Copyright string: "Copyright 2008-2015 Jo-Philipp Wich <jow@openwrt.org>"
+5036497       0x4CD9D1        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5036547       0x4CDA03        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5042715       0x4CF21B        XML document, version: "1.0"
+5042864       0x4CF2B0        HTML document header
+5045396       0x4CFC94        HTML document footer
+5089191       0x4DA7A7        Copyright string: "Copyright 2015 Jo-Philipp Wich <jow@openwrt.org>"
+5089753       0x4DA9D9        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5089803       0x4DAA0B        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5090113       0x4DAB41        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5090163       0x4DAB73        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5101740       0x4DD8AC        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5101790       0x4DD8DE        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5101949       0x4DD97D        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5101999       0x4DD9AF        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5102278       0x4DDAC6        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5102328       0x4DDAF8        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5102488       0x4DDB98        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5102538       0x4DDBCA        Copyright string: "Copyright 2008-2012 Jo-Philipp Wich <jow@openwrt.org>"
+5104756       0x4DE474        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5104806       0x4DE4A6        Copyright string: "Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>"
+5104856       0x4DE4D8        Copyright string: "Copyright 2012 David Menting <david@nut-bolt.nl>"
+5105719       0x4DE837        HTML document footer
+5105733       0x4DE845        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+5105783       0x4DE877        Copyright string: "Copyright 2008-2016 Jo-Philipp Wich <jow@openwrt.org>"
+5105838       0x4DE8AE        Copyright string: "Copyright 2012 David Menting <david@nut-bolt.nl>"
+5109410       0x4DF6A2        HTML document header
+5111691       0x4DFF8B        Copyright string: "Copyright 2009 Steven Barth <steven@midlink.org>"
+5115414       0x4E0E16        Copyright string: "Copyright 2009 Steven Barth <steven@midlink.org>"
+5121198       0x4E24AE        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+5180314       0x4F0B9A        Base64 standard index table
+5180382       0x4F0BDE        CRC32 polynomial table, big endian
+5181916       0x4F11DC        eCos RTOS string reference: "ecos"
+5186736       0x4F24B0        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+5203123       0x4F64B3        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+5215579       0x4F955B        Unix path: /etc/sysctl.d/local.conf
+5215604       0x4F9574        Unix path: /etc/sysctl.d/local.conf
+5215629       0x4F958D        Unix path: /etc/iproute2/rt_tables
+5215653       0x4F95A5        Unix path: /etc/iproute2/rt_protos
+5216055       0x4F9737        Unix path: /etc/init.d/done
+5216098       0x4F9762        Unix path: /lib/preinit/00_preinit.conf
+5216127       0x4F977F        Unix path: /etc/init.d/system
+5216174       0x4F97AE        Unix path: /lib/upgrade/platform.sh
+5216211       0x4F97D3        Unix path: /lib/preinit/10_sysinfo
+5216235       0x4F97EB        Unix path: /lib/preinit/70_initramfs_test
+5216298       0x4F982A        Unix path: /etc/uci-defaults/12_network-generate-ula
+5216340       0x4F9854        Unix path: /lib/preinit/10_indicate_preinit
+5216373       0x4F9875        Unix path: /usr/libexec/login.sh
+5216406       0x4F9896        Unix path: /usr/lib/os-release
+5216460       0x4F98CC        Unix path: /lib/preinit/99_10_run_init
+5216501       0x4F98F5        Unix path: /etc/iproute2/rt_protos
+5216525       0x4F990D        Unix path: /lib/preinit/50_indicate_regular_preinit
+5216578       0x4F9942        Unix path: /etc/opkg/keys/792d9d9b39f180dc
+5216637       0x4F997D        Unix path: /etc/uci-defaults/10_migrate-shadow
+5216673       0x4F99A1        Unix path: /etc/board.d/99-default_network
+5216705       0x4F99C1        Unix path: /lib/preinit/10_indicate_failsafe
+5216761       0x4F99F9        Unix path: /etc/sysctl.d/local.conf
+5216786       0x4F9A12        Unix path: /lib/preinit/80_mount_root
+5216813       0x4F9A2D        Unix path: /lib/preinit/81_urandom_seed
+5216856       0x4F9A58        Unix path: /lib/functions/uci-defaults.sh
+5216887       0x4F9A77        Unix path: /etc/init.d/led
+5216903       0x4F9A87        Unix path: /lib/preinit/05_set_ether_mac_ixp4xx
+5216940       0x4F9AAC        Unix path: /etc/init.d/gpio_switch
+5216964       0x4F9AC4        Unix path: /lib/functions/network.sh
+5216990       0x4F9ADE        Unix path: /etc/init.d/sysctl
+5217028       0x4F9B04        Unix path: /etc/rc.button/failsafe
+5217052       0x4F9B1C        Unix path: /lib/upgrade/fwtool.sh
+5217089       0x4F9B41        Unix path: /lib/functions/system.sh
+5217147       0x4F9B7B        Unix path: /lib/upgrade/common.sh
+5217170       0x4F9B92        Unix path: /etc/init.d/urandom_seed
+5217195       0x4F9BAB        Unix path: /etc/rc.button/power
+5217237       0x4F9BD5        Unix path: /etc/rc.button/rfkill
+5217259       0x4F9BEB        Unix path: /lib/upgrade/keep.d/base-files
+5217290       0x4F9C0A        Unix path: /lib/preinit/40_run_failsafe_hook
+5217335       0x4F9C37        Unix path: /etc/rc.button/reset
+5217356       0x4F9C4C        Unix path: /lib/preinit/30_failsafe_wait
+5217386       0x4F9C6A        Unix path: /etc/uci-defaults/13_fix_group_user
+5217438       0x4F9C9E        Unix path: /etc/hotplug.d/net/00-sysctl
+5217496       0x4F9CD8        Unix path: /etc/iproute2/rt_tables
+5217520       0x4F9CF0        Unix path: /etc/uci-defaults/11_migrate-sysctl
+5217556       0x4F9D14        Unix path: /lib/functions/leds.sh
+5217647       0x4F9D6F        Unix path: /lib/preinit/99_10_failsafe_login
+5217681       0x4F9D91        Unix path: /etc/init.d/sysfixtime
+5217712       0x4F9DB0        Unix path: /etc/init.d/umount
+5217731       0x4F9DC3        Unix path: /lib/functions/service.sh
+5217757       0x4F9DDD        Unix path: /lib/upgrade/keep.d/base-files-essential
+5217810       0x4F9E12        Unix path: /lib/preinit/02_default_set_state
+5217854       0x4F9E3E        Unix path: /etc/init.d/boot
+5217890       0x4F9E62        Unix path: /lib/functions/preinit.sh
+5218323       0x4FA013        Unix path: /usr/bin/id
+5218371       0x4FA043        Unix path: /usr/bin/test
+5218461       0x4FA09D        Unix path: /usr/bin/md5sum
+5218477       0x4FA0AD        Unix path: /usr/bin/free
+5218491       0x4FA0BB        Unix path: /usr/sbin/ntpd
+5218506       0x4FA0CA        Unix path: /usr/bin/time
+5218520       0x4FA0D8        Unix path: /usr/bin/passwd
+5218536       0x4FA0E8        Unix path: /usr/bin/traceroute
+5218573       0x4FA10D        Unix path: /usr/bin/nc
+5218596       0x4FA124        Unix path: /etc/init.d/cron
+5218634       0x4FA14A        Unix path: /usr/bin/dirname
+5218678       0x4FA176        Unix path: /usr/bin/traceroute6
+5218710       0x4FA196        Unix path: /usr/bin/basename
+5218738       0x4FA1B2        Unix path: /usr/bin/less
+5218752       0x4FA1C0        Unix path: /usr/sbin/chroot
+5218769       0x4FA1D1        Unix path: /usr/sbin/crond
+5218785       0x4FA1E1        Unix path: /usr/bin/head
+5218847       0x4FA21F        Unix path: /usr/bin/clear
+5218862       0x4FA22E        Unix path: /usr/bin/seq
+5218918       0x4FA266        Unix path: /usr/bin/tr
+5218952       0x4FA288        Unix path: /usr/bin/uniq
+5218966       0x4FA296        Unix path: /usr/bin/tee
+5218979       0x4FA2A3        Unix path: /usr/bin/bzcat
+5218994       0x4FA2B2        Unix path: /usr/bin/hexdump
+5219011       0x4FA2C3        Unix path: /etc/init.d/sysntpd
+5219031       0x4FA2D7        Unix path: /usr/bin/sha256sum
+5219060       0x4FA2F4        Unix path: /usr/bin/wc
+5219083       0x4FA30B        Unix path: /usr/bin/nslookup
+5219101       0x4FA31D        Unix path: /usr/bin/pgrep
+5219140       0x4FA344        Unix path: /usr/bin/tail
+5219154       0x4FA352        Unix path: /usr/sbin/ntpd-hotplug
+5219177       0x4FA369        Unix path: /usr/bin/mkfifo
+5219276       0x4FA3CC        Unix path: /usr/bin/killall
+5219293       0x4FA3DD        Unix path: /usr/bin/sort
+5219333       0x4FA405        Unix path: /usr/bin/cmp
+5219346       0x4FA412        Unix path: /usr/bin/reset
+5219385       0x4FA439        Unix path: /usr/sbin/brctl
+5219443       0x4FA473        Unix path: /usr/bin/yes
+5219456       0x4FA480        Unix path: /usr/bin/top
+5219487       0x4FA49F        Unix path: /usr/bin/expr
+5219501       0x4FA4AD        Unix path: /usr/bin/env
+5219536       0x4FA4D0        Unix path: /usr/bin/logger
+5219563       0x4FA4EB        Unix path: /usr/bin/awk
+5219587       0x4FA503        Unix path: /usr/bin/which
+5219602       0x4FA512        Unix path: /usr/bin/find
+5219649       0x4FA541        Unix path: /usr/bin/cut
+5219662       0x4FA54E        Unix path: /usr/bin/du
+5219682       0x4FA562        Unix path: /usr/bin/crontab
+5219699       0x4FA573        Unix path: /usr/bin/printf
+5219725       0x4FA58D        Unix path: /usr/bin/bunzip2
+5219742       0x4FA59E        Unix path: /usr/bin/uptime
+5219791       0x4FA5CF        Unix path: /usr/bin/readlink
+5219809       0x4FA5E1        Unix path: /usr/bin/strings
+5219834       0x4FA5FA        Unix path: /usr/bin/xargs
+5219859       0x4FA613        Unix path: /etc/config/dhcp
+5220218       0x4FA77A        Unix path: /etc/config/dhcp
+5220235       0x4FA78B        Unix path: /etc/hotplug.d/ntp/25-dnsmasqsec
+5220268       0x4FA7AC        Unix path: /etc/init.d/dnsmasq
+5220288       0x4FA7C0        Unix path: /usr/sbin/dnsmasq
+5220306       0x4FA7D2        Unix path: /etc/dropbear/dropbear_rsa_host_key
+5220342       0x4FA7F6        Unix path: /etc/config/dropbear
+5220673       0x4FA941        Unix path: /usr/bin/dbclient
+5220691       0x4FA953        Unix path: /usr/bin/scp
+5220704       0x4FA960        Unix path: /etc/dropbear/dropbear_rsa_host_key
+5220740       0x4FA984        Unix path: /etc/init.d/dropbear
+5220761       0x4FA999        Unix path: /usr/bin/dropbearkey
+5220782       0x4FA9AE        Unix path: /etc/config/dropbear
+5220803       0x4FA9C3        Unix path: /usr/sbin/dropbear
+5220822       0x4FA9D6        Unix path: /usr/bin/ssh
+5221057       0x4FAAC1        Unix path: /usr/sbin/fconfig
+5221075       0x4FAAD3        Unix path: /etc/config/firewall
+5221535       0x4FAC9F        Unix path: /etc/init.d/firewall
+5221566       0x4FACBE        Unix path: /etc/config/firewall
+5221606       0x4FACE6        Unix path: /etc/hotplug.d/iface/20-firewall
+5222229       0x4FAF55        Unix path: /usr/bin/fwtool
+5222537       0x4FB089        Unix path: /lib/netifd/hostapd.sh
+5222801       0x4FB191        Unix path: /usr/sbin/ip6tables-save
+5222826       0x4FB1AA        Unix path: /usr/sbin/ip6tables
+5222846       0x4FB1BE        Unix path: /usr/sbin/ip6tables-restore
+5223422       0x4FB3FE        Unix path: /usr/sbin/xtables-multi
+5223446       0x4FB416        Unix path: /usr/sbin/iptables-save
+5223470       0x4FB42E        Unix path: /usr/sbin/iptables-restore
+5223497       0x4FB449        Unix path: /usr/sbin/iptables
+5223777       0x4FB561        Unix path: /usr/sbin/iw
+5224094       0x4FB69E        Unix path: /usr/bin/iwinfo
+5224368       0x4FB7B0        Unix path: /lib/firmware/NPE-A-HSS
+5224392       0x4FB7C8        Unix path: /lib/firmware/NPE-A
+5224412       0x4FB7DC        Unix path: /lib/firmware/NPE-B
+5224432       0x4FB7F0        Unix path: /lib/firmware/NPE-C
+5224452       0x4FB804        Unix path: /usr/share/doc/LICENSE.IPL
+5224794       0x4FB95A        Unix path: /usr/share/libubox/jshn.sh
+5224821       0x4FB975        Unix path: /usr/bin/jshn
+5225111       0x4FBA97        Unix path: /usr/bin/jsonfilter
+5225703       0x4FBCE7        Unix path: /lib/modules/4.4.50/ath.ko
+5226081       0x4FBE61        Unix path: /etc/modules.d/ath5k
+5226102       0x4FBE76        Unix path: /lib/modules/4.4.50/ath5k.ko
+5226464       0x4FBFE0        Unix path: /lib/modules/4.4.50/compat.ko
+5226494       0x4FBFFE        Unix path: /lib/netifd/wireless/mac80211.sh
+5226527       0x4FC01F        Unix path: /lib/wifi/mac80211.sh
+5226549       0x4FC035        Unix path: /etc/hotplug.d/ieee80211/00-wifi-detect
+5226589       0x4FC05D        Unix path: /lib/modules/4.4.50/cfg80211.ko
+5226930       0x4FC1B2        Unix path: /etc/modules.d/42-ip6tables
+5226958       0x4FC1CE        Unix path: /lib/modules/4.4.50/ip6t_REJECT.ko
+5226993       0x4FC1F1        Unix path: /lib/modules/4.4.50/nf_log_ipv6.ko
+5227028       0x4FC214        Unix path: /lib/modules/4.4.50/ip6table_mangle.ko
+5227067       0x4FC23B        Unix path: /lib/modules/4.4.50/ip6table_filter.ko
+5227495       0x4FC3E7        Unix path: /lib/modules/4.4.50/xt_CT.ko
+5227524       0x4FC404        Unix path: /lib/modules/4.4.50/xt_conntrack.ko
+5227560       0x4FC428        Unix path: /etc/modules.d/ipt-conntrack
+5227589       0x4FC445        Unix path: /lib/modules/4.4.50/xt_state.ko
+5227967       0x4FC5BF        Unix path: /lib/modules/4.4.50/xt_limit.ko
+5227999       0x4FC5DF        Unix path: /lib/modules/4.4.50/xt_mark.ko
+5228030       0x4FC5FE        Unix path: /lib/modules/4.4.50/nf_log_ipv4.ko
+5228065       0x4FC621        Unix path: /lib/modules/4.4.50/nf_log_common.ko
+5228102       0x4FC646        Unix path: /lib/modules/4.4.50/xt_LOG.ko
+5228132       0x4FC664        Unix path: /lib/modules/4.4.50/xt_comment.ko
+5228166       0x4FC686        Unix path: /lib/modules/4.4.50/xt_mac.ko
+5228196       0x4FC6A4        Unix path: /lib/modules/4.4.50/xt_multiport.ko
+5228232       0x4FC6C8        Unix path: /lib/modules/4.4.50/xt_TCPMSS.ko
+5228265       0x4FC6E9        Unix path: /lib/modules/4.4.50/xt_time.ko
+5228296       0x4FC708        Unix path: /etc/modules.d/ipt-core
+5228320       0x4FC720        Unix path: /lib/modules/4.4.50/iptable_mangle.ko
+5228358       0x4FC746        Unix path: /lib/modules/4.4.50/iptable_filter.ko
+5228396       0x4FC76C        Unix path: /lib/modules/4.4.50/ipt_REJECT.ko
+5228430       0x4FC78E        Unix path: /lib/modules/4.4.50/xt_tcpudp.ko
+5228793       0x4FC8F9        Unix path: /lib/modules/4.4.50/iptable_nat.ko
+5228828       0x4FC91C        Unix path: /lib/modules/4.4.50/ipt_MASQUERADE.ko
+5228866       0x4FC942        Unix path: /etc/modules.d/ipt-nat
+5228889       0x4FC959        Unix path: /lib/modules/4.4.50/xt_nat.ko
+5228919       0x4FC977        Unix path: /lib/modules/4.4.50/xt_REDIRECT.ko
+5229219       0x4FCAA3        Unix path: /lib/modules/4.4.50/crc-ccitt.ko
+5229252       0x4FCAC4        Unix path: /etc/modules.d/lib-crc-ccitt
+5229626       0x4FCC3A        Unix path: /lib/modules/4.4.50/mac80211.ko
+5229917       0x4FCD5D        Unix path: /lib/modules/4.4.50/nf_conntrack.ko
+5229953       0x4FCD81        Unix path: /etc/modules.d/nf-conntrack
+5229981       0x4FCD9D        Unix path: /lib/modules/4.4.50/nf_defrag_ipv4.ko
+5230019       0x4FCDC3        Unix path: /lib/modules/4.4.50/nf_conntrack_rtcache.ko
+5230063       0x4FCDEF        Unix path: /lib/modules/4.4.50/nf_conntrack_ipv4.ko
+5230387       0x4FCF33        Unix path: /etc/modules.d/nf-conntrack6
+5230416       0x4FCF50        Unix path: /lib/modules/4.4.50/nf_defrag_ipv6.ko
+5230454       0x4FCF76        Unix path: /lib/modules/4.4.50/nf_conntrack_ipv6.ko
+5230732       0x4FD08C        Unix path: /lib/modules/4.4.50/nf_reject_ipv4.ko
+5230770       0x4FD0B2        Unix path: /lib/modules/4.4.50/ip_tables.ko
+5230803       0x4FD0D3        Unix path: /etc/modules.d/nf-ipt
+5230825       0x4FD0E9        Unix path: /lib/modules/4.4.50/x_tables.ko
+5231128       0x4FD218        Unix path: /lib/modules/4.4.50/nf_reject_ipv6.ko
+5231166       0x4FD23E        Unix path: /lib/modules/4.4.50/ip6_tables.ko
+5231200       0x4FD260        Unix path: /etc/modules.d/nf-ipt6
+5231492       0x4FD384        Unix path: /lib/modules/4.4.50/nf_nat_redirect.ko
+5231531       0x4FD3AB        Unix path: /lib/modules/4.4.50/nf_nat_ipv4.ko
+5231566       0x4FD3CE        Unix path: /lib/modules/4.4.50/nf_nat_masquerade_ipv4.ko
+5231612       0x4FD3FC        Unix path: /etc/modules.d/nf-nat
+5231634       0x4FD412        Unix path: /lib/modules/4.4.50/nf_nat.ko
+5231946       0x4FD54A        Unix path: /lib/modules/4.4.50/ppp_async.ko
+5231979       0x4FD56B        Unix path: /etc/modules.d/ppp
+5231998       0x4FD57E        Unix path: /lib/modules/4.4.50/ppp_generic.ko
+5232328       0x4FD6C8        Unix path: /lib/modules/4.4.50/pppoe.ko
+5232357       0x4FD6E5        Unix path: /etc/modules.d/pppoe
+5232657       0x4FD811        Unix path: /lib/modules/4.4.50/pppox.ko
+5232957       0x4FD93D        Unix path: /lib/modules/4.4.50/slhc.ko
+5233285       0x4FDA85        Unix path: /etc/opkg/keys/72a57f2191b211e0
+5233317       0x4FDAA5        Unix path: /etc/opkg/keys/b5043e70f9a75cde
+5233349       0x4FDAC5        Unix path: /etc/opkg/keys/5151f69420c3f508
+5233381       0x4FDAE5        Unix path: /etc/opkg/keys/9ef4694208102c43
+5233413       0x4FDB05        Unix path: /etc/opkg/keys/dace9d4df16896bf
+5233445       0x4FDB25        Unix path: /etc/opkg/keys/dd6de0d06bbd3d85
+5234117       0x4FDDC5        Unix path: /usr/bin/ldd
+5234671       0x4FDFEF        Unix path: /usr/lib/libip4tc.so.0
+5234694       0x4FE006        Unix path: /usr/lib/libip4tc.so.0.1.0
+5234721       0x4FE021        Unix path: /usr/lib/libiptext4.so
+5234744       0x4FE038        Unix path: /usr/lib/libip4tc.so
+5234999       0x4FE137        Unix path: /usr/lib/libiptext6.so
+5235022       0x4FE14E        Unix path: /usr/lib/libip6tc.so
+5235043       0x4FE163        Unix path: /usr/lib/libip6tc.so.0.1.0
+5235070       0x4FE17E        Unix path: /usr/lib/libip6tc.so.0
+5235444       0x4FE2F4        Unix path: /usr/lib/lua/iwinfo.so
+5235841       0x4FE481        Unix path: /usr/share/libiwinfo/hardware.txt
+5235875       0x4FE4A3        Unix path: /usr/lib/libiwinfo.so
+5236205       0x4FE5ED        Unix path: /usr/lib/libjson-c.so.2
+5236229       0x4FE605        Unix path: /usr/lib/libjson-c.so.2.0.2
+5237049       0x4FE939        Unix path: /usr/lib/liblua.so.5.1.5
+5237346       0x4FEA62        Unix path: /usr/lib/libnl-tiny.so
+5238222       0x4FEDCE        Unix path: /usr/lib/lua/ubus.so
+5238782       0x4FEFFE        Unix path: /usr/lib/lua/uci.so
+5239363       0x4FF243        Unix path: /usr/lib/libuclient.so
+5239615       0x4FF33F        Unix path: /usr/lib/libiptext.so
+5239637       0x4FF355        Unix path: /usr/lib/libxtables.so.10.0.0
+5239667       0x4FF373        Unix path: /usr/lib/libxtables.so
+5239690       0x4FF38A        Unix path: /usr/lib/libxtables.so.10
+5240034       0x4FF4E2        Unix path: /etc/init.d/log
+5240522       0x4FF6CA        Unix path: /usr/bin/lua
+5240780       0x4FF7CC        Unix path: /usr/lib/lua/luci/model/cbi/firewall/forwards.lua
+5240830       0x4FF7FE        Unix path: /usr/lib/lua/luci/controller/firewall.lua
+5240872       0x4FF828        Unix path: /usr/lib/lua/luci/model/cbi/firewall/zone-details.lua
+5240926       0x4FF85E        Unix path: /usr/lib/lua/luci/model/cbi/firewall/forward-details.lua
+5240983       0x4FF897        Unix path: /usr/lib/lua/luci/model/cbi/firewall/rule-details.lua
+5241037       0x4FF8CD        Unix path: /usr/lib/lua/luci/view/firewall/cbi_addrule.htm
+5241085       0x4FF8FD        Unix path: /usr/lib/lua/luci/view/firewall/cbi_addforward.htm
+5241136       0x4FF930        Unix path: /usr/lib/lua/luci/view/firewall/cbi_addsnat.htm
+5241184       0x4FF960        Unix path: /usr/lib/lua/luci/model/cbi/firewall/rules.lua
+5241231       0x4FF98F        Unix path: /usr/lib/lua/luci/tools/firewall.lua
+5241268       0x4FF9B4        Unix path: /usr/lib/lua/luci/model/cbi/firewall/zones.lua
+5241315       0x4FF9E3        Unix path: /usr/lib/lua/luci/model/cbi/firewall/custom.lua
+5241363       0x4FFA13        Unix path: /etc/luci-uploads/.placeholder
+5241394       0x4FFA32        Unix path: /etc/config/luci
+5241736       0x4FFB88        Unix path: /usr/lib/lua/luci/store.lua
+5241764       0x4FFBA4        Unix path: /usr/lib/lua/luci/view/cbi/dvalue.htm
+5241802       0x4FFBCA        Unix path: /etc/config/luci
+5241819       0x4FFBDB        Unix path: /usr/lib/lua/luci/view/cbi/upload.htm
+5241899       0x4FFC2B        Unix path: /usr/lib/lua/luci/view/cbi/firewall_zoneforwards.htm
+5241952       0x4FFC60        Unix path: /usr/lib/lua/luci/view/cbi/button.htm
+5242043       0x4FFCBB        Unix path: /usr/lib/lua/luci/view/cbi/value.htm
+5242080       0x4FFCE0        Unix path: /usr/lib/lua/luci/view/cbi/simpleform.htm
+5242122       0x4FFD0A        Unix path: /usr/lib/lua/luci/template.lua
+5242153       0x4FFD29        Unix path: /usr/lib/lua/luci/model/ipkg.lua
+5242243       0x4FFD83        Unix path: /usr/lib/lua/luci/view/cbi/map.htm
+5242323       0x4FFDD3        Unix path: /usr/lib/lua/luci/view/header.htm
+5242357       0x4FFDF5        Unix path: /usr/lib/lua/luci/view/cbi/delegator.htm
+5242449       0x4FFE51        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_static.lua
+5242575       0x4FFECF        Unix path: /usr/lib/lua/luci/view/footer.htm
+5242609       0x4FFEF1        Unix path: /usr/lib/lua/luci/model/network.lua
+5242687       0x4FFF3F        Unix path: /usr/lib/lua/luci/view/error404.htm
+5242763       0x4FFF8B        Unix path: /usr/lib/lua/luci/debug.lua
+5242791       0x4FFFA7        Unix path: /usr/lib/lua/luci/view/cbi/network_ifacelist.htm
+5242840       0x4FFFD8        Unix path: /usr/lib/lua/luci/sys/zoneinfo.lua
+5242920       0x500028        Unix path: /usr/lib/lua/luci/config.lua
+5242949       0x500045        Unix path: /usr/lib/lua/luci/view/cbi/lvalue.htm
+5242987       0x50006B        Unix path: /usr/lib/lua/luci/view/cbi/firewall_zonelist.htm
+5243036       0x50009C        Unix path: /usr/lib/lua/luci/util.lua
+5243063       0x5000B7        Unix path: /usr/lib/lua/luci/sys.lua
+5243089       0x5000D1        Unix path: /usr/lib/lua/luci/view/csrftoken.htm
+5243166       0x50011E        Unix path: /etc/config/ucitrack
+5243187       0x500133        Unix path: /usr/lib/lua/luci/view/cbi/ucisection.htm
+5243229       0x50015D        Unix path: /usr/lib/lua/luci/view/cbi/full_valueheader.htm
+5243277       0x50018D        Unix path: /usr/lib/lua/luci/sys/zoneinfo/tzoffset.lua
+5243453       0x50023D        Unix path: /usr/lib/lua/luci/view/cbi/full_valuefooter.htm
+5243501       0x50026D        Unix path: /usr/lib/lua/luci/sys/zoneinfo/tzdata.lua
+5243543       0x500297        Unix path: /usr/share/acl.d/luci-base.json
+5243659       0x50030B        Unix path: /usr/lib/lua/luci/view/cbi/error.htm
+5243781       0x500385        Unix path: /usr/lib/lua/luci/cbi.lua
+5243807       0x50039F        Unix path: /usr/lib/lua/luci/http/protocol/date.lua
+5243932       0x50041C        Unix path: /lib/upgrade/keep.d/luci-base
+5243962       0x50043A        Unix path: /usr/lib/lua/luci/ltn12.lua
+5243990       0x500456        Unix path: /usr/lib/lua/luci/view/cbi/dynlist.htm
+5244029       0x50047D        Unix path: /usr/lib/lua/luci/ccache.lua
+5244058       0x50049A        Unix path: /usr/lib/lua/luci/view/cbi/tabmenu.htm
+5244131       0x5004E3        Unix path: /usr/lib/lua/luci/model/uci.lua
+5244203       0x50052B        Unix path: /usr/lib/lua/luci/sys/iptparser.lua
+5244239       0x50054F        Unix path: /usr/lib/lua/luci/cacheloader.lua
+5244273       0x500571        Unix path: /usr/lib/lua/luci/view/cbi/header.htm
+5244329       0x5005A9        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_none.lua
+5244386       0x5005E2        Unix path: /usr/lib/lua/luci/tools/webadmin.lua
+5244473       0x500639        Unix path: /usr/lib/lua/luci/view/cbi/cell_valueheader.htm
+5244521       0x500669        Unix path: /usr/lib/lua/luci/view/cbi/footer.htm
+5244559       0x50068F        Unix path: /usr/lib/lua/luci/controller/admin/servicectl.lua
+5244609       0x5006C1        Unix path: /usr/lib/lua/luci/view/cbi/tvalue.htm
+5244687       0x50070F        Unix path: /etc/luci-uploads/.placeholder
+5244718       0x50072E        Unix path: /usr/lib/lua/luci/view/cbi/mvalue.htm
+5244756       0x500754        Unix path: /usr/lib/lua/luci/view/cbi/cell_valuefooter.htm
+5244804       0x500784        Unix path: /usr/lib/lua/luci/i18n.lua
+5244831       0x50079F        Unix path: /usr/lib/lua/luci/tools/status.lua
+5244866       0x5007C2        Unix path: /usr/lib/lua/luci/view/cbi/tblsection.htm
+5244908       0x5007EC        Unix path: /usr/lib/lua/luci/version.lua
+5244938       0x50080A        Unix path: /usr/lib/lua/luci/view/cbi/fvalue.htm
+5244976       0x500830        Unix path: /usr/lib/lua/luci/view/cbi/network_netinfo.htm
+5245023       0x50085F        Unix path: /usr/lib/lua/luci/view/sysauth.htm
+5245058       0x500882        Unix path: /usr/lib/lua/luci/dispatcher.lua
+5245142       0x5008D6        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_dhcp.lua
+5245292       0x50096C        Unix path: /usr/lib/lua/luci/http.lua
+5245485       0x500A2D        Unix path: /usr/lib/lua/luci/view/cbi/nullsection.htm
+5245569       0x500A81        Unix path: /usr/lib/lua/luci/view/cbi/filebrowser.htm
+5245612       0x500AAC        Unix path: /usr/lib/lua/luci/http/protocol/conditionals.lua
+5245661       0x500ADD        Unix path: /usr/lib/lua/luci/http/protocol.lua
+5245697       0x500B01        Unix path: /usr/lib/lua/luci/view/cbi/tabcontainer.htm
+5245741       0x500B2D        Unix path: /usr/lib/lua/luci/view/cbi/nsection.htm
+5245781       0x500B55        Unix path: /usr/lib/lua/luci/tools/proto.lua
+5245815       0x500B77        Unix path: /usr/lib/lua/luci/model/firewall.lua
+5245852       0x500B9C        Unix path: /usr/lib/lua/luci/sgi/uhttpd.lua
+5245938       0x500BF2        Unix path: /usr/lib/lua/luci/http/protocol/mime.lua
+5245979       0x500C1B        Unix path: /usr/lib/lua/luci/template/parser.so
+5246062       0x500C6E        Unix path: /usr/lib/lua/luci/view/cbi/apply_xhr.htm
+5246147       0x500CC3        Unix path: /usr/lib/lua/luci/view/cbi/tsection.htm
+5246425       0x500DD9        Unix path: /usr/lib/lua/luci/cbi/datatypes.lua
+5246554       0x500E5A        Unix path: /usr/lib/lua/luci/view/error500.htm
+5246702       0x500EEE        Unix path: /usr/lib/lua/luci/view/cbi/browser.htm
+5246741       0x500F15        Unix path: /usr/lib/lua/luci/view/cbi/valueheader.htm
+5246784       0x500F40        Unix path: /usr/lib/lua/luci/view/cbi/compound.htm
+5246824       0x500F68        Unix path: /usr/lib/lua/luci/view/cbi/valuefooter.htm
+5246867       0x500F93        Unix path: /usr/lib/lua/luci/view/indexer.htm
+5246902       0x500FB6        Unix path: /usr/lib/lua/luci/sgi/cgi.lua
+5247015       0x501027        Unix path: /usr/lib/lua/luci/view/cbi/network_netlist.htm
+5247320       0x501158        Unix path: /usr/lib/lua/luci/ip.so
+5247575       0x501257        Unix path: /usr/lib/lua/luci/jsonc.so
+5247820       0x50134C        Unix path: /usr/lib/lua/nixio/util.lua
+5247848       0x501368        Unix path: /usr/lib/lua/nixio.so
+5247870       0x50137E        Unix path: /usr/lib/lua/nixio/fs.lua
+5247896       0x501398        Unix path: /lib/upgrade/luci-add-conffiles.sh
+5248198       0x5014C6        Unix path: /usr/lib/lua/luci/view/admin_network/wifi_status.htm
+5248251       0x5014FB        Unix path: /usr/lib/lua/luci/view/admin_system/packages.htm
+5248300       0x50152C        Unix path: /usr/lib/lua/luci/model/cbi/admin_status/processes.lua
+5248355       0x501563        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/leds.lua
+5248405       0x501595        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/ipkg.lua
+5248455       0x5015C7        Unix path: /usr/lib/lua/luci/view/admin_status/dmesg.htm
+5248501       0x5015F5        Unix path: /usr/lib/lua/luci/view/admin_network/switch_status.htm
+5248596       0x501654        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/system.lua
+5248648       0x501688        Unix path: /usr/lib/lua/luci/view/admin_uci/changes.htm
+5248693       0x5016B5        Unix path: /usr/lib/lua/luci/controller/admin/uci.lua
+5248736       0x5016E0        Unix path: /usr/lib/lua/luci/view/admin_system/flashops.htm
+5248785       0x501711        Unix path: /usr/lib/lua/luci/view/admin_status/connections.htm
+5248837       0x501745        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/backupfiles.lua
+5248894       0x50177E        Unix path: /usr/lib/lua/luci/view/admin_status/index.htm
+5248940       0x5017AC        Unix path: /usr/lib/lua/luci/controller/admin/network.lua
+5248987       0x5017DB        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/fstab/mount.lua
+5249044       0x501814        Unix path: /usr/lib/lua/luci/view/admin_system/upgrade.htm
+5249092       0x501844        Unix path: /usr/lib/lua/luci/view/admin_system/ipkg.htm
+5249137       0x501871        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/routes.lua
+5249190       0x5018A6        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/network.lua
+5249244       0x5018DC        Unix path: /usr/lib/lua/luci/view/admin_network/wifi_join.htm
+5249295       0x50190F        Unix path: /usr/lib/lua/luci/view/admin_network/iface_overview.htm
+5249387       0x50196B        Unix path: /usr/lib/lua/luci/controller/admin/index.lua
+5249432       0x501998        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/fstab/swap.lua
+5249488       0x5019D0        Unix path: /usr/lib/lua/luci/view/admin_system/backupfiles.htm
+5249540       0x501A04        Unix path: /usr/lib/lua/luci/view/admin_system/clock_status.htm
+5249593       0x501A39        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/startup.lua
+5249646       0x501A6E        Unix path: /usr/lib/lua/luci/view/admin_status/syslog.htm
+5249693       0x501A9D        Unix path: /usr/lib/lua/luci/controller/admin/system.lua
+5249739       0x501ACB        Unix path: /usr/bin/luci-bwc
+5249798       0x501B06        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/iface_add.lua
+5249854       0x501B3E        Unix path: /usr/lib/lua/luci/controller/admin/status.lua
+5249900       0x501B6C        Unix path: /usr/lib/lua/luci/view/admin_status/iptables.htm
+5249949       0x501B9D        Unix path: /usr/lib/lua/luci/view/admin_status/routes.htm
+5249996       0x501BCC        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/admin.lua
+5250047       0x501BFF        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/crontab.lua
+5250100       0x501C34        Unix path: /usr/lib/lua/luci/view/admin_system/applyreboot.htm
+5250192       0x501C90        Unix path: /usr/lib/lua/luci/view/admin_status/bandwidth.htm
+5250242       0x501CC2        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/fstab.lua
+5250293       0x501CF5        Unix path: /usr/lib/lua/luci/view/admin_uci/apply.htm
+5250336       0x501D20        Unix path: /usr/lib/lua/luci/view/admin_status/wireless.htm
+5250385       0x501D51        Unix path: /usr/lib/lua/luci/view/admin_network/diagnostics.htm
+5250438       0x501D86        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/wifi.lua
+5250489       0x501DB9        Unix path: /usr/lib/lua/luci/view/cbi/wireless_modefreq.htm
+5250538       0x501DEA        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/dhcp.lua
+5250589       0x501E1D        Unix path: /etc/uci-defaults/50_luci-mod-admin-full
+5250630       0x501E46        Unix path: /usr/lib/lua/luci/view/admin_status/load.htm
+5250675       0x501E73        Unix path: /usr/lib/lua/luci/view/admin_system/reboot.htm
+5250722       0x501EA2        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/wifi_add.lua
+5250777       0x501ED9        Unix path: /usr/lib/lua/luci/controller/admin/filebrowser.lua
+5250828       0x501F0C        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/hosts.lua
+5250880       0x501F40        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/vlan.lua
+5250931       0x501F73        Unix path: /usr/lib/lua/luci/view/admin_network/wifi_overview.htm
+5250986       0x501FAA        Unix path: /usr/lib/lua/luci/view/admin_network/lease_status.htm
+5251083       0x50200B        Unix path: /usr/lib/lua/luci/model/cbi/admin_system/buttons.lua
+5251136       0x502040        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/ifaces.lua
+5251189       0x502075        Unix path: /usr/lib/lua/luci/view/admin_network/iface_status.htm
+5251243       0x5020AB        Unix path: /usr/lib/lua/luci/view/admin_uci/revert.htm
+5251287       0x5020D7        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_ahcp.lua
+5251344       0x502110        Unix path: /usr/lib/lua/luci/view/admin_uci/changelog.htm
+5251625       0x502229        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_dslite.lua
+5251684       0x502264        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_6rd.lua
+5251740       0x50229C        Unix path: /usr/lib/lua/luci/model/network/proto_hnet.lua
+5251787       0x5022CB        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_6to4.lua
+5251844       0x502304        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_map.lua
+5251900       0x50233C        Unix path: /usr/lib/lua/luci/model/network/proto_aiccu.lua
+5251948       0x50236C        Unix path: /usr/lib/lua/luci/model/network/proto_dhcpv6.lua
+5251997       0x50239D        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_hnet.lua
+5252054       0x5023D6        Unix path: /usr/lib/lua/luci/model/network/proto_4x6.lua
+5252100       0x502404        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_464xlat.lua
+5252160       0x502440        Unix path: /usr/lib/lua/luci/model/network/proto_6x4.lua
+5252206       0x50246E        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_aiccu.lua
+5252264       0x5024A8        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_6in4.lua
+5252321       0x5024E1        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_dhcpv6.lua
+5252598       0x5025F6        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_ppp.lua
+5252654       0x50262E        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_pppoe.lua
+5252712       0x502668        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_pptp.lua
+5252769       0x5026A1        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_pppossh.lua
+5252829       0x5026DD        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_l2tp.lua
+5252886       0x502716        Unix path: /usr/lib/lua/luci/model/cbi/admin_network/proto_pppoa.lua
+5252944       0x502750        Unix path: /usr/lib/lua/luci/model/network/proto_ppp.lua
+5253286       0x5028A6        Unix path: /etc/uci-defaults/30_luci-theme-bootstrap
+5253366       0x5028F6        Unix path: /usr/lib/lua/luci/view/themes/bootstrap/header.htm
+5253417       0x502929        Unix path: /usr/lib/lua/luci/view/themes/bootstrap/footer.htm
+5254518       0x502D76        Unix path: /lib/netifd/proto/dhcp.sh
+5254544       0x502D90        Unix path: /etc/init.d/network
+5254564       0x502DA4        Unix path: /lib/netifd/netifd-proto.sh
+5254592       0x502DC0        Unix path: /etc/hotplug.d/iface/00-netstate
+5254638       0x502DEE        Unix path: /lib/netifd/dhcp.script
+5254662       0x502E06        Unix path: /usr/share/udhcpc/default.script
+5254695       0x502E27        Unix path: /lib/network/config.sh
+5254747       0x502E5B        Unix path: /lib/netifd/utils.sh
+5254768       0x502E70        Unix path: /lib/netifd/netifd-wireless.sh
+5255108       0x502FC4        Unix path: /lib/netifd/proto/dhcpv6.sh
+5255136       0x502FE0        Unix path: /lib/netifd/dhcpv6.script
+5255162       0x502FFA        Unix path: /usr/sbin/odhcp6c
+5255871       0x5032BF        Unix path: /usr/sbin/odhcpd
+5255888       0x5032D0        Unix path: /etc/init.d/odhcpd
+5255907       0x5032E3        Unix path: /etc/uci-defaults/odhcpd.defaults
+5255941       0x503305        Unix path: /usr/sbin/odhcpd-update
+5255980       0x50332C        Unix path: /etc/opkg/customfeeds.conf
+5256594       0x503592        Unix path: /etc/opkg/customfeeds.conf
+5256621       0x5035AD        Unix path: /lib/upgrade/keep.d/opkg
+5256656       0x5035D0        Unix path: /etc/uci-defaults/20_migrate-feeds
+5256691       0x5035F3        Unix path: /usr/sbin/opkg-key
+5256725       0x503615        Unix path: /etc/opkg/distfeeds.conf
+5257059       0x503763        Unix path: /usr/lib/pppd/2.4.7/rp-pppoe.so
+5257091       0x503783        Unix path: /etc/ppp/chap-secrets
+5257113       0x503799        Unix path: /etc/ppp/filter
+5257129       0x5037A9        Unix path: /etc/ppp/options
+5257442       0x5038E2        Unix path: /lib/upgrade/keep.d/ppp
+5257466       0x5038FA        Unix path: /usr/sbin/pppd
+5257481       0x503909        Unix path: /etc/ppp/filter
+5257497       0x503919        Unix path: /lib/netifd/ppp-up
+5257516       0x50392C        Unix path: /etc/ppp/options
+5257533       0x50393D        Unix path: /etc/ppp/chap-secrets
+5257555       0x503953        Unix path: /lib/netifd/ppp-down
+5257576       0x503968        Unix path: /lib/netifd/proto/ppp.sh
+5257601       0x503981        Unix path: /etc/ppp/resolv.conf
+5257622       0x503996        Unix path: /lib/netifd/ppp6-up
+5258016       0x503B20        Unix path: /lib/functions/procd.sh
+5258115       0x503B83        Unix path: /etc/config/rpcd
+5258512       0x503D10        Unix path: /etc/init.d/rpcd
+5258529       0x503D21        Unix path: /etc/config/rpcd
+5258557       0x503D3D        Unix path: /usr/share/rpcd/acl.d/unauthenticated.json
+5258894       0x503E8E        Unix path: /usr/bin/getrandom
+5258933       0x503EB5        Unix path: /usr/sbin/modprobe
+5258952       0x503EC8        Unix path: /usr/sbin/lsmod
+5258988       0x503EEC        Unix path: /usr/sbin/rmmod
+5259004       0x503EFC        Unix path: /usr/sbin/modinfo
+5259039       0x503F1F        Unix path: /usr/sbin/insmod
+5259920       0x504290        Unix path: /lib/config/uci.sh
+5260625       0x504551        Unix path: /etc/uci-defaults/00_uhttpd_ubus
+5260658       0x504572        Unix path: /usr/lib/uhttpd_ubus.so
+5260682       0x50458A        Unix path: /etc/config/uhttpd
+5261121       0x504741        Unix path: /usr/sbin/uhttpd
+5261138       0x504752        Unix path: /etc/init.d/uhttpd
+5261157       0x504765        Unix path: /etc/config/uhttpd
+5261176       0x504778        Unix path: /lib/upgrade/keep.d/uhttpd
+5261471       0x50489F        Unix path: /usr/bin/usign
+5261486       0x5048AE        Unix path: /usr/bin/signify
+5261878       0x504A36        Unix path: /usr/sbin/wpad
+5261893       0x504A45        Unix path: /usr/sbin/hostapd
+5261911       0x504A57        Unix path: /usr/sbin/wpa_supplicant
+5262668       0x504D4C        Unix path: /etc/opkg/customfeeds.conf 61d1f3aa62fe977614ed0c2f0ad3b2ee2f7b451bfb34812071d86d31a4d43d4a
+5263472       0x505070        Unix path: /etc/config/rpcd 9f58e09bb250fe6cee61c873ff2c1a19cb800d12cef0773bd5dfc47e0d01c90b
+5266782       0x505D5E        Unix path: /etc/sysctl.d/local.conf 43cedc0217825c00cb1a3d49e7be43c06f70257593fb4d6d393f645e04d512de
+5266873       0x505DB9        Unix path: /etc/sysctl.d/local.conf 43cedc0217825c00cb1a3d49e7be43c06f70257593fb4d6d393f645e04d512de
+5266964       0x505E14        Unix path: /etc/iproute2/rt_tables f771e2b81741f70e3faf658dc504f0dc048672fc8caaadea15e46c35da3de8f8
+5267054       0x505E6E        Unix path: /etc/iproute2/rt_protos a0712b1771c8d5f3e0dcf9a6314880e71aa3498ea1ae873535bdfcf70d814061
+5267872       0x5061A0        Unix path: /etc/config/dhcp f81fe9bd228dede2165be71e5c9dcf76cc298bc8b6c877974a172a66fac7cf45
+5268924       0x5065BC        Unix path: /etc/config/firewall 390db1708e76edac2345cb598fd222a855b14557c4c31fe79df387c0ca6b4690
+5271525       0x506FE5        Unix path: /etc/dropbear/dropbear_rsa_host_key e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+5271627       0x50704B        Unix path: /etc/config/dropbear 0198dbc97b5a9aac76a5c6233684571ccdcc91fcb735e91c36d2b06a98158589
+5272787       0x5074D3        Unix path: /etc/ppp/chap-secrets 6981fa176a79f8c12be5826c421b16253a616747018ba7e76752a9d36d1d51d4
+5272875       0x50752B        Unix path: /etc/ppp/filter 579583b318e0cff706ffc134620b42d3fbce8fc31aeb0ad7eea1cc859868e902
+5272957       0x50757D        Unix path: /etc/ppp/options a0509db666fc831a3f9332ca6e911ba9a32e7f1ce13733e539a719f0413794b9
+5273651       0x507833        Unix path: /etc/luci-uploads/.placeholder e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+5273748       0x507894        Unix path: /etc/config/luci 7e04b593f6a54853b284c1dadfa0df9a90d16661977382978a56443152348329
+5276013       0x50816D        Unix path: /etc/config/uhttpd 805ff9fa319c9ed3ed57a86d786484fbd952149cbb2f14c393ae2abceefc8ab7
+5280900       0x509484        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+5297243       0x50D45B        Unix path: /etc/ppp/options.%s
+5301760       0x50E600        ELF, 32-bit MSB shared object, ARM, version 1 (SYSV)
+5314092       0x51162C        Executable script, shebang: "/bin/sh"
+5314194       0x511692        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+5464600       0x536218        Copyright string: "Copyright (c) 2000-2016 Simon Kelley"
+5467056       0x536BB0        Unix path: /var/lib/misc/dnsmasq.leases
+5468471       0x537137        Copyright string: "copyright information."
+5485179       0x53B27B        Base64 standard index table
+5489460       0x53C334        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+5521996       0x54424C        Unix path: /usr/sbin/odhcp6c-update
+5522957       0x54460D        Unix path: /usr/sbin/odhcp6c-update)
+5523308       0x54476C        Unix path: /var/run/odhcp6c.pid)
+5526684       0x54549C        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+5584428       0x55362C        Executable script, shebang: "/bin/sh"
+5584511       0x55367F        Unix path: /lib/functions/procd.sh
+5584562       0x5536B2        Executable script, shebang: "/bin/sh"
+5585009       0x553871        Unix path: /etc/opkg/keys -q -x "$sigfile" -m -
+5585205       0x553935        Unix path: /etc/opkg/keys"
+5585233       0x553951        Unix path: /etc/opkg/keys/$fingerprint"
+5585421       0x553A0D        Unix path: /etc/opkg/keys/$fingerprint"
+5585613       0x553ACD        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+5722838       0x5752D6        Unix path: /usr/bin/dbclient
+5724402       0x5758F2        Unix path: /etc/dropbear/authorized_keys
+5726865       0x576291        Unix path: /var/run/dropbear.pid
+5727792       0x576630        Unix path: /usr/bin/xauth -q
+5733561       0x577CB9        SHA256 hash constants, big endian
+5734073       0x577EB9        Base64 standard index table
+5737533       0x578C3D        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+5746321       0x57AE91        CRC32 polynomial table, big endian
+5750053       0x57BD25        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+5803257       0x588CF9        Unix path: /sys/class/ieee80211/%s/index
+5806641       0x589A31        Unix path: /var/run/netns
+5807682       0x589E42        Unix path: /var/run/netns
+5832813       0x59006D        Executable script, shebang: "/bin/sh"
+5832858       0x59009A        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+6001923       0x5B9503        Unix path: /etc/ppp/connect-errors
+6002406       0x5B96E6        Unix path: /etc/ppp/ip-up
+6006330       0x5BA63A        Unix path: /etc/ppp/ip-pre-up
+6012083       0x5BBCB3        Unix path: /etc/ppp/srp-secrets
+6015946       0x5BCBCA        Unix path: /usr/lib/pppd/2.4.7
+6017098       0x5BD04A        Unix path: /etc/ppp/peers/
+6022535       0x5BE587        Unix path: /sys/net/ipv4/ip_forward
+6022967       0x5BE737        Unix path: /sys/net/ipv4/ip_dynaddr
+6048422       0x5C4AA6        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+6081260       0x5CCAEC        HTML document header
+6081479       0x5CCBC7        HTML document footer
+6085642       0x5CDC0A        ELF, 32-bit MSB executable, ARM, version 1 (SYSV)
+6144331       0x5DC14B        Copyright string: "Copyright (c) 2007, Intel Corporation."
+6144574       0x5DC23E        Copyright string: "copyright notice and the following disclaimer in the"
+6155091       0x5DEB53        Executable script, shebang: "/bin/sh"
+6156437       0x5DF095        Executable script, shebang: "/usr/bin/lua"
+6156439       0x5DF097        Unix path: /usr/bin/lua
+6156572       0x5DF11C        XML document, version: "1.0"
+6156709       0x5DF1A5        HTML document header
+6157059       0x5DF303        HTML document footer
+6157098       0x5DF32A        Copyright string: "Copyright 2012 Nut & Bolt"
+6157199       0x5DF38F        Copyright string: "Copyright 2011 Twitter, Inc"
+6212554       0x5ECBCA        XML document, version: "1.0"
+6213466       0x5ECF5A        GIF image data, version "89a", 16 x 16
+6213844       0x5ED0D4        GIF image data, version "89a", 16 x 16
+6214112       0x5ED1E0        GIF image data, version "89a", 11 x 11
+6214247       0x5ED267        GIF image data, version "89a", 16 x 16
+6214378       0x5ED2EA        GIF image data, version "89a", 16 x 16
+6214567       0x5ED3A7        GIF image data, version "87a", 16 x 16
+6214839       0x5ED4B7        GIF image data, version "87a", 16 x 16
+6215210       0x5ED62A        GIF image data, version "89a", 16 x 16
+6215477       0x5ED735        GIF image data, version "89a", 16 x 16
+6215750       0x5ED846        GIF image data, version "89a", 16 x 16
+6216448       0x5EDB00        GIF image data, version "89a", 16 x 16
+6216714       0x5EDC0A        GIF image data, version "89a", 16 x 16
+6216944       0x5EDCF0        GIF image data, version "89a", 16 x 16
+6217223       0x5EDE07        GIF image data, version "89a", 16 x 16
+6217471       0x5EDEFF        GIF image data, version "89a", 16 x 16
+6217856       0x5EE080        GIF image data, version "89a", 16 x 16
+6218114       0x5EE182        GIF image data, version "89a", 16 x 16
+6218377       0x5EE289        GIF image data, version "89a", 16 x 16
+6218507       0x5EE30B        GIF image data, version "89a", 16 x 16
+6218794       0x5EE42A        Copyright string: "Copyright 2008 Steven Barth <steven@midlink.org>"
+6218844       0x5EE45C        Copyright string: "Copyright 2008-2012 Jo-Philipp Wich <jow@openwrt.org>"
+6250419       0x5F5FB3        XML document, version: "1.0"
+6251428       0x5F63A4        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6252109       0x5F664D        PNG image, 16 x 16, 8-bit gray+alpha, non-interlaced
+6252514       0x5F67E2        PNG image, 24 x 24, 8-bit/color RGBA, non-interlaced
+6253434       0x5F6B7A        PNG image, 24 x 24, 8-bit/color RGBA, non-interlaced
+6254322       0x5F6EF2        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6255023       0x5F71AF        PNG image, 16 x 16, 8-bit gray+alpha, non-interlaced
+6255422       0x5F733E        GIF image data, version "89a", 32 x 32
+6257208       0x5F7A38        PNG image, 30 x 24, 8-bit/color RGB, non-interlaced
+6257977       0x5F7D39        PNG image, 30 x 24, 8-bit/color RGB, non-interlaced
+6259128       0x5F81B8        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6259590       0x5F8386        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6260029       0x5F853D        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6260494       0x5F870E        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6260961       0x5F88E1        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6261418       0x5F8AAA        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6262057       0x5F8D29        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6262737       0x5F8FD1        PNG image, 16 x 16, 8-bit gray+alpha, non-interlaced
+6263135       0x5F915F        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6263478       0x5F92B6        PNG image, 16 x 16, 8-bit gray+alpha, non-interlaced
+6263519       0x5F92DF        Zlib compressed data, compressed
+6263713       0x5F93A1        PNG image, 16 x 16, 8-bit/color RGBA, non-interlaced
+6264480       0x5F96A0        PNG image, 32 x 32, 8-bit/color RGBA, non-interlaced
+6266756       0x5F9F84        PNG image, 32 x 32, 8-bit gray+alpha, non-interlaced
+6268268       0x5FA56C        PNG image, 16 x 16, 8-bit gray+alpha, non-interlaced
+6268762       0x5FA75A        XML document, version: "1.0"
+6269796       0x5FAB64        XML document, version: "1.0"
+6270616       0x5FAE98        XML document, version: "1.0"
+
