@@ -11,6 +11,22 @@ strings -n8 forest.jpg
 
 Results are generic / random.
 
+Well the flag is hidden right?
+
+```
+stegdetect forest.jpg
+forest.jpg : jphide(*)
+```
+
+But the extraction requires a password:
+
+```
+steghide extract -sf forest
+Enter passphrase:
+```
+
+I found nothing more on the metadata.
+
 ## Inspecting the image
 
 Here's an idea: let's render the image :O
@@ -22,17 +38,16 @@ Gimp saves the day with its image filters:
 - rotate 90 degrees
 - apply edge detection filter
 
-The texts is now readable:
+The text is now readable:
 ![just-a-forest](just-a-forest.png)
 
 > IsJuS1Af0r3sTbR0
 
-HTB doesn't accept this as a flag yet...
+HTB doesn't accept this as a flag yet, whatever the variation on "I17TO0"...
 
 ## Extracting hidden data
 
-So the first piece of text must unlock further data, like a password.
-Using common tools for hidding data in images:
+So back to the start, with the key:
 
 ```
 steghide extract -sf forest.jpg
