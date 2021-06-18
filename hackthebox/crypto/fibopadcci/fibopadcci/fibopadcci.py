@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
+
 import socketserver
 from Crypto.Cipher import AES
 import os
 
-# ========================================================================= FIB
+# ========================================================================= fib
 
 fib = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 121, 98, 219, 61]
 
-# ========================================================================= AES
+# ========================================================================= aes
 
 class SuperSecureEncryption: # This should be unbreakable!
     def __init__(self, key):
@@ -23,57 +25,30 @@ class SuperSecureEncryption: # This should be unbreakable!
         output = b''
 
         for block in chunks(data, 16):
-    
             enc = self.cipher.encrypt(xor(lb_cipher, block))
             enc = xor(enc, lb_plain)
             output += enc
             lb_plain = block
             lb_cipher = enc
+
         return output, a.hex(), b.hex()
 
     def decrypt(self, data, a, b):
         lb_plain = a
         lb_cipher = b
         output = b''
+
         for block in chunks(data, 16):
             dec = self.cipher.decrypt(xor(block, lb_plain))
             dec = xor(dec, lb_cipher)
             output += dec
             lb_plain = dec
             lb_cipher = block
-        return output
-        # if checkpad(output):
-        #     return output
-        # else:
-        #     return None
 
-# ============================================================== tcp connection
-
-HOST = "127.0.0.1"
-PORT = "1337"
-
-def check_response():
-    pass
-
-# ================================================================ bruteforcing
-
-ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+{}'
-
-def bruteforce():
-    for a0 in ALPHABET:
-        for a1 in ALPHABET:
-            for a2 in ALPHABET:
-                for a3 in ALPHABET:
-                    for a4 in ALPHABET:
-                        for a5 in ALPHABET:
-                            for a6 in ALPHABET:
-                                for a7 in ALPHABET:
-                                    for a8 in ALPHABET:
-                                        for a9 in ALPHABET:
-                                            for a10 in ALPHABET:
-                                                yield bytes(
-                                                    f'HTB{{{a0}{a1}{a2}{a3}{a4}{a5}{a6}{a7}{a8}{a9}{a10}}}',
-                                                    'utf-8')
+        if checkpad(output):
+            return output
+        else:
+            return None
 
 # =================================================================== utilities
 
@@ -85,6 +60,16 @@ def chunks(l, n):
 def int_to_byte(n: int) -> str:
     __h = str(hex(n % 255))[2:]
     return bytes.fromhex("0" * (2-len(__h)) + __h)
+
+def is_hex(data: str) -> bool:
+    try:
+        int(data, 16)
+        return True
+    except:
+        return False
+
+def unhex(data: str) -> bytes:
+    return bytes.fromhex(data)
 
 def xor(a: bytes, b: bytes) -> bytes:
     return bytes([_a ^ _b for _a, _b in zip(a, b)])
@@ -128,16 +113,20 @@ def mask(
 
 # ============================================================ encryption tests
 
-KEY    = b'16bytesofsupersecretkeyunpadded_'
-A      = bytes.fromhex("98a8ea331fa71a7fdf2824d9ff70460e")
-B      = bytes.fromhex("0afb737c2a61819637c95a3bd96dad87")
-CT     = bytes.fromhex("6caa603e2e74aa50270411cec6d5cb027f75a5b68fecc1403542392c7421617d9e644968c6f43691909e7146422455f4")
-A_     = b'HTB{th3_s3crt_A}'
-AA_    = xor(A, A_)
-B_     = mask(B, AA_)
-CT_    = mask(CT, AA_)
-CIPHER = SuperSecureEncryption(KEY)
+def main():
+    KEY    = b'16bytesofsupersecretkeyunpadded_'
+    A      = bytes.fromhex("dc3b5c7b9cf0aa2a02eab3a36e8f9e10")
+    B      = bytes.fromhex("7a5395c3b1d5be7d22a470918895bb74")
+    CT     = bytes.fromhex("c482b25753c1d815270e60f030d634b56f7785e064cc5ee83352fd5f34d9f067432b19deb92328b2a20ea59a72165f66")
+    A_     = b'HTB{th3_s3crt_A}'
+    AA_    = xor(A, A_)
+    B_     = mask(B, AA_)
+    CT_    = mask(CT, AA_)
+    CIPHER = SuperSecureEncryption(KEY)
+
+    print(f'ct:\t{CT.hex()}\nct_:\t{CT_.hex()}\na:\t{A.hex()}\na_:\t{A_.hex()}\nb:\t{B.hex()}\n')
 
 # ======================================================================== main
 
-print(f'ct:\t{CT.hex()}\nct_:\t{CT_.hex()}\na:\t{A.hex()}\na_:\t{A_.hex()}\nb:\t{B.hex()}\n')
+if __name__ == "__main__":
+    main()
