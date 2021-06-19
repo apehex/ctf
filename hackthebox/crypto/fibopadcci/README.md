@@ -55,14 +55,16 @@ former equation set.
 
 And it means that we can modify the plaintext without knowing the key!
 
+## The padding oracle
+
 There is little chance that the random cipher text will produce a full
 Fibonacci sequence after decryption. The only plausible possibility is a
 single padding byte, `OxO1`. So:
 
+![][equation_decrypt-last-byte]
+
 Finally! This gives us the last byte of the last block.
 In my case: `b`
-
-## The padding oracle
 
 The server tries to decrypt with a fixed value for a:
 
@@ -71,6 +73,9 @@ HTB{th3_s3crt_A}
 0x4854427b7468335f73336372745f417d
 ```
 
+## The implementation
+
+Easier said than done though!
 
 
 [equation_aes-cbc]: maths/equation_aes-cbc.png

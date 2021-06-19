@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import logging
 import re
 import socket
 from enum import auto, Flag
@@ -16,7 +17,7 @@ SAMPLE = b'encrypted_flag: f74fb219b261a3ae0f6ea8e4b795f84ca478471aed5b44bfc4c04
 OUTPUT_WLC_REGEX    = re.compile(r'welcome to my super secure', re.IGNORECASE)
 OUTPUT_MENU_REGEX   = re.compile(r'menu', re.IGNORECASE)
 
-OUTPUT_CT_REGEX     = re.compile(r'encrypted_flag:\s*([a-f0-9]+)\\n', re.IGNORECASE)
+OUTPUT_CT_REGEX     = re.compile(r'encrypted_flag:\s*([a-f0-9]+)(\\n|\n)', re.IGNORECASE)
 OUTPUT_A_REGEX      = re.compile(r'a:\s*([a-f0-9]{32})', re.IGNORECASE)
 OUTPUT_B_REGEX      = re.compile(r'b:\s*([a-f0-9]{32})', re.IGNORECASE)
 
@@ -130,22 +131,22 @@ def reply(server):
             or (server & ServerResponse.ERROR_CHOICE)
             or (server & ServerResponse.ERROR_LENGTH)
             or (server & ServerResponse.ERROR_PADDING)):
-        __client = ClientResponse.RESET
+        __client |= ClientResponse.RESET
 
     if (server & ServerResponse.SUCCESS):
-        __client = ClientResponse.RETURN
+        __client |= ClientResponse.RETURN
 
     if (server & ServerResponse.OUTPUT_CT) and (server & ServerResponse.OUTPUT_A) and (server & ServerResponse.OUTPUT_B):
-        __client = ClientResponse.EXTRACT_DATA
+        __client |= ClientResponse.EXTRACT_DATA
 
     if (server & ServerResponse.PROMPT_CHOICE):
-        __client = ClientResponse.CHOOSE_OPTION
+        __client |= ClientResponse.CHOOSE_OPTION
 
     if (server & ServerResponse.PROMPT_CT):
-        __client = ClientResponse.OUTPUT_CT
+        __client |= ClientResponse.OUTPUT_CT
 
     if (server & ServerResponse.PROMPT_B):
-        __client = ClientResponse.OUTPUT_B
+        __client |= ClientResponse.OUTPUT_B
 
     return __client
 
@@ -178,69 +179,95 @@ class Netcat:
         self._socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPCNT, 8)
         self._io = [self._socket]
 
+        self._data = b''
+        self._server = ServerResponse.NONE
+        self._client = ClientResponse.NONE
+
+        logging.basicConfig(
+            filename='client.log',
+            encoding='utf-8',
+            level=logging.DEBUG,
+            format='%(message)s')
+        logging.info(f'====> Connected')
+
+    def is_server(self, state: ServerResponse):
+        return self._server & state
+
+    def is_client(self, state: ClientResponse):
+        return self._client & state
+
     def read(self, length: int=1024):
 
         """ Read 1024 bytes off the socket """
 
-        return self._socket.recv(length)
+        self._data = self._socket.recv(length)
+        self._server = parse_server_response(str(self._data))
+        self._client = reply(self._server)
+
+        logging.info(f'====> Read {len(self._data)} bytes')
+
+        logging.debug(f'{self._server}')
+        logging.debug(f'{self._client}')
+        logging.debug(f'{self._data}')
+        
+        return self._data, self._server, self._client
  
     def write(self, data: bytes) -> int:
 
         """ Send data """
 
-        return self._socket.send(data)
+        __c = self._socket.send(data)
+
+        logging.info(f'====> Wrote {__c} bytes')
+
+        logging.debug(f'{data}')
+
+        return __c
+
+    def wait(self, until: ServerResponse=ServerResponse.PROMPT_CHOICE, fail: int=8) -> None:
+        i = 0
+
+        while not self.is_server(until) and i < fail:
+            self.write(b'')
+            self.read(1024)
+            i += 1
+
+        return self._data, self._server, self._client
     
     def close(self) -> None:
 
         """ Terminate the TCP stream """
 
+        logging.info('====> Socket closed')
+
         return self._socket.close()
 
-    def talk(self):
-        __server = ServerResponse.NONE
-        __client = ClientResponse.NONE
+    def all_your_c1ph3rZ_are_belong_to_me(self):
         __oracle = Oracle()
 
-        __data = b''
+        while not self.is_server(ServerResponse.SUCCESS):
+            # reset the context
+            __oracle.reset()
 
-        i = 0
+            # wait for the server
+            self.wait(until=ServerResponse.PROMPT_CHOICE, fail=8)
 
-        while (not (__server & ServerResponse.SUCCESS)) and (i < 10):
-            __infds, __outfds, __errfds = select(self._io, self._io, self._io, 4)
+            # ask for a ciphertext
+            while not __oracle.is_ready():
+                self.write(b'0\n')
+                self.read(1024)
+                if self.is_client(ClientResponse.EXTRACT_DATA):
+                    __oracle.set_parameters(extract_hex_values(self._data))
 
-            print(LOGGING_FORMAT.format(
-                str(__infds),
-                str(__outfds),
-                __server,
-                __client,
-                __data))
+            # send a message
+            self.wait(until=ServerResponse.PROMPT_CHOICE, fail=8)
+            self.write(b'1\n')
+            self.wait(until=ServerResponse.PROMPT_CT)
+            self.write(bytes(__oracle.alter_ciphertext()[2].hex(), 'utf-8') + b'\n')
+            self.wait(until=ServerResponse.PROMPT_B)
+            self.write(bytes(__oracle.alter_ciphertext()[1].hex(), 'utf-8') + b'\n')
 
-            if __infds:
-                __data = self.read(1024)
-                __server = parse_server_response(str(__data))
-                __client = reply(__server)
-
-            if __outfds:
-                if __client & ClientResponse.RESET:
-                    __oracle.reset()
-                    i += 1
-
-                if __client & ClientResponse.EXTRACT_DATA:
-                    __oracle.set_parameters(extract_hex_values(__data))
-
-                if __client & ClientResponse.CHOOSE_OPTION:
-                    if __oracle.is_ready():
-                        self.write(b'1\n')
-                    else:
-                        self.write(b'0\n')
-
-                if __client & ClientResponse.OUTPUT_CT:
-                    self.write(__oracle.alter_ciphertext()[2] + b'\n')
-
-                if __client & ClientResponse.OUTPUT_B:
-                    self.write(__oracle.alter_ciphertext()[1] + b'\n')
+            # read response
+            self.read(1024)
 
         return __oracle
-
-#TODO log
-#TODO reset state: actually the response str
