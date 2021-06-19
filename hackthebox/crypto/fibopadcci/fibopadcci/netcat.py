@@ -9,12 +9,6 @@ from attack import Oracle
 
 """ Python 'netcat like' module """
 
-# ==============================
-
-RESET  = 0
-APPEND = 1
-SPLIT  = 2
-
 # ============================================================ server responses
 
 SAMPLE = b'encrypted_flag: f74fb219b261a3ae0f6ea8e4b795f84ca478471aed5b44bfc4c04bc787ab7eed59419be0661ba6530136f38bc49d3aca\na: 4f82851a99f3f2f5cf712b222688cc7e\nb: dddee5182e9242a3a9c951a0b2473e75\n\n-------------------------\n| Menu                  |\n-------------------------\n|[0] Encrypt flag.      |\n|[1] Send me a message! |\n-------------------------\n\nYour option: '
@@ -36,7 +30,7 @@ ERROR_PADDING_REGEX = re.compile(r'padding incorrect', re.IGNORECASE)
 ERROR_HEX_REGEX     = re.compile(r'provided input is not hex', re.IGNORECASE)
 ERROR_CHOICE_REGEX  = re.compile(r'please try again', re.IGNORECASE)
 
-class State(Flag):
+class ServerResponse(Flag):
     NONE                = 0
 
     OUTPUT_WLC          = auto()
@@ -56,51 +50,64 @@ class State(Flag):
     ERROR_HEX           = auto()
     ERROR_CHOICE        = auto()
 
-def parse_socket_state(response: str) -> State:
-    __state = State.NONE
+def parse_server_response(data: str) -> ServerResponse:
+    __response = ServerResponse.NONE
 
-    if OUTPUT_WLC_REGEX.search(response):
-        __state |= State.OUTPUT_WLC
+    if OUTPUT_WLC_REGEX.search(data):
+        __response |= ServerResponse.OUTPUT_WLC
 
-    if OUTPUT_MENU_REGEX.search(response):
-        __state |= State.OUTPUT_MENU
+    if OUTPUT_MENU_REGEX.search(data):
+        __response |= ServerResponse.OUTPUT_MENU
 
-    if OUTPUT_CT_REGEX.search(response):
-        __state |= State.OUTPUT_CT
+    if OUTPUT_CT_REGEX.search(data):
+        __response |= ServerResponse.OUTPUT_CT
 
-    if OUTPUT_A_REGEX.search(response):
-        __state |= State.OUTPUT_A
+    if OUTPUT_A_REGEX.search(data):
+        __response |= ServerResponse.OUTPUT_A
 
-    if OUTPUT_B_REGEX.search(response):
-        __state |= State.OUTPUT_B
+    if OUTPUT_B_REGEX.search(data):
+        __response |= ServerResponse.OUTPUT_B
 
-    if PROMPT_CHOICE_REGEX.search(response):
-        __state |= State.PROMPT_CHOICE
+    if PROMPT_CHOICE_REGEX.search(data):
+        __response |= ServerResponse.PROMPT_CHOICE
 
-    if PROMPT_CT_REGEX.search(response):
-        __state |= State.PROMPT_CT
+    if PROMPT_CT_REGEX.search(data):
+        __response |= ServerResponse.PROMPT_CT
 
-    if PROMPT_B_REGEX.search(response):
-        __state |= State.PROMPT_B
+    if PROMPT_B_REGEX.search(data):
+        __response |= ServerResponse.PROMPT_B
 
-    if SUCCESS_REGEX.search(response):
-        __state |= State.SUCCESS
+    if SUCCESS_REGEX.search(data):
+        __response |= ServerResponse.SUCCESS
 
-    if ERROR_LENGTH_REGEX.search(response):
-        __state |= State.ERROR_LENGTH
+    if ERROR_LENGTH_REGEX.search(data):
+        __response |= ServerResponse.ERROR_LENGTH
 
-    if ERROR_PADDING_REGEX.search(response):
-        __state |= State.ERROR_PADDING
+    if ERROR_PADDING_REGEX.search(data):
+        __response |= ServerResponse.ERROR_PADDING
 
-    if ERROR_HEX_REGEX.search(response):
-        __state |= State.ERROR_HEX
+    if ERROR_HEX_REGEX.search(data):
+        __response |= ServerResponse.ERROR_HEX
 
-    if ERROR_CHOICE_REGEX.search(response):
-        __state |= State.ERROR_CHOICE
+    if ERROR_CHOICE_REGEX.search(data):
+        __response |= ServerResponse.ERROR_CHOICE
 
-    return __state
+    return __response
 
 # ======================================================================= react
+
+class ClientResponse(Flag):
+    NONE          = 0
+
+    RESET         = auto()
+    RETURN        = auto()
+
+    EXTRACT_DATA  = auto()
+
+    CHOOSE_OPTION = auto()
+
+    OUTPUT_CT     = auto()
+    OUTPUT_B      = auto()
 
 def extract_hex_values(data: bytes):
     __a_match = OUTPUT_A_REGEX.search(str(data))
@@ -114,6 +121,43 @@ def extract_hex_values(data: bytes):
             bytes.fromhex(__ct_match.group(1)))
     else:
         return ()
+
+def reply(server):
+    __client = ClientResponse.NONE
+
+    if (
+            (server & ServerResponse.ERROR_HEX)
+            or (server & ServerResponse.ERROR_CHOICE)
+            or (server & ServerResponse.ERROR_LENGTH)
+            or (server & ServerResponse.ERROR_PADDING)):
+        __client = ClientResponse.RESET
+
+    if (server & ServerResponse.SUCCESS):
+        __client = ClientResponse.RETURN
+
+    if (server & ServerResponse.OUTPUT_CT) and (server & ServerResponse.OUTPUT_A) and (server & ServerResponse.OUTPUT_B):
+        __client = ClientResponse.EXTRACT_DATA
+
+    if (server & ServerResponse.PROMPT_CHOICE):
+        __client = ClientResponse.CHOOSE_OPTION
+
+    if (server & ServerResponse.PROMPT_CT):
+        __client = ClientResponse.OUTPUT_CT
+
+    if (server & ServerResponse.PROMPT_B):
+        __client = ClientResponse.OUTPUT_B
+
+    return __client
+
+# ===================================================================== logging
+
+LOGGING_FORMAT = '''================================================
+infds:\t{}
+outfds:\t{}
+server:\t{}
+client:\t{}
+input:\t{}
+\n\n'''
 
 # ========================================================================= tcp
 
@@ -153,47 +197,50 @@ class Netcat:
         return self._socket.close()
 
     def talk(self):
-        __state = State.NONE
+        __server = ServerResponse.NONE
+        __client = ClientResponse.NONE
         __oracle = Oracle()
 
-        __response = b''
+        __data = b''
 
         i = 0
 
-        while (not (__state & State.SUCCESS)) and (i < 10):
+        while (not (__server & ServerResponse.SUCCESS)) and (i < 10):
             __infds, __outfds, __errfds = select(self._io, self._io, self._io, 4)
 
+            print(LOGGING_FORMAT.format(
+                str(__infds),
+                str(__outfds),
+                __server,
+                __client,
+                __data))
+
             if __infds:
-                __response = self.read(1024)
-                __state = parse_socket_state(str(__response))
+                __data = self.read(1024)
+                __server = parse_server_response(str(__data))
+                __client = reply(__server)
 
             if __outfds:
-                print(__state)
-                if (
-                        __state & State.ERROR_HEX
-                        or __state & State.ERROR_CHOICE
-                        or __state & State.ERROR_LENGTH
-                        or __state & State.ERROR_PADDING):
+                if __client & ClientResponse.RESET:
                     __oracle.reset()
                     i += 1
 
-                if __state & State.OUTPUT_CT and __state & State.OUTPUT_A and __state & State.OUTPUT_B:
-                    __oracle.set_parameters(extract_hex_values(__response))
+                if __client & ClientResponse.EXTRACT_DATA:
+                    __oracle.set_parameters(extract_hex_values(__data))
 
-                if __state & State.PROMPT_CHOICE:
+                if __client & ClientResponse.CHOOSE_OPTION:
                     if __oracle.is_ready():
                         self.write(b'1\n')
                     else:
                         self.write(b'0\n')
 
-                if __state & State.PROMPT_CT:
-                    self.write(__oracle.alter_ciphertext()[1] + b'\n')
-
-                if __state & State.PROMPT_B:
+                if __client & ClientResponse.OUTPUT_CT:
                     self.write(__oracle.alter_ciphertext()[2] + b'\n')
+
+                if __client & ClientResponse.OUTPUT_B:
+                    self.write(__oracle.alter_ciphertext()[1] + b'\n')
 
         return __oracle
 
 #TODO log
-#TODO remove temp bytes variables
-#TODO reset state
+#TODO reset state: actually the response str

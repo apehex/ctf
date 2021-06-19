@@ -21,6 +21,18 @@ def bruteforce():
                                                 yield bytes(
                                                     f'HTB{{{a0}{a1}{a2}{a3}{a4}{a5}{a6}{a7}{a8}{a9}{a10}}}',
                                                     'utf-8')
+# ===================================================================== logging
+
+LOGGING_FORMAT = '''Oracle {{
+\tready:\t{}
+\ta:\t{}
+\tb:\t{}
+\tc:\t{}
+\ta_s:\t{}
+\ta_m:\t{}
+\tb_m:\t{}
+\tc_m:\t{}
+}}\n\n'''
 
 # ======================================================= padding oracle attack
 
@@ -29,6 +41,18 @@ class Oracle:
     def __init__(self):
         self._plaintext_iv_secret = b'HTB{th3_s3crt_A}'
         self.reset()
+
+    def __str__(self):
+        __a, __b, __c = self.alter_ciphertext()
+        return LOGGING_FORMAT.format(
+            self.is_ready(),
+            self._plaintext_iv.hex(),
+            self._ciphertext_iv.hex(),
+            self._ciphertext.hex(),
+            self._plaintext_iv_secret.hex(),
+            __a.hex(),
+            __b.hex(),
+            __c.hex())
 
     def reset(self):
         self._plaintext_iv = b''
@@ -81,14 +105,11 @@ class Oracle:
         return parameters
 
     def alter_ciphertext(self):
-        if self.is_ready():
-            __mask = xor(self._plaintext_iv_secret, self._plaintext_iv)
-            return (
-                mask(self._plaintext_iv, __mask),
-                mask(self._ciphertext_iv, __mask),
-                mask(self._ciphertext, __mask))
-        else:
-            return ()
+        __mask = xor(self._plaintext_iv_secret, self._plaintext_iv)
+        return (
+            mask(self._plaintext_iv, __mask),
+            mask(self._ciphertext_iv, __mask),
+            mask(self._ciphertext, __mask))
 
 # ======================================================================== main
 
