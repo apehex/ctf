@@ -4,9 +4,80 @@ import socketserver
 from Crypto.Cipher import AES
 import os
 
-# ========================================================================= fib
+# ========================================================= block manipulations
 
-fib = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 121, 98, 219, 61]
+def chunk(l, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+# ===================================================================== padding
+
+fibopadcci = bytes([1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 121, 98, 219, 61])
+
+def pad(data: bytes, right: bool=True, fill: bytes=fibopadcci, until: int=16) -> bytes:
+    """
+    Pad until the total length reaches a block size.
+    """
+    l = len(data)
+    if right:
+        return data + fill[:until-l]
+    else:
+        return fill[:until-l] + data
+
+def checkpad(data: bytes) -> bytes:
+    
+    if len(data) % 16:
+        return 0
+    char = data[-1]
+
+    try:
+        start = fibopadcci.index(char)
+    except ValueError:
+        return 0
+    
+    newfibopadcci = fibopadcci[:start][::-1]
+
+    for i in range(len(newfibopadcci)):
+        char = data[-(i+2)]
+        if char != newfibopadcci[i]:
+            return 0
+    return 1
+
+# ==================================================================== encoding
+
+def int_to_byte(n: int) -> bytes:
+    __h = str(hex(n % 256))[2:]
+    return bytes.fromhex("0" * (2-len(__h)) + __h)
+
+def to_bytes(data) -> bytes:
+    if type(data) == int:
+        return int_to_byte(data)
+    elif type(data) == bytes:
+        return data
+    elif type(data) == str and is_hex(data):
+        return bytes.fromhex(data)
+    return b''
+
+def is_hex(data: str) -> bool:
+    try:
+        int(data, 16)
+        return True
+    except:
+        return False
+
+def unhex(data: str) -> bytes:
+    return bytes.fromhex(data)
+
+# ========================================================================= xor
+
+def xor(a: bytes, b: bytes) -> bytes:
+    return bytes([_a ^ _b for _a, _b in zip(a, b)])
+
+def mask(message: bytes, pattern: bytes) -> bytes:
+    q = len(message) // len(pattern)
+    r = len(message) % len(pattern)
+    return xor(message, (pattern * q) + pattern[:r])
 
 # ========================================================================= aes
 
@@ -24,7 +95,7 @@ class SuperSecureEncryption: # This should be unbreakable!
         lb_cipher = b
         output = b''
 
-        for block in chunks(data, 16):
+        for block in chunk(data, 16):
             enc = self.cipher.encrypt(xor(lb_cipher, block))
             enc = xor(enc, lb_plain)
             output += enc
@@ -38,7 +109,7 @@ class SuperSecureEncryption: # This should be unbreakable!
         lb_cipher = b
         output = b''
 
-        for block in chunks(data, 16):
+        for block in chunk(data, 16):
             dec = self.cipher.decrypt(xor(block, lb_plain))
             dec = xor(dec, lb_cipher)
             output += dec
@@ -49,67 +120,6 @@ class SuperSecureEncryption: # This should be unbreakable!
             return output
         else:
             return None
-
-# =================================================================== utilities
-
-def chunks(l, n):
-    """Yield successive n-sized chunks from lst."""
-    for i in range(0, len(l), n):
-        yield l[i:i + n]
-
-def int_to_byte(n: int) -> str:
-    __h = str(hex(n % 255))[2:]
-    return bytes.fromhex("0" * (2-len(__h)) + __h)
-
-def is_hex(data: str) -> bool:
-    try:
-        int(data, 16)
-        return True
-    except:
-        return False
-
-def unhex(data: str) -> bytes:
-    return bytes.fromhex(data)
-
-def xor(a: bytes, b: bytes) -> bytes:
-    return bytes([_a ^ _b for _a, _b in zip(a, b)])
-
-def pad(data: bytes) -> bytes: #Custom padding, should be fine!
-    c = 0
-    while len(data) % 16:
-        data += int_to_byte(fib[c])
-        c += 1
-    return data
-
-def checkpad(data: bytes) -> bytes:
-    
-    if len(data) % 16:
-        return 0
-    char = data[-1]
-
-    try:
-        start = fib.index(char)
-    except ValueError:
-        return 0
-    
-    newfib = fib[:start][::-1]
-
-    for i in range(len(newfib)):
-        char = data[-(i+2)]
-        if char != newfib[i]:
-            return 0
-    return 1
-
-# =============================================================== change the IV
-
-def mask(
-        message: bytes,
-        pattern: bytes) -> bytes:
-    if len(message) % len(pattern):
-        return None
-    else:
-        __mask = pattern * (len(message) // len(pattern))
-        return xor(message, __mask)
 
 # ============================================================ encryption tests
 

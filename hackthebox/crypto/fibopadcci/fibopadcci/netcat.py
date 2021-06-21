@@ -110,7 +110,7 @@ class ClientResponse(Flag):
     OUTPUT_CT     = auto()
     OUTPUT_B      = auto()
 
-def extract_hex_values(data: bytes):
+def extract_hex_bytes(data: bytes):
     __a_match = OUTPUT_A_REGEX.search(str(data))
     __b_match = OUTPUT_B_REGEX.search(str(data))
     __ct_match = OUTPUT_CT_REGEX.search(str(data))
@@ -247,7 +247,7 @@ class Netcat:
 
         while not self.is_server(ServerResponse.SUCCESS):
             # reset the context
-            __oracle.reset()
+            __oracle.reset() #NO!
 
             # wait for the server
             self.wait(until=ServerResponse.PROMPT_CHOICE, fail=8)
@@ -257,7 +257,7 @@ class Netcat:
                 self.write(b'0\n')
                 self.read(1024)
                 if self.is_client(ClientResponse.EXTRACT_DATA):
-                    __oracle.set_parameters(extract_hex_values(self._data))
+                    __oracle.set_cbc_parameters(extract_hex_bytes(self._data))
 
             # send a message
             self.wait(until=ServerResponse.PROMPT_CHOICE, fail=8)
@@ -269,5 +269,6 @@ class Netcat:
 
             # read response
             self.read(1024)
+            #TODO if success: update the oracle
 
         return __oracle
