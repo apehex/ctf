@@ -168,7 +168,7 @@ MAX_TRIES = 1024 # on average 256 tries are enough
 
 class Netcat:
 
-    def __init__(self, ip: str, port: int):
+    def __init__(self, ip: str, port: int, level=logging.DEBUG):
 
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._socket.settimeout(2)
@@ -182,11 +182,12 @@ class Netcat:
         self._data = b''
         self._server = ServerResponse.NONE
         self._client = ClientResponse.NONE
+        self._oracle = Oracle()
 
         logging.basicConfig(
             filename='client.log',
             encoding='utf-8',
-            level=logging.DEBUG,
+            level=level,
             format='%(message)s')
         logging.info(f'====> Connected')
 
@@ -197,15 +198,14 @@ class Netcat:
         return self._client & state
 
     def read(self, length: int=1024):
-
-        """ Read 1024 bytes off the socket """
-
+        """
+        Read 1024 bytes off the socket.
+        """
         self._data = self._socket.recv(length)
         self._server = parse_server_response(str(self._data))
         self._client = reply(self._server)
 
-        logging.info(f'====> Read {len(self._data)} bytes')
-
+        logging.debug(f'====> Read {len(self._data)} bytes')
         logging.debug(f'{self._server}')
         logging.debug(f'{self._client}')
         logging.debug(f'{self._data}')
@@ -213,18 +213,20 @@ class Netcat:
         return self._data, self._server, self._client
  
     def write(self, data: bytes) -> int:
-
-        """ Send data """
-
+        """
+        Send data.
+        """
         __c = self._socket.send(data)
 
-        logging.info(f'====> Wrote {__c} bytes')
-
+        logging.debug(f'====> Wrote {__c} bytes')
         logging.debug(f'{data}')
 
         return __c
 
     def wait(self, until: ServerResponse=ServerResponse.PROMPT_CHOICE, fail: int=8) -> None:
+        """
+        Wait until a given server response.
+        """
         i = 0
 
         while not self.is_server(until) and i < fail:
@@ -235,40 +237,42 @@ class Netcat:
         return self._data, self._server, self._client
     
     def close(self) -> None:
-
-        """ Terminate the TCP stream """
-
+        """
+        Terminate the TCP stream
+        """
         logging.info('====> Socket closed')
 
         return self._socket.close()
 
     def all_your_c1ph3rZ_are_belong_to_me(self):
-        __oracle = Oracle()
-
-        while not self.is_server(ServerResponse.SUCCESS):
-            # reset the context
-            __oracle.reset() #NO!
-
+        """
+        """
+        while not self._oracle.is_done():
             # wait for the server
             self.wait(until=ServerResponse.PROMPT_CHOICE, fail=8)
 
             # ask for a ciphertext
-            while not __oracle.is_ready():
+            while not self._oracle.is_ready():
                 self.write(b'0\n')
                 self.read(1024)
                 if self.is_client(ClientResponse.EXTRACT_DATA):
-                    __oracle.set_cbc_parameters(extract_hex_bytes(self._data))
+                    self._oracle.set_cbc_parameters(extract_hex_bytes(self._data))
 
             # send a message
             self.wait(until=ServerResponse.PROMPT_CHOICE, fail=8)
             self.write(b'1\n')
             self.wait(until=ServerResponse.PROMPT_CT)
-            self.write(bytes(__oracle.alter_ciphertext()[2].hex(), 'utf-8') + b'\n')
+            self.write(bytes(self._oracle.alter_ciphertext()[2].hex(), 'utf-8') + b'\n')
             self.wait(until=ServerResponse.PROMPT_B)
-            self.write(bytes(__oracle.alter_ciphertext()[1].hex(), 'utf-8') + b'\n')
+            self.write(bytes(self._oracle.alter_ciphertext()[1].hex(), 'utf-8') + b'\n')
 
             # read response
             self.read(1024)
-            #TODO if success: update the oracle
+            if self.is_server(ServerResponse.SUCCESS):
+                self._oracle.decrypt_next_byte()
+                logging.info(f'====> Decrypted another byte!')
+                logging.info(str(self._oracle))
 
-        return __oracle
+        self.close()
+
+        return self._oracle

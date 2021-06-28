@@ -13,13 +13,13 @@ def chunk(l, n):
 
 # ===================================================================== padding
 
-fibopadcci = bytes([1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 121, 98, 219, 61])
+FIBOPADCCI = bytes([1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 121, 98, 219, 61])
 
-def pad(data: bytes, right: bool=True, fill: bytes=fibopadcci, until: int=16) -> bytes:
+def pad(data: bytes, right: bool=True, fill: bytes=FIBOPADCCI, until: int=16) -> bytes:
     """
     Pad until the total length reaches a block size.
     """
-    l = len(data)
+    l = len(data) % until
     if right:
         return data + fill[:until-l]
     else:
@@ -32,11 +32,11 @@ def checkpad(data: bytes) -> bytes:
     char = data[-1]
 
     try:
-        start = fibopadcci.index(char)
+        start = FIBOPADCCI.index(char)
     except ValueError:
         return 0
     
-    newfibopadcci = fibopadcci[:start][::-1]
+    newfibopadcci = FIBOPADCCI[:start][::-1]
 
     for i in range(len(newfibopadcci)):
         char = data[-(i+2)]

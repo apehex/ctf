@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from fibopadcci import fib, is_hex, mask, pad, to_bytes, xor
+from fibopadcci import FIBOPADCCI, is_hex, mask, pad, to_bytes, xor
 
 # ================================================================ bruteforcing
 
@@ -26,14 +26,23 @@ def bruteforce():
 
 LOGGING_FORMAT = '''Oracle {{
 \tready:\t{}
+\tdone:\t{}
+\tnext:\t{}
+
 \ta:\t{}
 \tb:\t{}
 \tc:\t{}
+
 \ta_secret:\t{}
 \ta_masked:\t{}
 \tb_masked:\t{}
 \tc_masked:\t{}
+
 \tp_known:\t{}
+\tfibopadcci:\t{}
+\tdelta:\t{}
+
+\tplaintext:\t{}
 }}\n\n'''
 
 # ======================================================= padding oracle attack
@@ -50,6 +59,8 @@ class Oracle:
         __a, __b, __c = self.alter_ciphertext()
         return LOGGING_FORMAT.format(
             self.is_ready(),
+            self.is_done(),
+            self.is_next_iv(self._plaintext_iv),
             self._plaintext_iv.hex(),
             self._ciphertext_iv.hex(),
             self._ciphertext.hex(),
@@ -57,10 +68,12 @@ class Oracle:
             __a.hex(),
             __b.hex(),
             __c.hex(),
+            self._plaintext_known_bytes.hex(),
+            self.calculate_fibopadcci(len(self._plaintext_known_bytes) + 1),
+            self.calculate_next_delta(),
             self._plaintext_known_bytes)
 
     def reset(self):
-        self._fibopadcci = bytes(fib)
         self._plaintext_iv = b''
         self._ciphertext_iv = b''
         self._ciphertext = b''
@@ -83,9 +96,9 @@ class Oracle:
         return (
             bool(parameters)
             and len(parameters) == 3
-            and self._check_single_cbc_parameter(parameters[0], 1)
-            and self._check_single_cbc_parameter(parameters[1], 1)
-            and self._check_single_cbc_parameter(parameters[2], 0))
+            and Oracle._check_single_cbc_parameter(parameters[0], 1)
+            and Oracle._check_single_cbc_parameter(parameters[1], 1)
+            and Oracle._check_single_cbc_parameter(parameters[2], 0))
 
     def set_cbc_parameters(self, parameters):
         if self._check_cbc_parameters(parameters):
@@ -110,15 +123,16 @@ class Oracle:
     def is_ready(self) -> bool:
         """
         Check whether all cipher parameters are valid
-        and the plaintext IV allow the decryption of the next byte."""
-
+        and the plaintext IV allows the decryption of the next byte.
+        """
         return (
             self._check_single_cbc_parameter(self._plaintext_iv_secret, 1)
-            and self._check_cbc_parameters((self._plaintext_iv, self._ciphertext_iv, self._ciphertext)))
+            and self._check_cbc_parameters((self._plaintext_iv, self._ciphertext_iv, self._ciphertext))
+            and self.is_next_iv(self._plaintext_iv))
 
     # ================================================ oracle attack: iteration
 
-    def calculate_next_padding(self) -> bytes:
+    def calculate_fibopadcci(self, l: int) -> bytes:
         """
         Calculate the padding that will allow the decryption of the next
         unknown byte.
@@ -128,9 +142,17 @@ class Oracle:
 
         Manipulating entities of block size simplifies the calculations.
         """
+        return pad(FIBOPADCCI[:l], right=False, fill=b'i'*16, until=16)
+
+    def calculate_next_delta(self) -> bytes:
+        """
+        Calculate the delta will allow the decryption of the next byte.
+        """
         l = len(self._plaintext_known_bytes)
         if not self.is_done():
-            return pad(self._fibopadcci[:l+1], right=False, fill=b'i'*16, until=16)
+            return xor(
+                self.calculate_fibopadcci(l + 1),
+                pad(self._plaintext_known_bytes, right=False, fill=b'G'*16, until=16))
         else:
             return b''
 
@@ -145,24 +167,23 @@ class Oracle:
         Manipulating entities of block size simplifies the calculations.
         """
         l = len(self._plaintext_known_bytes)
-        return xor(
-            self._plaintext_iv_secret,
-            xor(
-                self.calculate_next_padding(),
-                pad(self._plaintext_known_bytes, right=False, fill=b'G'*16, until=16)))
+        if not self.is_done():
+            return xor(
+                self._plaintext_iv_secret,
+                self.calculate_next_delta())
+        else:
+            return b''
 
     def decrypt_next_byte(self) -> bytes:
-        __next_byte = b''
         l = len(self._plaintext_known_bytes)
         if is_next_iv(self._plaintext_iv):
             __last_bytes = xor(
                 self._plaintext_iv,
                 xor(
                     self._plaintext_iv_secret,
-                    self.calculate_next_padding()))
-            __next_byte = __last_bytes[-l-1]
-            self._plaintext_known_bytes = __next_byte + self._plaintext_known_bytes
-        return __next_byte
+                    self.calculate_fibopadcci(l + 1)))
+            self._plaintext_known_bytes = __last_bytes[-l-1:]
+        return self._plaintext_known_bytes
 
 
     def alter_ciphertext(self):
