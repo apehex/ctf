@@ -24,10 +24,7 @@ len(set(enc))
 256
 ```
 
-`{123 * n % 256}` is a group with an inverse element:
-
-```python
-```
+`{123 * n % 256}` is a group with `179` as inverse element.
 
 ## Decryption
 

@@ -1,9 +1,9 @@
 # USB Ripper
 
-> **There is a sysadmin, who has been dumping all the USB events on his Linux
-> host all the year... Recently, some bad guys managed to steal some data from
-> his machine when they broke into the office. Can you help him to put a tail on
-> the intruders? Note: once you find it, "crack" it.**
+> **There is a sysadmin, who has been dumping all the USB events on his Linux**
+> **host all the year... Recently, some bad guys managed to steal some data from**
+> **his machine when they broke into the office. Can you help him to put a tail on**
+> **the intruders? Note: once you find it, "crack" it.**
 
 ## Browsing & Interpretation
 
@@ -91,4 +91,4 @@ MD5 hash. So we google it:
 w3m google.com/search?q=71DF5A33EFFDEA5B1882C9FBDC1240C6
 ```
 
-> mychemicalromance
+> HTB{mychemicalromance}
