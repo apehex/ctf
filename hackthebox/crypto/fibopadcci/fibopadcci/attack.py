@@ -193,14 +193,6 @@ class Oracle:
             mask(self._ciphertext_iv, __mask),
             mask(self._ciphertext, __mask))
 
-    # ============================================================== decryption
-
-    def decrypt_next_bytes(self):
-        __mask = xor(self._plaintext_iv_secret, self._plaintext_iv)
-        __plaintext_masked = bytes.fromhex('00000000000000000000000000000001')
-        __plaintext = xor(__mask, __plaintext_masked)
-        return __plaintext
-
 # ======================================================================== main
 
 def main():

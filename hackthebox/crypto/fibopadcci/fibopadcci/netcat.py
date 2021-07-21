@@ -189,7 +189,7 @@ class Netcat:
             encoding='utf-8',
             level=level,
             format='%(message)s')
-        logging.info(f'====> Connected')
+        logging.debug(f'====> Connected')
 
     def is_server(self, state: ServerResponse):
         return self._server & state
@@ -205,10 +205,10 @@ class Netcat:
         self._server = parse_server_response(str(self._data))
         self._client = reply(self._server)
 
-        logging.debug(f'====> Read {len(self._data)} bytes')
-        logging.debug(f'{self._server}')
-        logging.debug(f'{self._client}')
-        logging.debug(f'{self._data}')
+        # logging.debug(f'====> Read {len(self._data)} bytes')
+        # logging.debug(f'{self._server}')
+        # logging.debug(f'{self._client}')
+        # logging.debug(f'{self._data}')
         
         return self._data, self._server, self._client
  
@@ -218,8 +218,8 @@ class Netcat:
         """
         __c = self._socket.send(data)
 
-        logging.debug(f'====> Wrote {__c} bytes')
-        logging.debug(f'{data}')
+        # logging.debug(f'====> Wrote {__c} bytes')
+        # logging.debug(f'{data}')
 
         return __c
 
@@ -270,8 +270,8 @@ class Netcat:
             self.read(1024)
             if self.is_server(ServerResponse.SUCCESS):
                 self._oracle.decrypt_next_byte()
-                logging.info(f'====> Decrypted another byte!')
-                logging.info(str(self._oracle))
+                logging.debug(f'====> Decrypted another byte!')
+                logging.debug(str(self._oracle))
 
         self.close()
 
