@@ -5,7 +5,7 @@ var k = '||||||var|function|return|_0x5321c8|_0x50f60b|0x1|_0x45492a|this|_0x252
 var e = 0;
 var d = {};
 
-(function anonymous() {
+function anonymous() {
     console.log(function(p, a, c, k, e, d) {
         e = function(c) {
             return c
@@ -29,4 +29,6 @@ var d = {};
         }
         return p
     }(p, a, c, k, e, d));
-})()
+}
+
+anonymous();
