@@ -1,0 +1,10 @@
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             Microsoft executable, portable (PE)
+88200         0x15888         AES S-Box
+88456         0x15988         AES Inverse S-Box
+100112        0x18710         PNG image, 256 x 256, 8-bit/color RGBA, non-interlaced
+100153        0x18739         Zlib compressed data, best compression
+4474736       0x444770        XML document, version: "1.0"
+
