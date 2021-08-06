@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import logging
 import socketserver
 from Crypto.Cipher import AES
 import os
@@ -38,6 +39,14 @@ MENU_MSG = """\n
 -------------------------
 """[1:]
 
+# ===================================================================== logging
+
+logging.basicConfig(
+    filename='server.log',
+    encoding='utf-8',
+    level=logging.DEBUG,
+    format='%(message)s')
+
 # ===================================================================== service
 
 def encryptFlag():
@@ -68,6 +77,10 @@ def handle(self):
                 b = unhex(self.query("Enter the B used during encryption in hex: "))
                 a = b'HTB{th3_s3crt_A}' # My secret A! Only admins know it, and plus, other people won't be able to work out my key anyway!
                 self.write(sendMessage(ct,a,b))
+                logging.debug(f'====> Received a message')
+                logging.debug(f'\t{ct.hex()}\t\t{ct}')
+                logging.debug(f'\t{a.hex()}\t\t{a}')
+                logging.debug(f'\t{b.hex()}\t\t{b}')
             except ValueError as e:
               self.write("Provided input is not hex!")
         else:
