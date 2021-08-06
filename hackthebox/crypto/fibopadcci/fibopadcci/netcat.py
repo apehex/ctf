@@ -272,6 +272,8 @@ class Netcat:
                 self._oracle.decrypt_next_byte()
                 logging.debug(f'====> Decrypted another byte!')
                 logging.debug(str(self._oracle))
+            else:
+                self._oracle.reset() # the current IV doesn't work
 
         self.close()
 
