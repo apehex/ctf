@@ -53,6 +53,7 @@ class Oracle:
 
     def __init__(self):
         self._plaintext_iv_secret = b'HTB{th3_s3crt_A}'
+        self._plaintext_known_bytes = b''
         self.reset()
 
     def __str__(self):
@@ -77,7 +78,6 @@ class Oracle:
         self._plaintext_iv = b''
         self._ciphertext_iv = b''
         self._ciphertext = b''
-        self._plaintext_known_bytes = b'}'
 
     # ====================================================================== IO
 
@@ -113,7 +113,7 @@ class Oracle:
         l = len(self._plaintext_known_bytes)
         return (
             not self.is_done()
-            and iv[-l:] == self.calculate_next_iv()[-l:])
+            and (l == 0 or iv[-l:] == self.calculate_next_iv()[-l:]))
 
     def is_done(self) -> bool:
         return (
@@ -166,7 +166,6 @@ class Oracle:
 
         Manipulating entities of block size simplifies the calculations.
         """
-        l = len(self._plaintext_known_bytes)
         if not self.is_done():
             return xor(
                 self._plaintext_iv_secret,
@@ -176,7 +175,7 @@ class Oracle:
 
     def decrypt_next_byte(self) -> bytes:
         l = len(self._plaintext_known_bytes)
-        if is_next_iv(self._plaintext_iv):
+        if self.is_next_iv(self._plaintext_iv):
             __last_bytes = xor(
                 self._plaintext_iv,
                 xor(
