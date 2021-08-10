@@ -1,8 +1,8 @@
-# Fibopadcci
-
 > **While investigating the reported insider risk, we managed to retrieve the**
 > **source code for a suspicious server. However, we still can't figure out how to**
 > **decrypt the admin's message. Can you help us?**
+
+> Author: **[willwam845][author-profile]**
 
 ## Interacting with the server
 
@@ -226,6 +226,8 @@ The functions are written in uppercase:
 - the AES decryption function is ![E-1][function_aes-1]
 - the overall CBC encryption scheme is ![C][function_cbc]
 - the overall CBC decryption scheme is ![C-1][function_cbc-1]
+
+[author-profile]: https://app.hackthebox.eu/users/219091
 
 [constant_fibopadcci-1]: maths/constants/fibopadcci-1.png
 [constant_fibopadcci-5]: maths/constants/fibopadcci-5.png

@@ -46,7 +46,8 @@ m1 ^ d1 = m (mod n)
 m2 = m ^ e2 (mod n)
 m2 ^ d2 = m (mod n)
 ```
-Since e1 and e2 are coprime, Bézout:
+
+Since e1 and e2 are coprime, Bézout's identity says:
 
 ```
 e1 * x + e2 * y = 1
