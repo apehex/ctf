@@ -27,8 +27,8 @@ math.log(hint, 256)
 Going further, the base 256 representation of the hint is:
 
 ```python
-# ['c', '4', 't', '|', '\x1a', 'Ö', '"', '"', 'Ú', 'Ã', '×', '\x08', 'H', 'ß', 'Ä', '\\', '3', '7', '\t', '&', '\x08', 'J', '7', '\x00', '\n', '\x03', 'ë', '3', '\x1d']
-HINT = [chr(i) for i in representation(hint, 256)]
+# b'c4t|\x1a\xd6""\xda\xc3\xd7\x08H\xdf\xc4\\37\t&\x08J7\x00\n\x03\xeb3\x1d'
+long_to_bytes(hint)
 ```
 
 Most likely, one string is several characters longer than the others: the first

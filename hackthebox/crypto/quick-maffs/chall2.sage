@@ -3,7 +3,7 @@ from Crypto.Util.number import *
 
 p = random_prime(2 ** 10)
 q = random_prime(2 ** 10)
-pts = b'this-is-only-a-test'
+pts = [b'this', b'-is-only', b'-a-test.I-repeat-do-not-panic,this-is-only-a-test']
 
 e = random_prime(2 ** 10) # this will also be a secret , don't complain
 
