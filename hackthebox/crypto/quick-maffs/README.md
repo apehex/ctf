@@ -74,7 +74,12 @@ In our case, we have 3 messages:
 
 Where `H` is the hint: 2674558878275613295915981392537201653631411909654166620884912623530781.
 
-The Groebner base of the 4 polynomials
+When two polynomials share a common root, there resultant is 0. So the 
+
+So R<sub>2</sub> and S<sub>2</sub> share a common root: y<sub>2</sub> = m<sub>1</sub> + m<sub>2</sub>.
+This root appears in their GCD as a common factor.
+
+However the computation is really demanding
 
 [author-profile]: https://app.hackthebox.eu/users/109128
 [coppersmith-paper]: https://link.springer.com/content/pdf/10.1007/3-540-68339-9_1.pdf
