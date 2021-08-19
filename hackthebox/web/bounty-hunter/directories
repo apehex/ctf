@@ -1,0 +1,28 @@
+# gobuster dir -x php -w /usr/share/wordlists/discovery/raft-small-directories.txt -u 10.10.11.100
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.11.100
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/discovery/raft-small-directories.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+2021/08/19 09:59:50 Starting gobuster in directory enumeration mode
+===============================================================
+/js                   (Status: 301) [Size: 309] [--> http://10.10.11.100/js/]
+/css                  (Status: 301) [Size: 310] [--> http://10.10.11.100/css/]
+/assets               (Status: 301) [Size: 313] [--> http://10.10.11.100/assets/]
+/db.php               (Status: 200) [Size: 0]
+/resources            (Status: 301) [Size: 316] [--> http://10.10.11.100/resources/]
+/index.php            (Status: 200) [Size: 25169]
+/portal.php           (Status: 200) [Size: 125]
+/server-status        (Status: 403) [Size: 277]
+
+===============================================================
+2021/08/19 10:08:23 Finished
+===============================================================
