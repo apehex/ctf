@@ -1,5 +1,5 @@
-> **I have made a password verification app. If I can remember the password,**
-> **the app will tell me it is correct. See if you can guess my password.**
+> I have made a password verification app. If I can remember the password,
+> the app will tell me it is correct. See if you can guess my password.
 
 > Authors: **[heartpoll][author-profile-1]** & **[bertolis][author-profile-2]**
 
