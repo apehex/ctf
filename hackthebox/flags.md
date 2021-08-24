@@ -61,6 +61,7 @@ Canvas ``HTB{W3Lc0m3_70_J4V45CR1p7_d30bFu5C4710N}``
 Cryptohorrific ``HTB{%SoC00l_H4ckTh3b0xbyBs3cur31stCh4ll3ng3!!Cr4zY%}``
 Cat ``HTB{ThisBackupIsUnprotected}``
 apKey ``HTB{m0r3_0bfusc4t1on_w0uld_n0t_hurt}``
+SeeTheSharpFlag ``b'HTB{MyPasswordIsVerySecure}\x05\x05\x05\x05\x05'``
 
 ## OSINT
 
