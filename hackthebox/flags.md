@@ -14,6 +14,7 @@ Flipping_Bank ``HTB{b1t_fl1pp1ng_1s_c00l}``
 RSA Is Easy ``HTB{1_m1ght_h4v3_m3ss3d_uP_jU$t_4_l1ttle_b1t?}``
 Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
 quick maffs ``HTB{5h0u1d_1t_b3_und3r_RSA_c4t3g0ry_0r_und3r_m4ths_c4t3g0ry?,1dk!but_gb_is_c00l}``
+mysterybox ``HTB{3mpl0y33s_mu5t_h45h_4ll_m3554g3s_b3f0r3_l00k1ng_4t_th3m_t0_pr3v3nt_bl1ndn3ss}``
 
 ## Forensics
 
