@@ -1,0 +1,20 @@
+# Nmap 7.91 scan initiated Wed Aug 25 11:43:25 2021 as: nmap -v -sU -sV -oN services.udp.nmap 10.10.10.248
+Increasing send delay for 10.10.10.248 from 0 to 50 due to 11 out of 13 dropped probes since last increase.
+Nmap scan report for 10.10.10.248
+Host is up (0.18s latency).
+Not shown: 996 open|filtered ports
+PORT    STATE SERVICE      VERSION
+53/udp  open  domain       (generic dns response: NOTIMP)
+88/udp  open  kerberos-sec Microsoft Windows Kerberos (server time: 2021-08-25 17:01:44Z)
+123/udp open  ntp          NTP v3
+389/udp open  ldap         Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-UDP:V=7.91%I=7%D=8/25%Time=612611CA%P=x86_64-unknown-linux-gnu%r
+SF:(DNSStatusRequest,C,"\0\0\x90\x04\0\0\0\0\0\0\0\0")%r(NBTStat,32,"\x80\
+SF:xf0\x80\x82\0\x01\0\0\0\0\0\0\x20CKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\0\0!\
+SF:0\x01");
+Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug 25 13:11:16 2021 -- 1 IP address (1 host up) scanned in 5270.63 seconds

@@ -1,0 +1,92 @@
+# Nmap 7.91 scan initiated Wed Aug 25 11:43:54 2021 as: nmap -v -A -Pn -oN services.tcp.nmap 10.10.10.248
+Nmap scan report for 10.10.10.248
+Host is up (0.12s latency).
+Not shown: 988 filtered ports
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain        Simple DNS Plus
+80/tcp   open  http          Microsoft IIS httpd 10.0
+|_http-favicon: Unknown favicon MD5: 556F31ACD686989B1AFCF382C05846AA
+| http-methods:
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Intelligence
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2021-08-25 16:57:50Z)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:<unsupported>, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-04-19T00:43:16
+| Not valid after:  2022-04-19T00:43:16
+| MD5:   7767 9533 67fb d65d 6065 dff7 7ad8 3e88
+|_SHA-1: 1555 29d9 fef8 1aec 41b7 dab2 84d7 0f9d 30c7 bde7
+|_ssl-date: 2021-08-25T16:59:18+00:00; +7h13m40s from scanner time.
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:<unsupported>, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-04-19T00:43:16
+| Not valid after:  2022-04-19T00:43:16
+| MD5:   7767 9533 67fb d65d 6065 dff7 7ad8 3e88
+|_SHA-1: 1555 29d9 fef8 1aec 41b7 dab2 84d7 0f9d 30c7 bde7
+|_ssl-date: 2021-08-25T16:59:19+00:00; +7h13m39s from scanner time.
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:<unsupported>, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-04-19T00:43:16
+| Not valid after:  2022-04-19T00:43:16
+| MD5:   7767 9533 67fb d65d 6065 dff7 7ad8 3e88
+|_SHA-1: 1555 29d9 fef8 1aec 41b7 dab2 84d7 0f9d 30c7 bde7
+|_ssl-date: 2021-08-25T16:59:18+00:00; +7h13m40s from scanner time.
+3269/tcp open  ssl/ldap      Microsoft Windows Active Directory LDAP (Domain: intelligence.htb0., Site: Default-First-Site-Name)
+| ssl-cert: Subject: commonName=dc.intelligence.htb
+| Subject Alternative Name: othername:<unsupported>, DNS:dc.intelligence.htb
+| Issuer: commonName=intelligence-DC-CA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-04-19T00:43:16
+| Not valid after:  2022-04-19T00:43:16
+| MD5:   7767 9533 67fb d65d 6065 dff7 7ad8 3e88
+|_SHA-1: 1555 29d9 fef8 1aec 41b7 dab2 84d7 0f9d 30c7 bde7
+|_ssl-date: 2021-08-25T16:59:19+00:00; +7h13m39s from scanner time.
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+No OS matches for host
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=260 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: Host: DC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 7h13m39s, deviation: 0s, median: 7h13m38s
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled and required
+| smb2-time:
+|   date: 2021-08-25T16:58:40
+|_  start_date: N/A
+
+TRACEROUTE (using port 53/tcp)
+HOP RTT       ADDRESS
+1   128.59 ms 10.10.16.1
+2   130.47 ms 10.10.10.248
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug 25 11:45:40 2021 -- 1 IP address (1 host up) scanned in 106.23 seconds
