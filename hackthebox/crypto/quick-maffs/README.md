@@ -116,14 +116,17 @@ has a built-in algorithm for reducing polynomials that is optimized:
 the Gr&ouml;bner basis computation, as the paper points out.
 
 ```python
-p0 = x + y + z - w
-p1 = x^e - c1
-p2 = y^e - c2
-p3 = z^e - c3
+def basis_attack(e: int, n: int, w: int, c1: int, c2: int, c3: int):
+    XYZ.<x,y,z> = PolynomialRing(Zmod(n))
 
-i = ideal(p0, p1, p2, p3)
+    p0 = x + y + z - w
+    p1 = x^e - c1
+    p2 = y^e - c2
+    p3 = z^e - c3
 
-i.groebner_basis()
+    i = ideal(p0, p1, p2, p3)
+
+    return i.groebner_basis()
 ```
 
 According to the previous section, when the value of e is wrong, the R<sub>i</sub> and S<sub>i</sub>
