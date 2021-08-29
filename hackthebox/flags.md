@@ -15,6 +15,7 @@ RSA Is Easy ``HTB{1_m1ght_h4v3_m3ss3d_uP_jU$t_4_l1ttle_b1t?}``
 Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
 quick maffs ``HTB{5h0u1d_1t_b3_und3r_RSA_c4t3g0ry_0r_und3r_m4ths_c4t3g0ry?,1dk!but_gb_is_c00l}``
 mysterybox ``HTB{3mpl0y33s_mu5t_h45h_4ll_m3554g3s_b3f0r3_l00k1ng_4t_th3m_t0_pr3v3nt_bl1ndn3ss}``
+signup ``HTB{Sh4r3d_K_1s_n0t_A_g00d_S1gninG_Id3a}``
 
 ## Forensics
 
@@ -91,6 +92,7 @@ You know 0xDiablos ``HTB{0ur_Buff3r_1s_not_healthy}``
 No Return ``HTB{y0uv3_35c4p3d_7h3_v01d_0f_n0_r37urn}``
 Sick Rop ``HTB{why_st0p_wh3n_y0u_cAn_s1GRoP!?}``
 Hunting ``HTB{H0w_0n_34rth_d1d_y0u_f1nd_m3?!?}``
+Format ``HTB{mall0c_h00k_f0r_th3_w1n!}``
 
 ## Reversing
 
@@ -140,3 +142,4 @@ nginxatsu ``HTB{PD0's_br34th1ng_1nt3s1f13s!}``
 Templated ``HTB{t3mpl4t3s_4r3_m0r3_p0w3rfu1_th4n_u_th1nk!}``
 Phonebook ``HTB{d1rectory_h4xx0r_is_k00l}``
 ezpz ``HTB{T0oE4syP34syL4m3SQLiF!lt3rs}``
+Gunship ``HTB{wh3n_lif3_g1v3s_y0u_p6_st4rT_p0llut1ng_w1th_styl3!!}``
