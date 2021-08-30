@@ -143,3 +143,4 @@ Templated ``HTB{t3mpl4t3s_4r3_m0r3_p0w3rfu1_th4n_u_th1nk!}``
 Phonebook ``HTB{d1rectory_h4xx0r_is_k00l}``
 ezpz ``HTB{T0oE4syP34syL4m3SQLiF!lt3rs}``
 Gunship ``HTB{wh3n_lif3_g1v3s_y0u_p6_st4rT_p0llut1ng_w1th_styl3!!}``
+baby CachedView ``HTB{reb1nd1ng_y0ur_dns_r3s0lv3r_0n3_qu3ry_4t_4_t1m3}``
