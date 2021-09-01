@@ -32,6 +32,7 @@ MarketDump ``HTB{DonTRuNAsRoOt!MESsEdUpMarket}``
 Window's Infinity Edge ``HTB{Tr0lling_Ant1_D3buGGeR_trickz_R_fun!}``
 MarketDump ``HTB{DonTRuNAsRoOt!MESsEdUpMarket}``
 emo ``HTB{4n0th3R_d4Y_AnoThEr_pH1Sh}``
+PersistenceIsFutile ``HTB{7tr3@t_hUntIng_4TW}``
 
 ## Hardware
 
