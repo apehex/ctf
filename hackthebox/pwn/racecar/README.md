@@ -33,14 +33,11 @@ iii
 
 ### Overflowing?
 
-Reflex: try and overflow
+My first reaction, try and overflow, fails miserably.
 
 ## Static analysis
 
-Look for "flag.txt" in Ghidra:
-
-There are 2 references:
-
+Looking for "flag.txt" in Ghidra leads to:
 
 ```c
 __stream = fopen("flag.txt","r");
@@ -59,18 +56,6 @@ printf(__format);
 
 On the last line, we want to print the content of `local_3c` instead of the
 input saved in `__format`.
-
-Break on input with 'ctrl + c'
-
-Display next 30 instructions: 
-
-Retrieve the address of the local variable `local_3c` containing the flag.
-
-After the fgets call, EAX contains the address of the flag string.
-
-The buffer is 171 bytes long
-Crash the binary:
-iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
 ## Reading the stack
 
@@ -105,7 +90,7 @@ Returns:
 0x5655a1c0 ... 0x68796568 0x73207965 ...
 ```
 
-The finish is in sight!
+The finish line is in sight!
 
 ## Reordering
 
