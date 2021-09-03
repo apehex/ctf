@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Fri Sep  3 10:38:17 2021 as: nmap -v -sU -sV -oN discovery/services.udp.nmap 10.10.11.105
+Increasing send delay for 10.10.11.105 from 400 to 800 due to 11 out of 15 dropped probes since last increase.
+Nmap scan report for 10.10.11.105
+Host is up (0.12s latency).
+All 1000 scanned ports on 10.10.11.105 are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Sep  3 10:55:14 2021 -- 1 IP address (1 host up) scanned in 1016.82 seconds
