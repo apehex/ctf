@@ -16,6 +16,7 @@ Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0
 quick maffs ``HTB{5h0u1d_1t_b3_und3r_RSA_c4t3g0ry_0r_und3r_m4ths_c4t3g0ry?,1dk!but_gb_is_c00l}``
 mysterybox ``HTB{3mpl0y33s_mu5t_h45h_4ll_m3554g3s_b3f0r3_l00k1ng_4t_th3m_t0_pr3v3nt_bl1ndn3ss}``
 signup ``HTB{Sh4r3d_K_1s_n0t_A_g00d_S1gninG_Id3a}``
+Protein Cookies ``HTB{l1ght_w31ght_b4b3h!}``
 
 ## Forensics
 
