@@ -17,7 +17,9 @@ quick maffs ``HTB{5h0u1d_1t_b3_und3r_RSA_c4t3g0ry_0r_und3r_m4ths_c4t3g0ry?,1dk!b
 mysterybox ``HTB{3mpl0y33s_mu5t_h45h_4ll_m3554g3s_b3f0r3_l00k1ng_4t_th3m_t0_pr3v3nt_bl1ndn3ss}``
 signup ``HTB{Sh4r3d_K_1s_n0t_A_g00d_S1gninG_Id3a}``
 Protein Cookies ``HTB{l1ght_w31ght_b4b3h!}``
+Rookie Mistake ``HTB{why_d1d_y0u_m3ss_3v3ryth1ng_up_1ts_n0t_th4t_h4rd_ju5t_us3_pr0p3r_p4r4m3t3rs_f0r_4ny_crypt0syst3m...}``
 Broken Decryptor ``HTB{1V_r3u$3#!}``
+Composition ``HTB{Pr1M3_Pr0x1mIty_@nD_C0mP0s1T3_CuRv3?????=>s0_1nS3cUr3!!!}``
 
 ## Forensics
 
