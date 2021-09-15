@@ -1,0 +1,3 @@
+/assets               (Status: 301) [Size: 305] [--> http://dyna.htb/assets/]
+/server-status        (Status: 403) [Size: 273]
+/nic                  (Status: 301) [Size: 302] [--> http://dyna.htb/nic/]
