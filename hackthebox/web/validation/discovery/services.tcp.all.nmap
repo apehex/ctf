@@ -1,0 +1,55 @@
+# Nmap 7.92 scan initiated Thu Sep 16 07:47:32 2021 as: nmap -v -A -p- -oN discovery/services.tcp.all.nmap 10.10.11.116
+Nmap scan report for 10.10.11.116
+Host is up (0.17s latency).
+Not shown: 65522 closed tcp ports (reset)
+PORT     STATE    SERVICE        VERSION
+22/tcp   open     ssh            OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 d8:f5:ef:d2:d3:f9:8d:ad:c6:cf:24:85:94:26:ef:7a (RSA)
+|   256 46:3d:6b:cb:a8:19:eb:6a:d0:68:86:94:86:73:e1:72 (ECDSA)
+|_  256 70:32:d7:e3:77:c1:4a:cf:47:2a:de:e5:08:7a:f8:7a (ED25519)
+80/tcp   open     http           Apache httpd 2.4.48 ((Debian))
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.48 (Debian)
+4566/tcp open     http           nginx
+|_http-title: 403 Forbidden
+5000/tcp filtered upnp
+5001/tcp filtered commplex-link
+5002/tcp filtered rfe
+5003/tcp filtered filemaker
+5004/tcp filtered avt-profile-1
+5005/tcp filtered avt-profile-2
+5006/tcp filtered wsm-server
+5007/tcp filtered wsm-server-ssl
+5008/tcp filtered synapsis-edge
+8080/tcp open     http           nginx
+|_http-title: 502 Bad Gateway
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.92%E=4%D=9/16%OT=22%CT=1%CU=40557%PV=Y%DS=2%DC=T%G=Y%TM=6142DD3
+OS:1%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=10A%TI=Z%CI=Z%II=I%TS=A)OPS
+OS:(O1=M54BST11NW7%O2=M54BST11NW7%O3=M54BNNT11NW7%O4=M54BST11NW7%O5=M54BST1
+OS:1NW7%O6=M54BST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN
+OS:(R=Y%DF=Y%T=40%W=FAF0%O=M54BNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R
+OS:=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F
+OS:=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%
+OS:T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD
+OS:=S)
+
+Uptime guess: 44.776 days (since Mon Aug  2 13:21:11 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=261 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE (using port 5900/tcp)
+HOP RTT       ADDRESS
+1   354.47 ms 10.10.16.1
+2   337.30 ms 10.10.11.116
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Sep 16 07:59:13 2021 -- 1 IP address (1 host up) scanned in 702.11 seconds
