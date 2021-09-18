@@ -1,0 +1,12 @@
+# Nmap 7.92 scan initiated Thu Sep 16 10:57:59 2021 as: nmap -v -sU -oN discovery/services.udp.nmap 10.10.11.111
+Nmap scan report for 10.10.11.111
+Host is up (0.12s latency).
+Not shown: 996 closed udp ports (port-unreach)
+PORT      STATE         SERVICE
+137/udp   filtered      netbios-ns
+21902/udp filtered      unknown
+23176/udp filtered      unknown
+49173/udp open|filtered unknown
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Thu Sep 16 11:16:42 2021 -- 1 IP address (1 host up) scanned in 1123.05 seconds

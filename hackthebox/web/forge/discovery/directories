@@ -1,0 +1,4 @@
+/uploads              (Status: 301) [Size: 224] [--> http://forge.htb/uploads/]
+/upload               (Status: 200) [Size: 929]
+/static               (Status: 301) [Size: 307] [--> http://forge.htb/static/]
+/server-status        (Status: 403) [Size: 274]
