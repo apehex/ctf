@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Sat Sep 18 12:31:21 2021 as: nmap -sU -sV -p 161,162 -oN discovery/services.udp.nmap 10.10.10.241
+Nmap scan report for pit.htb (10.10.10.241)
+Host is up (0.084s latency).
+
+PORT    STATE    SERVICE  VERSION
+161/udp open     snmp     SNMPv1 server; net-snmp SNMPv3 server (public)
+162/udp filtered snmptrap
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Sep 18 12:31:23 2021 -- 1 IP address (1 host up) scanned in 2.36 seconds
