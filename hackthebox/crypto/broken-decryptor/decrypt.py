@@ -153,7 +153,7 @@ def find_missing_bytes(collection: List[int]) -> List[int]:
     # occurences of all possibles bytes
     __o = [collection.count(__b) for __b in range(256)]
 
-    # return the bytes values with 0 occurences
+    # return the byte values with 0 occurences
     return [__b for __b, __c in enumerate(__o) if __c == 0]
 
 def compute_candidate_ciphertexts(ciphertexts: List[bytes]) -> List[bytes]:
