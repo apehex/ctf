@@ -7,6 +7,10 @@
 
 ## Browsing
 
+At first the scheme looks somewhat convoluted, but it's also its weakness.
+
+The parameters satisfy strict conditions, making them easy to reverse:
+
 ```
 Welcome to the ECRSA test center. Your encrypted data will be sent soon.
 Please check the logs for the parameters.
@@ -59,6 +63,9 @@ print(getrandpoint(ec,p,q))
 
 ## Factoring N
 
+N is 512 bits long, it is easy to factor. What's more, it is composed of prime
+factors close to each other:
+
 ```python
 def keygen(bits):
     # Returns RSA key in form ((e,n),(p,q))
@@ -76,5 +83,29 @@ def keygen(bits):
         return keygen(bits)
     return (e,n),(p,q)
 ```
+
+```python
+
+```
+
+## Computing the EC parameters
+
+The server provides 2 points on the curve: the 2 necessary equations for the
+2 unknown parameters a & b.
+
+```python
+def ec_parameters(p1, p2, n):
+    x1, y1 = p1
+    x2, y2 = p2
+    a = ((y1 ** 2) - (x1 ** 3) - (y2 ** 2) + (x2 ** 3) % n) * pow(x1 - x2, -1, n)
+    b = (y1 ** 2) - (x1 ** 3) - (a * x1)
+    return (a % n, b % n)
+```
+
+## Finding the generator
+
+A = eG
+
+
 
 [author-profile]: https://app.hackthebox.eu/users/185587
