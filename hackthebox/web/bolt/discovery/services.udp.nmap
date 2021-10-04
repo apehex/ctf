@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Sat Oct  2 16:21:02 2021 as: nmap -sU -v -oN discovery/services.udp.nmap 10.10.11.114
+Increasing send delay for 10.10.11.114 from 800 to 1000 due to 11 out of 34 dropped probes since last increase.
+Nmap scan report for passbolt.bolt.htb (10.10.11.114)
+Host is up (0.095s latency).
+Not shown: 998 closed udp ports (port-unreach)
+PORT      STATE         SERVICE
+5353/udp  open|filtered zeroconf
+20817/udp open|filtered unknown
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sat Oct  2 16:38:10 2021 -- 1 IP address (1 host up) scanned in 1027.39 seconds

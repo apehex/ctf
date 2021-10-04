@@ -1,0 +1,3 @@
+/logout               (Status: 302) [Size: 219] [--> http://demo.bolt.htb/login]
+/register             (Status: 200) [Size: 11066]
+/login                (Status: 200) [Size: 9710]
