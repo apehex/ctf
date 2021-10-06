@@ -1,0 +1,10 @@
+plugins
+bin
+temp
+logs
+config
+skins
+public_html
+installer
+program
+vendor
