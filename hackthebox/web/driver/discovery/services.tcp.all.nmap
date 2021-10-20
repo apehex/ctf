@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Fri Oct 15 17:01:18 2021 as: nmap -p- -oN discovery/services.tcp.nmap 10.10.11.106
+Nmap scan report for driver.htb (10.10.11.106)
+Host is up (0.089s latency).
+Not shown: 65531 filtered tcp ports (no-response)
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+445/tcp  open  microsoft-ds
+5985/tcp open  wsman
+
+# Nmap done at Fri Oct 15 17:05:25 2021 -- 1 IP address (1 host up) scanned in 247.25 seconds

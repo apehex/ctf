@@ -1,0 +1,8 @@
+# Nmap 7.92 scan initiated Fri Oct 15 17:08:36 2021 as: nmap -v -sU -oN discovery/services.udp.nmap 10.10.11.106
+Nmap scan report for driver.htb (10.10.11.106)
+Host is up (0.096s latency).
+All 1000 scanned ports on driver.htb (10.10.11.106) are in ignored states.
+Not shown: 1000 open|filtered udp ports (no-response)
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Fri Oct 15 17:10:13 2021 -- 1 IP address (1 host up) scanned in 97.39 seconds
