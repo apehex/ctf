@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Mon Nov  1 09:36:59 2021 as: nmap -v -A -p 9512 -oN discovery/services.tcp.9512.nmap 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00032s latency).
+
+PORT     STATE SERVICE VERSION
+9512/tcp open  unknown
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Nov  1 09:39:52 2021 -- 1 IP address (1 host up) scanned in 173.12 seconds

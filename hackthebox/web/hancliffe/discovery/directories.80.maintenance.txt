@@ -1,0 +1,3 @@
+/.xhtml               (Status: 401) [Size: 220]
+/.                    (Status: 200) [Size: 714]
+/.jsf                 (Status: 200) [Size: 117]

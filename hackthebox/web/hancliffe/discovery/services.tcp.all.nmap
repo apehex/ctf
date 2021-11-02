@@ -1,0 +1,60 @@
+# Nmap 7.92 scan initiated Thu Oct 28 16:13:54 2021 as: nmap -A -v -p 80,8000,9999 -oN discovery/services.tcp.all.nmap 10.10.11.115
+Nmap scan report for hancliffe.htb (10.10.11.115)
+Host is up (0.17s latency).
+
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    nginx 1.21.0
+|_http-title: Welcome to nginx!
+|_http-server-header: nginx/1.21.0
+| http-methods:
+|_  Supported Methods: GET HEAD
+8000/tcp open  http    nginx 1.21.0
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: nginx/1.21.0
+| http-methods:
+|_  Supported Methods: GET HEAD POST
+|_http-title: HashPass | Open Source Stateless Password Manager
+9999/tcp open  abyss?
+| fingerprint-strings:
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, NCP, NotesRPC, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, TerminalServerCookie, X11Probe:
+|     Welcome Brankas Application.
+|     Username: Password:
+|   NULL:
+|     Welcome Brankas Application.
+|_    Username:
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port9999-TCP:V=7.92%I=7%D=10/28%Time=617AB02A%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,27,"Welcome\x20Brankas\x20Application\.\nUsername:\x20")%r(GetReque
+SF:st,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Password:\x20"
+SF:)%r(HTTPOptions,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20P
+SF:assword:\x20")%r(FourOhFourRequest,31,"Welcome\x20Brankas\x20Applicatio
+SF:n\.\nUsername:\x20Password:\x20")%r(JavaRMI,31,"Welcome\x20Brankas\x20A
+SF:pplication\.\nUsername:\x20Password:\x20")%r(GenericLines,31,"Welcome\x
+SF:20Brankas\x20Application\.\nUsername:\x20Password:\x20")%r(RTSPRequest,
+SF:31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Password:\x20")%r
+SF:(RPCCheck,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Passwor
+SF:d:\x20")%r(DNSVersionBindReqTCP,31,"Welcome\x20Brankas\x20Application\.
+SF:\nUsername:\x20Password:\x20")%r(DNSStatusRequestTCP,31,"Welcome\x20Bra
+SF:nkas\x20Application\.\nUsername:\x20Password:\x20")%r(Help,31,"Welcome\
+SF:x20Brankas\x20Application\.\nUsername:\x20Password:\x20")%r(SSLSessionR
+SF:eq,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Password:\x20"
+SF:)%r(TerminalServerCookie,31,"Welcome\x20Brankas\x20Application\.\nUsern
+SF:ame:\x20Password:\x20")%r(TLSSessionReq,31,"Welcome\x20Brankas\x20Appli
+SF:cation\.\nUsername:\x20Password:\x20")%r(Kerberos,31,"Welcome\x20Branka
+SF:s\x20Application\.\nUsername:\x20Password:\x20")%r(SMBProgNeg,31,"Welco
+SF:me\x20Brankas\x20Application\.\nUsername:\x20Password:\x20")%r(X11Probe
+SF:,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Password:\x20")%
+SF:r(LPDString,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Passw
+SF:ord:\x20")%r(LDAPSearchReq,31,"Welcome\x20Brankas\x20Application\.\nUse
+SF:rname:\x20Password:\x20")%r(LDAPBindReq,31,"Welcome\x20Brankas\x20Appli
+SF:cation\.\nUsername:\x20Password:\x20")%r(SIPOptions,31,"Welcome\x20Bran
+SF:kas\x20Application\.\nUsername:\x20Password:\x20")%r(LANDesk-RC,31,"Wel
+SF:come\x20Brankas\x20Application\.\nUsername:\x20Password:\x20")%r(Termin
+SF:alServer,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Password
+SF::\x20")%r(NCP,31,"Welcome\x20Brankas\x20Application\.\nUsername:\x20Pas
+SF:sword:\x20")%r(NotesRPC,31,"Welcome\x20Brankas\x20Application\.\nUserna
+SF:me:\x20Password:\x20");
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Oct 28 16:16:47 2021 -- 1 IP address (1 host up) scanned in 173.96 seconds
