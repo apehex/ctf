@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Tue Nov  2 17:01:32 2021 as: nmap -v -sU -sV -oN discovery/services.udp.nmap 10.10.10.249
+Increasing send delay for 10.10.10.249 from 400 to 800 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.10.10.249 from 800 to 1000 due to 13 out of 42 dropped probes since last increase.
+Nmap scan report for pikaboo.htb (10.10.10.249)
+Host is up (0.22s latency).
+All 1000 scanned ports on pikaboo.htb (10.10.10.249) are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Nov  2 17:18:13 2021 -- 1 IP address (1 host up) scanned in 1001.67 seconds
