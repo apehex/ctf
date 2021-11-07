@@ -1,0 +1,9 @@
+# Nmap 7.92 scan initiated Thu Nov  4 16:39:15 2021 as: nmap -v -sU -oN discovery/services.udp.nmap 10.10.10.246
+Nmap scan report for static.htb (10.10.10.246)
+Host is up (0.14s latency).
+Not shown: 999 open|filtered udp ports (no-response)
+PORT    STATE SERVICE
+123/udp open  ntp
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Thu Nov  4 16:41:14 2021 -- 1 IP address (1 host up) scanned in 118.63 seconds

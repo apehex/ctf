@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Thu Nov  4 16:48:13 2021 as: nmap -v -Pn -p- -oN discovery/services.tcp.all.nmap 10.10.10.246
+Nmap scan report for static.htb (10.10.10.246)
+Host is up (0.13s latency).
+Not shown: 65532 filtered tcp ports (no-response)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+2222/tcp open  EtherNetIP-1
+8080/tcp open  http-proxy
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Thu Nov  4 16:55:14 2021 -- 1 IP address (1 host up) scanned in 421.39 seconds
