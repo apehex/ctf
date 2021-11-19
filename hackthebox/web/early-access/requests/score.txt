@@ -1,0 +1,11 @@
+GET /actions/score.php?score=1 HTTP/1.1
+Host: game.earlyaccess.htb
+Accept: */*
+User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Mobile Safari/537.36
+X-Requested-With: XMLHttpRequest
+Referer: http://game.earlyaccess.htb/game.php
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=bb9f23efddf763e13b8e4389db1c201f
+Connection: close
+

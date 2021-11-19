@@ -1,0 +1,9 @@
+# Nmap 7.92 scan initiated Tue Nov  9 21:47:35 2021 as: nmap -v -sU -Pn -oN discovery/services.udp.nmap 10.10.11.110
+Increasing send delay for 10.10.11.110 from 400 to 800 due to 11 out of 15 dropped probes since last increase.
+Nmap scan report for earlyaccess.htb (10.10.11.110)
+Host is up (0.14s latency).
+All 1000 scanned ports on earlyaccess.htb (10.10.11.110) are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Tue Nov  9 22:05:39 2021 -- 1 IP address (1 host up) scanned in 1084.00 seconds
