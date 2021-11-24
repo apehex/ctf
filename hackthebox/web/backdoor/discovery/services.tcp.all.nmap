@@ -1,0 +1,11 @@
+# Nmap 7.91 scan initiated Wed Nov 24 10:28:48 2021 as: nmap -Pn -v -p- -oN discovery/services.tcp.all.nmap 10.129.111.41
+Nmap scan report for backdoor.htb (10.129.111.41)
+Host is up (0.0056s latency).
+Not shown: 65532 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+1337/tcp open  waste
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Wed Nov 24 10:28:51 2021 -- 1 IP address (1 host up) scanned in 3.10 seconds
