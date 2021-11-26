@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Fri Nov 26 13:58:34 2021 as: nmap -v -sU -Pn -oN discovery/services.udp.nmap 10.10.11.124
+Increasing send delay for 10.10.11.124 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+Nmap scan report for shibboleth.htb (10.10.11.124)
+Host is up (0.090s latency).
+Not shown: 999 closed udp ports (port-unreach)
+PORT    STATE SERVICE
+623/udp open  asf-rmcp
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Fri Nov 26 14:16:36 2021 -- 1 IP address (1 host up) scanned in 1082.45 seconds

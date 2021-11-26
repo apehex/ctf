@@ -1,0 +1,9 @@
+# Nmap 7.92 scan initiated Fri Nov 26 13:57:52 2021 as: nmap -Pn -v -p- -oN discovery/services.tcp.all.nmap 10.10.11.124
+Nmap scan report for shibboleth.htb (10.10.11.124)
+Host is up (0.057s latency).
+Not shown: 65534 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+80/tcp open  http
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Fri Nov 26 14:07:34 2021 -- 1 IP address (1 host up) scanned in 581.47 seconds
