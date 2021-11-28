@@ -1,0 +1,20 @@
+# Nmap 7.92 scan initiated Sat Nov 27 19:00:38 2021 as: nmap -v -Pn -p 22,80 -A -oN discovery/services.tcp.nmap 10.10.11.103
+Nmap scan report for developer.htb (10.10.11.103)
+Host is up (0.10s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 36:aa:93:e4:a4:56:ab:39:86:66:bf:3e:09:fa:eb:e0 (RSA)
+|   256 11:fb:e9:89:2e:4b:66:40:7b:6b:01:cf:f2:f2:ee:ef (ECDSA)
+|_  256 77:56:93:6e:5f:ea:e2:ad:b0:2e:cf:23:9d:66:ed:12 (ED25519)
+80/tcp open  http    Apache httpd 2.4.41
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Developer: Free CTF Platform
+| http-methods: 
+|_  Supported Methods: GET HEAD OPTIONS
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Nov 27 19:00:48 2021 -- 1 IP address (1 host up) scanned in 10.68 seconds

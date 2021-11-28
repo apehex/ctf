@@ -1,0 +1,7 @@
+# Nmap 7.92 scan initiated Sun Nov 28 09:36:17 2021 as: nmap -sU -Pn -oN discovery/services.udp.nmap 10.10.11.103
+Nmap scan report for developer.htb (10.10.11.103)
+Host is up (0.032s latency).
+All 1000 scanned ports on developer.htb (10.10.11.103) are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+
+# Nmap done at Sun Nov 28 09:52:55 2021 -- 1 IP address (1 host up) scanned in 998.32 seconds
