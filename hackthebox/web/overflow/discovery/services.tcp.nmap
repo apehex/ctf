@@ -1,0 +1,22 @@
+# Nmap 7.92 scan initiated Mon Nov  8 22:42:40 2021 as: nmap -v -A -Pn -p 22,25,80 -oN discovery/services.tcp.nmap 10.10.11.119
+Nmap scan report for overflow.htb (10.10.11.119)
+Host is up (0.073s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 eb:7c:15:8f:f2:cc:d4:26:54:c1:e1:57:0d:d5:b6:7c (RSA)
+|   256 d9:5d:22:85:03:de:ad:a0:df:b0:c3:00:aa:87:e8:9c (ECDSA)
+|_  256 fa:ec:32:f9:47:17:60:7e:e0:ba:b6:d1:77:fb:07:7b (ED25519)
+25/tcp open  smtp    Postfix smtpd
+|_smtp-commands: overflow, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-title: Overflow Sec
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+Service Info: Host:  overflow; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Nov  8 22:43:29 2021 -- 1 IP address (1 host up) scanned in 48.90 seconds

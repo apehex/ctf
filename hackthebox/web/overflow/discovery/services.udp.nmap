@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Mon Nov  8 22:32:45 2021 as: nmap -v -sU -sV -Pn -oN discovery/services.udp.nmap 10.10.11.119
+Increasing send delay for 10.10.11.119 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+Nmap scan report for overflow.htb (10.10.11.119)
+Host is up (0.055s latency).
+All 1000 scanned ports on overflow.htb (10.10.11.119) are in ignored states.
+Not shown: 1000 closed udp ports (port-unreach)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Nov  8 22:50:51 2021 -- 1 IP address (1 host up) scanned in 1085.74 seconds

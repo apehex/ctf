@@ -1,0 +1,4 @@
+/config               (Status: 301) [Size: 313] [--> http://10.10.11.119/config/]
+/assets               (Status: 301) [Size: 313] [--> http://10.10.11.119/assets/]
+/home                 (Status: 301) [Size: 311] [--> http://10.10.11.119/home/]
+/server-status        (Status: 403) [Size: 277]

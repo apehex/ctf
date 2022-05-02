@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Mon Nov  8 22:33:10 2021 as: nmap -v -p- -Pn -oN discovery/services.tcp.all.nmap 10.10.11.119
+Nmap scan report for overflow.htb (10.10.11.119)
+Host is up (0.16s latency).
+Not shown: 65532 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+25/tcp open  smtp
+80/tcp open  http
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Mon Nov  8 22:39:19 2021 -- 1 IP address (1 host up) scanned in 368.91 seconds
