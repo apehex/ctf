@@ -84,13 +84,13 @@ class Netcat:
             pass # timeout exception: no more data
 
         return self._data
- 
+
     def write(self, data: bytes) -> int:
         """
         Send data.
         """
         return self._socket.send(data)
-    
+
     def close(self) -> None:
         """
         Terminate the TCP stream
@@ -162,7 +162,7 @@ def compute_candidate_ciphertexts(ciphertexts: List[bytes]) -> List[bytes]:
     list.
     """
     __candidate_bytes = [
-        find_missing_bytes([__c[__i] for __c in ciphertexts]) 
+        find_missing_bytes([__c[__i] for __c in ciphertexts])
         for __i in range(len(ciphertexts[0]))]
 
     # return the cartesian product of all bytes

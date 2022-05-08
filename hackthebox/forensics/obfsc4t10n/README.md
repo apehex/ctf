@@ -233,16 +233,14 @@ with open('payload.bin', 'wb') as _f:
     _f.write(bytes([_b & 0xff for _b in BYTES]))
 ```
 
-The shellcode itself would be very tiresome to analyse statically.
-Instead, let's reproduce the malware's process and inject the 
+The shellcode itself would be very tiresome to analyse statically. 
 
-Actually `blobrunner` can inject shellcode in itself! Now we can debug
+Instead, `blobrunner` can inject shellcode in itself! Now we can debug
 blobrunner while it triggers the shellcode:
 
 ![][debugging-shellcode-screenshot]
 
-Actually the code contains a loop (see EIP above) modifying the rest of the
-payload!
+The code contains a loop (see EIP above) modifying the rest of the payload!
 
 The resulting bytes make no sense when interpreted as assembly, it's
 plain ASCII.
