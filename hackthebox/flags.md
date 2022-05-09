@@ -36,6 +36,7 @@ oBfsC4t10n2 ``HTB{eXc3l_4.0_M4cr0s_r_b4cK}``
 oBfsC4t10n2 ``HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}``
 Obscure ``HTB{pr0tect_y0_shellZ}``
 PersistenceIsFutile ``HTB{7tr3@t_hUntIng_4TW}``
+Red Failure ``HTB{00000ps_1_t0t4lly_f0rg0t_1t}``
 Reminiscent ``HTB{$_j0G_y0uR_M3m0rY_$}``
 Took the Byte ``HTB{27AjFDkqi1wJ}``
 USB Ripper ``HTB{mychemicalromance}``

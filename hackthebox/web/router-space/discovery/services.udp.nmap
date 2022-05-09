@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Mon May  9 20:52:59 2022 as: nmap -v -sU -sV -oN discovery/services.udp.nmap 10.10.11.148
+Nmap scan report for router.htb (10.10.11.148)
+Host is up (0.072s latency).
+Not shown: 998 open|filtered udp ports (no-response)
+PORT   STATE  SERVICE VERSION
+22/udp closed ssh
+80/udp closed http
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon May  9 22:16:03 2022 -- 1 IP address (1 host up) scanned in 4984.52 seconds

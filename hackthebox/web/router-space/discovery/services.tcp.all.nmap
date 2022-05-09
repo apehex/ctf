@@ -1,0 +1,8 @@
+# Nmap 7.92 scan initiated Mon May  9 17:07:55 2022 as: nmap -v -Pn -sS -p- -oN discovery/services.tcp.all.nmap 10.10.11.148
+Nmap scan report for router.htb (10.10.11.148)
+Host is up.
+All 65535 scanned ports on router.htb (10.10.11.148) are in ignored states.
+Not shown: 65535 filtered tcp ports (no-response)
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Mon May  9 20:46:39 2022 -- 1 IP address (1 host up) scanned in 13123.11 seconds
