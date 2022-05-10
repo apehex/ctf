@@ -1,0 +1,45 @@
+GET /webapp/upload.aspx HTTP/1.1
+Host: 130.25.106.147
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+DNT: 1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Pragma: no-cache
+Cache-Control: no-cache
+
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+Server: Microsoft-IIS/8.5
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 12 Nov 2019 19:57:26 GMT
+Content-Length: 989
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	File Upload Control
+</title></head>
+<body>
+    <form method="post" action="upload.aspx" id="form1" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTI3ODM5MzQ0Mg9kFgICAw8WAh4HZW5jdHlwZQUTbXVsdGlwYXJ0L2Zvcm0tZGF0YWRkipLmImNMiRpVND7fQy3VOAStf8Ixs/BocNqoZTBNFPc=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAALzGrNxVeRYD8mD3od5SkIh5vhDofrSSRcWtmHPtJVt4IXmSdzQlTwCZSO0Y5RVegieRRacuS8Ehow/e4k5mfsD" />
+</div>
+    <div>
+    <input type="file" name="fuSample" id="fuSample" />
+    <input type="submit" name="btnUpload" value="Upload" id="btnUpload" />
+            <span id="lblMessage"></span>
+    </div>
+    </form>
+</body>
+</html>
