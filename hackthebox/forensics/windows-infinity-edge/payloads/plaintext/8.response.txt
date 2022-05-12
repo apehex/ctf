@@ -1,0 +1,9 @@
+ Volume in drive C has no label.
+ Volume Serial Number is B0B9-6304
+
+ Directory of C:\Windows\Temp\infinity_edge
+
+12/11/2019  20:58    <DIR>          .
+12/11/2019  20:58    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)  38.333.825.024 bytes free

@@ -1,0 +1,13 @@
+ Volume in drive C has no label.
+ Volume Serial Number is B0B9-6304
+
+ Directory of C:\inetpub\wwwroot\webapp
+
+12/11/2019  20:57    <DIR>          .
+12/11/2019  20:57    <DIR>          ..
+12/11/2019  13:46    <DIR>          Microsoft
+12/11/2019  20:57            13.016 shell.aspx
+11/11/2019  19:28               675 upload.aspx
+11/11/2019  19:35               516 Uploadfile.aspx.cs
+               3 File(s)         14.207 bytes
+               3 Dir(s)  38.325.231.616 bytes free

@@ -1,0 +1,52 @@
+
+
+OS Name                   : Microsoft Windows Server 2012 R2 Standard
+OS Version                : 6.3.9600 N/A Build 9600
+OS Manufacturer           : Microsoft Corporation
+OS Configuration          : Standalone Server
+OS Build Type             : Multiprocessor Free
+Registered Owner          : Windows User
+Registered Organization   : 
+Original Install Date     : 16/12/2018, 14:26:56
+System Boot Time          : 11/11/2019, 08:08:39
+System Manufacturer       : innotek GmbH
+System Model              : VirtualBox
+System Type               : x64-based PC
+Processor(s)              : 1 Processor(s) Installed.,[01]: Intel64 Family 6 
+                            Model 94 Stepping 3 GenuineIntel ~2592 Mhz
+BIOS Version              : innotek GmbH VirtualBox, 01/12/2006
+Windows Directory         : C:\Windows
+System Directory          : C:\Windows\system32
+Boot Device               : \Device\HarddiskVolume1
+System Locale             : it;Italian (Italy)
+Input Locale              : it;Italian (Italy)
+Time Zone                 : (UTC+01:00) Amsterdam, Berlin, Bern, Rome, 
+                            Stockholm, Vienna
+Total Physical Memory     : 8.192 MB
+Available Physical Memory : 6.675 MB
+Virtual Memory: Max Size  : 9.472 MB
+Virtual Memory: Available : 7.526 MB
+Virtual Memory: In Use    : 1.946 MB
+Page File Location(s)     : C:\pagefile.sys
+Domain                    : WORKGROUP
+Hotfix(s)                 : 31 Hotfix(s) Installed.,[01]: KB2862152,[02]: 
+                            KB2868626,[03]: KB2883200,[04]: KB2884846,[05]: 
+                            KB2887595,[06]: KB2892074,[07]: KB2893294,[08]: 
+                            KB2894029,[09]: KB2894179,[10]: KB2898514,[11]: 
+                            KB2898742,[12]: KB2898868,[13]: KB2898871,[14]: 
+                            KB2901101,[15]: KB2901125,[16]: KB2901128,[17]: 
+                            KB2903939,[18]: KB2906956,[19]: KB2908174,[20]: 
+                            KB2911106,[21]: KB2912390,[22]: KB2913270,[23]: 
+                            KB2914218,[24]: KB2919394,[25]: KB2922229,[26]: 
+                            KB2928680,[27]: KB2931358,[28]: KB2931366,[29]: 
+                            KB2939087,[30]: KB3021910,[31]: KB3173424
+Network Card(s)           : 1 NIC(s) Installed.,[01]: Intel(R) PRO/1000 MT 
+                            Desktop Adapter,      Connection Name: Ethernet,   
+                               DHCP Enabled:    Yes,      DHCP Server:     
+                            192.168.200.1,      IP address(es),      [01]: 
+                            192.168.200.8,      [02]: fe80::a53b:c77b:daab:5efd
+Hyper-V Requirements      : A hypervisor has been detected. Features required 
+                            for Hyper-V will not be displayed.
+
+
+

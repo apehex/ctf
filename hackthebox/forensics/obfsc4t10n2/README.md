@@ -350,6 +350,12 @@ C:\rncwner\CkuiQhTXx.dll
 
 This is real! I really didn't expect to solve this one statically!
 
+Now that it's done, I noticed that these strings were actually directly present
+in the Workbook: the `strings` command from the first section had them all!
+
+It seems that Office stored the results of the cells' formulas in the document
+itself (as-well as the formulas).
+
 [author-profile]: https://app.hackthebox.eu/users/4935
 
 [blank-hidden-sheet]: images/blank-hidden-sheet.png

@@ -1,0 +1,16 @@
+
+
+	Trying to open running process with pid 136
+
+	Correclty opened a handle on process explorer.exe with pid 136
+
+	Allocated memory RWX for code of 1024 bytes
+
+	Code written into remote process. Bytes written: 1024
+
+	Using CreateRemoteThread...
+
+	Remote Thread started!
+
+	Code executed left in background as an async thread in the process 'explorer.exe' with pid 136
+

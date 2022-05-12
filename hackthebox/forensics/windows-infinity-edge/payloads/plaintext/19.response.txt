@@ -1,0 +1,24 @@
+
+
+	Started process cmd.exe with pid 2764
+
+	Correclty opened a handle on process with pid 2764
+
+	Allocated memory RWX for code of 349184 bytes
+
+	Code written into remote process. Bytes written: 349184
+
+	Thread parameters detected. Starting to allocate memory RW ...
+
+	Allocated memory RW for thread parameters of 528 bytes
+
+	Thread parameters written into remote process. Bytes written: 528
+
+	Using CreateRemoteThread...
+
+	Remote Thread started!
+
+	Code executed and exited correctly
+
+	Process cmd with pid 2764 has been killed
+

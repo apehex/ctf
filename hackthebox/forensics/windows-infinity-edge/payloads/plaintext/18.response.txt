@@ -1,0 +1,59 @@
+
+
+[*] Checking for User Has Local Admin Privileges...
+
+
+[*] Checking for User In Local Group with Admin Privileges...
+
+
+[*] Checking for Process Token Privileges...
+
+
+Privilege   : SeImpersonatePrivilege
+Attributes  : SE_PRIVILEGE_ENABLED_BY_DEFAULT, SE_PRIVILEGE_ENABLED
+TokenHandle : 2240
+ProcessId   : 2492
+Name        : 2492
+Check       : Process Token Privileges
+
+
+
+
+
+[*] Checking for Unquoted Service Paths...
+
+
+[*] Checking for Modifiable Service Files...
+
+
+[*] Checking for Modifiable Services...
+
+
+[*] Checking for %PATH% .dll Hijacks...
+
+
+[*] Checking for AlwaysInstallElevated Registry Key...
+
+
+[*] Checking for Registry Autologons...
+
+
+[*] Checking for Modifiable Registry Autorun...
+
+
+[*] Checking for Modifiable Scheduled Task Files...
+
+
+[*] Checking for Unattended Install Files...
+
+
+[*] Checking for Encrypted web.config Strings...
+
+
+[*] Checking for Encrypted Application Pool Passwords...
+
+
+[*] Checking for McAfee SiteList.xml files...
+
+
+[*] Checking for Cached GPP Files...

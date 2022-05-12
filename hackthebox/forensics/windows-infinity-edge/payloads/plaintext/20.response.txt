@@ -1,0 +1,9 @@
+Testing: {4991d34b-80a1-4291-83b6-3328366b9097} - 48278
+startCOMListener bindresult: 0
+
+[+] authResult: 0
+{4991d34b-80a1-4291-83b6-3328366b9097}: NT AUTHORITY\SYSTEM
+
+[+] CreateProcessWithTokenW OK
+Payload length: 402
+WriteProcessResult: 1; lpnumber: 402
