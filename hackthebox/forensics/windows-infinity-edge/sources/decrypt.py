@@ -17,8 +17,8 @@ unpad = lambda s: s[:-s[-1]]
 
 ########################################################################### XOR
 
-def decrypt_xor(data):
-    return bytes([x ^ y for (x, y) in zip(data, cycle(KEY))])
+def decrypt_xor(data, key=KEY):
+    return bytes([x ^ y for (x, y) in zip(data, cycle(key))])
 
 ########################################################################### AES
 

