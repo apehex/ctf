@@ -260,7 +260,7 @@ public byte[] ExecRuntime(){
 
 Those files get tampered:
 
-```csharp
+```powershell
 $ProgressPreference = "SilentlyContinue";
 $path_in_module="C:\Windows\Temp\x1fvogijp5pyzn7\tbyjzt4vw6y";
 $path_in_app_code="C:\Windows\Temp\x1fvogijp5pyzn7\3186q1r3kpvk";
