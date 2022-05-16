@@ -19,15 +19,10 @@ def decode(data: str) -> str:
 __lines = [decode(__l[2:]) for __l in input().split('0a')[:-1]]
 
 # convert to binary
-__data = [[1 if __p == '_' else 0 for __p in __l] for __l in __lines]
-# print(list(chain(*__data)))
+__qr_data = [[1 if __p == '_' else 0 for __p in __l] for __l in __lines]
 
 # store as an image
-__qrcode = Image.new('1', (51, 51))
-__qrcode.putdata(list(chain(*__data)))
-__qrcode.save('qrcode.png')
-
-# decode the qrcode
-
-# perform the calculation
-
+__qr_image = Image.new('1', (51, 51))
+__qr_image.putdata(list(chain(*__qr_data)))
+__qr_image = __qr_image.resize((256,256))
+__qr_image.save('qrcode.png')
