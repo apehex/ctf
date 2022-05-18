@@ -1,20 +1,25 @@
 ## Crypto
 
 August ``HTB{Dv0r4k_1z_MyD00D}``
+BabyEncryption ``HTB{l00k_47_y0u_r3v3rs1ng_3qu4710n5_c0ngr475}``
 Bank heist ``HTB{GORETIREMENTFUND!!}``
 Broken Decryptor ``HTB{1V_r3u$3#!}``
 Call ``HTB{IKNOWTHINGSLIKEDTMF}``
 Composition ``HTB{Pr1M3_Pr0x1mIty_@nD_C0mP0s1T3_CuRv3?????=>s0_1nS3cUr3!!!}``
 Decode Me!! ``HTB{U_g0t_th1$}``
+Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_Sad!@}``
 Flipping_Bank ``HTB{b1t_fl1pp1ng_1s_c00l}``
 Keys ``HTB{N0t_A_Fl1g!}``
 Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
 LostKey ``HTB{uns4f3_3ll1pt1c_curv3s_l3d_t0_th3_c0ll4ps3_0f_0u7l4nd1s}``
+Lost Modulus ``HTB{n3v3r_us3_sm4ll_3xp0n3n7s_f0r_rs4}``
 Mission Impossible ``HTB{wh0_1s_Th1s_bl3ichenb3Cker_f3ll4}``
 mysterybox ``HTB{3mpl0y33s_mu5t_h45h_4ll_m3554g3s_b3f0r3_l00k1ng_4t_th3m_t0_pr3v3nt_bl1ndn3ss}``
+Nuclear Sale ``HTB{s3cr3t_sh4r1ng_w1th_x0r_15_l4m3}``
 Optimus Prime ``HTB{3uc1id_w4z_th3_pr1me_h4x0r}``
 Protein Cookies ``HTB{l1ght_w31ght_b4b3h!}``
 quick maffs ``HTB{5h0u1d_1t_b3_und3r_RSA_c4t3g0ry_0r_und3r_m4ths_c4t3g0ry?,1dk!but_gb_is_c00l}``
+RLotto ``HTB{n3v3r_u53_pr3d1c74bl3_533d5_1n_p53ud0-r4nd0m_numb3r_63n3r470r}``
 Rookie Mistake ``HTB{why_d1d_y0u_m3ss_3v3ryth1ng_up_1ts_n0t_th4t_h4rd_ju5t_us3_pr0p3r_p4r4m3t3rs_f0r_4ny_crypt0syst3m...}``
 RSA Is Easy ``HTB{1_m1ght_h4v3_m3ss3d_uP_jU$t_4_l1ttle_b1t?}``
 RsaCtfTool ``HTB{pl4y1ng_w1th_pr1m3s_1s_fun!}``
@@ -43,13 +48,20 @@ USB Ripper ``HTB{mychemicalromance}``
 Window's Infinity Edge ``HTB{Tr0lling_Ant1_D3buGGeR_trickz_R_fun!}``
 Window's Infinity Edge ``HTB{F1n4lly_y0u_cr0ss3d_th3_edg3!}``
 
+## GamePwn
+
+CubeMadness1 ``HTB{CU83_M4DN355_UNM4DD3N3D}``
+
 ## Hardware
 
 Bare Metal ``HTB{817_84n91n9_15_3v32ywh323!@#$%}``
-Outrun ``HTB{h4ck1n9_c425_15_n07_7h47_h42d_4f732411!}``
 Bounty Head ``HTB{00h 42.7m, +41° 16′}``
+Debugging Interface ``HTB{d38u991n9_1n732f4c35_c4n_83_f0und_1n_41m057_3v32y_3m83dd3d_d3v1c3!!52}``
+Outrun ``HTB{h4ck1n9_c425_15_n07_7h47_h42d_4f732411!}``
 Mission Pinpossible ``HTB{84d_d3519n_c4n_134d_70_134k5!d@}``
+Outrun ``HTB{h4ck1n9_c425_15_n07_7h47_h42d_4f732411!}``
 Prison Escape ``HTB{Pr1s0n_3$c4p3_n0t_s034sy!!1337!!}``
+The Needle ``HTB{4_hug3_blund3r_d289a1_!!}``
 
 ## Misc
 
@@ -91,19 +103,25 @@ Block Hunt3r ``HTB{H4v1ngFuN::W1tH-th3;d0ubl3-edg3d::Sw0Rd$$}``
 
 ## Pwn
 
+Bad grades ``HTB{c4n4ry_1s_4fr41d_0f_s1gn3d_numb3r5}``
 Dream Diary: Chapter 1 ``HTB{Singl3?_NO!_D0ubl3?_NO!_Tr1pl3_Unsaf3_Unlink}``
 Dream Diary: Chapter 2 ``HTB{wh@t_Th3_fuck_!s_NULL_byt3_p01sOn!ng???}``
 Dream Diary: Chapter 3 ``HTB{m0d3rN_Nu11_bYT3+s3cC0mP_b1@Ck1i5t1Ng=>n0t_s0_S@f3!!!}``
+echoland ``HTB{bl1nd_R0p_1s_c0ol_a1nt_1t?}``
 Format ``HTB{mall0c_h00k_f0r_th3_w1n!}``
 Hunting ``HTB{H0w_0n_34rth_d1d_y0u_f1nd_m3?!?}``
 Kernel Adventures: Part 1 ``HTB{C0ngr4ts_y0u_3xpl0it3d_A_D0uBlE-FeTcH}``
 Little Tommy ``HTB{I_am_so_heaped_up_right_now}``
+LoveTok ``HTB{wh3n_l0v3_g3ts_eval3d_sh3lls_st4rt_p0pp1ng}``
+Neonify ``HTB{r3pl4c3m3n7_s3cur1ty}``
 No Return ``HTB{y0uv3_35c4p3d_7h3_v01d_0f_n0_r37urn}``
 Old Bridge ``HTB{q4i1q3_i1i3_p0a_a01}``
 Racecar ``HTB{why_d1d_1_s4v3_th3_fl4g_0n_th3_5t4ck?!}``
+Restaurant ``HTB{r3turn_2_th3_r3st4ur4nt!}``
 Ropme ``HTB{r0p_m3_if_y0u_c4n!}``
 ropmev2 ``HTB{r0t_r0p_4nd_p0p}``
 Sick Rop ``HTB{why_st0p_wh3n_y0u_cAn_s1GRoP!?}``
+Toxic ``HTB{P0i5on_1n_Cyb3r_W4rF4R3?!}``
 Space ``HTB{sh3llc0de_1n_7h3_5p4c3}``
 Toxin ``HTB{tc4ch3_t0x1n4t10n???_0r_tc4ch3_p01So1n1NG??+F0rm4t...4m@ZiNg!!!}``
 What does the f say? ``HTB{th3_f_s4ys_f0rm4t_str1ng!!}``
@@ -112,6 +130,7 @@ You know 0xDiablos ``HTB{0ur_Buff3r_1s_not_healthy}``
 ## Reversing
 
 Baby RE ``HTB{B4BY_R3V_TH4TS_EZ}``
+Behind the Scenes ``HTB{Itz_0nLy_UD2}``
 Bombs Landed ``HTB{younevergoingtofindme}``
 Bypass ``HTB{SuP3rC00lFL4g}``
 Debugme ``HTB{Tr0lling_Ant1_D3buGGeR_trickz_R_fun!}``
@@ -124,6 +143,7 @@ Headache 2 ``HTB{r4j_1s_My_Senp4i!}``
 Impossible Password ``HTB{40b949f92b86b18}``
 Nostalgia ``HTB{GBA_RuLeZ_DudE}``
 Poly ``HTB{7h1s_3LF_15_A_Po1yGl0T}``
+Rauth ``HTB{I_Kn0w_h0w_t0_5al54}``
 
 ## Stego
 
@@ -140,10 +160,13 @@ Unprintable ``HTB{c0mpr3ss3d_RL3_br41nfuck_1s_n0t_fun}``
 
 ## Web
 
+AbuseHumanDB ``HTB{5w33t_ali3ndr3n_0f_min3!}``
 baby CachedView ``HTB{reb1nd1ng_y0ur_dns_r3s0lv3r_0n3_qu3ry_4t_4_t1m3}``
 baby ninja jinja ``HTB{b4by_ninj4s_d0nt_g3t_qu0t3d_0r_c4ughT}``
 breaking grad ``HTB{l00s1ng_t3nur3_l1k3_it5_fr1d4y_m0rn1ng}``
 Console ``HTB{PhP!Cons0lE@ByTh3K+FoUnd+}``
+Diogenes' Rage ``HTB{r4c3_w3b_d3f34t_c0nsum3r1sm}``
+EasterBunny ``HTB{7h3_3as7er_bunny_h45_b33n_p0150n3d!}``
 Emdee five for life ``HTB{N1c3_ScrIpt1nG_B0i!}``
 ezpz ``HTB{T0oE4syP34syL4m3SQLiF!lt3rs}``
 FreeLancer ``HTB{s4ff_3_1_w33b_fr4__l33nc_3}``
@@ -156,9 +179,13 @@ Lernaean ``HTB{l1k3_4_b0s5_s0n}``
 Mr Burns ``HTB{wh3n_l1f3_g1v3s_y0u_🍊_4nd_f4st-cg1...}``
 nginxatsu ``HTB{PD0's_br34th1ng_1nt3s1f13s!}``
 Phonebook ``HTB{d1rectory_h4xx0r_is_k00l}``
+petpet rcbee ``HTB{c0mfy_bzzzzz_rcb33s_v1b3s}``
 Templated ``HTB{t3mpl4t3s_4r3_m0r3_p0w3rfu1_th4n_u_th1nk!}``
+TwoDots Horror ``HTB{Unit3d_d0ts_0f_p0lygl0t}``
 Under Construction ``HTB{d0n7_3xp053_y0ur_publ1ck3y}``
+Userland City `` HTB{c4nt_p0p_th3s3_ch41n5!}``
 wafwaf ``HTB{w4f_w4fing_my_w4y_0utt4_h3r3}``
+Weather App ``HTB{w3lc0m3_t0_th3_p1p3_dr34m}``
 
 ## Fortress
 
@@ -196,3 +223,13 @@ Elasticity ``JET{3sc4p3_s3qu3nc3s_4r3_fun}``
 Member Manager ``JET{h34p_f0r_73h_b4bi3z}``
 More Secrets ``JET{n3xt_t1m3_p1ck_65537}``
 Memo ``JET{7h47s_7h3_sp1r17}``
+
+## SYNACKTIV
+
+1)``SYNACKTIV{Br34K_Th3_@pp_1Nt0_Fr4gM3NtS}``
+2)``SYNACKTIV{TrY_t0_m0n1t0r_My_g@dG3T5}``
+3)``SYNACKTIV{m0r3_L1k3_Crypt0F@1l!}``
+4)``SYNACKTIV{Th3r3_1s_n0_pl4ce_l1ke_l0c@lh0st}``
+5)``SYNACKTIV{L3ss_is_Th3_n3w_Sh3LL}``
+6)``SYNACKTIV{E@t_d4t_C00kie}``
+7)``SYNACKTIV{S3Linux_1s_w@y_bett3r}``
