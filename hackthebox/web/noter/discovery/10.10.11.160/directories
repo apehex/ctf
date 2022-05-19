@@ -1,0 +1,6 @@
+/login                (Status: 200) [Size: 1963]
+/register             (Status: 200) [Size: 2642]
+/logout               (Status: 302) [Size: 218] [--> http://10.10.11.160:5000/login]
+/dashboard            (Status: 302) [Size: 218] [--> http://10.10.11.160:5000/login]
+/notes                (Status: 302) [Size: 218] [--> http://10.10.11.160:5000/login]
+/VIP                  (Status: 302) [Size: 218] [--> http://10.10.11.160:5000/login]

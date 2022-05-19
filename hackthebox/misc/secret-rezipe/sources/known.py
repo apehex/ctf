@@ -1,7 +1,18 @@
 #/usr/bin/env python
 
-PT = '0A 69 77 69 6C 6C 66 69 6E 64 79 6F 75 69 77 69 6C 6C 65 78 70 6F 73 65 79 6F 75 0A'.split(' ')
-OFFSET = 34
-OPTION = '-x {offset} {byte}'.format
+KNOWN = {
+    'prefix': {
+        'offset': 0, # Secret: 
+        'plaintext': '53 65 63 72 65 74 3A 20'.split(' ')},
+    'suffix': {
+        'offset': 34, # ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+        'plaintext': '0A 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F'.split(' ')}}
 
-arguments = ' '.join([OPTION(offset=hex(__i+OFFSET)[2:], byte=PT[__i]) for __i in range(len(PT))])
+_format = '-x {offset} {byte}'.format
+
+def cli_args(plaintext, offset):
+    return ' '.join([
+        _format(
+            offset=hex(__i+offset)[2:],
+            byte=plaintext[__i])
+        for __i in range(len(plaintext))])
