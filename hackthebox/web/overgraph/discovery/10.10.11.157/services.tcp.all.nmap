@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Sun May 22 17:12:07 2022 as: nmap -v -Pn -p- -oN discovery/10.10.11.157/services.tcp.all.nmap 10.10.11.157
+Nmap scan report for graph.htb (10.10.11.157)
+Host is up (0.041s latency).
+Not shown: 65533 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sun May 22 17:44:30 2022 -- 1 IP address (1 host up) scanned in 1943.44 seconds

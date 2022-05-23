@@ -1,0 +1,57 @@
+# Nmap 7.92 scan initiated Sun May 22 17:11:47 2022 as: nmap -v -sU -oN workspace/ctf/hackthebox/web/overgraph/discovery/10.10.11.157/services.udp.nmap 10.10.11.157
+Increasing send delay for 10.10.11.157 from 50 to 100 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.10.11.157 from 100 to 200 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 10.10.11.157 from 200 to 400 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.10.11.157 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+Nmap scan report for graph.htb (10.10.11.157)
+Host is up (0.075s latency).
+Not shown: 955 closed udp ports (port-unreach)
+PORT      STATE         SERVICE
+68/udp    open|filtered dhcpc
+139/udp   open|filtered netbios-ssn
+363/udp   open|filtered rsvp_tunnel
+944/udp   open|filtered unknown
+999/udp   open|filtered applix
+1031/udp  open|filtered iad2
+1041/udp  open|filtered danf-ak2
+1043/udp  open|filtered boinc
+1053/udp  open|filtered remote-as
+1090/udp  open|filtered ff-fms
+1105/udp  open|filtered ftranhc
+1645/udp  open|filtered radius
+3456/udp  open|filtered IISrpc-or-vat
+5353/udp  open|filtered zeroconf
+6002/udp  open|filtered X11:2
+9001/udp  open|filtered etlservicemgr
+16697/udp open|filtered unknown
+16912/udp open|filtered unknown
+17091/udp open|filtered unknown
+17505/udp open|filtered unknown
+18331/udp open|filtered unknown
+18449/udp open|filtered unknown
+19935/udp open|filtered unknown
+20279/udp open|filtered unknown
+20409/udp open|filtered unknown
+21131/udp open|filtered unknown
+21206/udp open|filtered unknown
+21468/udp open|filtered unknown
+21868/udp open|filtered unknown
+21948/udp open|filtered unknown
+22043/udp open|filtered unknown
+22109/udp open|filtered unknown
+27195/udp open|filtered unknown
+30544/udp open|filtered unknown
+30718/udp open|filtered unknown
+32780/udp open|filtered sometimes-rpc24
+33866/udp open|filtered unknown
+41446/udp open|filtered unknown
+41896/udp open|filtered unknown
+42508/udp open|filtered candp
+48189/udp open|filtered unknown
+49181/udp open|filtered unknown
+49189/udp open|filtered unknown
+50164/udp open|filtered unknown
+61685/udp open|filtered unknown
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sun May 22 17:29:01 2022 -- 1 IP address (1 host up) scanned in 1033.52 seconds
