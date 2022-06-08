@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upcloud - Upload files for Free!</title>
+
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='vendor/popper/popper.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href=" {{ url_for('static',filename='vendor/bootstrap/css/bootstrap-grid.css') }}"/>
+    <link rel="stylesheet" href=" {{ url_for('static',filename='vendor/bootstrap/css/bootstrap-reboot.css') }}"/>
+    <link rel="stylesheet" href=" {{ url_for('static',filename='css/style.css') }}"/>
+
+    <link rel="stylesheet" href=" {{ url_for('static',filename='vendor/font-awesome/all.min.css') }}"/>
+
+</head>
+<body>
+
+<form method="post" enctype="multipart/form-data" class="drag-area" style="padding: 20px">
+    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+    <header>Drag & Drop to Upload File</header>
+    <span>OR</span>
+    <button type="button" class="btn-send">Browse File</button>
+    <input name="file" type="file" hidden>
+    <br>
+    <h3>{{ username }}</h3><br>
+    <h3>{{ modname }}</h3><br>
+    <h3>{{ appname }}</h3><br>
+    <h3>{{ modfile }}</h3><br>
+    <h3>{{ nodeuuid }}</h3><br>
+    <h3>{{ machineid }}</h3><br>
+    <button class="btn btn-success" type="submit">
+        Upload!
+    </button>
+</form>
+
+
+<script src="{{ url_for('static',filename='js/script.js') }}"></script>
+
+
+</body>
+</html>
