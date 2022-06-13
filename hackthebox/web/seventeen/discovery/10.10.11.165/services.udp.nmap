@@ -1,0 +1,11 @@
+# Nmap 7.92 scan initiated Thu Jun  9 10:32:21 2022 as: nmap -v -Pn -sU -oN discovery/10.10.11.165/services.udp.nmap 10.10.11.165
+Increasing send delay for 10.10.11.165 from 0 to 50 due to 11 out of 19 dropped probes since last increase.
+Increasing send delay for 10.10.11.165 from 800 to 1000 due to 11 out of 12 dropped probes since last increase.
+Nmap scan report for seventeen.htb (10.10.11.165)
+Host is up (0.067s latency).
+Not shown: 999 closed udp ports (port-unreach)
+PORT   STATE         SERVICE
+68/udp open|filtered dhcpc
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Thu Jun  9 10:49:09 2022 -- 1 IP address (1 host up) scanned in 1007.73 seconds
