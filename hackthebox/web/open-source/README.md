@@ -348,7 +348,7 @@ chisel client 10.10.16.3:8888 R:socks
 chromium --proxy-server="socks5://localhost:1080"
 ```
 
-It is running Gitea:
+`172.17.0.1:3000` is running Gitea:
 
 ![][gitea]
 
