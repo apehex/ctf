@@ -80,6 +80,7 @@ M0rsarchive ``HTB{D0_y0u_L1k3_m0r53??}``
 Query ``HTB{fOuNd_cL4r1ty_iN_0bfUscaT!oN}``
 QuickR ``HTB{@lriGh7_1_tH1nK_y0u`r3_QuickR_s0ldi3r}``
 The secret of a Queen ``HTB{THEBABINGTONPLOT}``
+Vipère ``HTB{cr0iss4nts_ch0c0_hmmmm}``
 
 ## Mobile
 
