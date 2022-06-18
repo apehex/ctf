@@ -24,13 +24,18 @@ len(set(enc))
 256
 ```
 
-`{123 * n % 256}` is a group with `179` as inverse element.
+`{123 * n % 256}` is a group with `179` as inverse element:
+
+```python
+print(123 * 179 % 256)
+# 1
+```
 
 ## Decryption
 
 To decrypt the message, we can either:
 
-1) use a mapping
+1) calculate the encrypted value for every byte and use a mapping
 2) mathematically invert the arithmetic operation
 
 Since 179 is the inverse of 123 modulo 256:
@@ -45,3 +50,5 @@ This will do:
 ```python
 print(bytes([decrypt(b) for b in CT]))
 ```
+
+> `HTB{l00k_47_y0u_r3v3rs1ng_3qu4710n5_c0ngr475}`

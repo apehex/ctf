@@ -1,5 +1,5 @@
-> **I encrypted a secret message with RSA but I lost the modulus.**
-> **Can you help me recover it?**
+> I encrypted a secret message with RSA but I lost the modulus.
+> Can you help me recover it?
 
 > Author: **[r4j][author-profile]**
 
@@ -68,6 +68,5 @@ bytes.fromhex(hex(nth_root(ct, 3))[2:])
 ```
 
 [author-profile]: https://app.hackthebox.eu/users/13243
-
 [equation_flag-cubic-root]: equation_flag-cubic-root.png
 [equation_low-exponent]: equation_low-exponent.png

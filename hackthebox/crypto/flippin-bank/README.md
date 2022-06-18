@@ -1,8 +1,8 @@
-# Flippin bank
-
-> **The Bank of the World is under attack. Hackers found a way in and locked the
+> The Bank of the World is under attack. Hackers found a way in and locked the
 > admins out. However, the netcat authentication by the intruders is not
-> perfectly secure. Could you help the admins log in?**
+> perfectly secure. Could you help the admins log in?
+
+> Author: **[P3t4][author-profile]**
 
 ## Testing
 
@@ -27,7 +27,7 @@ Please try again.
 
 Looking at `app.py`:
 
-```
+```python
 def encrypt_data(data):
 	padded = pad(data.encode(),16,style='pkcs7')
 	cipher = AES.new(key, AES.MODE_CBC,iv)
@@ -37,11 +37,11 @@ def encrypt_data(data):
 msg = 'logged_username=' + user +'&password=' + passwd
 ```
 
-The `ciphertext` is the string `logged_username=a&passowrd=b` encrypted with AES CBC.
+The `ciphertext` is the string `logged_username=a&password=b` encrypted with AES CBC.
 
 And the encryption is parametrized with:
 
-```
+```python
 key = get_random_bytes(16)
 iv = get_random_bytes(16)
 ```
@@ -155,3 +155,5 @@ b3d9c88dd9d236a50d50e4559c6db67e7409f5111b846800b3b0ec6cf17dc8ef92044c64b65cbdb8
 ```
 
 The server replies with the flag! :)
+
+[author-profile]: https://app.hackthebox.com/users/23

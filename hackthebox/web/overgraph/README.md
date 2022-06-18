@@ -650,7 +650,9 @@ AAAEDzdpSxHTz6JXGQhbQsRsDbZoJ+8d3FI5MZ1SJ4NGmdYC90VbMvu9VKf1wfp+AHdKC2
 -----END OPENSSH PRIVATE KEY-----
 ```
 
-##
+## Nreport
+
+### Identifying a potential PE vector
 
 There's unique file running as root:
 
@@ -669,6 +671,174 @@ pspy
 file /usr/local/bin/Nreport/nreport
 # /usr/local/bin/Nreport/nreport: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /usr/local/bin/Nreport/libc/ld-2.25.so, for GNU/Linux 3.2.0, BuildID[sha1]=fab56bbb7a23ada8a8f5943b527d16f3cdcb09e5, not stripped
 ```
+
+There's an instance running as root, clearly the target here. When run manually it asks for a "token":
+
+```shell
+ltrace /usr/local/bin/Nreport/nreport 
+# puts("Custom Reporting v1\n"Custom Reporting v1
+# )                                                      = 21
+# printf("Enter Your Token: ")                                                       = 18
+# fgets(Enter Your Token: c0b9db4c8e4bbb24d59a3aaffa8c8b83
+# "c0b9db4c8e4bbb24d5", 19, 0x7f4ce0c978c0)                                    = 0x4041f8
+# strlen("c0b9db4c8e4bbb24d5")                                                       = 18
+# Invalid Token
+# exit(0 <no return ...>
+# +++ exited (status 0) +++
+```
+
+The admin token from the web dashboard doesn't work here.
+
+### Finding a valid token
+
+Looking at the exported functions in Ghidra, the token check is implemented by `auth`:
+
+```c
+printf("Enter Your Token: ");
+fgets(userinfo1 + 120, 19, stdin);
+sVar1 = strlen(userinfo1 + 120);
+if (sVar1 != 15) {
+puts("Invalid Token");
+                /* WARNING: Subroutine does not return */
+exit(0);
+}
+for (i = 13; -1 < i; i = i + -1) {
+*(uint *)((long)&local_48 + (long)i * 4) =
+     *(uint *)(secret + (long)i * 4) ^ (int)userinfo1[121] ^ (int)userinfo1[122] ^
+     (int)userinfo1[120] ^ (int)userinfo1[129] ^ (int)userinfo1[133];
+}
+if ((int)local_40 + (int)local_48 + local_48._4_4_ != 0x134) {
+puts("Invalid Token");
+                /* WARNING: Subroutine does not return */
+exit(0);
+}
+if (local_28._4_4_ + local_30._4_4_ + (int)local_28 != 0x145) {
+puts("Invalid Token");
+                /* WARNING: Subroutine does not return */
+exit(0);
+}
+```
+
+This will require some debugging! The binary needs to be moved inside its original location to work:
+
+```shell
+readelf -a nreport
+# Tag        Type                         Name/Value
+# 0x000000000000001d (RUNPATH)            Library runpath: [/usr/local/bin/Nreport/libc/]
+```
+
+Stepping through allows to read the secret:
+
+```shell
+x/14xw 0x4040c0
+# 0x4040c0 <secret>:  0x00000012  0x00000001  0x00000012  0x00000004
+# 0x4040d0 <secret+16>:   0x00000042  0x00000014  0x00000006  0x0000001f
+# 0x4040e0 <secret+32>:   0x00000007  0x00000016  0x00000001  0x00000010
+# 0x4040f0 <secret+48>:   0x00000040  0x00000000
+```
+
+In Python:
+
+```python
+SECRET = []
+for i in range(13, -1, -1):
+    pass
+```
+
+
+
+> AAAAAAAAAAAAAs
+
+### Trying to write files
+
+```c
+printf("File stored At: %s\n",0x40420c);
+```
+
+This memory address is written by:
+
+```c
+userinfo1._140_8_ = 0x7672632f74706f2f;
+userinfo1._148_2_ = 0x2f31;
+userinfo1[150] = 0;
+```
+
+Which is:
+
+```python
+bytes.fromhex('7672632F74706F2F')[::-1]
+# b'/opt/crv'
+bytes.fromhex('2F31')[::-1]
+# b'1/'
+```
+
+And then it is concatenated with the given username:
+
+```c
+strcat(userinfo1 + 0x8c,userinfo1);
+```
+
+Since `0x8c` is 140, the start of the path.
+
+So the files are supposed to be saved at `/opt/crv1/username`.
+
+`opt/crv` doesn't exist, so the process just fails with `SIGSEGV` even with a username like `../../tmp/test`.
+
+### Hijacking
+
+Option 5 executes a stored command!
+
+```c
+system(userinfo1 + 0x28);
+```
+
+And `0x404180 + 0x28 = 0x4041a8` contains:
+
+```c
+userinfo1._40_8_ = 0x614c22206f686365;
+userinfo1._48_8_ = 0x2064657355207473;
+userinfo1._56_8_ = 0x7461642824206e4f;
+userinfo1._64_8_ = 0x2f203e3e20222965;
+userinfo1._72_8_ = 0x2f676f6c2f726176;
+userinfo1._80_8_ = 0x74726f7065726b;
+```
+
+```python
+CMD = ['614c22206f686365', '2064657355207473', '7461642824206e4f', '2f203e3e20222965', '2f676f6c2f726176', '74726f7065726b']
+print([bytes.fromhex(s)[::-1] for s in CMD])
+# [b'echo "La', b'st Used ', b'On $(dat', b'e)" >> /', b'var/log/', b'kreport']
+```
+
+Essentially this is an eval of `date`. The `nreport` binary is already running with its own environment, so we can't tamper the `$PATH`.
+
+May-be the string itself can be overwritten?
+
+### Overwritting the stored command
+
+```c
+else {
+printf("Enter number to edit: ");
+__isoc99_scanf("%d[^\n]",&local_14);
+printf("Message Title: ");
+__isoc99_scanf(" %59[^\n]",*(undefined8 *)(message_array + (long)local_14 * 8));
+printf("Message: ");
+__isoc99_scanf("%100[^\n]",*(long *)(message_array + (long)local_14 * 8) + 0x3c);
+fflush(stdin);
+fflush(stdout);
+}
+```
+
+```
+0x40411c = global Arrayindex = number of messages in the heap
+0x404120 = global message_array = pointer to the chunks in the heap allocated by calloc() upon create()
+0x404180 = global userinfo1 = username
+0x4041a8 = global userinfo1 + 0x28 = the above echo command (hardcoded in auth())
+0x40421c = local = the path to /opt/crv1/username ("/opt/crv1/" is also hardcoded in auth())
+```
+
+With message index 10, `scanf` will modify the address space starting at `0x4041ac`: the first 4 bits will remain unchanged
+
+AAAAAAAAAAAAAs
 
 [author-profile]: https://app.hackthebox.com/users/172213
 [disabled-dashboard]: images/disabled-dashboard.png
