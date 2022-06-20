@@ -59,7 +59,7 @@ def nth_root(x, n):
     return mid + 1
 ```
 
-(yes this doesn't work for negative numbers, whatever)
+(this doesn't work for negative numbers, but whatever)
 
 All that remains is encoding the result:
 
@@ -67,6 +67,8 @@ All that remains is encoding the result:
 bytes.fromhex(hex(nth_root(ct, 3))[2:])
 ```
 
+> `HTB{n3v3r_us3_sm4ll_3xp0n3n7s_f0r_rs4}`
+
 [author-profile]: https://app.hackthebox.eu/users/13243
-[equation_flag-cubic-root]: equation_flag-cubic-root.png
-[equation_low-exponent]: equation_low-exponent.png
+[equation_flag-cubic-root]: images/flag-cubic-root.png
+[equation_low-exponent]: images/low-exponent.png

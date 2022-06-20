@@ -17,7 +17,7 @@ n, x, y = xgcd((M3 ** 3) - C3, (M4 ** 3) - C4)
 
 # ================================================== polynomial GCD computation
 
-def composite_gcd(p1,p2):
+def composite_gcd(p1, p2):
     return p1.monic() if p2 == 0 else composite_gcd(p2, p1 % p2)
 
 # ======================================================== the short pad attack
