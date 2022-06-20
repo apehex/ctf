@@ -1,9 +1,9 @@
 # LunaCrypt
 
-> **Our astronaut gained access to a key satellite and intercepted an encrypted**
-> **message. The forensics team also recovered a file that looks like a custom**
-> **encryption protocol. We're sure that these two elements are linked.**
-> **Please can you help us reveal the contents of the secret message?**
+> Our astronaut gained access to a key satellite and intercepted an encrypted
+> message. The forensics team also recovered a file that looks like a custom
+> encryption protocol. We're sure that these two elements are linked.
+> Please can you help us reveal the contents of the secret message?
 
 > Author: **[Xh4H][xh4h-profile-link]**
 
@@ -53,13 +53,11 @@ ciphertext, so we can be lazy with reason!
 FLAGS = [invert_flag(int(_s)) for _s in MESSAGE[1::2]]
 ```
 
-So we have the complete knowledge of all the operations performed to encrypt
-the input message.
+So we have the complete knowledge of all the operations performed to encrypt the input message.
 
 ## Reversing the bitwise operations
 
-To decrypt the message, we'll invert the successive bitwise operations one
-after another.
+To decrypt the message, we'll invert the successive bitwise operations one after another.
 
 The script can perform 4 different operations on the characters:
 
@@ -128,7 +126,7 @@ instead of the expected "H"!
 
 A great challenge, thanks to [Xh4H][xh4h-profile-link]!
 
-> HTB{Lun4_Lu4_L4t1n_M00n}
+> `HTB{Lun4_Lu4_L4t1n_M00n}`
 
 [python3-flag-link]: https://docs.python.org/3/library/enum.html#flag
 [xh4h-profile-link]: https://www.hackthebox.eu/profile/21439

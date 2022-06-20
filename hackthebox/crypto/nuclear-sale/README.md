@@ -1,9 +1,11 @@
 # Nuclear sale
 
-> **Plutonium Labs is a private laboratory experimenting with plutonium
+> Plutonium Labs is a private laboratory experimenting with plutonium
 > products. A huge sale is going to take place and our intelligence agency is
 > interested in learning more about it. We have managed to intercept the traffic
-> of their mail server. Can you find anything interesting?**
+> of their mail server. Can you find anything interesting?
+
+> Author: **[P3t4][author-profile]**
 
 ## Reading the mails
 
@@ -58,3 +60,7 @@ m = h1 ^ h2 ^ h3
 # now we interpret the hex as ASCII
 print(bytes.fromhex(hex(m)[2:]))
 ```
+
+> `HTB{s3cr3t_sh4r1ng_w1th_x0r_15_l4m3}`
+
+[author-profile]: https://app.hackthebox.com/users/23

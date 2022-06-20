@@ -10,8 +10,7 @@ The server uses RSA, with both public and private keys unknown.
 We can request the signature of any message apart from `M`: upon receiving the
 signature of M, the server responds with the flag.
 
-So we want to forge the signature of M from the signature of other numbers. In
-particular:
+So we want to forge the signature of M from the signature of other numbers. In particular:
 
 ![][equation-signature-breakdown]
 
@@ -46,6 +45,6 @@ signatures.
 
 [author-profile]: https://app.hackthebox.eu/users/219091
 
-[equation-modulus-calculation]: images/equations/modulus-calculation.png
-[equation-signature-breakdown]: images/equations/signature-breakdown.png
-[equation-signature-forging]: images/equations/signature-forging.png
+[equation-modulus-calculation]: images/modulus-calculation.png
+[equation-signature-breakdown]: images/signature-breakdown.png
+[equation-signature-forging]: images/signature-forging.png

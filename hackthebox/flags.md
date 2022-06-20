@@ -13,6 +13,8 @@ Keys ``HTB{N0t_A_Fl1g!}``
 Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
 LostKey ``HTB{uns4f3_3ll1pt1c_curv3s_l3d_t0_th3_c0ll4ps3_0f_0u7l4nd1s}``
 Lost Modulus ``HTB{n3v3r_us3_sm4ll_3xp0n3n7s_f0r_rs4}``
+Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
+LunaCrypt ``HTB{Lun4_Lu4_L4t1n_M00n}``
 Mission Impossible ``HTB{wh0_1s_Th1s_bl3ichenb3Cker_f3ll4}``
 mysterybox ``HTB{3mpl0y33s_mu5t_h45h_4ll_m3554g3s_b3f0r3_l00k1ng_4t_th3m_t0_pr3v3nt_bl1ndn3ss}``
 Nuclear Sale ``HTB{s3cr3t_sh4r1ng_w1th_x0r_15_l4m3}``
