@@ -1,6 +1,4 @@
-# RSAisEasy
-
-> **I think this is safe... Right?**
+> I think this is safe... Right?
 
 > Author: **[ryaagard][author-profile-url]**
 
@@ -76,11 +74,10 @@ f1 = pow(c1, d1, n1)
 f2 = pow(c2, d2, n2)
 ```
 
-> HTB{1_m1ght_h4v3_m3ss3d_uP_jU$t_4_l1ttle_b1t?}
+> `HTB{1_m1ght_h4v3_m3ss3d_uP_jU$t_4_l1ttle_b1t?}`
 
 [author-profile-url]: https://app.hackthebox.eu/users/222411
 
 [equation_high-public-exponent]: images/equations/high-public-exponent.png
 [equation_n2]: images/equations/n2.png
 [equation_test-n2]: images/equations/test-n2.png
-

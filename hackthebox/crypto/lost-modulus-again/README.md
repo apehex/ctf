@@ -24,12 +24,12 @@ The equation above only guarantes that N divides this GCD, but the coefficient `
 To check:
 
 ```python
+print(f'{math.log2(C1)}\n{math.log2(C2)}\n{math.log2(C3)}\n{math.log2(C4)}\n{math.log2(G)}')
 # 2046.7055097450218
 # 2045.7397272640376
 # 2041.174820714303
 # 2046.8654262375285
 # 2047.0934372332526
-print(f'{math.log2(C1)}\n{math.log2(C2)}\n{math.log2(C3)}\n{math.log2(C4)}\n{math.log2(G)}')
 ```
 
 There's less than a factor of 2 between G and C4: G is actually the modulus N.
