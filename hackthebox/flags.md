@@ -69,6 +69,7 @@ The Needle ``HTB{4_hug3_blund3r_d289a1_!!}``
 
 Blackhole ``HTB{N3veR_l3T_tH3_b4sTaRd5_G3t_Y0u_d0wN}``
 Canvas ``HTB{W3Lc0m3_70_J4V45CR1p7_d30bFu5C4710N}``
+Compressor ``HTB{z1pp1ti_z0pp1t1_GTFO_0f_my_pr0p3rty}``
 Crime ``HTB{Wh0_w4nt5_t0_l34rn_4n4Ly71c_g30m3try?}``
 Crooked Croockford ``HTB{allthosenumbers}``
 Deterministic ``HTB{4ut0M4t4_4r3_FuUuN_4nD_N0t_D1fF1cUlt!!}``
