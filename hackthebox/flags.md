@@ -34,6 +34,7 @@ xorxorxor ``HTB{rep34t3d_x0r_n0t_s0_s3cur3}``
 ## Forensics
 
 Blue Shadow ``HTB{A862BC50162B5BFA6ED8167898E843E4}``
+Diagnostic ``HTB{msDt_4s_A_pr0toC0l_h4nDl3r...sE3Ms_b4D}``
 emo ``HTB{4n0th3R_d4Y_AnoThEr_pH1Sh}``
 Forget me not ``HTB{W3lL_i_KN0w_mY_M3m0RY_i5_5h4tT3R3d}``
 Illumination ``HTB{v3rsi0n_c0ntr0l_am_I_right?}``

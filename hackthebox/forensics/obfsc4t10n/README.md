@@ -1,8 +1,10 @@
 # oBfsC4t10n
 
-> **This document came in as an email attachment. Our SOC tells us that they think**
-> **there were some errors in it that caused it not to execute correctly. Can you**
-> **figure out what the command and control mechanism would have been had it worked?**
+> This document came in as an email attachment. Our SOC tells us that they think
+> there were some errors in it that caused it not to execute correctly. Can you
+> figure out what the command and control mechanism would have been had it worked?
+
+> Author: **[0xdf][author-profile]**
 
 ## Meta
 
@@ -12,8 +14,7 @@ Windows Defender, Ad-Aware and a few others flag the file as a "generic trojan".
 
 ## Unpacking
 
-The html file is a wrapper for a base64 encoded xls document, located inside
-a malicious anchor tag.
+The html file is a wrapper for a base64 encoded xls document, located inside a malicious anchor tag.
 
 It can be extracted with:
 
@@ -245,4 +246,5 @@ The code contains a loop (see EIP above) modifying the rest of the payload!
 The resulting bytes make no sense when interpreted as assembly, it's
 plain ASCII.
 
+[author-profile]: https://app.hackthebox.com/users/4935
 [debugging-shellcode-screenshot]: images/debugging-shellcode.png
