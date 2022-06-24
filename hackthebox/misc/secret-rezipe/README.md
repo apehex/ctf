@@ -37,7 +37,7 @@ Fills the file "ingredients.txt" with:
 
 ```
 HTB{fake_flag_for_testing}
-ME{Some suggestion}
+ME{some_suggestion}
 ```
 
 This file is then put in an encrypted zip file and sent back.
