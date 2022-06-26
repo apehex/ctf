@@ -68,6 +68,7 @@ The Needle ``HTB{4_hug3_blund3r_d289a1_!!}``
 
 ## Misc
 
+Bashic Calculator ``HTB{Ju4nck3r_15_y0ur_n4m3_15nt_1t?}``
 Blackhole ``HTB{N3veR_l3T_tH3_b4sTaRd5_G3t_Y0u_d0wN}``
 Canvas ``HTB{W3Lc0m3_70_J4V45CR1p7_d30bFu5C4710N}``
 Compressor ``HTB{z1pp1ti_z0pp1t1_GTFO_0f_my_pr0p3rty}``
