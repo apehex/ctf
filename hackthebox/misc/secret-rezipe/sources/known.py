@@ -1,12 +1,16 @@
 #/usr/bin/env python
 
+############################################################### known plaintext
+
 KNOWN = {
     'prefix': {
         'offset': 0, # Secret: 
-        'plaintext': '53 65 63 72 65 74 3A 20'.split(' ')},
+        'plaintext': 'Secret: '.encode('utf-8').hex(':').split(':')},
     'suffix': {
         'offset': 34, # ________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-        'plaintext': '0A 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F 5F'.split(' ')}}
+        'plaintext': '\n<?xml version="1.0" '.encode('utf-8').hex(':').upper().split(':')}}
+
+###############################################################
 
 _format = '-x {offset} {byte}'.format
 
@@ -16,3 +20,7 @@ def cli_args(plaintext, offset):
             offset=hex(__i+offset)[2:],
             byte=plaintext[__i])
         for __i in range(len(plaintext))])
+
+###################
+
+print(cli_args(KNOWN['suffix']['plaintext'], KNOWN['suffix']['offset']))
