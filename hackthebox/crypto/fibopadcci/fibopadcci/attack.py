@@ -2,26 +2,6 @@
 
 from fibopadcci import FIBOPADCCI, is_hex, mask, pad, to_bytes, xor
 
-# ================================================================ bruteforcing
-
-ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-+'
-
-def bruteforce():
-    for a0 in ALPHABET:
-        for a1 in ALPHABET:
-            for a2 in ALPHABET:
-                for a3 in ALPHABET:
-                    for a4 in ALPHABET:
-                        for a5 in ALPHABET:
-                            for a6 in ALPHABET:
-                                for a7 in ALPHABET:
-                                    for a8 in ALPHABET:
-                                        for a9 in ALPHABET:
-                                            for a10 in ALPHABET:
-                                                yield bytes(
-                                                    f'HTB{{{a0}{a1}{a2}{a3}{a4}{a5}{a6}{a7}{a8}{a9}{a10}}}',
-                                                    'utf-8')
-
 # ===================================================================== logging
 
 LOGGING_FORMAT = '''Oracle {{

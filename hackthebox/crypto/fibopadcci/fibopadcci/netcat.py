@@ -36,7 +36,7 @@ class ServerResponse(Flag):
 
     OUTPUT_WLC          = auto()
     OUTPUT_MENU         = auto()
-    
+
     OUTPUT_CT           = auto()
     OUTPUT_A            = auto()
     OUTPUT_B            = auto()
@@ -209,9 +209,9 @@ class Netcat:
         # logging.debug(f'{self._server}')
         # logging.debug(f'{self._client}')
         # logging.debug(f'{self._data}')
-        
+
         return self._data, self._server, self._client
- 
+
     def write(self, data: bytes) -> int:
         """
         Send data.
@@ -235,12 +235,12 @@ class Netcat:
             i += 1
 
         return self._data, self._server, self._client
-    
+
     def close(self) -> None:
         """
         Terminate the TCP stream
         """
-        logging.info('====> Socket closed')
+        # logging.info('====> Socket closed')
 
         return self._socket.close()
 

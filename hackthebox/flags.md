@@ -8,6 +8,7 @@ Call ``HTB{IKNOWTHINGSLIKEDTMF}``
 Composition ``HTB{Pr1M3_Pr0x1mIty_@nD_C0mP0s1T3_CuRv3?????=>s0_1nS3cUr3!!!}``
 Decode Me!! ``HTB{U_g0t_th1$}``
 Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_Sad!@}``
+Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_:(!@}``
 Flipping_Bank ``HTB{b1t_fl1pp1ng_1s_c00l}``
 Keys ``HTB{N0t_A_Fl1g!}``
 Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``

@@ -1,6 +1,6 @@
-> **While investigating the reported insider risk, we managed to retrieve the**
-> **source code for a suspicious server. However, we still can't figure out how to**
-> **decrypt the admin's message. Can you help us?**
+> While investigating the reported insider risk, we managed to retrieve the
+> source code for a suspicious server. However, we still can't figure out how to
+> decrypt the admin's message. Can you help us?
 
 > Author: **[willwam845][author-profile]**
 
@@ -31,7 +31,7 @@ and key are constant, the change comes from the randomization of the IV a & b.
 In return, the mode 1 allows to send a ciphertext with its IV. The server
 only says whether the padding is correct after decryption.
 
-## The scheme
+## The encryption scheme
 
 ### AES CBC
 
@@ -152,12 +152,11 @@ And the fibopadcci of length 1 byte is:
 
 ![][constant_fibopadcci-1]
 
-### Decryption of the last byte
+### Decrypting the last byte
 
-Knowing ![P_1][constant_fibopadcci-1] is final result of the decryption, we can
-infer the last byte:
+Knowing ![P_1][constant_fibopadcci-1] is final result of the decryption, we can infer the last byte:
 
-![][equation_decrypt-last-byte-flag]
+![][equation_decrypt-last-byte]
 
 Finally! This gives us the last byte of the last block.
 
@@ -168,13 +167,39 @@ Also, since that last byte is not padding:
 
 > the flag is -at least- 16 bytes longs
 
-### Iteration
+### Iterating
 
-That's when the attack cranks up!
+Suppose we know `i` bytes of plaintext. Now we can force the last i bytes to match a valid padding of `i+1` bytes, after decryption.
+
+For instance, with 4 known bytes the plaintext IV should have its last bytes equal to:
+
+![][equation_decrypt-next-byte]
+
+Then, when the server "sends" the message it tells us that the XOR operation above results in a `0x01`, forming a 5-byte valid padding.
+
+This allows to deduce the byte index 12, just like we did the last byte.
+
+## A practical attack
+
+### Complexity of the previous attack
+
+The previous attack works `in theory`: guessing the byte `i+1` requires that the plaintext padding has `i` fixed bytes.
+
+There's `1 / 256^i` chance this happens.
+
+And then it requires at most`256` tries to find the next byte... It is already challenging with 2 bytes of known text, IE completely impractical.
+
+### Guessing from the left instead
+
+
+
+> `HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_:(!@}`
 
 ## The implementation
 
 I felt clever until I hit the socket implementation ^^
+
+At first I coded a Netcat equivalent.
 
 ## Annex: notations
 
@@ -247,8 +272,9 @@ The functions are written in uppercase:
 [equation_cbc-linearity]: maths/equations/cbc-linearity.png
 [equation_altered-plaintext]: maths/equations/altered-plaintext.png
 [equation_calculating-delta]: maths/equations/calculating-delta.png
-[equation_decrypt-last-byte-flag]: maths/equations/decrypt-last-byte-flag.png
-[equation_decrypt-last-4-bytes-flag]: maths/equations/decrypt-last-4-bytes-flag.png
+[equation_decrypt-last-byte]: maths/equations/decrypt-last-byte-flag.png
+[equation_decrypt-last-4-bytes]: maths/equations/decrypt-last-4-bytes-flag.png
+[equation_decrypt-next-byte]: maths/equations/decrypt-next-byte.png
 [equation_fixed-plaintext-iv]: maths/equations/fixed-plaintext-iv.png
 
 [function_aes]: maths/functions/aes.png
