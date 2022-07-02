@@ -85,6 +85,7 @@ M0rsarchive ``HTB{D0_y0u_L1k3_m0r53??}``
 0ld is g0ld ``HTB{R1PSAMU3LM0RS3}``
 Query ``HTB{fOuNd_cL4r1ty_iN_0bfUscaT!oN}``
 QuickR ``HTB{@lriGh7_1_tH1nK_y0u`r3_QuickR_s0ldi3r}``
+SecretRezipe ``HTB{C0mpr3sSi0n_1s_n0t_3NcryPti0n}``
 The secret of a Queen ``HTB{THEBABINGTONPLOT}``
 Triangles ``HTB{sQU@r3s_R_4_N3rD$}``
 Vipère ``HTB{cr0iss4nts_ch0c0_hmmmm}``
