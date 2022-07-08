@@ -6,7 +6,6 @@ authors = ["apehex <apehex@protonmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-tensorflow = "*"
 
 [tool.poetry.dev-dependencies]
 
