@@ -1,0 +1,4 @@
+/js                   (Status: 301) [Size: 185] [--> http://root.trick.htb/js/]
+/css                  (Status: 301) [Size: 185] [--> http://root.trick.htb/css/]
+/assets               (Status: 301) [Size: 185] [--> http://root.trick.htb/assets/]
+/.                    (Status: 301) [Size: 185] [--> http://root.trick.htb/./]

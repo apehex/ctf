@@ -1,0 +1,59 @@
+# Nmap 7.92 scan initiated Sun Jul 10 23:07:07 2022 as: nmap -sU -v -oN discovery/10.10.11.166/services.udp.nmap 10.10.11.166
+Increasing send delay for 10.10.11.166 from 50 to 100 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 10.10.11.166 from 100 to 200 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 10.10.11.166 from 200 to 400 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 10.10.11.166 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+Nmap scan report for trick.htb (10.10.11.166)
+Host is up (0.026s latency).
+Not shown: 953 closed udp ports (port-unreach)
+PORT      STATE         SERVICE
+7/udp     open|filtered echo
+53/udp    open          domain
+68/udp    open|filtered dhcpc
+631/udp   open|filtered ipp
+838/udp   open|filtered unknown
+903/udp   open|filtered ideafarm-panic
+1008/udp  open|filtered ufsd
+1030/udp  open|filtered iad1
+1050/udp  open|filtered cma
+1081/udp  open|filtered pvuniwien
+1419/udp  open|filtered timbuktu-srv3
+1804/udp  open|filtered enl
+2048/udp  open|filtered dls-monitor
+3052/udp  open|filtered apc-3052
+3456/udp  open|filtered IISrpc-or-vat
+3457/udp  open|filtered vat-control
+5353/udp  open|filtered zeroconf
+16700/udp open|filtered unknown
+17207/udp open|filtered unknown
+17331/udp open|filtered unknown
+17423/udp open|filtered unknown
+17629/udp open|filtered unknown
+19227/udp open|filtered unknown
+19707/udp open|filtered unknown
+20031/udp open|filtered bakbonenetvault
+20206/udp open|filtered unknown
+20249/udp open|filtered unknown
+20360/udp open|filtered unknown
+21625/udp open|filtered unknown
+21834/udp open|filtered unknown
+22739/udp open|filtered unknown
+24854/udp open|filtered unknown
+30718/udp open|filtered unknown
+31625/udp open|filtered unknown
+32772/udp open|filtered sometimes-rpc8
+32777/udp open|filtered sometimes-rpc18
+33281/udp open|filtered unknown
+38293/udp open|filtered landesk-cba
+38498/udp open|filtered unknown
+38615/udp open|filtered unknown
+41524/udp open|filtered unknown
+43514/udp open|filtered unknown
+45441/udp open|filtered unknown
+46532/udp open|filtered unknown
+49186/udp open|filtered unknown
+53571/udp open|filtered unknown
+55587/udp open|filtered unknown
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sun Jul 10 23:24:15 2022 -- 1 IP address (1 host up) scanned in 1028.69 seconds

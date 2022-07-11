@@ -1,0 +1,4 @@
+/js                   (Status: 301) [Size: 185] [--> http://10.10.11.166/js/]
+/css                  (Status: 301) [Size: 185] [--> http://10.10.11.166/css/]
+/assets               (Status: 301) [Size: 185] [--> http://10.10.11.166/assets/]
+/.                    (Status: 301) [Size: 185] [--> http://10.10.11.166/./]

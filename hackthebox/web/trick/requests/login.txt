@@ -1,0 +1,15 @@
+POST /ajax.php?action=login HTTP/1.1
+Host: preprod-payroll.trick.htb
+Content-Length: 21
+Accept: */*
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://preprod-payroll.trick.htb
+Referer: http://preprod-payroll.trick.htb/login.php
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=hq9rg52ar2fs0vfg049audd3ft
+Connection: close
+
+username=a&password=b

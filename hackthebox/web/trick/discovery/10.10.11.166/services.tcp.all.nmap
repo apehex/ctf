@@ -1,0 +1,12 @@
+# Nmap 7.92 scan initiated Sun Jul 10 23:00:34 2022 as: nmap -v -Pn -p- -oN discovery/10.10.11.166/services.tcp.all.nmap 10.10.11.166
+Nmap scan report for trick.htb (10.10.11.166)
+Host is up (0.073s latency).
+Not shown: 65531 closed tcp ports (conn-refused)
+PORT   STATE SERVICE
+22/tcp open  ssh
+25/tcp open  smtp
+53/tcp open  domain
+80/tcp open  http
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Sun Jul 10 23:00:46 2022 -- 1 IP address (1 host up) scanned in 11.85 seconds
