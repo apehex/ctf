@@ -1,0 +1,1 @@
+# Nmap 7.92 scan initiated Tue Jul 12 13:00:23 2022 as: nmap -Pn -v -p- -oN discovery/10.10.11.169/services.tcp.all.nmap 10.10.11.169

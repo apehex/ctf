@@ -1,0 +1,15 @@
+POST /admin/ajax.php?action=login_faculty HTTP/1.1
+Host: faculty.htb
+Content-Length: 10
+Accept: */*
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Origin: http://faculty.htb
+Referer: http://faculty.htb/login.php
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: PHPSESSID=8r694qhi6mgf37ujek3b1q5dal
+Connection: close
+
+id_no=8935
