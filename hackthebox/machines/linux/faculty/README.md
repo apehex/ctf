@@ -2,6 +2,8 @@
 
 ## Discovery
 
+### Services
+
 TCP:
 
 ```shell
@@ -30,8 +32,6 @@ UDP:
 PORT   STATE         SERVICE
 68/udp open|filtered dhcpc
 ```
-
-### Services
 
 ### Web browsing
 
