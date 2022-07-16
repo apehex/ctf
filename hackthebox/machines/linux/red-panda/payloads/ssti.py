@@ -28,7 +28,7 @@ def payload(cmd: bytes) -> str:
 TARGET = '//div[@class="results"]/h2/text()'
 
 def parse(response: str, path: str=TARGET) -> str:
-    return etree.HTML(response).xpath(path)[0][18:]
+    return etree.HTML(response).xpath(path)[0][18:] # get rid "you search for: "
 
 x = requests.post(URL, data={'name': payload(COMMAND)})
 print(parse(x.text))

