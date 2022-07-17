@@ -1,6 +1,23 @@
+import time
 import itertools
 import random
 import numpy as np
+
+########################################################################## init
+
+random.seed(time.time())
+
+######################################################################### pixel
+
+def _clip(candidate: np.ndarray, widht: int, height: int) -> np.ndarray:
+    __candidate = candidate
+    for __i in range(0, len(__candidate), 5):
+        __candidate[__i] = __candidate[__i] % width
+        __candidate[__i + 1] = __candidate[__i + 1] % height
+        __candidate[__i + 2] = __candidate[__i + 2] % 256
+        __candidate[__i + 3] = __candidate[__i + 3] % 256
+        __candidate[__i + 4] = __candidate[__i + 4] % 256
+    return __candidate
 
 ##################################################################### candidate
 
@@ -12,50 +29,29 @@ def random_pixel(width: int, height: int) -> list:
         int(random.gauss(128, 127)) % 256,
         int(random.gauss(128, 127)) % 256]
 
-def random_candidate(width: int, height: int, pixels: int=5) -> list:
-    return itertools.chain.from_iterable([random_pixel(width, height) for _ in range(pixels)])
+def random_candidate(width: int, height: int, pixels: int=5) -> np.ndarray:
+    return np.array(list(itertools.chain.from_iterable(
+        [random_pixel(width, height) for _ in range(pixels)])))
 
 #################################################################### population
 
-def random_population(size: int) -> np.array:
-    return np.array([[]])
-
-def init_population(config):
-    initial_population = list()
-    for c in range(config["population_size"]):
-        perturbations = list()
-        for p in range(config["num_perturbations"]):
-            perturbations.append(initialize_random_candidate(config))
-        initial_population.append(perturbations)
-    return np.array(initial_population)
+def random_population(size: int, width: int, height: int, pixels: int=5) -> np.array:
+    return np.array([list(random_candidate(width, height, pixels)) for _ in range(size)])
 
 ###################################################################### breeding
 
-def 
+def mutate():
+    pass
 
-def gen_children(fathers, config):
-    """
-    Args:
-        fathers (numpy.ndarray): A tuple is of size 5 containing x, y, r, g, b
-    Returns:
-        numpy.ndarray: new generation population
-    """
-    children = list()
-    for candidate in fathers:
-        r1 = random.randint(0, fathers.shape[0] - 1)
-        r2 = random.randint(0, fathers.shape[0] - 1)
-        while r2 == r1:
-            r2 = random.randint(0, fathers.shape[0] - 1)
-        r3 = random.randint(0, fathers.shape[0] - 1)
-        while r3 == r2 or r3 == r1:
-            r3 = random.randint(0, fathers.shape[0] - 1)
-        new_candidate = fathers[r1] + config["scale_factor"] * (fathers[r2] + fathers[r3])
-        for i in range(new_candidate.shape[0]):
-            new_candidate[i][0] %= config["img_x"]
-            new_candidate[i][1] %= config["img_y"]
-            new_candidate[i][2] %= 256
-            new_candidate[i][3] %= 256
-            new_candidate[i][4] %= 256
-        children.append(new_candidate)
+def cross(c1: np.ndarray, c2: np.ndarray, c3: np.ndarray, fitness: callable, clip: callable, scale: float=0.5, acceptance: float=0.1) -> np.ndarray: 
+    __candidate = clip(c1 + scale * (c2 + c3))
+    if fitness(__candidate) > fitness(c1) or random.random() <= acceptance:
+        return __candidate
+    return c1
 
-    return np.array(children)
+def evolve(population: np.ndarray, fitness: callable, clip: callable) -> np.ndarray:
+    __next_generation = []
+    for __c1 in population:
+        __c2, __c3 = random.sample(population, 2)
+        __next_generation.append(cross(__c1, __c2, __c3, fitness, clip, 0.5, 0.1))
+    return np.array(__next_generation)

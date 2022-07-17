@@ -16,7 +16,7 @@ SIGMA = tf.keras.models.load_model('sigmanet.h5')
 
 julius = tf.image.decode_image(tf.io.read_file('../images/julius.png'), channels=3)
 
-################################################################# preprocessing
+############################################################## image processing
 
 MEAN_RGB = np.array([125.307, 122.95, 113.865])
 STD_RGB = np.array([62.9932, 62.0887, 66.7048])
@@ -73,9 +73,25 @@ def fgsm_most(gradient, count=5):
     __norm = tf.norm(__gradient, axis=-1).numpy() # as numpy array instead of tensor
     __indices = list(itertools.chain.from_iterable([[(__i[0], __i[1], __j) for __j in range(3)] for __i in list(argmax(__norm, count))]))
     __values = [tf.sign(__gradient)[__i].numpy() for __i in __indices]
-    return tf.sparse.SparseTensor(indices=__indices, values=__values, dense_shape=__gradient.shape)
+    return tf.sparse.reorder(
+        tf.sparse.SparseTensor(indices=__indices, values=__values, dense_shape=__gradient.shape))
 
-# most_significant_perturbations = 
+delta = tf.sparse.to_dense(fgsm_most(perturbations))
+
+########################################################## tensor manipulations
+
+def mask(indices: list, shape: list) -> list:
+    return []
+
+#################################################################### evaluation
+
+def score(confidence: tf.Tensor) -> float:
+    return float(
+        max([confidence[0][__i] for __i in [0, 1, 8, 9]])
+        - max([confidence[0][__i] for __i in range(2, 8)]))
+
+def fitness(candidate: np.ndarray) -> float:
+    pass
 
 ####################################################################### display
 
@@ -88,3 +104,8 @@ plt.imshow(julius)
 plt.imshow(perturbations[0])
 # plt.imshow(perturbations[0] * 0.5 + 0.5)  # To change [-1, 1] to [0,1]
 plt.show()
+
+print("=> predictions for the original image =============")
+interpret(SIGMA(normalize(julius)))
+print("=> predictions for the tampered image =============")
+interpret(SIGMA(normalize(julius) + delta))
