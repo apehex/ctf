@@ -9,14 +9,14 @@ random.seed(time.time())
 
 ######################################################################### pixel
 
-def _clip(candidate: np.ndarray, widht: int, height: int) -> np.ndarray:
+def clip(candidate: np.ndarray, width: int, height: int) -> np.ndarray:
     __candidate = candidate
     for __i in range(0, len(__candidate), 5):
-        __candidate[__i] = __candidate[__i] % width
-        __candidate[__i + 1] = __candidate[__i + 1] % height
-        __candidate[__i + 2] = __candidate[__i + 2] % 256
-        __candidate[__i + 3] = __candidate[__i + 3] % 256
-        __candidate[__i + 4] = __candidate[__i + 4] % 256
+        __candidate[__i] = int(__candidate[__i]) % width
+        __candidate[__i + 1] = int(__candidate[__i + 1]) % height
+        __candidate[__i + 2] = int(__candidate[__i + 2]) % 256
+        __candidate[__i + 3] = int(__candidate[__i + 3]) % 256
+        __candidate[__i + 4] = int(__candidate[__i + 4]) % 256
     return __candidate
 
 ##################################################################### candidate
@@ -49,9 +49,12 @@ def cross(c1: np.ndarray, c2: np.ndarray, c3: np.ndarray, fitness: callable, cli
         return __candidate
     return c1
 
-def evolve(population: np.ndarray, fitness: callable, clip: callable) -> np.ndarray:
-    __next_generation = []
-    for __c1 in population:
-        __c2, __c3 = random.sample(population, 2)
-        __next_generation.append(cross(__c1, __c2, __c3, fitness, clip, 0.5, 0.1))
+def evolve(population: np.ndarray, generations: int, fitness: callable, clip: callable) -> np.ndarray:
+    __current_generation = list(population)
+    for __g in range(generations):
+        __next_generation = []
+        for __c1 in __current_generation:
+            __c2, __c3 = random.sample(__current_generation, 2)
+            __next_generation.append(cross(__c1, __c2, __c3, fitness, clip, 0.5, 0.1))
+        __current_generation = __next_generation
     return np.array(__next_generation)

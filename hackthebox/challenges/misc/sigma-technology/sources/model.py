@@ -14,7 +14,7 @@ SIGMA = tf.keras.models.load_model('sigmanet.h5')
 
 ################################################################### input image
 
-julius = tf.image.decode_image(tf.io.read_file('../images/julius.png'), channels=3)
+JULIUS = tf.image.decode_image(tf.io.read_file('../images/julius.png'), channels=3)
 
 ############################################################## image processing
 
@@ -45,7 +45,7 @@ def predict(x):
 
 loss = tf.keras.losses.CategoricalCrossentropy()
 
-def fgsm_pattern(image, index, model=SIGMA):
+def fgsm_pattern(image: tf.Tensor, index: int, model=SIGMA):
     with tf.GradientTape() as __tape:
         __tape.watch(image)
         __prediction = model(image)
@@ -57,7 +57,7 @@ def fgsm_pattern(image, index, model=SIGMA):
     # return tf.sign(__gradient)
 
 index = tf.one_hot([DOG_INDEX], len(CLASS_NAMES))
-perturbations = fgsm_pattern(normalize(julius), index, SIGMA)
+perturbations = fgsm_pattern(normalize(JULIUS), index, SIGMA)
 
 ###############################################  most significant perturbations
 
@@ -80,8 +80,12 @@ delta = tf.sparse.to_dense(fgsm_most(perturbations))
 
 ########################################################## tensor manipulations
 
-def mask(indices: list, shape: list) -> list:
-    return []
+def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray:
+    __candidate = original
+    for __i in range(0, len(perturbations), 5): # modify the 5 pixels according to the perturbation vector
+        for __j in range(3):
+            __candidate[int(perturbations[__i]), int(perturbations[__i + 1]), __j] = int(perturbations[__i + 2 + __j])
+    return __candidate
 
 #################################################################### evaluation
 
@@ -90,8 +94,9 @@ def score(confidence: tf.Tensor) -> float:
         max([confidence[0][__i] for __i in [0, 1, 8, 9]])
         - max([confidence[0][__i] for __i in range(2, 8)]))
 
-def fitness(candidate: np.ndarray) -> float:
-    pass
+def fitness(perturbations: np.ndarray, original: np.ndarray, model=SIGMA) -> float:
+    return score(
+        confidence=SIGMA(normalize(tamper(original=original, perturbations=perturbations))))
 
 ####################################################################### display
 
@@ -99,13 +104,13 @@ def interpret(prediction):
     for i in range(prediction.shape[-1]):
         print(CLASS_NAMES[i], ': ', '{:%}'.format(float(prediction[0][i])))
 
-plt.figure()
-plt.imshow(julius)
-plt.imshow(perturbations[0])
-# plt.imshow(perturbations[0] * 0.5 + 0.5)  # To change [-1, 1] to [0,1]
-plt.show()
+# plt.figure()
+# plt.imshow(JULIUS)
+# plt.imshow(perturbations[0])
+# # plt.imshow(perturbations[0] * 0.5 + 0.5)  # To change [-1, 1] to [0,1]
+# plt.show()
 
-print("=> predictions for the original image =============")
-interpret(SIGMA(normalize(julius)))
-print("=> predictions for the tampered image =============")
-interpret(SIGMA(normalize(julius) + delta))
+# print("=> predictions for the original image =============")
+# interpret(SIGMA(normalize(JULIUS)))
+# print("=> predictions for the tampered image =============")
+# interpret(SIGMA(normalize(JULIUS) + delta))
