@@ -1,5 +1,4 @@
 import itertools
-import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
@@ -56,9 +55,6 @@ def fgsm_pattern(image: tf.Tensor, index: int, model=SIGMA):
     # Get the sign of the gradients to create the perturbation
     # return tf.sign(__gradient)
 
-index = tf.one_hot([DOG_INDEX], len(CLASS_NAMES))
-perturbations = fgsm_pattern(normalize(JULIUS), index, SIGMA)
-
 ###############################################  most significant perturbations
 
 def argmax(a, n):
@@ -76,8 +72,6 @@ def fgsm_most(gradient, count=5):
     return tf.sparse.reorder(
         tf.sparse.SparseTensor(indices=__indices, values=__values, dense_shape=__gradient.shape))
 
-delta = tf.sparse.to_dense(fgsm_most(perturbations))
-
 ########################################################## tensor manipulations
 
 def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray:
@@ -92,7 +86,7 @@ def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray:
 def score(confidence: tf.Tensor) -> float:
     return float(
         max([confidence[0][__i] for __i in [0, 1, 8, 9]])
-        - max([confidence[0][__i] for __i in range(2, 8)]))
+        - sum([confidence[0][__i] for __i in range(2, 8)]))
 
 def fitness(perturbations: np.ndarray, original: np.ndarray, model=SIGMA) -> float:
     return score(
@@ -103,14 +97,3 @@ def fitness(perturbations: np.ndarray, original: np.ndarray, model=SIGMA) -> flo
 def interpret(prediction):
     for i in range(prediction.shape[-1]):
         print(CLASS_NAMES[i], ': ', '{:%}'.format(float(prediction[0][i])))
-
-# plt.figure()
-# plt.imshow(JULIUS)
-# plt.imshow(perturbations[0])
-# # plt.imshow(perturbations[0] * 0.5 + 0.5)  # To change [-1, 1] to [0,1]
-# plt.show()
-
-# print("=> predictions for the original image =============")
-# interpret(SIGMA(normalize(JULIUS)))
-# print("=> predictions for the tampered image =============")
-# interpret(SIGMA(normalize(JULIUS) + delta))

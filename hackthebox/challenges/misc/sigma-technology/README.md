@@ -136,7 +136,10 @@ What does it mean for an image to be better than the orginal shot of Julius?
 
 The robots will capture any living creature, so we want the NN to classify the image as something inanimate: either an airplane, automobile, ship, or a truck.
 
-This can be quantified as a function of the confidence vector returned by the NN: the new image is better if the maximum confidence for animals is lower and the maximum confidence for inanimate objects is higher.
+In the end, it means that the confidence for **all** animals is lower than the confidence for **any** object.
+And an image is better if we move in the direction: the total confidence for all animals lower and the confidence for one object rises.
+
+This can be quantified as a function of the confidence vector returned by the NN:
 
 This transfer in confidence from animal to object is coded as:
 
@@ -144,7 +147,7 @@ This transfer in confidence from animal to object is coded as:
 def score(confidence: tf.Tensor) -> float:
     return float(
         max([confidence[0][__i] for __i in [0, 1, 8, 9]])
-        - max([confidence[0][__i] for __i in range(2, 8)]))
+        - sum([confidence[0][__i] for __i in range(2, 8)]))
 ```
 
 Where `confidence` is the output vector of probabilities given by the NN.
