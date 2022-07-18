@@ -5,7 +5,12 @@ import model as ml
 ############################################### setup for the specific use case
 
 clip = functools.partial(ev.clip, width=32, height=32)
-fitness = functools.partial(ml.fitness, original=ml.JULIUS.numpy(), model=ml.SIGMA)
+# fitness = functools.partial(ml.fitness, original=ml.JULIUS.numpy(), model=ml.SIGMA)
+def fitness(perturbations): # somehow the partial evaluation of a Tensorflow function fails
+	return ml.fitness(perturbations=perturbations, original=ml.JULIUS.numpy(), model=ml.SIGMA)
+def fitness(perturbations):
+	return ml.score(
+        confidence=ml.SIGMA(ml.normalize(ml.tamper(original=ml.JULIUS.numpy(), perturbations=perturbations))))
 
 ########################################################################## fgsm
 
