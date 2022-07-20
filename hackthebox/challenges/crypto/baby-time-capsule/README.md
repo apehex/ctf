@@ -1,0 +1,92 @@
+> Qubit Enterprises is a new company touting it's propriety method of qubit stabilization.
+> They expect to be able to build a quantum computer that can factor a RSA-1024 number in the next 10 years.
+> As a promotion they are giving out "time capsules" which contain a message for the future encrypted by 1024 bit RSA.
+> They might be great engineers, but they certainly aren't cryptographers, can you find a way to read the message without having to wait for their futuristic machine?
+
+> Author: **[Hilbert][author-profile]**
+
+## The Chinese remainder theorem
+
+We can ask for as many encryptions of the same message as we want:
+
+```python
+def get_new_time_capsule(self):
+    n, e = self._get_new_pubkey()
+    m = bytes_to_long(self.msg)
+    m = pow(m, e, n)
+
+    return {"time_capsule": f"{m:X}", "pubkey": [f"{n:X}", f"{e:X}"]}
+```
+
+The same public exponent is used for all encryptions, `5`, and the modulus changes everytime.
+
+Noting N<sub>i</sub> the modulis, N their product and CT<sub>i</sub>, the Chinese remainders theorem (CRT) states that:
+
+![][time-capsule-crt]
+
+Since the N<sub>i</sub> are extremely likely to be coprime, by construction.
+
+And since the timecapsule uses RSA with `e=5` this ciphertext CT is actually:
+
+![][time-capsule-ciphertext]
+
+Where M is the original message, encoded as an unsigned integer (long).
+
+## Decrypting the cipher
+
+Everything we need is already coded in Sagemath:
+
+```python
+CTs = [
+    int('7AE8EB3096E087F280689512BBA91B19A585CB761412B3ECCB48A2243594142DD01AB39C7E92863A6CA71F47F92C9C0AF755A7BA0B0053369187E454730CAEFE9D19F6559E5716E747F242C28F8D91EC2AD340FA00883CA66095A7EF68454F2DCFBBD7BCFFCBF19DA3688874232CA603CAEFF32F08B0EB8ADBE720F6C58A5EA3', 16),
+    int('53096B4CAE22A46DECF78FA0680FCFBFB8C42368C408861075244F22B6FB336134AC17449E620FD17C187A33483B04ADDCBD69EC43542E5BE7879CFFD41A6B896106B9D0902F2E36B54E75C2EC6EE023E71E72FAA07A86CF93595D5C6ED04B65D711216AB7B9DC031BF75BB006A545BB2C0D47BB7BEB67CC1AC045425C37720F', 16),
+    int('A5235000EDA144AD43A625E726CB39E416BB103F6F670D747814549A2E0C5AEB6E6DBFCC1CFE32AFE8A9986DCAE6B6C1EC78B900468522E175F2FD82BE65DFD3CB83AFE0DF3E82A5D2ABD50D91675CE69FF82E1A31198D2108F9C4C20233FBDDD983DE2F8F82369C54D325DE3C935E801D3D339EF937980EE28766E96F275F8C', 16),
+    int('4210C5EF2B271B3121EB2C3CC3CE5D30843DDD90AD03FF3BD79055A14C09730150A164C0CA56F77FE38BA5A8157012506DEA5F8D2B68441CF30A03F5E42C87E28945836CB0B9714FBA4822C5631BF39EF799324A0CB68836141DD7A851E58C2287B45030AAC2C79716AD4D8F69EEA1A238BFB5B2F05DAC09AB56326E52ACDF14', 16),]
+Ns = [
+    int('8BAA5A867868BAB10CF416274F68C6890DEECD5297180A60CD291541472E0CCE88857A556B4C2C21110B089E9CABC1A7930DE35D44FDE591FD6D1CC167BB44DA8C19030058B71085E1496C78A4334B65E8B567F5CBB74931EAF382BE8A74A1C3E4EFD46FC91FEA4CC654BEB25764570DF39F7B375A79EA11C7065B7D3BCBE26F', 16),
+    int('9A979A5D20DA8EF5937EBD105587AACE2623A488F533177E2A5938FC67B0E63DA662F94BCEFE30B6709512695686EC404717B79DEF5FC9C84978B5FE04E0A74AB4704236CB94EBBB0C22B1989421958F58DFFF436CC2DB4B3C3E9D37097527361599F86A8832EB174C1CC11A2EF5BB99C29C8267078FEF8F03E8BF21CEAF98BB', 16),
+    int('A60998A67DE1991713EE261D8DCFABB082E3071BDF2C572E54380218A1A56F1EAD6ACCAF7F9313337AF963B277015F9E99938BFB2BC7B6E66EED11A92552E7F9D652273844FBF53BE62232B52A23B9D5F50560F796E2E6C3412C75346C7AD1569FC32271F2BAA8E143F2A78B74EEF1C3FD59C64D9F32D7A2AC12C53138CAEA45', 16),
+    int('CD1DDDC520A186614C97D918598586CF8241E049EB646A443E90753558662A17E819F82C9BAD22CD1D6670B5F16FC6494A752E4DCA84F287E3F344E9384A9187F951E1C531338E0FB76BB8D7A9AB60A157B2F04A92C2E6F378E238AF61F55867C77472924DA06EFFB8E609717209F64910031ACF7DFC9CCD2EB6F5048373DA0F', 16),]
+E = 5
+
+######################################################### process
+
+m5 = crt(CTs, Ns)
+message = m5.nth_root(5)
+```
+
+It fails with only 2 remainders:
+
+```python
+m5 = crt(CTs[:2], Ns[:2])
+message = m5.nth_root(5)
+# 3564976... is not a 5th power
+```
+
+Indeed it is most likely that:
+
+![][different]
+
+And we don't know how many time we need to add N to CT to obtain the original N<sup>5</sup>... It could be billions or more!
+
+So we ask for several more time capsules, hoping that:
+
+![][equal]
+
+In my case, 4 capsules were enough:
+
+```python
+print((message ** 5) == m5)
+# True
+print(bytes.fromhex(hex(message)[2:]))
+# b'HTB{t3h_FuTUr3_15_bR1ghT_1_H0p3_y0uR3_W34r1nG_5h4d35!}'
+```
+
+> `HTB{t3h_FuTUr3_15_bR1ghT_1_H0p3_y0uR3_W34r1nG_5h4d35!}`
+
+[author-profile]: https://app.hackthebox.com/users/182543
+[different]: images/equations/congruence-different-from-original-number.png
+[equal]: images/equations/congruence-equals-original-number.png
+[time-capsule-crt]: images/equations/crt.png
+[time-capsule-ciphertext]: images/equations/ciphertext.png
+[wiki-crt]: https://en.wikipedia.org/wiki/Chinese_remainder_theorem
