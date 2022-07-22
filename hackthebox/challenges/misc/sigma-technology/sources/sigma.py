@@ -1,32 +1,31 @@
 import evolution as ev
-import functools as ft
+# import fgsm
 import matplotlib.pyplot as plt
 import model as ml
+import numpy as np
 import tensorflow as tf
 
 ############################################### setup for the specific use case
 
-clip = ft.partial(ev.clip, width=32, height=32)
-# fitness = ft.partial(ml.fitness, original=ml.JULIUS.numpy(), model=ml.SIGMA)
 def fitness(perturbations): # somehow the partial evaluation of a Tensorflow function fails
 	return ml.fitness(perturbations=perturbations, original=ml.JULIUS.numpy(), model=ml.SIGMA)
 
 ########################################################################## fgsm
 
-index = tf.one_hot([ml.DOG_INDEX], len(ml.CLASS_NAMES))
-perturbations = fgsm_pattern(normalize(JULIUS), index, SIGMA)
-delta = tf.sparse.to_dense(fgsm_most(perturbations))
+# index = tf.one_hot([ml.DOG_INDEX], len(ml.CLASS_NAMES))
+# perturbations = fgsm.fgsm_pattern(ml.normalize(ml.JULIUS), index, ml.SIGMA)
+# delta = tf.sparse.to_dense(fgsm.fgsm_most_significant(perturbations))
 
 ##################################################################### one pixel
 
-population_0 = ev.random_population(128, 32, 32, 5)
-population_64 = ev.evolve(population_0, 64, fitness, clip)
+population_i = ev.random_population(size=1024, pixels=5)
+population_f = ev.evolve(population=population_i, generations=16, fitness=fitness)
 
-scores_0 = [fitness(__c) for __c in population_0]
-scores_64 = [fitness(__c) for __c in population_64]
+scores_i = fitness(population_i)
+scores_f = fitness(population_f)
 
-best_candidate_0 = population_0[scores_0.index(max(scores_0))]
-best_candidate_64 = population_64[scores_64.index(max(scores_64))]
+best_candidate_i = population_i[np.argmax(scores_i)]
+best_candidate_f = population_f[np.argmax(scores_f)]
 
 ####################################################################### display
 

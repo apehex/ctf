@@ -136,12 +136,12 @@ What does it mean for an image to be better than the orginal shot of Julius?
 
 The robots will capture any living creature, so we want the NN to classify the image as something inanimate: either an airplane, automobile, ship, or a truck.
 
-In the end, it means that the confidence for **all** animals is lower than the confidence for **any** object.
-And an image is better if we move in the direction: the total confidence for all animals lower and the confidence for one object rises.
+#### Targeted attack
 
-This can be quantified as a function of the confidence vector returned by the NN:
+In the end, we want the confidence for **all** animals is lower than the confidence for **any** object.
+And an image is better if we move in this direction: the total confidence for all animals decreases and the confidence for one object rises.
 
-This transfer in confidence from animal to object is coded as:
+This transfer in confidence from animal to object can be coded as:
 
 ```python
 def score(confidence: tf.Tensor) -> float:
@@ -152,36 +152,95 @@ def score(confidence: tf.Tensor) -> float:
 
 Where `confidence` is the output vector of probabilities given by the NN.
 
-### Differential evolution
+#### Untarget attack
+
+Actually the previous attack took too long to improve my candidates.
+Another approach is to specify a target class and aim to improve the confidence in that class only.
+
+For example, if the target class is "automobile" with index 1:
+
+```python
+def score(confidence: tf.Tensor) -> float:
+    return float(
+        confidence[0][1] # misclassify as a car
+        - confidence[0][5])
+```
+
+## Differential evolution
+
+### Initiation
 
 So the idea is to start from a random set of perturbations and make those perturbations more and more impactful.
 
 A pertubation is a set of 5 pixels. Each pixel is itself represented by its coordinates and the RGB values:
 
 ```python
-def random_pixel(width: int, height: int) -> list:
+def _random_pixel(width: int, height: int) -> list:
     return [
         random.randint(0, width - 1),
         random.randint(0, height - 1),
-        int(random.gauss(128, 127)) % 256,
-        int(random.gauss(128, 127)) % 256,
-        int(random.gauss(128, 127)) % 256]
+        random.randint(0, 255),
+        random.randint(0, 255),
+        random.randint(0, 255)]
 ```
 
-So that a candidate is a vector of length 25:
+So that a candidate is a matrix of shape 5 x 5:
 
 ```python
 def random_candidate(width: int, height: int, pixels: int=5) -> np.ndarray:
-    return np.array(itertools.chain.from_iterable(
-        [random_pixel(width, height) for _ in range(pixels)]))
+    return np.array(
+        [_random_pixel(width, height) for _ in range(pixels)])
 ```
 
 And then the whole population of candidates is simply an array of N candidates:
 
 ```python
 def random_population(size: int, width: int, height: int, pixels: int=5) -> np.array:
-    return np.array([list(random_candidate(width, height, pixels)) for _ range(size)])
+    return np.array([
+        random_candidate(width, height, pixels) for _ in range(size)])
 ```
+
+### Recombination
+
+Each generation of the population is mixed with itself.
+
+There's `CR` chance of mixing each candidate with two of its peers:
+
+```python
+def cross(c1: np.ndarray, c2: np.ndarray, c3: np.ndarray, clip: callable, chance: float=0.9, scale: float=0.8) -> np.ndarray:
+    __p = np.random.rand(*c1.shape) < chance # array of probabilities to cross each gene
+    return clip(c1 + scale * __p * (c2 - c3))
+```
+
+Iterating over the whole population gives:
+
+```python
+def recombine(population: np.ndarray, clip: callable) -> np.ndarray:
+    __next_generation = []
+    __current_generation = list(population)
+    for __c in __current_generation:
+        __c2, __c3 = random.sample(__current_generation, 2)
+        __next_generation.append(cross(__c1, __c2, __c3, clip, 0.5))
+    return __next_generation
+```
+
+### Batch processing
+
+Actually the final implementation has been improved to speed up the processing.
+
+Instead of thinking about individual candidates, the whole population can be processed at once.
+
+These improvements leverage the Numpy arrays calculations, especially broadcasting and slicing.
+
+For example, the initiation of the population can be done in a single function:
+
+```python
+def random_population(size: int, pixels: int=5) -> np.array:
+    return np.random.rand(size, pixels, 5)
+```
+
+It returns an array of values between 0 and 1.
+These are translated to XY and RGB values when appropriate.
 
 [author-profile]: https://app.hackthebox.com/users/32848
 [julius]: images/julius.png

@@ -6,6 +6,7 @@ import tensorflow as tf
 
 CLASS_NAMES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 DOG_INDEX = 5
+TARGET_INDEX = 1
 
 ######################################################################### model
 
@@ -23,74 +24,40 @@ STD_RGB = np.array([62.9932, 62.0887, 66.7048])
 def unpack(x):
     return x[0] if x.shape[0] == 1 else x
 
-def normalize(img):
-    __layer = tf.keras.layers.Normalization(axis=-1, mean=MEAN_RGB, variance=STD_RGB**2)
-    __image = __layer(img)
-    return __image[None, ...]
+def normalize(img: np.ndarray, mean: np.ndarray=MEAN_RGB, deviation: np.ndarray=STD_RGB):
+    __layer = tf.keras.layers.Normalization(axis=-1, mean=mean, variance=deviation**2)
+    return __layer(img)
 
 def denormalize(x, mean=MEAN_RGB, deviation=STD_RGB):
-    __mean = tf.broadcast_to(tf.convert_to_tensor(mean, dtype=tf.float32), [32, 32, 3])
-    __deviation = tf.broadcast_to(tf.convert_to_tensor(deviation, dtype=tf.float32), [32, 32, 3])
-    return tf.math.round(tf.math.multiply(unpack(x), __deviation) + __mean)
-
-################################################################### __predictions
-
-def predict(x):
-    return SIGMA(x)[0]
-    # __index = np.argmax(__confidence)
-    # return __index, __confidence[__index], CLASS_NAMES[__index]
-
-############################################################# adversarial noise
-
-loss = tf.keras.losses.CategoricalCrossentropy()
-
-def fgsm_pattern(image: tf.Tensor, index: int, model=SIGMA):
-    with tf.GradientTape() as __tape:
-        __tape.watch(image)
-        __prediction = model(image)
-        __loss = loss(index, __prediction)
-
-    # Get the gradients of the loss w.r.t to the input image.
-    return __tape.gradient(__loss, image)
-    # Get the sign of the gradients to create the perturbation
-    # return tf.sign(__gradient)
-
-###############################################  most significant perturbations
-
-def argmax(a, n):
-    __a_flat = a.flatten()
-    __i_flat = __a_flat.argsort()[-n:] # Find the indices in the 1D array
-    __x, __y = np.unravel_index(__i_flat, a.shape) # convert the 1D indices back into coordinates
-
-    return zip(__x, __y) # format as (x, y) tuples
-
-def fgsm_most(gradient, count=5):
-    __gradient = unpack(gradient) # remove single value dimensions
-    __norm = tf.norm(__gradient, axis=-1).numpy() # as numpy array instead of tensor
-    __indices = list(itertools.chain.from_iterable([[(__i[0], __i[1], __j) for __j in range(3)] for __i in list(argmax(__norm, count))]))
-    __values = [tf.sign(__gradient)[__i].numpy() for __i in __indices]
-    return tf.sparse.reorder(
-        tf.sparse.SparseTensor(indices=__indices, values=__values, dense_shape=__gradient.shape))
+    __mean = tf.broadcast_to(tf.convert_to_tensor(mean, dtype=tf.float32), x.shape)
+    __deviation = tf.broadcast_to(tf.convert_to_tensor(deviation, dtype=tf.float32), x.shape)
+    return tf.math.round(tf.math.multiply(unpack(x), __deviation) + __mean).astype(int)
 
 ########################################################## tensor manipulations
 
-def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray:
-    __candidate = original
-    for __i in range(0, len(perturbations), 5): # modify the 5 pixels according to the perturbation vector
+def _tamper(original: np.ndarray, noise: np.ndarray) -> np.ndarray: # individual version
+    __candidate = np.copy(original)
+    for __pixel in noise:
         for __j in range(3):
-            __candidate[int(perturbations[__i]), int(perturbations[__i + 1]), __j] = int(perturbations[__i + 2 + __j])
-    return __candidate
+            __candidate[int(original.shape[0] * __pixel[0]), int(original.shape[1] * __pixel[1]), __j] = int(256. * __pixel[2 + __j])
+    return __candidate.astype(int)
+
+def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray: # batch version
+    __candidates = np.zeros(shape=(perturbations.shape[0], *original.shape), dtype=int)
+    for __i in range(perturbations.shape[0]):
+        __candidates[__i] = _tamper(original=original, noise=perturbations[__i])
+    return __candidates
 
 #################################################################### evaluation
 
 def score(confidence: tf.Tensor) -> float:
-    return float(
-        max([confidence[0][__i] for __i in [0, 1, 8, 9]])
-        - sum([confidence[0][__i] for __i in range(2, 8)]))
+    return (
+        confidence[:, TARGET_INDEX] # misclassify as a car
+        - confidence[:, DOG_INDEX]) # TODO!!
 
 def fitness(perturbations: np.ndarray, original: np.ndarray, model=SIGMA) -> float:
     return score(
-        confidence=SIGMA(normalize(tamper(original=original, perturbations=perturbations))))
+        confidence=model.predict_on_batch(normalize(tamper(original=original, perturbations=perturbations))))
 
 ####################################################################### display
 
