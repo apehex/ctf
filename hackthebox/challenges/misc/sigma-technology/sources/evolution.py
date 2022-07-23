@@ -27,13 +27,29 @@ def select(population: np.ndarray, fitness: callable, keep: float=0.3) -> np.nda
     return population.take(indices=__indices, axis=0)
 
 def evolve(population: np.ndarray, generations: int, fitness: callable) -> np.ndarray:
+    __size = population.shape[0]
     __parents = np.copy(population)
     for g in range(generations):
         print(g, '...')
-        __children = recombine(population=__parents, cr=0.8, f=0.5)
+        __foreigners = random_population(size=__size, pixels=5)
         __elite = np.concatenate((
-            select(population=__parents, fitness=fitness, keep=0.3),
-            select(population=__children, fitness=fitness, keep=0.3)), axis=0)
-        __foreigners = random_population(size=(population.shape[0] - __elite.shape[0]), pixels=5)
-        __parents = np.concatenate((__elite, __foreigners), axis=0)
+            select(population=__parents, fitness=fitness, keep=0.1),
+            select(population=__foreigners, fitness=fitness, keep=0.1)), axis=0)
+        __children = recombine(population=__elite, cr=0.1, f=0.5)
+        __parents = np.concatenate((
+            __elite,
+            __children,
+            __foreigners.take(indices=list(range(__size - __elite.shape[0] - __children.shape[0])), axis=0)), axis=0)
     return __parents
+
+# def evolve(population: np.ndarray, generations: int, fitness: callable) -> np.ndarray:
+#     __parents = np.copy(population)
+#     for g in range(generations):
+#         print(g, '...')
+#         __children = recombine(population=__parents, cr=0.8, f=0.5)
+#         __elite = np.concatenate((
+#             select(population=__parents, fitness=fitness, keep=0.3),
+#             select(population=__children, fitness=fitness, keep=0.3)), axis=0)
+#         __foreigners = random_population(size=(population.shape[0] - __elite.shape[0]), pixels=5)
+#         __parents = np.concatenate((__elite, __foreigners), axis=0)
+#     return __parents

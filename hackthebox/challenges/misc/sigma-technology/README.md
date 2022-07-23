@@ -17,9 +17,9 @@ Supposedly the decision boundaries of the model are sharp and switching a few pi
 
 The input image is 32 by 32:
 
-![][julius.png]
+![][julius]
 
-The robot is 99.99% sure Juliues is a dog before the attack:
+The robot is 99.99% sure Julius is a dog before the attack:
 
 ```python
 SIGMA = tf.keras.models.load_model('sigmanet.h5')
@@ -136,7 +136,7 @@ What does it mean for an image to be better than the orginal shot of Julius?
 
 The robots will capture any living creature, so we want the NN to classify the image as something inanimate: either an airplane, automobile, ship, or a truck.
 
-#### Targeted attack
+#### Untargeted attack
 
 In the end, we want the confidence for **all** animals is lower than the confidence for **any** object.
 And an image is better if we move in this direction: the total confidence for all animals decreases and the confidence for one object rises.
@@ -152,7 +152,7 @@ def score(confidence: tf.Tensor) -> float:
 
 Where `confidence` is the output vector of probabilities given by the NN.
 
-#### Untarget attack
+#### Targeted attack
 
 Actually the previous attack took too long to improve my candidates.
 Another approach is to specify a target class and aim to improve the confidence in that class only.
@@ -333,61 +333,82 @@ pprint(list(scores_f.take(indices=np.argsort(scores_f)[-16:])))
 #  -0.39944702]
 ```
 
-The elite candidates need to breed more than a single child:
+The elite candidates need to breed more than a single child; in fact they're the only ones to breed:
 
 ```python
 def evolve(population: np.ndarray, generations: int, fitness: callable) -> np.ndarray:
+    __size = population.shape[0]
     __parents = np.copy(population)
     for g in range(generations):
         print(g, '...')
-        __elite = select(population=__parents, fitness=fitness, keep=0.1)
-        __foreigners = random_population(size=__elite.shape[0], pixels=5)
-        __children = recombine(population=__parents, cr=0.8, f=0.5)
+        __foreigners = random_population(size=__size, pixels=5)
         __elite = np.concatenate((
-            select(population=__parents, fitness=fitness, keep=0.3),
-            select(population=__children, fitness=fitness, keep=0.3)), axis=0)
-        __parents = np.concatenate((__elite, __foreigners), axis=0)
+            select(population=__parents, fitness=fitness, keep=0.1),
+            select(population=__foreigners, fitness=fitness, keep=0.1)), axis=0)
+        __children = recombine(population=__elite, cr=0.5, f=0.5)
+        __parents = np.concatenate((
+            __elite,
+            __children,
+            __foreigners.take(indices=list(range(__size - __elite.shape[0] - __children.shape[0])), axis=0)), axis=0)
     return __parents
 ```
 
 ### Results
 
-After 256 generations:
+With this new algorithm, after only 128 generations:
 
 ```python
-c = ml.SIGMA(ml.normalize(best_image_f).numpy().reshape(1, *best_image_f.shape))
-ml.interpret(c)
-# airplane :  13.733417%
-# automobile :  0.001697%
-# bird :  0.007083%
-# cat :  35.116479%
-# deer :  0.024237%
-# dog :  43.131214%
-# frog :  1.685546%
-# horse :  6.299957%
-# ship :  0.000091%
-# truck :  0.000281%
+confidence = ml.SIGMA.predict_on_batch(ml.normalize(best_images_f))
+ml.interpret(confidence[-1])
+# airplane :  68.461668%
+# automobile :  0.027398%
+# bird :  0.192771%
+# cat :  4.600941%
+# deer :  0.009059%
+# dog :  4.343562%
+# frog :  2.874114%
+# horse :  19.486517%
+# ship :  0.000297%
+# truck :  0.003671%
 ```
 
-512 generations:
+The best candidate results in an image classified as an airplane, finally!
+
+The perturbation corresponds to these pixel values:
 
 ```python
-c = ml.SIGMA(ml.normalize(best_image_f).numpy().reshape(1, *best_image_f.shape))
-ml.interpret(c)
-# airplane :  30.024168%
-# automobile :  0.005315%
-# bird :  0.039663%
-# cat :  12.284472%
-# deer :  0.009414%
-# dog :  7.198557%
-# frog :  1.811357%
-# horse :  48.625472%
-# ship :  0.000219%
-# truck :  0.001362%
+ml.pixels(best_candidates_f[-1])
+# array([[ 15,  25,  25, 135,  46],
+#        [ 16,  14, 228,   5, 180],
+#        [  3,   6,  55, 232, 168],
+#        [ 24,  11,  24,   7, 209],
+#        [ 30,   8,  90, 135, 183]])
 ```
 
-It's close! But the sigmanet will now output "horse" which is still 18% above the "airplane" class.
+The top candidates are all close:
 
+```python
+ml.pixels(best_candidates_f[-2])
+# array([[ 15,  25,  92,  12, 197],
+#        [ 14,   7, 228,  13,  78],
+#        [  2,   6,  47,  57, 149],
+#        [ 24,  11,  35,   7, 128],
+#        [ 22,  10,  88, 116, 140]])
+ml.pixels(best_candidates_f[-3])
+# array([[ 16,  25,  44, 141,  29],
+#        [ 16,  14, 228,   5, 202],
+#        [  3,   6,  52, 232, 200],
+#        [ 24,  11,  13,   7, 209],
+#        [ 30,   6,  31, 188, 183]])
+```
+
+This is an airplane:
+
+![][airplane]
+
+> `HTB{0ne_tw0_thr33_f0ur_f1v3_p1xel_attack}`
+
+[airplane]: images/airplane.png
 [author-profile]: https://app.hackthebox.com/users/32848
 [julius]: images/julius.png
 [laser-coordinates]: images/laser-coordinates.png

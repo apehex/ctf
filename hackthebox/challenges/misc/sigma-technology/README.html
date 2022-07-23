@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+                GitHub HTML Pandoc Template — by Apehex
+==============================================================================
+Copyright (c) Apehex, 2021, MIT License (MIT).
+
+- https://github.com/apehex/homesick
+
+Forked from "pandoc-goodies" by Tristano Ajmone:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License
+
+Copyright (c) Apehex, 2021 (github.com/apehex/homesick)
+Copyright (c) Tristano Ajmone, 2017-2020 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017-2020,
+released under the MIT License (MIT); it contains readaptations of substantial
+portions of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sigma Technology</title>
+  <style type="text/css">
+@charset "UTF-8";.markdown-body{-webkit-print-color-adjust: exact;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #24292e;font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol";font-size: 16px;line-height: 1.5;word-wrap: break-word;box-sizing: border-box;min-width: 200px;max-width: 96%;margin: 0 auto;padding: 45px}.markdown-body a{color: #0366d6;background-color: transparent;text-decoration: none;-webkit-text-decoration-skip: objects}.markdown-body a:active,.markdown-body a:hover{outline-width: 0}.markdown-body a:hover{text-decoration: underline}.markdown-body a:not([href]){color: inherit;text-decoration: none}.markdown-body strong{font-weight: 600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top: 24px;margin-bottom: 16px;font-weight: 600;line-height: 1.25}.markdown-body h1{font-size: 2em;margin: 0.67em 0;padding-bottom: 0.3em;border-bottom: 1px solid #eaecef}.markdown-body h2{padding-bottom: 0.3em;font-size: 1.5em;border-bottom: 1px solid #eaecef}.markdown-body h3{font-size: 1.25em}.markdown-body h4{font-size: 1em}.markdown-body h5{font-size: 0.875em}.markdown-body h6{font-size: 0.85em;color: #6a737d}.markdown-body img{border-style: none}.markdown-body svg:not(:root){overflow: hidden}.markdown-body hr{box-sizing: content-box;height: 0.25em;margin: 24px 0;padding: 0;overflow: hidden;background-color: #e1e4e8;border: 0}.markdown-body hr::before{display: table;content: ""}.markdown-body hr::after{display: table;clear: both;content: ""}.markdown-body input{margin: 0;overflow: visible;font: inherit;font-family: inherit;font-size: inherit;line-height: inherit}.markdown-body [type="checkbox"]{box-sizing: border-box;padding: 0}.markdown-body *{box-sizing: border-box}.markdown-body blockquote{margin: 0}.markdown-body ol,.markdown-body ul{padding-left: 2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type: lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top: 0;margin-bottom: 0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type: lower-alpha}.markdown-body li > p{margin-top: 16px}.markdown-body li li{margin-top: 0.25em}.markdown-body dd{margin-left: 0}.markdown-body dl{padding: 0}.markdown-body dl dt{padding: 0;margin-top: 16px;font-size: 1em;font-style: italic;font-weight: 600}.markdown-body dl dd{padding: 0 16px;margin-bottom: 16px}.markdown-body code{font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,monospace}.markdown-body pre{font: 12px SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,monospace;word-wrap: normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top: 0;margin-bottom: 16px}.markdown-body blockquote{padding: 0 1em;color: #6a737d;border-left: 0.25em solid #dfe2e5}.markdown-body blockquote > :first-child{margin-top: 0}.markdown-body blockquote > :last-child{margin-bottom: 0}.markdown-body table{display: block;width: 100%;overflow: auto;border-spacing: 0;border-collapse: collapse}.markdown-body table th{font-weight: 600}.markdown-body table td,.markdown-body table th{padding: 6px 13px;border: 1px solid #dfe2e5}.markdown-body table tr{background-color: #fff;border-top: 1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color: #f6f8fa}.markdown-body img{max-width: 100%;box-sizing: content-box;background-color: #fff}.markdown-body code{padding: 0.2em 0;margin: 0;font-size: 85%;background-color: rgba(27, 31, 35, 0.05);border-radius: 3px}.markdown-body code::after,.markdown-body code::before{letter-spacing: -0.2em;content: " "}.markdown-body pre > code{padding: 0;margin: 0;font-size: 100%;word-break: normal;white-space: pre;background: 0 0;border: 0}.markdown-body .highlight{margin-bottom: 16px}.markdown-body .highlight pre{margin-bottom: 0;word-break: normal}.markdown-body .highlight pre,.markdown-body pre{padding: 16px;overflow: auto;font-size: 85%;line-height: 1.45;background-color: #f6f8fa;border-radius: 3px}.markdown-body pre code{display: inline;max-width: auto;padding: 0;margin: 0;overflow: visible;line-height: inherit;word-wrap: normal;background-color: transparent;border: 0}.markdown-body pre code::after,.markdown-body pre code::before{content: normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color: #005cc5;border-color: #005cc5}.markdown-body kbd{box-shadow: inset 0 -1px 0 #959da5;display: inline-block;padding: 3px 5px;font: 11px/10px SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,monospace;color: #444d56;vertical-align: middle;background-color: #fcfcfc;border: 1px solid #c6cbd1;border-bottom-color: #959da5;border-radius: 3px;box-shadow: inset 0 -1px 0 #959da5}.markdown-body :checked .radio-label{position: relative;z-index: 1;border-color: #0366d6}.markdown-body .task-list-item{list-style-type: none}.markdown-body .task-list-item .task-list-item{margin-top: 3px}.markdown-body .task-list-item input{margin: 0 0.2em 0.25em -1.6em;vertical-align: middle}.markdown-body::before{display: table;content: ""}.markdown-body::after{display: table;clear: both;content: ""}.markdown-body > :first-child{margin-top: 0 !important}.markdown-body > :last-child{margin-bottom: 0 !important}.Alert,.Error,.Note,.Success,.Warning{padding: 11px;margin-bottom: 24px;border-style: solid;border-width: 1px;border-radius: 4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top: 0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom: 0}.Alert{color: #246;background-color: #e2eef9;border-color: #bac6d3}.Warning{color: #4c4a42;background-color: #fff9ea;border-color: #dfd8c2}.Error{color: #911;background-color: #fcdede;border-color: #d2b2b2}.Success{color: #22662c;background-color: #e2f9e5;border-color: #bad3be}.Note{color: #2f363d;background-color: #f6f8fa;border-color: #d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color: #246;margin-bottom: 0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color: #4c4a42;margin-bottom: 0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color: #911;margin-bottom: 0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color: #22662c;margin-bottom: 0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color: #2f363d;margin-bottom: 0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top: 0}h1.title,p.subtitle{text-align: center}h1.title.followed-by-subtitle{margin-bottom: 0}p.subtitle{font-size: 1.5em;font-weight: 600;line-height: 1.25;margin-top: 0;margin-bottom: 16px;padding-bottom: 0.3em}div.line-block{white-space: pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title">Sigma Technology</h1>
+</header>
+<blockquote>
+<p>On a path to avenging his father, Tex Chance manufactured
+steam-powered robots to capture all the animals of your island to build
+a powerful army of fused mutated organisms using his powerful Sigma
+technology. You can’t let them take away your loyal doggo Julius. The
+robots have been trained to classify all the objects they encounter
+using the SigmaNet network. Can you use your laser pointer to change
+some of the robot’s vision pixels forcing it to misclassify your dog’s
+image?</p>
+</blockquote>
+<blockquote>
+<p>Author: <strong><a
+href="https://app.hackthebox.com/users/32848">shazb0t</a></strong></p>
+</blockquote>
+<h2 id="adverserial-machine-learning">Adverserial machine learning</h2>
+<p>The neural network of the robots is given in
+<code>sigmanet.h5</code>. From this, we have to learn how to alter their
+vision / image input to misclassify Julius as anything else.</p>
+<p>To fool the robots, we point lasers at 5 pixels on their cameras to
+modify their colors:</p>
+<p><img src="images/laser-coordinates.png" /></p>
+<p>Supposedly the decision boundaries of the model are sharp and
+switching a few pixels can change the decision from a class to another.
+This is called an “adversarial machine learning” attack.</p>
+<p>The input image is 32 by 32:</p>
+<p><img src="images/julius.png" /></p>
+<p>The robot is 99.99% sure Julius is a dog before the attack:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>SIGMA <span class="op">=</span> tf.keras.models.load_model(<span class="st">&#39;sigmanet.h5&#39;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>julius <span class="op">=</span> tf.image.decode_image(tf.io.read_file(<span class="st">&#39;../images/julius.png&#39;</span>), channels<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>prediction <span class="op">=</span> SIGMA(normalize(julius))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(CLASS_NAMES)):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(CLASS_NAMES[i], <span class="st">&#39;: &#39;</span>, <span class="st">&#39;</span><span class="sc">{:%}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="bu">float</span>(prediction[<span class="dv">0</span>][i])))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># airplane :  0.000000%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># automobile :  0.000007%</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># bird :  0.000003%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># cat :  0.001755%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># deer :  0.005456%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># dog :  99.986970%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># frog :  0.000631%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># horse :  0.005166%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ship :  0.000000%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># truck :  0.000000%</span></span></code></pre></div>
+<p>Where the normalization scales the color channels to roughly
+<code>[-2; 2]</code>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(img):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    __layer <span class="op">=</span> tf.keras.layers.Normalization(axis<span class="op">=-</span><span class="dv">1</span>, mean<span class="op">=</span>MEAN_RGB, variance<span class="op">=</span>STD_RGB<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    __image <span class="op">=</span> __layer(img)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> __image[<span class="va">None</span>, ...]</span></code></pre></div>
+<h2 id="adversarial-fgsm">Adversarial FGSM</h2>
+<p>Tensorflow has a <a
+href="https://www.tensorflow.org/tutorials/generative/adversarial_fgsm">great
+tutorial</a> on a technique to fool NN into misclassifying a labrador.
+Looks like a perfect match!</p>
+<p>It generates a perturbation on the original image based on the
+gradient of a <a
+href="https://en.wikipedia.org/wiki/Cross_entropy#Cross-entropy_loss_function_and_logistic_regression">function
+that represents the distance from the original class</a>:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> tf.keras.losses.CategoricalCrossentropy()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fgsm_pattern(image, index, model<span class="op">=</span>SIGMA):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> tf.GradientTape() <span class="im">as</span> __tape:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        __tape.watch(image)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        __prediction <span class="op">=</span> model(image)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        __loss <span class="op">=</span> loss(index, __prediction)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the gradients of the loss w.r.t to the input image.</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> __tape.gradient(__loss, image)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the sign of the gradients to create the perturbation</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># return tf.sign(__gradient)</span></span></code></pre></div>
+<p>This technique generates pixels with maximum intensity everywhere,
+thanks to the use of the sign function
+<code>tf.sign(__gradient)</code>.</p>
+<p>But we want to differentiate between the gradient values to find the
+highest slopes and select the corresponding pixels:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> argmax(a, n):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    __a_flat <span class="op">=</span> a.flatten()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    __i_flat <span class="op">=</span> __a_flat.argsort()[<span class="op">-</span>n:] <span class="co"># Find the indices in the 1D array</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    __x, __y <span class="op">=</span> np.unravel_index(__i_flat, a.shape) <span class="co"># convert the 1D indices back into coordinates</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">zip</span>(__x, __y) <span class="co"># format as (x, y) tuples</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>norm <span class="op">=</span> tf.norm(perturbations[<span class="dv">0</span>], axis<span class="op">=-</span><span class="dv">1</span>).numpy() <span class="co"># as numpy array instead of tensor</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>most_significant_coordinates <span class="op">=</span> <span class="bu">list</span>(argmax(norm, <span class="dv">5</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># [(20, 12), (14, 18), (14, 21), (15, 24), (16, 18)]</span></span></code></pre></div>
+<p>Aaaand it doesn’t work!</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>interpret(SIGMA(normalize(julius)))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># =&gt; predictions for the original image =============</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># airplane :  0.000000%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># automobile :  0.000007%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># bird :  0.000003%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cat :  0.001755%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># deer :  0.005456%</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dog :  99.986970%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># frog :  0.000631%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># horse :  0.005166%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ship :  0.000000%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># truck :  0.000000%</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>interpret(SIGMA(normalize(julius) <span class="op">+</span> delta))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># =&gt; predictions for the tampered image =============</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># airplane :  0.000001%</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># automobile :  0.000012%</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># bird :  0.000005%</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># cat :  0.002182%</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># deer :  0.001433%</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># dog :  99.979967%</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># frog :  0.000273%</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># horse :  0.016128%</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># ship :  0.000000%</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co"># truck :  0.000001%</span></span></code></pre></div>
+<p>May-be a single optimisation step is not enough, may-be the pixel
+values are not relevant? Most likely the pixel selection is wrong!</p>
+<h2 id="sparse-adversarial-attack-one-pixel-attack">Sparse adversarial
+attack / “one pixel attack”</h2>
+<h3 id="general-idea">General idea</h3>
+<p>Rather than generating a complete perturbation image and selecting
+the most significant pixels a-posteriori, I tried working on 5 pixels
+from the get-go.</p>
+<p>There is a similar attack called the <a
+href="https://github.com/Hyperparticle/one-pixel-attack-keras">“one
+pixel attack”</a>, where a population of images are “improved” step by
+step. Each image has only one pixel differing from the original image.
+The improvements (worse classification from the NN) are made with a
+evolution algorithm over a set of images.</p>
+<h3 id="improving">“Improving”</h3>
+<p>What does it mean for an image to be better than the orginal shot of
+Julius?</p>
+<p>The robots will capture any living creature, so we want the NN to
+classify the image as something inanimate: either an airplane,
+automobile, ship, or a truck.</p>
+<h4 id="untargeted-attack">Untargeted attack</h4>
+<p>In the end, we want the confidence for <strong>all</strong> animals
+is lower than the confidence for <strong>any</strong> object. And an
+image is better if we move in this direction: the total confidence for
+all animals decreases and the confidence for one object rises.</p>
+<p>This transfer in confidence from animal to object can be coded
+as:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> score(confidence: tf.Tensor) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">max</span>([confidence[<span class="dv">0</span>][__i] <span class="cf">for</span> __i <span class="kw">in</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span> <span class="bu">sum</span>([confidence[<span class="dv">0</span>][__i] <span class="cf">for</span> __i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">8</span>)]))</span></code></pre></div>
+<p>Where <code>confidence</code> is the output vector of probabilities
+given by the NN.</p>
+<h4 id="targeted-attack">Targeted attack</h4>
+<p>Actually the previous attack took too long to improve my candidates.
+Another approach is to specify a target class and aim to improve the
+confidence in that class only.</p>
+<p>For example, if the target class is “automobile” with index 1:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> score(confidence: tf.Tensor) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        confidence[<span class="dv">0</span>][<span class="dv">1</span>] <span class="co"># misclassify as a car</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span> confidence[<span class="dv">0</span>][<span class="dv">5</span>])</span></code></pre></div>
+<h2 id="differential-evolution">Differential evolution</h2>
+<h3 id="initiation">Initiation</h3>
+<p>So the idea is to start from a random set of perturbations and make
+those perturbations more and more impactful.</p>
+<p>A pertubation is a set of 5 pixels. Each pixel is itself represented
+by its coordinates and the RGB values:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _random_pixel(width: <span class="bu">int</span>, height: <span class="bu">int</span>) <span class="op">-&gt;</span> <span class="bu">list</span>:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        random.randint(<span class="dv">0</span>, width <span class="op">-</span> <span class="dv">1</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        random.randint(<span class="dv">0</span>, height <span class="op">-</span> <span class="dv">1</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        random.randint(<span class="dv">0</span>, <span class="dv">255</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        random.randint(<span class="dv">0</span>, <span class="dv">255</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        random.randint(<span class="dv">0</span>, <span class="dv">255</span>)]</span></code></pre></div>
+<p>So that a candidate is a matrix of shape 5 x 5:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_candidate(width: <span class="bu">int</span>, height: <span class="bu">int</span>, pixels: <span class="bu">int</span><span class="op">=</span><span class="dv">5</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        [_random_pixel(width, height) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(pixels)])</span></code></pre></div>
+<p>And then the whole population of candidates is simply an array of N
+candidates:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_population(size: <span class="bu">int</span>, width: <span class="bu">int</span>, height: <span class="bu">int</span>, pixels: <span class="bu">int</span><span class="op">=</span><span class="dv">5</span>) <span class="op">-&gt;</span> np.array:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.array([</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        random_candidate(width, height, pixels) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(size)])</span></code></pre></div>
+<h3 id="recombination">Recombination</h3>
+<p>Each generation of the population is mixed with itself.</p>
+<p>There’s <code>CR</code> chance of mixing each candidate with two of
+its peers:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cross(c1: np.ndarray, c2: np.ndarray, c3: np.ndarray, clip: <span class="bu">callable</span>, chance: <span class="bu">float</span><span class="op">=</span><span class="fl">0.9</span>, scale: <span class="bu">float</span><span class="op">=</span><span class="fl">0.8</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    __p <span class="op">=</span> np.random.rand(<span class="op">*</span>c1.shape) <span class="op">&lt;</span> chance <span class="co"># array of probabilities to cross each gene</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> clip(c1 <span class="op">+</span> scale <span class="op">*</span> __p <span class="op">*</span> (c2 <span class="op">-</span> c3))</span></code></pre></div>
+<p>Iterating over the whole population gives:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> recombine(population: np.ndarray, clip: <span class="bu">callable</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    __next_generation <span class="op">=</span> []</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    __current_generation <span class="op">=</span> <span class="bu">list</span>(population)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> __c <span class="kw">in</span> __current_generation:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        __c2, __c3 <span class="op">=</span> random.sample(__current_generation, <span class="dv">2</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        __next_generation.append(cross(__c1, __c2, __c3, clip, <span class="fl">0.5</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> __next_generation</span></code></pre></div>
+<h3 id="batch-processing">Batch processing</h3>
+<p>Actually the final implementation has been improved to speed up the
+processing.</p>
+<p>Instead of thinking about individual candidates, the whole population
+can be processed at once.</p>
+<p>These improvements leverage the Numpy arrays calculations, especially
+broadcasting and slicing.</p>
+<p>For example, the initiation of the population can be done in a single
+function:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_population(size: <span class="bu">int</span>, pixels: <span class="bu">int</span><span class="op">=</span><span class="dv">5</span>) <span class="op">-&gt;</span> np.array:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.random.rand(size, pixels, <span class="dv">5</span>)</span></code></pre></div>
+<p>It returns an array of values between 0 and 1. These are translated
+to XY and RGB values when appropriate:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pixels(perturbations: np.ndarray) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.multiply(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        perturbations,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        np.array([<span class="dv">32</span>, <span class="dv">32</span>, <span class="dv">256</span>, <span class="dv">256</span>, <span class="dv">256</span>])).astype(<span class="bu">int</span>)</span></code></pre></div>
+<p>The recombination is now:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> recombine(population: np.ndarray, cr: <span class="bu">float</span><span class="op">=</span><span class="fl">0.8</span>, f: <span class="bu">float</span><span class="op">=</span><span class="fl">0.5</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    __a <span class="op">=</span> np.copy(population)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    __b <span class="op">=</span> np.copy(population)<span class="op">;</span> np.random.shuffle(__b)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    __c <span class="op">=</span> np.copy(population)<span class="op">;</span> np.random.shuffle(__c)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    __p <span class="op">=</span> np.random.rand(<span class="op">*</span>(population.shape)) <span class="op">&lt;</span> cr <span class="co"># array of probabilities to cross each gene</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (__a <span class="op">+</span> f <span class="op">*</span> __p <span class="op">*</span>(__b <span class="op">-</span> __c)) <span class="op">%</span> <span class="fl">1.</span> <span class="co"># broadcast to all the pixel values at once</span></span></code></pre></div>
+<p>And on each generation will select the top 30%:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select(population: np.ndarray, fitness: <span class="bu">callable</span>, keep: <span class="bu">float</span><span class="op">=</span><span class="fl">0.3</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    __count <span class="op">=</span> <span class="bu">int</span>(keep <span class="op">*</span> population.shape[<span class="dv">0</span>])</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    __indices <span class="op">=</span> np.argsort(fitness(population))[<span class="op">-</span>__count:]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> population.take(indices<span class="op">=</span>__indices, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<h2 id="finding-the-most-impactful-pixels">Finding the most impactful
+pixels</h2>
+<h3 id="targeted-attack-1">Targeted attack</h3>
+<p>The scoring function is now processed on an array of confidence
+vectors. It is aimed at confusing JULIUS as an airplane, which has the
+index 0:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> score(confidence: np.ndarray) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        confidence.take(indices<span class="op">=</span>[<span class="dv">0</span>], axis<span class="op">=-</span><span class="dv">1</span>).<span class="bu">max</span>(axis<span class="op">=-</span><span class="dv">1</span>) <span class="co"># misclassify as an airplane</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span> confidence.take(indices<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">8</span>)), axis<span class="op">=-</span><span class="dv">1</span>).<span class="bu">sum</span>(axis<span class="op">=-</span><span class="dv">1</span>))</span></code></pre></div>
+<h3 id="de-parameters">DE parameters</h3>
+<p>We start with 1024 candidate perturbations and make them evolve over
+256 generations:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>population_i <span class="op">=</span> ev.random_population(size<span class="op">=</span><span class="dv">1024</span>, pixels<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>population_f <span class="op">=</span> ev.evolve(population<span class="op">=</span>population_i, generations<span class="op">=</span><span class="dv">256</span>, fitness<span class="op">=</span>fitness)</span></code></pre></div>
+<h3 id="de-algorithm">DE algorithm</h3>
+<p>My first try was:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evolve(population: np.ndarray, generations: <span class="bu">int</span>, fitness: <span class="bu">callable</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    __parents <span class="op">=</span> np.copy(population)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> g <span class="kw">in</span> <span class="bu">range</span>(generations):</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(g, <span class="st">&#39;...&#39;</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        __children <span class="op">=</span> recombine(population<span class="op">=</span>__parents, cr<span class="op">=</span><span class="fl">0.8</span>, f<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        __elite <span class="op">=</span> np.concatenate((</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            select(population<span class="op">=</span>__parents, fitness<span class="op">=</span>fitness, keep<span class="op">=</span><span class="fl">0.3</span>),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            select(population<span class="op">=</span>__children, fitness<span class="op">=</span>fitness, keep<span class="op">=</span><span class="fl">0.3</span>)), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>        __foreigners <span class="op">=</span> random_population(size<span class="op">=</span>(population.shape[<span class="dv">0</span>] <span class="op">-</span> __elite.shape[<span class="dv">0</span>]), pixels<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        __parents <span class="op">=</span> np.concatenate((__elite, __foreigners), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> __parents</span></code></pre></div>
+<p>But this algorithm produces only a handful of good candidates. After
+512 generations there are only 2 decent candidates:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pprint(<span class="bu">list</span>(scores_f.take(indices<span class="op">=</span>np.argsort(scores_f)[<span class="op">-</span><span class="dv">16</span>:])))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [-0.93692046,</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.93692046,</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.92820406,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.9142855,</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.907587,</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.8858199,</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.88375163,</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.87372494,</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.87372494,</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.8633161,</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.84365475,</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.76681167,</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.76681167,</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.7253104,</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.67196494,</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  -0.39944702]</span></span></code></pre></div>
+<p>The elite candidates need to breed more than a single child; in fact
+they’re the only ones to breed:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> evolve(population: np.ndarray, generations: <span class="bu">int</span>, fitness: <span class="bu">callable</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    __size <span class="op">=</span> population.shape[<span class="dv">0</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    __parents <span class="op">=</span> np.copy(population)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> g <span class="kw">in</span> <span class="bu">range</span>(generations):</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(g, <span class="st">&#39;...&#39;</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        __foreigners <span class="op">=</span> random_population(size<span class="op">=</span>__size, pixels<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>        __elite <span class="op">=</span> np.concatenate((</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>            select(population<span class="op">=</span>__parents, fitness<span class="op">=</span>fitness, keep<span class="op">=</span><span class="fl">0.1</span>),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>            select(population<span class="op">=</span>__foreigners, fitness<span class="op">=</span>fitness, keep<span class="op">=</span><span class="fl">0.1</span>)), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        __children <span class="op">=</span> recombine(population<span class="op">=</span>__elite, cr<span class="op">=</span><span class="fl">0.5</span>, f<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>        __parents <span class="op">=</span> np.concatenate((</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>            __elite,</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>            __children,</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>            __foreigners.take(indices<span class="op">=</span><span class="bu">list</span>(<span class="bu">range</span>(__size <span class="op">-</span> __elite.shape[<span class="dv">0</span>] <span class="op">-</span> __children.shape[<span class="dv">0</span>])), axis<span class="op">=</span><span class="dv">0</span>)), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> __parents</span></code></pre></div>
+<h3 id="results">Results</h3>
+<p>With this new algorithm, after only 128 generations:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>confidence <span class="op">=</span> ml.SIGMA.predict_on_batch(ml.normalize(best_images_f))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>ml.interpret(confidence[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># airplane :  68.461668%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># automobile :  0.027398%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># bird :  0.192771%</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cat :  4.600941%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># deer :  0.009059%</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dog :  4.343562%</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># frog :  2.874114%</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># horse :  19.486517%</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ship :  0.000297%</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># truck :  0.003671%</span></span></code></pre></div>
+<p>The best candidate results in an image classified as an airplane,
+finally!</p>
+<p>The perturbation corresponds to these pixel values:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ml.pixels(best_candidates_f[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># array([[ 15,  25,  25, 135,  46],</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 16,  14, 228,   5, 180],</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#        [  3,   6,  55, 232, 168],</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 24,  11,  24,   7, 209],</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 30,   8,  90, 135, 183]])</span></span></code></pre></div>
+<p>The top candidates are all close:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ml.pixels(best_candidates_f[<span class="op">-</span><span class="dv">2</span>])</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># array([[ 15,  25,  92,  12, 197],</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 14,   7, 228,  13,  78],</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#        [  2,   6,  47,  57, 149],</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 24,  11,  35,   7, 128],</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 22,  10,  88, 116, 140]])</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>ml.pixels(best_candidates_f[<span class="op">-</span><span class="dv">3</span>])</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># array([[ 16,  25,  44, 141,  29],</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 16,  14, 228,   5, 202],</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#        [  3,   6,  52, 232, 200],</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 24,  11,  13,   7, 209],</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#        [ 30,   6,  31, 188, 183]])</span></span></code></pre></div>
+<p>This is an airplane:</p>
+<p><img src="images/airplane.png" /></p>
+<blockquote>
+<p><code>HTB{0ne_tw0_thr33_f0ur_f1v3_p1xel_attack}</code></p>
+</blockquote>
+</article>
+</body>
+</html>
