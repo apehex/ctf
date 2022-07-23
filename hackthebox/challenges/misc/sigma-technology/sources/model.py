@@ -14,7 +14,7 @@ SIGMA = tf.keras.models.load_model('sigmanet.h5')
 
 ################################################################### input image
 
-JULIUS = tf.image.decode_image(tf.io.read_file('../images/julius.png'), channels=3)
+JULIUS = tf.image.decode_image(tf.io.read_file('../images/julius.png'), channels=3).numpy()
 
 ############################################################## image processing
 
@@ -26,7 +26,7 @@ def unpack(x):
 
 def normalize(img: np.ndarray, mean: np.ndarray=MEAN_RGB, deviation: np.ndarray=STD_RGB):
     __layer = tf.keras.layers.Normalization(axis=-1, mean=mean, variance=deviation**2)
-    return __layer(img)
+    return __layer(img).numpy()
 
 def denormalize(x, mean=MEAN_RGB, deviation=STD_RGB):
     __mean = tf.broadcast_to(tf.convert_to_tensor(mean, dtype=tf.float32), x.shape)
@@ -35,11 +35,16 @@ def denormalize(x, mean=MEAN_RGB, deviation=STD_RGB):
 
 ########################################################## tensor manipulations
 
+def pixels(perturbations: np.ndarray) -> np.ndarray:
+    return np.multiply(
+        perturbations,
+        np.array([32, 32, 256, 256, 256])).astype(int)
+
 def _tamper(original: np.ndarray, noise: np.ndarray) -> np.ndarray: # individual version
     __candidate = np.copy(original)
     for __pixel in noise:
         for __j in range(3):
-            __candidate[int(original.shape[0] * __pixel[0]), int(original.shape[1] * __pixel[1]), __j] = int(256. * __pixel[2 + __j])
+            __candidate[__pixel[0], __pixel[1], __j] = __pixel[2 + __j]
     return __candidate.astype(int)
 
 def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray: # batch version
@@ -50,17 +55,21 @@ def tamper(original: np.ndarray, perturbations: np.ndarray) -> np.ndarray: # bat
 
 #################################################################### evaluation
 
-def score(confidence: tf.Tensor) -> float:
+def score(confidence: np.ndarray) -> np.ndarray:
     return (
-        confidence[:, TARGET_INDEX] # misclassify as a car
-        - confidence[:, DOG_INDEX]) # TODO!!
+        confidence.take(indices=[0], axis=-1).max(axis=-1) # misclassify as an airplane
+        - confidence.take(indices=list(range(2, 8)), axis=-1).sum(axis=-1))
 
 def fitness(perturbations: np.ndarray, original: np.ndarray, model=SIGMA) -> float:
     return score(
-        confidence=model.predict_on_batch(normalize(tamper(original=original, perturbations=perturbations))))
+        confidence=model.predict_on_batch(
+            normalize(tamper(
+                original=original,
+                perturbations=pixels(perturbations)))))
 
 ####################################################################### display
 
-def interpret(prediction):
-    for i in range(prediction.shape[-1]):
-        print(CLASS_NAMES[i], ': ', '{:%}'.format(float(prediction[0][i])))
+def interpret(predictions):
+    __p = unpack(predictions)
+    for i in range(__p.shape[-1]):
+        print(CLASS_NAMES[i], ': ', '{:%}'.format(float(__p[i])))

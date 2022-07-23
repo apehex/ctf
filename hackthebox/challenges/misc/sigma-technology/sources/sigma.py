@@ -8,7 +8,7 @@ import tensorflow as tf
 ############################################### setup for the specific use case
 
 def fitness(perturbations): # somehow the partial evaluation of a Tensorflow function fails
-	return ml.fitness(perturbations=perturbations, original=ml.JULIUS.numpy(), model=ml.SIGMA)
+	return ml.fitness(perturbations=perturbations, original=ml.JULIUS, model=ml.SIGMA)
 
 ########################################################################## fgsm
 
@@ -19,13 +19,16 @@ def fitness(perturbations): # somehow the partial evaluation of a Tensorflow fun
 ##################################################################### one pixel
 
 population_i = ev.random_population(size=1024, pixels=5)
-population_f = ev.evolve(population=population_i, generations=16, fitness=fitness)
+population_f = ev.evolve(population=population_i, generations=256, fitness=fitness)
 
 scores_i = fitness(population_i)
 scores_f = fitness(population_f)
 
-best_candidate_i = population_i[np.argmax(scores_i)]
-best_candidate_f = population_f[np.argmax(scores_f)]
+best_candidates_i = population_i.take(indices=np.argsort(scores_i)[-16:], axis=0)
+best_candidates_f = population_f.take(indices=np.argsort(scores_f)[-16:], axis=0)
+
+best_images_i = ml.tamper(original=ml.JULIUS, perturbations=best_candidate_i)
+best_images_f = ml.tamper(original=ml.JULIUS, perturbations=best_candidate_f)
 
 ####################################################################### display
 

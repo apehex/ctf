@@ -240,7 +240,153 @@ def random_population(size: int, pixels: int=5) -> np.array:
 ```
 
 It returns an array of values between 0 and 1.
-These are translated to XY and RGB values when appropriate.
+These are translated to XY and RGB values when appropriate:
+
+```python
+def pixels(perturbations: np.ndarray) -> np.ndarray:
+    return np.multiply(
+        perturbations,
+        np.array([32, 32, 256, 256, 256])).astype(int)
+```
+
+The recombination is now:
+
+```python
+def recombine(population: np.ndarray, cr: float=0.8, f: float=0.5) -> np.ndarray:
+    __a = np.copy(population)
+    __b = np.copy(population); np.random.shuffle(__b)
+    __c = np.copy(population); np.random.shuffle(__c)
+    __p = np.random.rand(*(population.shape)) < cr # array of probabilities to cross each gene
+    return (__a + f * __p *(__b - __c)) % 1. # broadcast to all the pixel values at once
+```
+
+And on each generation will select the top 30%:
+
+```python
+def select(population: np.ndarray, fitness: callable, keep: float=0.3) -> np.ndarray:
+    __count = int(keep * population.shape[0])
+    __indices = np.argsort(fitness(population))[-__count:]
+    return population.take(indices=__indices, axis=0)
+```
+
+## Finding the most impactful pixels
+
+### Targeted attack
+
+The scoring function is now processed on an array of confidence vectors.
+It is aimed at confusing JULIUS as an airplane, which has the index 0:
+
+```python
+def score(confidence: np.ndarray) -> np.ndarray:
+    return (
+        confidence.take(indices=[0], axis=-1).max(axis=-1) # misclassify as an airplane
+        - confidence.take(indices=list(range(2, 8)), axis=-1).sum(axis=-1))
+```
+
+### DE parameters
+
+We start with 1024 candidate perturbations and make them evolve over 256 generations:
+
+```python
+population_i = ev.random_population(size=1024, pixels=5)
+population_f = ev.evolve(population=population_i, generations=256, fitness=fitness)
+```
+
+### DE algorithm
+
+My first try was:
+
+```python
+def evolve(population: np.ndarray, generations: int, fitness: callable) -> np.ndarray:
+    __parents = np.copy(population)
+    for g in range(generations):
+        print(g, '...')
+        __children = recombine(population=__parents, cr=0.8, f=0.5)
+        __elite = np.concatenate((
+            select(population=__parents, fitness=fitness, keep=0.3),
+            select(population=__children, fitness=fitness, keep=0.3)), axis=0)
+        __foreigners = random_population(size=(population.shape[0] - __elite.shape[0]), pixels=5)
+        __parents = np.concatenate((__elite, __foreigners), axis=0)
+    return __parents
+```
+
+But this algorithm produces only a handful of good candidates.
+After 512 generations there are only 2 decent candidates:
+
+```python
+pprint(list(scores_f.take(indices=np.argsort(scores_f)[-16:])))
+# [-0.93692046,
+#  -0.93692046,
+#  -0.92820406,
+#  -0.9142855,
+#  -0.907587,
+#  -0.8858199,
+#  -0.88375163,
+#  -0.87372494,
+#  -0.87372494,
+#  -0.8633161,
+#  -0.84365475,
+#  -0.76681167,
+#  -0.76681167,
+#  -0.7253104,
+#  -0.67196494,
+#  -0.39944702]
+```
+
+The elite candidates need to breed more than a single child:
+
+```python
+def evolve(population: np.ndarray, generations: int, fitness: callable) -> np.ndarray:
+    __parents = np.copy(population)
+    for g in range(generations):
+        print(g, '...')
+        __elite = select(population=__parents, fitness=fitness, keep=0.1)
+        __foreigners = random_population(size=__elite.shape[0], pixels=5)
+        __children = recombine(population=__parents, cr=0.8, f=0.5)
+        __elite = np.concatenate((
+            select(population=__parents, fitness=fitness, keep=0.3),
+            select(population=__children, fitness=fitness, keep=0.3)), axis=0)
+        __parents = np.concatenate((__elite, __foreigners), axis=0)
+    return __parents
+```
+
+### Results
+
+After 256 generations:
+
+```python
+c = ml.SIGMA(ml.normalize(best_image_f).numpy().reshape(1, *best_image_f.shape))
+ml.interpret(c)
+# airplane :  13.733417%
+# automobile :  0.001697%
+# bird :  0.007083%
+# cat :  35.116479%
+# deer :  0.024237%
+# dog :  43.131214%
+# frog :  1.685546%
+# horse :  6.299957%
+# ship :  0.000091%
+# truck :  0.000281%
+```
+
+512 generations:
+
+```python
+c = ml.SIGMA(ml.normalize(best_image_f).numpy().reshape(1, *best_image_f.shape))
+ml.interpret(c)
+# airplane :  30.024168%
+# automobile :  0.005315%
+# bird :  0.039663%
+# cat :  12.284472%
+# deer :  0.009414%
+# dog :  7.198557%
+# frog :  1.811357%
+# horse :  48.625472%
+# ship :  0.000219%
+# truck :  0.001362%
+```
+
+It's close! But the sigmanet will now output "horse" which is still 18% above the "airplane" class.
 
 [author-profile]: https://app.hackthebox.com/users/32848
 [julius]: images/julius.png

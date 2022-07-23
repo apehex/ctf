@@ -28,7 +28,8 @@ def select(population: np.ndarray, fitness: callable, keep: float=0.3) -> np.nda
 
 def evolve(population: np.ndarray, generations: int, fitness: callable) -> np.ndarray:
     __parents = np.copy(population)
-    for _ in range(generations):
+    for g in range(generations):
+        print(g, '...')
         __children = recombine(population=__parents, cr=0.8, f=0.5)
         __elite = np.concatenate((
             select(population=__parents, fitness=fitness, keep=0.3),
