@@ -80,6 +80,7 @@ Eternal loop ``HTB{z1p_and_unz1p_ma_bruddahs}``
 ExploitedStream ``HTB{0fbuSc4t1ng_1s_N0t_s3curE,1s_IT???}``
 longbottom's Locker ``HTB{n3v1LL3_Da_burM3s3-pyth0n_sL4y3r}``
 Matrioshka ``HTB{S4vv4_M4mont0v_}``
+Micro Storage ``HTB{@bus1Ng_gTf0_b1N$_c4n_b3_fUn_s0m3t1meS__r1g|-|t??!!__c4fdecf8}``
 misDIRection ``HTB{DIR3ctLy_1n_Pl41n_Si7e}``
 M0rsarchive ``HTB{D0_y0u_L1k3_m0r53??}``
 0ld is g0ld ``HTB{R1PSAMU3LM0RS3}``
