@@ -8,6 +8,7 @@ Broken Decryptor ``HTB{1V_r3u$3#!}``
 Call ``HTB{IKNOWTHINGSLIKEDTMF}``
 Composition ``HTB{Pr1M3_Pr0x1mIty_@nD_C0mP0s1T3_CuRv3?????=>s0_1nS3cUr3!!!}``
 Decode Me!! ``HTB{U_g0t_th1$}``
+Embryonic Plant ``HTB{0op5_my_$33d$_f311_0ff_5h3_gr0und_4nd_br0ugh5_y0u_4_fl4g!#@$%}``
 Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_Sad!@}``
 Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_:(!@}``
 Flipping_Bank ``HTB{b1t_fl1pp1ng_1s_c00l}``
