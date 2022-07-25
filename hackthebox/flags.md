@@ -1,6 +1,7 @@
 ## Crypto
 
 August ``HTB{Dv0r4k_1z_MyD00D}``
+baby quick maffs ``HTB{d0nt_ev4_r3l4ted_m3ss4ge_att4cks_th3y_ar3_@_d3a1_b7eak3r!!!}``
 BabyEncryption ``HTB{l00k_47_y0u_r3v3rs1ng_3qu4710n5_c0ngr475}``
 Bank heist ``HTB{GORETIREMENTFUND!!}``
 Broken Decryptor ``HTB{1V_r3u$3#!}``
