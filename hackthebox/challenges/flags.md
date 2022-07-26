@@ -13,7 +13,6 @@ Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_Sad!@}``
 Fibopadcci ``HTB{cU5t0m_p4dd1Ng_w0nT_s4v3_y0u_tH1s_T1m3_:(!@}``
 Flipping_Bank ``HTB{b1t_fl1pp1ng_1s_c00l}``
 Keys ``HTB{N0t_A_Fl1g!}``
-Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
 LostKey ``HTB{uns4f3_3ll1pt1c_curv3s_l3d_t0_th3_c0ll4ps3_0f_0u7l4nd1s}``
 Lost Modulus ``HTB{n3v3r_us3_sm4ll_3xp0n3n7s_f0r_rs4}``
 Lost Modulus Again ``HTB{Fr4nk1ln_r3t1t3r_sh0rt_p4d_4tt4ck!4nyw4ys_n3v3r_us3_sm0l_3xp_f0r_rs4!1s_th1s_Msg_g01ng_l4rg3r?_0h_y3s_cuz_1_h4v3_t0_Pr3v3nt_Cub3_r00t_4tt4ck}``
@@ -155,6 +154,7 @@ Hacky Bird ``HTB{game_h3kk1n_is_funsies!}``
 Headache ``HTB{l4yl3_w4s_h3r3!}``
 Headache 2 ``HTB{r4j_1s_My_Senp4i!}``
 Impossible Password ``HTB{40b949f92b86b18}``
+Keys ``HTB{N0t_A_Fl1g!}``
 Nostalgia ``HTB{GBA_RuLeZ_DudE}``
 Poly ``HTB{7h1s_3LF_15_A_Po1yGl0T}``
 Rauth ``HTB{I_Kn0w_h0w_t0_5al54}``
@@ -190,60 +190,16 @@ I know Mag1k ``HTB{Padd1NG_Or4cl3z_AR3_WaY_T0o_6en3r0ys_ArenT_tHey???}``
 ImageTok ``HTB{I_34T_ph4r_c3r34L_4nD_g0ph3r_f0r_br34kf4st_4nd_d1nn3r}``
 interdimensional internet ``HTB{d1d_y0u_h4v3_FuN_c4lcul4t1nG_Th3_d4rK_m4tt3r?!}``
 Lernaean ``HTB{l1k3_4_b0s5_s0n}``
+LoveTok ``HTB{wh3n_l0v3_g3ts_eval3d_sh3lls_st4rt_p0pp1ng}``
 Mr Burns ``HTB{wh3n_l1f3_g1v3s_y0u_🍊_4nd_f4st-cg1...}``
+Neonify ``HTB{r3pl4c3m3n7_s3cur1ty}``
 nginxatsu ``HTB{PD0's_br34th1ng_1nt3s1f13s!}``
 Phonebook ``HTB{d1rectory_h4xx0r_is_k00l}``
 petpet rcbee ``HTB{c0mfy_bzzzzz_rcb33s_v1b3s}``
 Templated ``HTB{t3mpl4t3s_4r3_m0r3_p0w3rfu1_th4n_u_th1nk!}``
+Toxic ``HTB{P0i5on_1n_Cyb3r_W4rF4R3?!}``
 TwoDots Horror ``HTB{Unit3d_d0ts_0f_p0lygl0t}``
 Under Construction ``HTB{d0n7_3xp053_y0ur_publ1ck3y}``
 Userland City `` HTB{c4nt_p0p_th3s3_ch41n5!}``
 wafwaf ``HTB{w4f_w4fing_my_w4y_0utt4_h3r3}``
 Weather App ``HTB{w3lc0m3_t0_th3_p1p3_dr34m}``
-
-## Fortress
-
-### Akerva
-
-Plain Sight ``AKERVA{Ikn0w_F0rgoTTEN#CoMmeNts}``
-Take a Look Around ``AKERVA{IkN0w_SnMP@@@MIsconfigur@T!onS}``
-Dead Poets ``AKERVA{IKNoW###VeRbTamper!nG_==}``
-Now You See Me ``AKERVA{1kn0w_H0w_TO_$Cr1p_T_$$$$$$$$}``
-Open Book ``AKERVA{IKNOW#LFi_@_}``
-Say Friend and Enter ``AKERVA{IkNOW#=ByPassWerkZeugPinC0de!}``
-Super Mushroom ``AKERVA{IkNow_Sud0_sUckS!}``
-Little Secret ``AKERVA{IKNOOOWVIGEEENERRRE}``
-
-### Context
-
-But we have SSL!? ``CONTEXT{s3cur1ty_thr0ugh_0bscur1ty}``
-That shouldn't be there... ``CONTEXT{d0_it_st0p_it_br34k_it_f1x_it}``
-Have we met before? ``CONTEXT{wh00000_4re_y0u?}``
-Is it a bird? Is it a plane? ``CONTEXT{uNs4fe_deceri4liz3r5?!_th33333yre_gr8}``
-This looks bad! ``CONTEXT{g1mm2_g1mm3_g1mm4_y0ur_cr3d1t}``
-It's not a backdoor, it's a feature ``CONTEXT{l0l_s0c3ts_4re_fun}``
-Key to the castle ``CONTEXT{OU_4bl3_t0_k33p_4_s3cret?}``
-
-### JET
-
-Connect ``JET{s4n1ty_ch3ck}``
-Digging in... ``JET{w3lc0me_4nd_h@v3_fun!}``
-Going Deeper ``JET{s3cur3_js_w4s_not_s0_s3cur3_4ft3r4ll}``
-Bypassing Authentication ``JET{sQl_1nj3ct1ons_4r3_fun!}``
-Command ``JET{pr3g_r3pl4c3_g3ts_y0u_pwn3d}``
-Overflown ``JET{0v3rfL0w_f0r_73h_lulz}``
-Secret Message ``JET{r3p3at1ng_ch4rs_1n_s1mpl3_x0r_g3ts_y0u_0wn3d}``
-Elasticity ``JET{3sc4p3_s3qu3nc3s_4r3_fun}``
-Member Manager ``JET{h34p_f0r_73h_b4bi3z}``
-More Secrets ``JET{n3xt_t1m3_p1ck_65537}``
-Memo ``JET{7h47s_7h3_sp1r17}``
-
-## SYNACKTIV
-
-1)``SYNACKTIV{Br34K_Th3_@pp_1Nt0_Fr4gM3NtS}``
-2)``SYNACKTIV{TrY_t0_m0n1t0r_My_g@dG3T5}``
-3)``SYNACKTIV{m0r3_L1k3_Crypt0F@1l!}``
-4)``SYNACKTIV{Th3r3_1s_n0_pl4ce_l1ke_l0c@lh0st}``
-5)``SYNACKTIV{L3ss_is_Th3_n3w_Sh3LL}``
-6)``SYNACKTIV{E@t_d4t_C00kie}``
-7)``SYNACKTIV{S3Linux_1s_w@y_bett3r}``
