@@ -46,6 +46,7 @@ oBfsC4t10n ``HTB{g0_G3t_th3_ph1sh3R}``
 oBfsC4t10n2 ``HTB{eXc3l_4.0_M4cr0s_r_b4cK}``
 oBfsC4t10n2 ``HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}``
 Obscure ``HTB{pr0tect_y0_shellZ}``
+Perseverance ``HTB{1_th0ught_WM1_w4s_just_4_M4N4g3m3nt_T00l}``
 PersistenceIsFutile ``HTB{7tr3@t_hUntIng_4TW}``
 Red Failure ``HTB{00000ps_1_t0t4lly_f0rg0t_1t}``
 Reminiscent ``HTB{$_j0G_y0uR_M3m0rY_$}``
