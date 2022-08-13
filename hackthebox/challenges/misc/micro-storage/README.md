@@ -284,5 +284,9 @@ This listing (and the file indexing) made me suspect a Python script, otherwise 
 
 The script is in `sources/`, it is very satisfying to finally see the internals, the filters, after struggling so much :)
 
+- upload a RS
+- exploit format string (option 1, 4)
+- argument injection (options 2, 3, 5)
+
 [author-profile]: https://app.hackthebox.eu/users/19832
 [gtfobins-tar]: https://gtfobins.github.io/gtfobins/tar/#sudo

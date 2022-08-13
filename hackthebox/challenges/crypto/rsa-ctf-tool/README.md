@@ -11,7 +11,7 @@ ls -lah sources/
 # 1049409 4.0K -rw-r--r-- 1 gully gully   33 Nov 12  2019 flag.txt.aes
 # 1049407 4.0K -rw-r--r-- 1 gully gully  384 Nov 12  2019 key
 # 1049408 4.0K -rw-r--r-- 1 gully gully  356 Nov 12  2019 pubkey.pem
-xxd sources/flag.txt.aes 
+xxd sources/flag.txt.aes
 # 00000000: 4845 da30 14a5 2429 e914 c311 7b1c 45a0  HE.0..$)....{.E.
 # 00000010: a68d 6454 e830 57af 6fca dada e011 814d  ..dT.0W.o......M
 # 00000020: 0a
@@ -64,7 +64,7 @@ The "nonRSA" attack factors the modulus as a power of a root:
 The data can be parsed as HEX to perform the math in Python:
 
 ```shell
-xxd -p -c 1024 sources/flag.txt.aes 
+xxd -p -c 1024 sources/flag.txt.aes
 # 4845da3014a52429e914c3117b1c45a0a68d6454e83057af6fcadadae011814d0a
 ```
 
