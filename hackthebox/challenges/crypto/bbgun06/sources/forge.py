@@ -29,10 +29,24 @@ def nth_root(x, n):
             return mid
     return mid + 1
 
-def pad(message: bytes, length: int) -> bytes:
-    return message + max(0, length - len(message)) * b'\xff'
+def pad(message: bytes, length: int, fill: bytes=b'\xff', right: bool=True) -> bytes:
+    return (
+        (1 - int(right)) * max(0, length - len(message)) * fill
+        + message
+        + int(right) * max(0, length - len(message)) * fill)
 
-def forge(message: bytes, length: bytes=len(N), prefix: bytes=ASN1) -> int:
+def forge_clear_signature(message: bytes, length: int=len(N), prefix: bytes=ASN1) -> bytes:
     __cleartext = b'\x00\x01\xff\x00' + prefix + sha1(message).digest()
-    __encoded = int(pad(__cleartext, length).hex(), 16)
-    return nth_root(__encoded, 3)
+    return pad(__cleartext, length)
+
+def forge_encrypted_signature(clear_signature: bytes) -> bytes:
+    return bytes.fromhex(hex(nth_root(
+        int(clear_signature.hex(), 16),
+        3))[2:])
+
+####################################################################
+
+clear_signature = forge_clear_signature(USER, len(N), ASN1)
+encrypted_signature = forge_encrypted_signature(clear_signature)
+
+print(encrypted_signature.hex())

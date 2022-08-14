@@ -49,19 +49,85 @@ r = re.compile(b'\x00\x01\xff+?\x00(.{15})(.{20})', re.DOTALL)
 m = r.match(clearsig)
 ```
 
-Indeed, the question mark in the regex stands for "non-greedy": it returns the shortest match.
+Indeed, the question mark in the regex stands for "non-greedy":
+it returns the shortest match, which may not span the entire signature.
 
-
-It does not guarantee that the message hash is at the end.
 So a clear signature with minimal padding would satisfy the algorithm too:
 
 ```
 00 01 FF 00 ASN1 HASH .. .. ..
 ```
 
-The verification phase is just performing the cube exponantiation of the encrypted signature.
+Where the dots can be any HEX value.
+
+This is one variant of "[Bleichenbacher's RSA signature forgery][article-bb06]" or "BB'06".
 
 ## Forging a signature
+
+### Format of the decrypted signature
+
+The verification phase is performed on the cube of the encrypted signature, because the public exponent is `3`.
+
+After exponantiation, the byte stream `00 01 FF 00 ASN1 HASH` has a length of 39:
+it is less than a fifth of the 256 bytes of a valid signature (same length as N).
+
+The stream `00 01 FF 00 ASN1 HASH` is padded with `FF` on the right:
+
+```python
+def forge_clear_signature(message: bytes, length: int=len(N), prefix: bytes=ASN1) -> bytes:
+    __cleartext = b'\x00\x01\xff\x00' + prefix + sha1(message).digest()
+    return pad(__cleartext, length)
+```
+
+### Cubic root
+
+The hexadecimal value of the clear signaure is interpreted as "[big endian][wiki-endianness]":
+this means that the 39 known bytes are the most significant.
+
+```python
+clearsig = decrypted.to_bytes(keylength, "big")
+```
+
+And all the numbers close to cubic root of the clear signature will share their most significant bytes.
+
+Unfortunately the floating point root cannot be computed directly:
+
+```python
+clear_signature = forge_clear_signature(USER, len(N), ASN1)
+int(clear_signature.hex(), 16) ** (1/3.)
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# OverflowError: int too large to convert to float
+```
+
+Instead, we can use a dichotomic search:
+
+```python
+def nth_root(x, n):
+    # Start with some reasonable bounds around the nth root.
+    upper_bound = 1
+    while upper_bound ** n <= x:
+        upper_bound *= 2
+    lower_bound = upper_bound // 2
+    # Keep searching for a better result as long as the bounds make sense.
+    while lower_bound < upper_bound:
+        mid = (lower_bound + upper_bound) // 2
+        mid_nth = mid ** n
+        if lower_bound < mid and mid_nth < x:
+            lower_bound = mid
+        elif upper_bound > mid and mid_nth > x:
+            upper_bound = mid
+        else:
+            # Found perfect nth root.
+            return mid
+    return mid + 1
+```
+
+This is thanks to the implementation of the integer in Python, which allows arbitrary precision.
+
+### Actual computation
+
+The public information on the target user are enough:
 
 ```shell
 openssl rsa -inform PEM -text -noout -pubin -in sources/pubkey.pem 
@@ -88,14 +154,53 @@ openssl rsa -inform PEM -text -noout -pubin -in sources/pubkey.pem
 # Exponent: 3 (0x3)
 ```
 
-Verification:
+The target user is in the header of the mail:
 
 ```python
-fake = forge(USER)
-sha1(USER).digest().hex() in hex(fake ** 3)
+USER = b'IT Department <it@cloudcompany.com>'
+```
+
+And the "ASN1" prefix is in the code:
+
+```python
+ASN1 = b'\x30\x21\x30\x09\x06\x05\x2b\x0e\x03\x02\x1a\x05\x00\x04\x14'
+```
+
+Then, we forge the final signature and take its cube root:
+
+```python
+clear_signature = forge_clear_signature(USER, len(N), ASN1)
+encrypted_signature = forge_encrypted_signature(clear_signature)
+```
+
+As a verification, we can check whether the hash is present in the cube / decrypted value:
+
+```python
+sha1(USER).digest().hex() in hex(int(encrypted_signature.hex(), 16) ** 3)
 # True
 ```
 
+Actually, the cube of the forged signature shares 86 bytes (172 HEX digits) with the target:
+
+```python
+len(clear_signature)
+# 256
+len(bytes.fromhex(hex(int(clear_signature.hex(), 16) - (int(encrypted_signature.hex(), 16) ** 3))[2:]))
+# 170
+```
+
+Finally, the hexadecimal representation of the root can be sent:
+
+```python
+hex(fake)
+# '0x32c38623fcb6700fc258dc1f410bcb948104032a0eed89dd539c569252004be5da95b737088c6262495f1d97bd9fefc9853a1c142e930232a6255aa6f1955382adc8ecf22cf0bf1f4db5de6670339ab44b49c59ad0'
+```
+
+The server responds favorably:
+
+> `HTB{4_8131ch3n84ch32_254_vu1n}`
+
 [author-profile]: https://app.hackthebox.com/users/201215
 [article-bb06]: https://words.filippo.io/bleichenbacher-06-signature-forgery-in-python-rsa/
+[wiki-endianness]: https://en.wikipedia.org/wiki/Endianness
 [wiki-sha1]: https://en.wikipedia.org/wiki/SHA-1
