@@ -4,6 +4,7 @@ August ``HTB{Dv0r4k_1z_MyD00D}``
 baby quick maffs ``HTB{d0nt_ev4_r3l4ted_m3ss4ge_att4cks_th3y_ar3_@_d3a1_b7eak3r!!!}``
 BabyEncryption ``HTB{l00k_47_y0u_r3v3rs1ng_3qu4710n5_c0ngr475}``
 Bank heist ``HTB{GORETIREMENTFUND!!}``
+BBGun06 ``HTB{4_8131ch3n84ch32_254_vu1n}``
 Broken Decryptor ``HTB{1V_r3u$3#!}``
 Call ``HTB{IKNOWTHINGSLIKEDTMF}``
 Composition ``HTB{Pr1M3_Pr0x1mIty_@nD_C0mP0s1T3_CuRv3?????=>s0_1nS3cUr3!!!}``
@@ -30,6 +31,7 @@ RSA Is Easy ``HTB{1_m1ght_h4v3_m3ss3d_uP_jU$t_4_l1ttle_b1t?}``
 RsaCtfTool ``HTB{pl4y1ng_w1th_pr1m3s_1s_fun!}``
 signup ``HTB{Sh4r3d_K_1s_n0t_A_g00d_S1gninG_Id3a}``
 Templed ``HTB{M0Nks_kN3w!}``
+The Last Dance ``HTB{und3r57AnD1n9_57R3aM_C1PH3R5_15_51mPl3_a5_7Ha7}``
 TwoForOne ``HTB{C0mmon_M0dUlu5S_1S_b4D}``
 Walzer ``HTB{D3r \/\/4LZ3r 1$7 31|\| p44r74|\|Z 1/\/\ 3/4-74|<7. }``
 xorxorxor ``HTB{rep34t3d_x0r_n0t_s0_s3cur3}``
