@@ -272,8 +272,8 @@ The functions are written in uppercase:
 [equation_cbc-linearity]: maths/equations/cbc-linearity.png
 [equation_altered-plaintext]: maths/equations/altered-plaintext.png
 [equation_calculating-delta]: maths/equations/calculating-delta.png
-[equation_decrypt-last-byte]: maths/equations/decrypt-last-byte-flag.png
-[equation_decrypt-last-4-bytes]: maths/equations/decrypt-last-4-bytes-flag.png
+[equation_decrypt-last-byte]: maths/equations/decrypt-last-byte.png
+[equation_decrypt-last-4-bytes]: maths/equations/decrypt-last-4-bytes.png
 [equation_decrypt-next-byte]: maths/equations/decrypt-next-byte.png
 [equation_fixed-plaintext-iv]: maths/equations/fixed-plaintext-iv.png
 
