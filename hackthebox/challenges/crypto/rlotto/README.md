@@ -1,7 +1,7 @@
-# RLotto
+> Are you ready to win lottery? Guess the Random Lotto Numbers.
+> It's TIME you become a millionaire.
 
-> **Are you ready to win lottery? Guess the Random Lotto Numbers.**
-> **It's TIME you become a millionaire.**
+> Author: **[4lpha5ec][author-profile]**
 
 ## The lottery
 
@@ -50,9 +50,9 @@ The server seed should be close to ours since the ping is very low:
 
 ```bash
 ncat -v -z 139.59.174.182 30518
-Ncat: Version 7.91 ( https://nmap.org/ncat )
-Ncat: Connected to 139.59.174.182:30518.
-Ncat: 0 bytes sent, 0 bytes received in 0.12 seconds.
+# Ncat: Version 7.91 ( https://nmap.org/ncat )
+# Ncat: Connected to 139.59.174.182:30518.
+# Ncat: 0 bytes sent, 0 bytes received in 0.12 seconds.
 ```
 
 The ping is 0.12s so 0.06s one-way: there's 94% chance that the server sees our
@@ -84,4 +84,8 @@ def bruteforce(target: str, guesses: list):
     return -1
 ```
 
-> bingo! there was somehow a 64s delay
+There was somehow a 64s delay?!
+
+> `HTB{n3v3r_u53_pr3d1c74bl3_533d5_1n_p53ud0-r4nd0m_numb3r_63n3r470r}`
+
+[author-profile]: https://app.hackthebox.com/users/141340
