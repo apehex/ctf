@@ -1,6 +1,6 @@
-# Xorxorxor
+> Who needs AES when you have XOR?
 
-> **Who needs AES when you have XOR?**
+> Author: **[r4j][author-profile]**
 
 ## The challenge
 
@@ -15,11 +15,9 @@ But it is labeled "flag", clearing all ambiguity.
 
 ## The encryption scheme
 
-`challenge.py` shows that the flag is plaintext ASCII xored with a random key of
-length 4 bytes.
+`challenge.py` shows that the flag is plaintext ASCII xored with a random key of length 4 bytes.
 
-As usual, the flag must have the format "HTB{...}", ie the first 4 bytes of the
-plaintext are known.
+As usual, the flag must have the format "HTB{...}", ie the first 4 bytes of the plaintext are known.
 
 XOR being its own inverse:
 
@@ -39,4 +37,8 @@ The process is simple:
 2) decrypt the whole flag with the key
 
 We can reuse the code to decrypt the key and then the ciphertext...
-After removing the escessive "class" code.
+After removing the excessive "class" code.
+
+> `HTB{rep34t3d_x0r_n0t_s0_s3cur3}`
+
+[author-profile]: https://app.hackthebox.com/users/13243

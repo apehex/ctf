@@ -108,6 +108,8 @@ m = m % K1.n
 print(bytes.fromhex(hex(m)[2:]))
 ```
 
+> `HTB{C0mmon_M0dUlu5S_1S_b4D}`
+
 [rfc-1421]: http://www.ietf.org/rfc/rfc1421.txt
 [rfc-1422]: http://www.ietf.org/rfc/rfc1422.txt
 [rfc-1423]: http://www.ietf.org/rfc/rfc1423.txt
