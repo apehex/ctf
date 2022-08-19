@@ -12,7 +12,7 @@ We're given an Excel file: `trid`, `file`, `exiftool` don't see anything sketchy
 
 Windows Defender, Ad-Aware and a few others flag the file as a "trojan":
 
-![][virustotal_detection]
+![][virustotal-detection]
 
 ### Unpacking
 
@@ -217,11 +217,9 @@ And Olevba goes further and reveals a lot of formulas:
 
 ## Revealing the payload
 
-At first, none of this appears in LibreOffice: the sheet "c1zB0vasN" is nowhere to
-be found.
+At first, none of this appears in LibreOffice: the sheet "c1zB0vasN" is nowhere to be found.
 
-It is hidden, the action "move / copy sheet" does show the sheet "c1zB0vasN" in the
-list: it can be copied in a visible sheet.
+It is hidden, the action "move / copy sheet" does show the sheet "c1zB0vasN" in the list: it can be copied in a visible sheet.
 
 The resulting sheet is blank because of its formatting:
 
@@ -235,11 +233,10 @@ Still the formulas are fragmented over hundreds of cells, it is unreadable.
 
 ## Dynamic analysis?
 
-Seeing how involved the fragmentation is, it'd be better to let the malware
-run and parse itself...
+Seeing how involved the fragmentation is, it'd be better to let the malware run and parse itself...
 
-I saw it operate on VirusTotal and it was soooo tempting. But I have no Windows
-box / VM ready with Excel, so I went on with the analysis in LibreOffice.
+I saw it operate on VirusTotal and it was soooo tempting.
+But I have no Windows box / VM ready with Excel, so I went on with the analysis in LibreOffice.
 
 There are very few formulas, the sheet "c1zB0vasNo" is filled with an alphabet,
 which is in turn used to form words / commands:
@@ -350,15 +347,13 @@ C:\rncwner\CkuiQhTXx.dll
 
 This is real! I really didn't expect to solve this one statically!
 
-Now that it's done, I noticed that these strings were actually directly present
-in the Workbook: the `strings` command from the first section had them all!
+Now that it's done, I noticed that these strings were actually directly present in the Workbook:
+the `strings` command from the first section had them all!
 
-It seems that Office stored the results of the cells' formulas in the document
-itself (as-well as the formulas).
+It seems that Office stored the results of the cells' formulas in the document itself (as-well as the formulas).
 
 [author-profile]: https://app.hackthebox.eu/users/4935
-
 [blank-hidden-sheet]: images/blank-hidden-sheet.png
 [revealed-content]: images/revealed-content.png
-[virustotal_details]: images/details.png
-[virustotal_detection]: images/detection.png
+[virustotal-details]: images/details.png
+[virustotal-detection]: images/detection.png

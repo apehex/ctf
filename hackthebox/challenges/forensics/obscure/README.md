@@ -1,17 +1,16 @@
-# Obscure
+> An attacker has found a vulnerability in our web server that allows arbitrary
+> PHP file upload in our Apache server. Suchlike, the hacker has uploaded a what
+> seems to be like an obfuscated shell (support.php). We monitor our network 24/7
+> and generate logs from tcpdump (we provided the log file for the period of two
+> minutes before we terminated the HTTP service for investigation), however, we
+> need your help in analyzing and identifying commands the attacker wrote to
+> understand what was compromised.
 
-> **An attacker has found a vulnerability in our web server that allows arbitrary**
-> **PHP file upload in our Apache server. Suchlike, the hacker has uploaded a what**
-> **seems to be like an obfuscated shell (support.php). We monitor our network 24/7**
-> **and generate logs from tcpdump (we provided the log file for the period of two**
-> **minutes before we terminated the HTTP service for investigation), however, we**
-> **need your help in analyzing and identifying commands the attacker wrote to**
-> **understand what was compromised.**
+> Author: **[artikrh][author-profile]**
 
 ## The network traffic
 
-Using wireshark, the protocol breakdown of `19-05-21_22532255.pcap` shows that 96% of the
-traffic is common IPv4 HTTP with web pages, js, images.
+Using wireshark, the protocol breakdown of `19-05-21_22532255.pcap` shows that 96% of the traffic is common IPv4 HTTP with web pages, js, images.
 
 Yet there's a single IPv6 stream of data, filled with random bytes, and comming from nowhere.
 
@@ -81,8 +80,7 @@ if(@preg_match("/$kh(.+)$kf/",@file_get_contents("php://input"),$m)==1){
 
 So actually the data was first compressed, then xorred and finally base64 encoded.
 
-The input and output have the same formating, so both can be fed to the same
-decrypting function.
+The input and output have the same formating, so both can be fed to the same decrypting function.
 
 ## The instructions
 
@@ -96,13 +94,12 @@ if(@preg_match("/$kh(.+)$kf/",@file_get_contents("php://input"),$m)==1){
 
 ## The data
 
-So the attacker looked his id up, searched for accessibles folders and finally
-dumped a credential database.
+So the attacker looked his id up, searched for accessibles folders and finally dumped a credential database.
 
 `pwdb.kdbx` is the storage database for keepass.
 
-I could neither guess the master password nor find it in the traffic dump. Let's
-bruteforce it:
+I could neither guess the master password nor find it in the traffic dump.
+Let's bruteforce it:
 
 ```bash
 keepass2john pwdb.kdbx > pwdb.hash
@@ -111,5 +108,8 @@ john -w /usr/share/wordlists/passwords/rockyou-75.txt pwdb.hash
 ```
 
 Actually hashcat didn't recognize john's format, so I used the latter.
-Anyway it was enough, we can finally open the database with keepass and copy the
-password for admin user, which is the flag.
+Anyway it was enough, we can finally open the database with keepass and copy the password for admin user, which is the flag.
+
+> `HTB{pr0tect_y0_shellZ}`
+
+[author-profile]: https://app.hackthebox.com/users/41600

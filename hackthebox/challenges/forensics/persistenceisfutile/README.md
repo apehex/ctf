@@ -31,8 +31,8 @@ Issue 7 is partially remediated
 Issue 8 is not remediated
 ```
 
-The most tempting idea is to pwn the binary... But each step was clearly simpler
-than RE, laziness keeps me honest :D
+The most tempting idea is to pwn the binary...
+But each step was clearly simpler than RE, laziness keeps me honest :D
 
 ## Issue 1: Netcat reverse shell
 
@@ -72,8 +72,7 @@ sudo perl -pi -e 's#^alertd.+$##g' /root/.bashrc
 sudo rm /usr/bin/alertd
 ```
 
-And bribe the higher-ups! This cleaning process sounds shadier than planting
-an innocent shell.
+This cleaning process sounds even shadier than planting a shell...
 
 ## Issue 2: malicious SSH keys
 
@@ -87,8 +86,8 @@ cat /root/.ssh/authorized_keys
 cat /root/.ssh/id_rsa.pub
 ```
 
-It seems the original key is linked to `root@buildkitsandbox`: still we remove
-both and generate a new pair:
+It seems the original key is linked to `root@buildkitsandbox`:
+still we remove both and generate a new pair:
 
 ```bash
 sudo rm /root/.ssh/id_rsa /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
@@ -416,7 +415,7 @@ sudo rm /var/spool/cron/crontabs/user
 
 Voilà!
 
-> HTB{7tr3@t_hUntIng_4TW}
+> `HTB{7tr3@t_hUntIng_4TW}`
 
 ## Bonus: f-util
 

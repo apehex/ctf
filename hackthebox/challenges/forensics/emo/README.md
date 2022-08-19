@@ -1,9 +1,8 @@
-# Emo
+> WearRansom ransomware just got loose in our company.
+> The SOC has traced the initial access to a phishing attack, a Word document with macros.
+> Take a look at the document and see if you can find anything else about the malware and perhaps a flag.
 
-> **WearRansom ransomware just got loose in our company. The SOC has traced the**
-> **initial access to a phishing attack, a Word document with macros. Take a look**
-> **at the document and see if you can find anything else about the malware and**
-> **perhaps a flag.**
+> Author: **[0xdf][author-profile]**
 
 ## The maldoc
 
@@ -120,8 +119,7 @@ They don't resolve, even on the vpn.
 
 ### Running the script
 
-I traced the script execution with `Set-PSDebug -Trace 2`, but only found
-commands I already knew and understood.
+I traced the script execution with `Set-PSDebug -Trace 2`, but only found commands I already knew and understood.
 
 ## Suspicious data
 
@@ -142,5 +140,12 @@ ${FN5GGmSh} += ([byte][char]${_} -bxor 0xdf
 
 > thanks to the author for passing by! :D
 
-The array is not directly interpretable as characters, but it can be unlocked with
-a judicious xor.
+The array is not directly interpretable as characters, but it can be unlocked with a judicious xor:
+
+```python
+print(bytes([b ^ 0xdf for b in bytes(a)]))
+```
+
+> `id:M8nHJyeR;int:3000;jit:500;flag:HTB{4n0th3R_d4Y_AnoThEr_pH1Sh};url:`
+
+[author-profile]: https://app.hackthebox.com/users/4935

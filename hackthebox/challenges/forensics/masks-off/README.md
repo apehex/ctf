@@ -35,7 +35,7 @@ Let's extract the file itself:
 
 ```shell
 sed -n 4,39p payloads/%2f > payloads/b12gb.zip
-unzip -l payloads/b12gb.zip 
+unzip -l payloads/b12gb.zip
 # Archive:  payloads/b12gb.zip
 # warning [payloads/b12gb.zip]:  2 extra bytes at beginning or within zipfile
 #   (attempting to process anyway)
