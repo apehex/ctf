@@ -44,6 +44,7 @@ emo ``HTB{4n0th3R_d4Y_AnoThEr_pH1Sh}``
 Forget me not ``HTB{W3lL_i_KN0w_mY_M3m0RY_i5_5h4tT3R3d}``
 Illumination ``HTB{v3rsi0n_c0ntr0l_am_I_right?}``
 MarketDump ``HTB{DonTRuNAsRoOt!MESsEdUpMarket}``
+MBCoin ``HTB{wH4tS_4_sQuirReLw4fFl3?}``
 oBfsC4t10n ``HTB{g0_G3t_th3_ph1sh3R}``
 oBfsC4t10n2 ``HTB{eXc3l_4.0_M4cr0s_r_b4cK}``
 oBfsC4t10n2 ``HTB{n0w_eXc3l_4.0_M4cr0s_r_b4cK}``
