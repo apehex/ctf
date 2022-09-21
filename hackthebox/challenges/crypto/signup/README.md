@@ -9,8 +9,8 @@
 
 ### The parameters
 
-At first glance it looks like another RSA challenge, but it's twisted. We're
-given a heap of parameters:
+At first glance it looks like another RSA challenge, but it's twisted.
+We're given a heap of parameters:
 
 ![][equation-signup-parameters]
 
