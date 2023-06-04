@@ -65,11 +65,3 @@ The key can also be computed at runtime with:
 ```solidity
 uint64 key = uint64(1 << 62) + uint64(uint16(uint160(tx.origin)));
 ```
-
-For example:
-
-```js
-abi = '';
-agent = new web3.eth.Contract(JSON.parse(abi), '');
-agent.methods.ring('').send({from: player}, function(error, data) {console.log(data);});
-```
