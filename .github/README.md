@@ -6,7 +6,7 @@ A bunch of scripts & notes, organised by platform / theme / challenge.
 
 Both web2 & web3 CTFs, now exploring the DEFI security space.
 
-If you use / build upon it, please have the decency to link to this repo!
+If you use / build upon it, please link to this repo!
 
 ## Note for CTF creators
 
